@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://www.w3schools.com/lib/w3.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="favicon.png">
+  <link rel="stylesheet"    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+
+<!--BEGINNING OF Global STYLE SHEETS (CSS)-->
+  <link rel="stylesheet"    href="../css/00_global_variables.css">
+  <link rel="stylesheet"    href="../css/01_hamburger.css">
+  <link rel="stylesheet"    href="../css/02_header.css">
+  <link rel="stylesheet"    href="../css/03_footer.css">
+  <link rel="stylesheet"    href="../css/04_index.css">
+<!--RESPONSIVE STYLE SHEETS (CSS)-->
+  <link rel="stylesheet"    href="../css/05_resp_GT0950-bigScreen.css">
+  <link rel="stylesheet"    href="../css/06_resp_741-950-tabletPortrait.css">
+  <link rel="stylesheet"    href="../css/07_resp_440-740-mobileLandscape.css">
+  <link rel="stylesheet"    href="../css/08_resp_LT0440-mobilePortrait.css">
+  <link rel="stylesheet"    href="../css/09_final.css">
+<!--BEGINNING OF LOCAL STYLE SHEETS (CSS)-->
+  <link rel="stylesheet"    href="login.css">
+
+</head>
+<body>
+<script>var aName = "Login"</script>	
+    <!--  Header -->
+    <style>
+    #MenuBlank {display:block;}
+		#HomeLink {display:block;}
+		#HomeLinkLine {display:block;}
+		#MembersLink {display:block}
+		#ContactLink a {color:grey}
+		#BiosLink a {color:grey}
+		#MembersLinkLine {display:block}
+		#MembersProjectsLink {display:block}
+		#ProjectDetailsLink a {color:grey}
+		#MembersProjectsLinkLine {display:block}
+		#GuruLink a {color:grey}
+		#SupportLink a {color:grey}
+		#LicenseLink a {color:grey;}
+		#MtgLocLinkLine {display:block;}
+		#MtgLocLink a {color:grey}
+		#LoginLinkLine {display:block;}
+		#LoginLink {display:none}
+    #MenuBlank {display:block;}
+	  </style>
+
+	    <!--include using w3schools-->
+		<!--
+	    <div w3-include-html="../includes/inc-header.html"></div>
+	    -->
+
+	    <!--include using jQuery-->
+	    <div id="inc-header"></div>
+	    <script> 
+	      $("#inc-header").load("../includes/inc-header.html");
+	    </script> 
+    <!-- END  Header -->
+
+    <div class="LoginTitle">
+    <h2>Login Form</h2>
+    </div>  
+<form action="/action_page.php" method="post" style="background-color:cornflowerblue">
+  <div class="imgcontainer">
+    <img class="imgavatar" src="/client1/home/assets/images/RJS-Avatar.gif" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b style="font-family: var(--GlobalFontFamily);">Username</b></label>
+    <input type="text" style="font-family: var(--GlobalFontFamily);" placeholder="Enter Username" name="uname" required>
+
+    <label for="psw"><b style="font-family: var(--GlobalFontFamily);">Password</b></label>
+    <input type="password" style="font-family: var(--GlobalFontFamily);" placeholder="Enter Password" name="psw" required>
+        
+    <button type="submit" style="font-family: var(--GlobalFontFamily);">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"><b style="font-family: var(--GlobalFontFamily);"> Remember me</b>
+    </label>
+  </div>
+
+  <div class="container">
+    <button style="font-family: var(--GlobalFontFamily);" type="button" class="cancelbtn">Cancel</button>
+    <span class="psw"  style="font-family: var(--GlobalFontFamily);">Forgot <a href="#"><b style="font-family: var(--GlobalFontFamily);">password?</b></a></span>
+  </div>
+</form>
+    <!--  Footer -->
+        <!--include using w3schools-->
+        <!--
+        <div w3-include-html="../includes/inc-footer.html"></div>
+        -->
+
+        <!--include using jQuery-->
+        <div id="inc-footer"></div>
+        <script> 
+            $("#inc-footer").load("../includes/inc-footer.html");
+        </script> 
+    <!-- END  Footer -->
+
+<script>
+    w3.includeHTML();
+</script> 
+</body>
+</html>

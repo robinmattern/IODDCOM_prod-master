@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+    .header {
+        height: 70px;	
+        width: 900px;
+        display: flex;
+        background-color: rgb(198 210 222);
+        border: 0px solid black;
+        padding: 10px;
+        align-items: center;
+        position: fixed;
+        z-index: 100;
+    }
+    
+    .hamburger {
+        font-size: 25px;
+        margin-right: 0px;
+        width: 5%;
+    }
+    .hamburger-image {
+        width: 100%;
+    }
+    .logo {
+        font-size: 42px;
+        /*flex: auto;*/
+        display: block;
+        margin: 0px 0px;
+        padding: 0px 0px 0px 0px;
+        width: 15%;
+        text-align: left;
+    }
+    .logo-text { 
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 50px;
+        font-weight: 600;
+        color: white;
+        letter-spacing: 2px;
+        text-shadow: 3px 3px 3px black;
+        margin: 0px 0px 0px 20px;
+    }
+    .spacer {
+        flex: auto;
+        margin: 0 0px;
+        width: 30%;        
+    }
+    .back {
+        flex: auto;
+        margin-left: 0px;
+        width: 10%;
+        display: none;
+    }
+    .home {
+        font-size: 18px;
+        font-family: Arial, Helvetica, sans-serif;
+        flex: auto;
+        margin-left: 40px;
+        width: 15%;
+    }
+    .next-mtg {
+        font-size: 25px;
+        font-family: Arial, Helvetica, sans-serif;
+        flex: auto;
+        margin: 0 0px;
+        width: 35%;
+    }
+    .avatar {
+        flex: auto;
+        margin: 0 0px;
+        width: 5%;
+    }
+    .image {
+        width: 100%;
+    }
+
+</style> 
+</head>
+<body>
+
+    <div class="header">
+<!--        <div class="MenuWrap">
+            <input type="checkbox" class="Toggler">
+            <div class="Hamburger" style="background: rgb(198 210 222);"><div></div></div>
+            <div class="Menu">
+            <div>
+                <div>
+                <ul class="MenuList">
+                    <li class="MenuListItem"><a href="members/iodd-members.html">Members Listing</a></li>
+                    <li class="MenuListItemLine"><hr color="blue"></li>
+                    <li class="MenuListItem"><a href="../home/members-projects/members-projects.html">Project Listing</a></li>
+                    <li class="MenuListItemLine"><hr color="blue"></li>
+                    <li class="MenuListItem"><a href="#" target="_blank" >Guru Mail</a></li>
+                    <li class="MenuListItemLine"><hr color="blue"></li>
+                    <li class="MenuListItem"><a href="#">Support</a></li>
+                    <li class="MenuListItem"><a href="#">License</a></li>
+                </ul>
+                </div>
+            </div>
+            </div>
+        </div>
+    -->
+        <div class="hamburger"><img class="hamburger-image" src="/home/assets/images/hamburger.gif"></div>
+        <div class="logo"><span class="logo-text">iodd</span></div>
+        <div class="spacer"></div>
+        <div class="back"><img src="assets/images/btnback.gif"></div>
+        <div class="home"><a href="/home/index.html">Home</a></div>
+        <div class="next-mtg"><a href="#">Next Meeting 02/09/2023</a></div>
+        <div class="avatar">
+            <img class="image" src="/home/assets/images/RJS-Avatar.gif"><span><img class="pencil" src="/home/assets/images/pencilDots.gif"></span>
+
+            <a href="#" target="_blank" title="Log Out"><img class="avatar-image" src="/home/assets/images/RJS-Avatar.gif"></a>
+            <span><img src="/home/assets/images/pencilDots.gif"></span>
+
+
+
+
+        </div>
+    </div>
+
+</body>
+<style>
+.next-mtg a {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background: blue ;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+/*------------------------------------------*/
+.next-mtg {
+    animation     : wiggle 400ms 2s 8 ease-out none;
+    }
+  
+/*-----------------------------------------
+The @keyframes wiggle properties
+------------------------------------------*/
+  @keyframes wiggle {
+      0% { transform: rotateZ(  0deg ); }
+     50% { transform: rotateZ(-10deg ); }
+    100% { transform: rotateZ( 10deg ); }
+  }
+
+
+{
+
+    .MenuWrap {
+      display: block;
+    }
+    .MenuWrap .Menu > div {
+    /*move menu around*/
+      justify-content: left; /*was center*/
+      padding-left: 140px; /*was deleted*/
+      margin-top: -1250px; /*was deleted*/
+      /*end of move around*/
+  }
+
+  .MenuWrap .Menu > div > div > ul > li > a {
+    font-size: 1rem;
+    font-weight: 600;
+    color: blue;
+    padding: 0px;
+  }
+  /*
+  .BoxMenu {
+    padding: 0px;
+    background-color: whitesmoke;
+    border: blue 1px solid;
+  }
+  */
+  .MenuList {
+    border: blue 1px solid;
+  }
+  .MenuListItem {
+    margin: -35px;
+  }
+
+
+
+}
+
+
+
+
+
+</style>
+
+</html>

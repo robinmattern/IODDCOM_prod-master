@@ -10,41 +10,30 @@ html {
 }
 body {
     width: 100%;
-    background-color: cornflowerblue;
+    /*background-color: cornflowerblue;*/
 }
 .container {            /* custom element style */
     padding: 0;
     margin: 0;
     height: 100vh;
   } 
-.Header {
-    max-width: var(--GlobalMaxWidth);
-    margin: auto;
-}
-.HeaderNavListItem1 a,
-.HeaderNavListItem2 a {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-}
-.HeaderNavListItemBack {
-    display: none;
-}
 .Section1 {
     display: none;
 }
 .Section2 {
     top: 65px;
-    height: 87%;
+    height: 90%;
+    height: 100vh;
     background-color: "#E5E4E2"; /*platinum*/
 }
 .Section2Title {
     font-size: 150%;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: var(--GlobalFontFamily);
     padding: 30px 0px 20px 30px;
 }
 .Section2Title::first-letter {
     font-size: 130%;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: var(--GlobalFontFamily);
 }
 .Footer {
     height: 50px;
@@ -52,7 +41,7 @@ body {
     margin: auto;
 }
 .Footer a {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: var(--GlobalFontFamily);
     font-size: 18px;
 }
 .main-table {
@@ -157,38 +146,13 @@ The @media MAX-width query properties
 
 /*=========================================*/
 @media only screen
-and (min-width: 415px)
-and (max-width: 737px) 
+and (min-width: 441px)
+and (max-width: 740px) 
 {
     html {
         max-width: 600px;
         margin: auto;
     }
-    .Header {
-        max-width: 600px;
-        margin: auto;
-        position: fixed;
-    }
-    
-    .HeaderNavListItemBack,
-    .HeaderNavListItem2 {
-        display: none;
-    }
-
-    .HeaderNavListItemCTA {
-        padding: 0px 20px 0px -20px;
-    }
-    .device-text::after {
-        content: "\ [mobile] ";
-    }
-    .device-text {
-        font-size: 10px;
-        font-weight: 500;
-        color: black;
-        text-shadow: 0.5px 0.5px 0px black;
-        padding: 50px 0px 0px 0px;
-        position: fixed;
-    }           
     body {
         width: 100%;
     }
@@ -196,6 +160,7 @@ and (max-width: 737px)
         display: none;
     }
     .Section2 {
+        display: block;
         top: 70px;
         height: 89%;
 /*      background-color: aliceblue; */
@@ -205,13 +170,13 @@ and (max-width: 737px)
     .Section2Title {
         color: blue;
         font-size: 150%;
-        font-family: 'Times New Roman', Times, serif;
+        font-family: var(--GlobalFontFamily);
         text-align: left;
         padding: 0px 0px 0px 20px;
     }
     .Section2Title::first-letter {
         font-size: 180%;
-        font-family: 'Times New Roman', Times, serif;
+        font-family: var(--GlobalFontFamily);
     }
     .Footer {
         max-width: 737px;
@@ -303,7 +268,7 @@ and (max-width: 737px)
     }
     
     .project-details-td-mobile {
-        font-size: 12px;
+        font-size: 18px;
         width: 120%;
         vertical-align: top;
         text-align: left;
@@ -311,7 +276,7 @@ and (max-width: 737px)
         border-top: dashed black 0px;
     }
     .project-details-mobile {
-        font-size: 10px;
+        font-size: 18px;
     }
     
     .project-table {
@@ -331,42 +296,6 @@ and (max-width: 737px)
         background: blue;
         margin: 20px 20px 20px 20px;
     } 
-    
-{/*BEGIN COMMENT OUT VIA BRACKETS*/
-    .MenuWrap {  /*hamburger*/
-        display: flex;
-        margin-top: 0px;
-        margin-left: 35px;
-      }
-    .Logo {
-        padding-left: 40px;
-    }
-    .MenuWrap .Menu > div {
-        background: var(--Overlay-color);
-        opacity: 0.95;
-        border-radius: 10%;
-        width: 150vw; /*was 200*/
-        height: 350vw; /*was 200*/
-        display: flex;
-        flex: none;
-        align-items: center;
-        border: 0px;
-      /*move menu around*/
-        justify-content: left; /*was center*/
-        padding-left: 310px; /*was deleted*/
-        margin-top: 200px; /*was deleted*/
-      /*end of move around*/
-        transform: scale(0);
-        transition: all var(--Menu-speed) ease;
-      }
-      .MenuWrap .Menu > div > div {
-        text-align: center;
-        max-width: 90vw;
-        max-height: 100vh;
-        opacity: 0.0;
-        transition: opacity var(--Menu-speed) ease;
-      }  
-}/*END COMMENT OUT VIA BRACKETS*/
 
 }
 /*
@@ -376,7 +305,7 @@ The @media MAX-width query properties
 
 /*=========================================*/
   @media only screen
-  and (max-width: 414px)
+  and (max-width: 440px)
 {
     html {
         max-width: 400px;
@@ -384,40 +313,9 @@ The @media MAX-width query properties
     }          
     body {
         width: 100%;
-    }
-    .Header {
         max-width: 400px;
         margin: auto;
-        position: fixed;
     }
-    .HeaderNavListItem1,
-    .HeaderNavListItem2 {
-        display: none;
-    }
-    .HeaderNavListItemBack {
-        display: block;
-        padding: 0px 10px 0px 10px;
-    }
-    .HeaderNavListItemCTA,
-    .next-meeting-date {
-        padding: 0px 0px 0px 0px;
-    }
-    .HeaderNavListItemCTA a,
-    .next-meeting-date {
-        font-size: 12px;
-        padding: 5px 5px 5px 5px;
-    }    
-    .device-text::after {
-        content: "\ [mobile] ";
-    }
-    .device-text {
-        font-size: 10px;
-        font-weight: 500;
-        color: black;
-        text-shadow: 0.5px 0.5px 0px black;
-        padding: 50px 0px 0px 100px;
-        position: fixed;
-    } 
     .Section1 {
         display: none;
     }
@@ -431,13 +329,13 @@ The @media MAX-width query properties
     .Section2Title {
         color: blue;
         font-size: 150%;
-        font-family: 'Times New Roman', Times, serif;
+        font-family: var(--GlobalFontFamily);
         text-align: left;
         padding: 0px 0px 0px 20px;
     }
     .Section2Title::first-letter {
-        font-size:130%;
-        font-family: 'Times New Roman', Times, serif;
+        font-size: 150%;
+        font-family: var(--GlobalFontFamily);
     }
     .Footer {
         display: none;
@@ -471,7 +369,6 @@ The @media MAX-width query properties
         border-top: solid 0px black;
         border-left: solid 0px black;
     }
-
     .members-address-mobile {
         margin: 0px 0px 5px -20px;
         padding: 10px 0px 0px 0px;
@@ -486,8 +383,7 @@ The @media MAX-width query properties
     }
     .members-mobile-col3 {
         width: 0px;
-    }
-        
+    }        
     .members-bio-table-mobile {
         width: 90%;
         padding: 10px 10px 10px 15px;
@@ -533,7 +429,7 @@ The @media MAX-width query properties
         width: 99%;
         border: 0px solid #000;
         margin: 0 0;
-        font-family: 'Times New Roman', Times, serif;
+        font-family: var(--GlobalFontFamily);
     }  
     .project-summary-list-mobile ul {
         display: flex;
@@ -549,17 +445,17 @@ The @media MAX-width query properties
         width: calc(100% / 1);
         height: 4px;
         text-align: left;
-        font-family: 'Times New Roman', Times, serif;
+        font-family: var(--GlobalFontFamily);
         font-size: 15px;
         margin: 10px 0px 10px 0px;
     }
     .project-summary-list-mobile ul li a {
         color: blue;
-        font-family: 'Times New Roman', Times, serif;
+        font-family: var(--GlobalFontFamily);
     }
     .project-summary-list-mobile ul a:hover,
     .project-summary-list-mobile ul a:active {
-        font-family: 'Times New Roman', Times, serif;
+        font-family: var(--GlobalFontFamily);
         color: blue;
     }
     .project-summary-name-mobile,
@@ -570,6 +466,7 @@ The @media MAX-width query properties
     }
     .project-details-mobile {
         width: 110%;
+        font-size: 18px;
         vertical-align: top;
         text-align: left;
         padding: 10px 0px 0px 0px;
@@ -580,7 +477,7 @@ The @media MAX-width query properties
         width: 120%;
         vertical-align: top;
         text-align: left;
-        padding: 10px 0px 0px 20px;
+        padding: 10px 20px 0px 20px;
         border-top: dashed black 0px;
     }
     

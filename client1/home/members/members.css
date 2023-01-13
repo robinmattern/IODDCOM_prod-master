@@ -1,6 +1,6 @@
 :root {
-    --GlobalMaxWidth: 900px;
     --DivisionLineWidth: 90%;
+
 }
 html {
     max-width: var(--GlobalMaxWidth);
@@ -16,30 +16,14 @@ body {
     max-width: var(--GlobalMaxWidth);
     margin: auto;
 }
-.device-text::after {
-    content: "\ [laptop] ";
-}
-.device-text {
-font-size: 10px;
-font-weight: 500;
-color: black;
-text-shadow: 0.5px 0.5px 0px black;
-padding: 50px 0px 0px 0px;
-position: fixed;
-} 
-.Header {
-    max-width: var(--GlobalMaxWidth);
-    margin: auto;
-}
-.HeaderNavListItemBack {
-    display: none;
-}
+
 .Section1 {
     display: none;
 }
 .Section2 {
     top: 65px;
-    height: 85%;
+    height: 90%;
+    height: 100vh;
     background-color: "#E5E4E2"; /*platinum*/
     max-width: var(--GlobalMaxWidth);
     margin: auto;
@@ -59,7 +43,7 @@ position: fixed;
 }
 .FooterNavListItem a {
     font-size: 15px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: var(--GlobalFontFamily);
 }
 .title {
     font-size: 40px;
@@ -129,66 +113,38 @@ position: fixed;
 }
 /*
 The @media MAX-width query properties
-***** IPHONE LANDSCAPE
-/*If Device Width is >= to 415px ADN <= 737px Then...*/
+***** IPHONE - Landscape
+If Device Width 
+  is >= 440px AND 
+  <= 736px Then...*/
 
 /*=========================================*/
 @media only screen
-and (min-width: 415px)
-and (max-width: 737px) 
+and (min-width: 440px)
+and (max-width: 736px) 
 {
     html {
-        max-width: 700px;
+        max-width: 737px;
         margin: auto;
-    }
-    .Header {
-        max-width:700px;
-        margin: auto;
-        position: fixed;
     }
     body {
-        max-width: 700px;
+        max-width: 737px;
         margin: auto;
-        background-color: cornflowerblue;
+        /*background-color: cornflowerblue;*/
     }
-    .device-text {
-        font-size: 10px;
-        font-weight: 500;
-        color: black;
-        text-shadow: 0.5px 0.5px 0px black;
-        padding: 50px 0px 0px 0px;
-        position: fixed;
-    } 
-    .HeaderNavListItem1 a {
-        font-size: 15px;
-        padding: 0px 50px 0px 0px;
-    }
-    .HeaderNavListItem2 {
-        display: none;
-    }
-    .HeaderNavListItemBack {
-        display: none;
-        padding: 10px 80px 0px 10px;
-    }
-    .HeaderNavListItemCTA {
-        padding: 0px 50px 0px 0px;
-    }    
-    .HeaderNavListItemCTA a,
-    .next-meeting-date {
-        font-size: 15px;
-    }
-    .Section2 {
-        background-color: #E5E4E2; /*platinum*/
-        top: 0px; /*<---ADD to adjust the top position*/
-        overflow-y: auto;
-        width: 100%;
-        height: 150%;
+      .Section2 {
+        display: block;
         top: 70px;
-    }
-    .Section2Title {
+        height: 89%;
+        border: 0px black solid;
+/*      background-color: aliceblue; */
+/*      background-color: "#E5E4E2"; /*platinum*/
+        background-color: #EAEAEA; /*very light gray*/
+      }
+        .Section2Title {
         color: blue;
         font-size: 150%;
-        font-family: 'Times New Roman', Times, serif;
+        font-family: var(--GlobalFontFamily);
         text-align: left;
         padding: 0px 0px 0px 20px;
     }
@@ -250,6 +206,7 @@ and (max-width: 737px)
         font-size: 90%;
     }
     .Footer {
+        display: none;
         max-width: 737px;
         margin: auto;
         height: 60px;
@@ -260,11 +217,11 @@ and (max-width: 737px)
 /*
 The @media MAX-width query properties
 ***** IPHONE
-/*If Device Width is <= to 414px Then...*/
+/*If Device Width is <= to 440px Then...*/
 
 /*=========================================*/
   @media only screen
-  and (max-width: 414px)
+  and (max-width: 440px)
 {
     html {
         max-width: 414px;
@@ -273,39 +230,7 @@ The @media MAX-width query properties
     body {
         width: 100%;
     }
-    .Header {
-        max-width: 414px;
-        margin: auto;
-        position: fixed;
-    }
-    .HeaderNavListItem1,
-    .HeaderNavListItem2 {
-        display: none;
-    }
-    .HeaderNavListItemBack {
-        display: block;
-        padding: 0px 10px 0px 10px;
-    }
-    .HeaderNavListItemCTA,
-    .next-meeting-date {
-        padding: 0px 0px 0px 0px;
-    }
-    .HeaderNavListItemCTA a,
-    .next-meeting-date {
-        font-size: 12px;
-        padding: 5px 5px 5px 5px;
-    }    
-    .device-text::after {
-        content: "\ [mobile] ";
-    }
-    .device-text {
-        font-size: 10px;
-        font-weight: 500;
-        color: black;
-        text-shadow: 0.5px 0.5px 0px black;
-        padding: 50px 0px 0px 100px;
-        position: fixed;
-    } 
+
     .Section2 {
         background-color: #E5E4E2; /*platinum*/
         top: 70px;
@@ -316,13 +241,13 @@ The @media MAX-width query properties
     .Section2Title {
         color: blue;
         font-size: 180%;
-        font-family: 'Times New Roman', Times, serif;
+        font-family: var(--GlobalFontFamily);
         text-align: left;
         padding: 0px 0px 0px 20px;
     }
     .Section2Title::first-letter {
         font-size:130%;
-        font-family: 'Times New Roman', Times, serif;
+        font-family: var(--GlobalFontFamily);
     }
     .members-list {
         margin: -10px 0px 0 5px;
