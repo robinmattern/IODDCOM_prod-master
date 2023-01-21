@@ -6,6 +6,7 @@
     height: 70px;
     position: fixed;
     z-index: 100;
+    max-width: var(--GlobalMaxWidth);
 }
 .LogoText { 
     font-family: Arial, Helvetica, sans-serif;
@@ -179,7 +180,7 @@ and (max-width: 949px)
         border-bottom: 0px solid #000;
     }
     .Logo {
-        padding-left: 70px;
+        padding-left: 0px;
         padding-bottom: -30px;
     }
     .DeviceText::after{
@@ -224,7 +225,7 @@ and (max-width: 949px)
         font-size: 14px;
     }    
     .MenuWrap {  /*hamburger*/
-        display: flex;
+        display: none;
         margin: 0px 0px 0px 30px
     }
     .MenuWrap .Menu > div {
@@ -263,9 +264,9 @@ and (max-width: 949px)
 and (min-width: 440px)
 and (max-width: 740px) 
 { 
-    .Logo {
+  .Logo {
         width: 300px;
-        padding: 10px 0px 0px 40px; 
+        padding: 1px 0px 0px 40px; 
         /*display: none;*/
     }
   .DeviceText::after{
@@ -280,8 +281,8 @@ and (max-width: 740px)
         position: fixed;
     }
   .Header {
-        height: 75px;
-        width: 700px;
+        height: 70px;
+        width: 600px;
     } 
   .HeaderNavList {
         font-size: 8px;
@@ -343,7 +344,7 @@ and (max-width: 440px)
   {
   /*--*/
     .Header {
-        width: 390px;
+        width: 415px;
         height: 75px
     }
     .HeaderNavListItem {
@@ -353,7 +354,7 @@ and (max-width: 440px)
      .Logo {
         width: 130px;
         display: flex;
-        padding: 0px 0px 10px 40px;
+        padding: 0px 0px 10px 0px;
     }  
     .DeviceText::after{
         content: "\ [mobile]"
@@ -389,7 +390,7 @@ and (max-width: 440px)
         font-family: var(--GlobalFontFamily);
     } 
     .MenuWrap {  /*hamburger*/
-        display: flex;
+        display: none;
         margin-top: 0px;
     }
     .MenuWrap .Menu > div {

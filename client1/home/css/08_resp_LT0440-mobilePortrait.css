@@ -122,7 +122,12 @@ The .Section2 properites
 
 /* Section1 END ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
   .Footer {
-    display: none;
+    display: flex;
+    height: 50px;
+  }
+  .FooterNavList {
+    justify-content: center;
+    padding-left: 50px;
   }
 
 }    
