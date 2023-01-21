@@ -25,7 +25,7 @@ and (min-width: 951px)
   padding: 0px 0px 0px 0px;
 }
 .MenuWrap {
-  display: flex;
+  display: none;
   margin: 0px 0px 0px 30px;
 } 
 .MenuWrap .Menu > div {
