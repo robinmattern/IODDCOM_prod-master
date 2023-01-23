@@ -123,13 +123,23 @@ The .Section2 properites
 /* Section1 END ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
   .Footer {
     display: flex;
-    height: 50px;
+    height: 30px;
+    width: 440px;
+    opacity: 0.9;
+    border-top: dotted 2px #696969;
   }
   .FooterNavList {
     justify-content: center;
-    padding-left: 50px;
+    padding-left: 55px;
+    margin: 5px;
+    color: pink;
   }
-
+  .FooterNavListItem  {
+    padding: 0px 0px 10px 0px;
+  }
+    .FooterNavListItem a {
+    color: #505050;
+  }
 }    
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
