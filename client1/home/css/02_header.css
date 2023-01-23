@@ -354,7 +354,7 @@ and (max-width: 440px)
      .Logo {
         width: 130px;
         display: flex;
-        padding: 0px 0px 10px 0px;
+        padding: 0px 0px 20px 40px;
     }  
     .DeviceText::after{
         content: "\ [mobile]"
@@ -368,7 +368,7 @@ and (max-width: 440px)
         position: fixed;
     }
     .HeaderSpacer {
-        width: 250px;
+        width: 90px;
     }
     .HeaderNavListItemBack,
     .HeaderNavListItemHome,
@@ -390,7 +390,7 @@ and (max-width: 440px)
         font-family: var(--GlobalFontFamily);
     } 
     .MenuWrap {  /*hamburger*/
-        display: none;
+        display: flex;
         margin-top: 0px;
     }
     .MenuWrap .Menu > div {
