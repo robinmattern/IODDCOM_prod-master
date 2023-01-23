@@ -368,7 +368,7 @@ and (max-width: 440px)
         position: fixed;
     }
     .HeaderSpacer {
-        width: 90px;
+        width: 0px;
     }
     .HeaderNavListItemBack,
     .HeaderNavListItemHome,
@@ -383,7 +383,8 @@ and (max-width: 440px)
     .HeaderNavListItemCTA {
         display: flex;
         text-align: center;
-        width: 200px;
+        width: 150px;
+        margin: 0px 0px 0px 0px;
     }
     .next-meeting-date {
         font-size: 15px;
