@@ -1,5 +1,4 @@
 
-
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 /*-----------------------------------------
@@ -119,27 +118,28 @@ The .Section2 properites
     font-family: var(--GlobalFontFamily);
     color: blue;
     } 
+/* Section2 END ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
-/* Section1 END ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
-  .Footer {
+
+.Footer {
     display: flex;
     height: 30px;
     width: 440px;
-    opacity: 0.9;
+    opacity: 0.82;
     border-top: dotted 2px #696969;
   }
   .FooterNavList {
     justify-content: center;
     padding-left: 55px;
     margin: 5px;
-    color: pink;
   }
   .FooterNavListItem  {
     padding: 0px 0px 10px 0px;
   }
     .FooterNavListItem a {
-    color: #505050;
+      color: #505050;
   }
 }    
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
