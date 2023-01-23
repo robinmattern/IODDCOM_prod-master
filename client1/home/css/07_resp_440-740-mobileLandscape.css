@@ -12,7 +12,7 @@ The @media MAX-width query properties
 /*=========================================*/
 @media only screen
 and (min-width: 441px)
-and (max-width: 740px) 
+and (max-width: 900px) 
 { 
 
 /*-----------------------------------------
@@ -33,7 +33,7 @@ The .Section1 properites
   font-size: 30px;
 }
 .Section1Paragraph {
-  font-size: 20px;
+  font-size: 25px;
   text-align: center;
 }
 /* Section1 END ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
@@ -48,7 +48,7 @@ The .Section2 properites
   top: 70px; /*<---ADD to adjust the top position*/
   overflow-y: scroll;
   border: solid 0px #242526;
-  display: none;
+  display: fles;
 }
 .Section2Title {
   text-align: center;

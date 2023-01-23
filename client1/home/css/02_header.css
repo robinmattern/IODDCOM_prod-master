@@ -262,7 +262,7 @@ and (max-width: 949px)
 /*-----------------------------------------*/  
 @media only screen
 and (min-width: 440px)
-and (max-width: 740px) 
+and (max-width: 900px) 
 { 
   .Logo {
         width: 300px;
