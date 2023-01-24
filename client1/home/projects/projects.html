@@ -25,7 +25,7 @@
             <link rel="stylesheet"    href="../css/08_resp_LT0440-mobilePortrait.css">
             <link rel="stylesheet"    href="../css/09_final.css">
         <!--BEGINNING OF LOCAL STYLE SHEETS (CSS)-->
-            <link rel="stylesheet"    href="members.css">    
+            <link rel="stylesheet"    href="projects.css">    
 <!--
         <link rel="stylesheet"    href="css/06_resp_1900-3000-desktop.css">
         <link rel="stylesheet"    href="css/07_resp_1100-1900-laptop.css">
@@ -37,7 +37,7 @@
 
 </head>
 <body>
-<script>var aName = "Members"</script>	
+<script>var aName = "Projects"</script>	
 <div class="container">
 
 <!--  Header -->
@@ -45,12 +45,12 @@
 		#MenuBlank {display:block;}
 		#HomeLink {display:block;}
 		#HomeLinkLine {display:block;}
-		#MembersLink {display:none}
+		#MembersLink {display:block}
 		#ContactLink a {color:grey}
 		#BiosLink a {color:grey}
 		#MembersLinkLine {display:block}
 		#MembersProjectsLink {display:block}
-		#ProjectDetailsLink a {color:grey}
+		#ProjectDetailsLink a {display:none}
 		#MembersProjectsLinkLine {display:block}
 		#GuruLink a {color:grey}
 		#SupportLink a {color:grey}
@@ -89,15 +89,15 @@
 
 <!--  Section2 -->
 <div    class="Section2">
-    <div class="Section2Title">members</div>
+    <div class="Section2Title">projects</div>
     <div class="members-list">
         <table class="main-table">
-            <tr class="head-row"><td class="head-name">Name</td><td class="head-email">Email</td><td class="head-phone1">Phone</td><td class="head-phone2">Mobile</td></tr>
-            <tbody id="Members">
+            <tr class="head-row"><td class="head-name">Name</td><td class="head-email">Client</td></tr>
+            <tbody id="Projects">
             </tbody>
             <script>
-                var pMembers = document.getElementById( "Members" )
-                    pMembers.innerHTML = fmtMembers( pJSON )
+                var pProjects = document.getElementById( "Projects" )
+                    pProjects.innerHTML = fmtProjects( pJSON )
             </script>
             <tr class="last-row"><td colspan="3"></td></tr>
         </table>
