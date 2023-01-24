@@ -8,38 +8,36 @@
         <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
         <title>Members</title>
-        <link rel="shortcut icon" href="../favicon.png">
-        <link rel="stylesheet"    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
-    
-    <!--BEGINNING OF Global STYLE SHEETS (CSS)-->
-        <link rel="stylesheet"    href="../css/00_global_variables.css">
-        <link rel="stylesheet"    href="../css/01_hamburger.css">
-        <link rel="stylesheet"    href="../css/02_header.css">
-        <link rel="stylesheet"    href="../css/03_footer.css">
-        <link rel="stylesheet"    href="../css/04_index.css">
-        <!--The above needs to be incorporated in the local members-projects.css below 010223-->
-    <!--RESPONSIVE STYLE SHEETS (CSS)-->
-        <link rel="stylesheet"    href="../css/05_resp_GT0950-bigScreen.css">
-        <link rel="stylesheet"    href="../css/06_resp_741-950-tabletPortrait.css">
-        <link rel="stylesheet"    href="../css/07_resp_440-740-mobileLandscape.css">
-        <link rel="stylesheet"    href="../css/08_resp_LT0440-mobilePortrait.css">
-        <link rel="stylesheet"    href="../css/09_final.css">
-    <!--BEGINNING OF LOCAL STYLE SHEETS (CSS)-->
-        <link rel="stylesheet"    href="members-projects.css">
-    
-        <!--
+            <link rel="shortcut icon" href="../favicon.png">
+            <link rel="stylesheet"    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+
+        <!--BEGINNING OF Global STYLE SHEETS (CSS)-->
+            <link rel="stylesheet"    href="../css/00_global_variables.css">
+            <link rel="stylesheet"    href="../css/01_hamburger.css">
+            <link rel="stylesheet"    href="../css/02_header.css">
+            <link rel="stylesheet"    href="../css/03_footer.css">
+            <link rel="stylesheet"    href="../css/04_index.css">
+        <!--The above needs to be incorporated in the local members.css below 010223-->
+        <!--RESPONSIVE STYLE SHEETS (CSS)-->
+            <link rel="stylesheet"    href="../css/05_resp_GT0950-bigScreen.css">
+            <link rel="stylesheet"    href="../css/06_resp_741-950-tabletPortrait.css">
+            <link rel="stylesheet"    href="../css/07_resp_440-740-mobileLandscape.css">
+            <link rel="stylesheet"    href="../css/08_resp_LT0440-mobilePortrait.css">
+            <link rel="stylesheet"    href="../css/09_final.css">
+        <!--BEGINNING OF LOCAL STYLE SHEETS (CSS)-->
+            <link rel="stylesheet"    href="members.css">    
+<!--
         <link rel="stylesheet"    href="css/06_resp_1900-3000-desktop.css">
         <link rel="stylesheet"    href="css/07_resp_1100-1900-laptop.css">
         <link rel="stylesheet"    href="css/08_resp_950-1100-tabletLandscape.css">
-    -->
+-->
 
         <script src="../assets/json/db.json.js" type="application/javascript" ></script>
-        <script src="../assets/js/members-projects-laptop.js"  type="application/javascript" ></script>
-        <script src="../assets/js/members-projects-mobile.js"  type="application/javascript" ></script>
+        <script src="../assets/js/members.js"            type="application/javascript" ></script>
 
 </head>
 <body>
-<script>var aName = "MembersProjects"</script>	
+<script>var aName = "Members"</script>	
 <div class="container">
 
 <!--  Header -->
@@ -47,11 +45,11 @@
 		#MenuBlank {display:block;}
 		#HomeLink {display:block;}
 		#HomeLinkLine {display:block;}
-		#MembersLink {display:block}
+		#MembersLink {display:none}
 		#ContactLink a {color:grey}
 		#BiosLink a {color:grey}
 		#MembersLinkLine {display:block}
-		#MembersProjectsLink {display:none}
+		#MembersProjectsLink {display:block}
 		#ProjectDetailsLink a {color:grey}
 		#MembersProjectsLinkLine {display:block}
 		#GuruLink a {color:grey}
@@ -63,7 +61,7 @@
 		#LoginLink {display:block}
 	    #MenuBlank {display:block;}
 	</style>
-        <!--include using w3schools-->
+	    <!--include using w3schools-->
 		<!--
 	    <div w3-include-html="../includes/inc-header.html"></div>
 	    -->
@@ -73,7 +71,8 @@
 	    <script> 
 	      $("#inc-header").load("../includes/inc-header.html");
 	    </script> 
-    <!-- END  Header -->
+
+<!-- END  Header -->
 
 <!--  Section1 -->
 		<!--include using w3schools-->
@@ -90,28 +89,18 @@
 
 <!--  Section2 -->
 <div    class="Section2">
-    <div class="Section2Title">members' Projects</div>
+    <div class="Section2Title">members</div>
     <div class="members-list">
-        <table class="main-table-laptop">
-            <tbody id="Members-laptop">
-            </tbody>    
+        <table class="main-table">
+            <tr class="head-row"><td class="head-name">Name</td><td class="head-email">Email</td><td class="head-phone1">Phone</td><td class="head-phone2">Mobile</td></tr>
+            <tbody id="Members">
+            </tbody>
             <script>
-                var pMembers = document.getElementById( "Members-laptop" )
-                    pMembers.innerHTML = fmtMembersProjectsLaptop( pJSON )
-            </script>                  
+                var pMembers = document.getElementById( "Members" )
+                    pMembers.innerHTML = fmtMembers( pJSON )
+            </script>
             <tr class="last-row"><td colspan="3"></td></tr>
         </table>
-       
-        <table class="main-table-mobile">
-            <tbody id="Members-mobile">
-            </tbody>    
-            <script>
-                var pMembers = document.getElementById( "Members-mobile" )
-                    pMembers.innerHTML = fmtMembersProjectsMobile( pJSON )
-            </script>                  
-            <tr class="last-row"><td colspan="3"></td></tr>
-        </table>
-
     </div>
 </div>
 <!-- END  Section2 -->
@@ -127,11 +116,12 @@
         <script> 
             $("#inc-footer").load("../includes/inc-footer.html");
         </script> 
-<!-- END  Footer -->
-
+    <!-- END  Footer -->
 </div> <!--Container ending div-->
 <script>
     w3.includeHTML();
 </script>
+
+
 </body>
 </html>
