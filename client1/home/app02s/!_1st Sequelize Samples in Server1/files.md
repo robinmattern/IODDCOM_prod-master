@@ -1,0 +1,39 @@
+|   Size     | Date Time       | server/app2c *
+|----------  |---------------- |-------------------------
+|          0 |2021-02-10 08:29 |../
+|          0 |2021-01-08 18:54 |../!_Sequelize Samples in Server1
+|       1237 |2020-12-25 19:30 |../BelongsTo.js
+|        815 |2020-12-25 19:30 |../BelongsTo2.js
+|        624 |2020-12-25 19:30 |../BuildSave.js
+|        942 |2020-12-25 19:30 |../Connect-Azn.js
+|        741 |2020-12-25 19:30 |../Connect-local-user.js
+|       1281 |2020-12-25 19:30 |../CreateTable-bulkload.js
+|        614 |2020-12-25 19:30 |../CreateTable-no-timestamps.js
+|        597 |2020-12-25 19:30 |../CreateTable.js
+|        245 |2020-12-25 19:30 |../db.config.js
+|        668 |2020-12-25 19:30 |../DeleteRow.js
+|        558 |2020-12-25 19:30 |../DropTable.js
+|        643 |2020-12-25 19:30 |../GetCountRows.js
+|        648 |2020-12-25 19:30 |../GetFindAll-raw-false.js
+|        647 |2020-12-25 19:30 |../GetFindAll-raw-true.js
+|        742 |2020-12-25 19:30 |../GetFindByPk.js
+|        659 |2020-12-25 19:30 |../GetFindOne.js
+|        713 |2020-12-25 19:30 |../GetOffsetLimit.js
+|        839 |2020-12-25 19:30 |../GetOneNote.js
+|        789 |2020-12-25 19:30 |../GetOperatorBetween.js
+|        781 |2020-12-25 19:30 |../GetOperatorIn.js
+|        728 |2020-12-25 19:30 |../GetOrderBy.js
+|        685 |2020-12-25 19:30 |../GetTwoColumns.js
+|        802 |2020-12-25 19:30 |../One2Many-BiDirectional.js
+|        716 |2020-12-25 19:30 |../One2Many1.js
+|       1219 |2020-12-25 19:30 |../One2Many2.js
+|        963 |2020-12-25 19:30 |../One2Many3.js
+|        846 |2020-12-25 19:30 |../One2One-BiDirectional.js
+|        635 |2021-02-09 10:18 |../sequelizeConnect.js
+|      17795 |2021-02-09 10:18 |../sequelizeExamples.js
+|        288 |2020-12-25 19:30 |../SQLConnect-local-trusted.js
+|        952 |2021-01-07 18:53 |../SQLQuery-mssql-azure.js
+|        929 |2021-01-07 18:53 |../SQLQuery-mssql-local.js
+|        689 |2020-12-25 19:30 |../UpdateRow.js
+|        839 |2020-12-25 19:30 |../__seqlJob.js
+|        903 |2020-12-25 19:30 |../__sequelize.js
