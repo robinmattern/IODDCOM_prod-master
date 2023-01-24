@@ -1,11 +1,6 @@
 /* CORE STYLES */
 :root {
     --Primary-color: whitesmoke;
-    /*--Hamburger-color: blue;+/
-    /*--overlay-color: rgba(24, 39, 51 , 0.85);*/ /*brads orig color*/
-    /*--Overlay-color: rgba(100, 149, 237, 0.5);  /*cornflower blue*/
-    /*--Overlay-color: rgba(245, 245, 245, .0); /*whitesmoke */
-    /*--Overlay-color: cornflowerblue; */
     --Overlay-color: rgb(198 210 222); /*Same as header & footer*/
     --MenuBackground-color: rgba(201, 192, 255, 0.959);
     --MenuBackground-color: rgb(198 210 222);
@@ -159,8 +154,8 @@
     list-style: none;
     color: blue;
     font-weight: 800;
-    font-size: 1.5rem;
-    padding: 1rem;
+    /* font-size: 1.5rem; */
+    padding: 1.4rem;
     background-color: var(--MenuBackground-color);
     opacity: var(--MenuBackground-opacity);
   }
@@ -172,6 +167,10 @@
     transition: color 0.1s ease;
   }
   /* END Show Menu */
+  /*--------------------------------*/
+  /* .MenuListItem li {
+    height: 600px;
+  } */
   /*--------------------------------*/
   .MenuListItemLine hr {
     position: relative;

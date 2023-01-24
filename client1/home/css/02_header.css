@@ -169,9 +169,9 @@ and (max-width: 1000px)
 
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
-/*MEDIA - IPAD PORTRAIT*/
+/*MEDIA - Tablet PORTRAIT*/
 @media only screen
-and (min-width: 741px)
+and (min-width: 601px)
 and (max-width: 949px) 
 { 
     .Header {
@@ -242,10 +242,10 @@ and (max-width: 949px)
         padding: 0px;
     }
     .MenuList {
-        border: blue 1px solid;
+        border: blue 0px solid;
     }
     .MenuListItem {
-        margin: -35px;
+        margin: -29px;
     }
     /*
     .MenuListItemFooter {
@@ -262,7 +262,7 @@ and (max-width: 949px)
 /*-----------------------------------------*/  
 @media only screen
 and (min-width: 440px)
-and (max-width: 900px) 
+and (max-width: 600px) 
 { 
   .Logo {
         width: 300px;
@@ -282,7 +282,7 @@ and (max-width: 900px)
     }
   .Header {
         height: 70px;
-        width: 600px;
+        width: 700px;
     } 
   .HeaderNavList {
         font-size: 8px;
@@ -332,7 +332,7 @@ and (max-width: 900px)
         border: blue 1px solid;
     }
   .MenuListItem {
-        margin: -35px;
+        margin: -30px;
     }
 }
 
