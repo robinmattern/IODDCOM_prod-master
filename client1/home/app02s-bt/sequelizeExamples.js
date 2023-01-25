@@ -2,37 +2,58 @@ const Sequelize = require("sequelize");
 const sequelize = require("./sequelizeConnect.js");
 // Run from terminal > node sequelizeExamples.js
 
-//`authenticate_Connection`(); // Note: in db.config.js set DB=""
-//CreateDatabase_query_query();
-//CreateTable_sync_timestamps();
-//dropTable();
-//CreateTable_sync_no_timestamps();
-//CreateTable_sync_bulkload();
-//count_note();
-//findOne_note();
-//findByPk_note();
-//findAll_note_raw_true();
-//findAll_note_raw_false();
-//findAll_note_2_columns();
-//findAll_note_offset_limit();
-//findAll_note_Op_between();
-//findAll_note_Op_in();
-//findAll_note_Op_Where_gt();
-//findAll_note_order();
-//buildsave_note();
-//create_note();
-//update_note();
-//destroy_note();
-//Create_Stored_Procedure_note();
-//Execute_Stored_Procedure_note(1);
-//Execute_Stored_Procedure_note_querytype(1);
-//Create_employees2projects;
-//employee_belongsTo_project();
-//project_hasOne_employee();
-//Create_users2tasks();
-//Add_Data_users2tasks();
-//user_hasMany_task();
-task_belongsTo_user();
+// authenticate_Connection(); // Note: in db.config.js set DB=''
+selectAll();
+//CreateDatabase_query();
+// CreateTable_sync_timestamps(); // Note: in db.config.js set DB = 'practice' //  ? freezeTableName: true
+// dropTable();
+// CreateTable_sync_no_timestamps();
+// CreateTable_sync_bulkload();
+// count_note(); 
+// findOne_note();
+// findByPk_note();
+// findAll_note_raw_true();
+// findAll_note_raw_false();
+// findAll_note_2_columns();
+// findAll_note_offset_limit();
+// findAll_note_Op_between();
+// findAll_note_Op_in();
+// findAll_note_Op_Where_gt();
+// findAll_note_order();
+// buildsave_note();
+// create_note();
+// update_note();
+// destroy_note();
+// Create_Stored_Procedure_note();
+// Execute_Stored_Procedure_note(1);
+// Execute_Stored_Procedure_note_querytype(1);
+// Create_employees2projects;
+// employee_belongsTo_project();
+// project_hasOne_employee();
+// Create_users2tasks();
+// Add_Data_users2tasks();
+// user_hasMany_task();
+// task_belongsTo_user();
+//---------------------------------------------------------------
+
+async function selectAll() {
+  let Note = sequelize.define("notes", {
+    description: Sequelize.STRING,
+  });
+
+  try {
+    let notes = await Note.findAll({
+      attributes: ['*'],
+      order: ['description'], 
+      raw: true,
+    });
+    console.log(notes);
+    sequelize.close();
+  } catch (error) {
+    console.error("--Unable to findAll in table notes", error);
+  }
+}
+//---------------------------------------------------------------
 
 // ---------------------------------------------------------------
 async function authenticate_Connection() {
@@ -46,7 +67,8 @@ async function authenticate_Connection() {
 // ---------------------------------------------------------------
 async function CreateDatabase_query() {
   try {
-    const values = await sequelize.query("CREATE DATABASE practice");
+    const values = await sequelize.query("SELECT * FROM notes");
+    //const values = await sequelize.query("CREATE DATABASE practice");
     console.log("--Database practice has been created");
   } catch (error) {
     console.error("--Unable to create the practice database:", error);
@@ -56,6 +78,9 @@ async function CreateDatabase_query() {
 async function CreateTable_sync_timestamps() {
   let Dummy = sequelize.define("dummy", {
     description: Sequelize.STRING,
+  },
+  {
+    freezeTableName: true
   });
 
   Dummy.sync()
@@ -74,6 +99,9 @@ async function CreateTable_sync_timestamps() {
 async function dropTable() {
   let Dummy = sequelize.define("dummy", {
     description: Sequelize.STRING,
+  },
+  {
+    freezeTableName: true
   });
   Dummy.drop()
     .then(() => {
@@ -92,9 +120,8 @@ async function CreateTable_sync_no_timestamps() {
   let Dummy = sequelize.define(
     "dummy",
     { description: Sequelize.STRING },
-    { timestamps: false }
-  );
-
+    { timestamps: false, freezeTableName: true }
+    );
   Dummy.sync()
     .then(() => {
       console.log("Table dummies with no timestamps has been created");
@@ -239,9 +266,9 @@ async function findAll_note_offset_limit() {
 
   try {
     let notes = await Note.findAll({
-      offset: 2,
-      limit: 3,
-      attributes: ["id", "description"],
+      //offset: 2,
+      //limit: 3,
+      attributes: ['*'],
       raw: true,
     });
     console.log(notes);
