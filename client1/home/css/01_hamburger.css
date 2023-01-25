@@ -155,7 +155,7 @@
     color: blue;
     font-weight: 800;
     /* font-size: 1.5rem; */
-    padding: 1.4rem;
+    padding: 20px;
     background-color: var(--MenuBackground-color);
     opacity: var(--MenuBackground-opacity);
   }
@@ -178,7 +178,7 @@
     height: 2px;
     width: 110px;
     background: blue;
-    margin: 8px 0px 0px 0px;  
+    margin: 18px 0px 0px 0px;  
   }
 
   /*----------------------------------*/

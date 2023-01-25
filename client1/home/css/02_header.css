@@ -344,7 +344,7 @@ and (max-width: 440px)
   {
   /*--*/
     .Header {
-        width: 415px;
+        width: 440px;
         height: 75px
     }
     .HeaderNavListItem {
@@ -352,9 +352,9 @@ and (max-width: 440px)
         display: inline-block;
     }
      .Logo {
-        width: 130px;
+        width: 110px;
         display: flex;
-        padding: 0px 0px 20px 40px;
+        padding: 0px 0px 20px 35px;
     }  
     .DeviceText::after{
         content: "\ [mobile]"
@@ -398,7 +398,7 @@ and (max-width: 440px)
         /*move menu around*/
         justify-content: left; /*was center*/
         padding-left: 120px; /*was deleted*/
-        margin-top: -20px; /*was deleted*/
+        margin-top: -200px; /*was deleted*/
         /*end of move around*/
     }
     .MenuWrap .Menu > div > div > ul > li > a {
