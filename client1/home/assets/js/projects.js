@@ -28,18 +28,15 @@ function  fmtProjects( pJSON ) {
   function  fmtProject( pProject, i ) {
 
        var  aClass = i % 2 == 1 ? "row-even" : "row-odd"
-//     var  aClass = "class=row-" + ( i % 2 ? "even" : "odd" )
-//     var  aClass   =   (  `class="row-even"` )
 
        var  aName    =     pProject.Name
        var  aClient  =     pProject.Client
 
        var  aRow     = `  
        		<tr Class="${ aClass }" id="R${ `${ i + 1 }`.padStart( 3, "0" ) }">
-                 <td class="name">${ aName }</a></td>
-                 <td class="client">${ aClient }"></td>
+                 <td class="name">${ aName }</td>
+                 <td class="client">${ aClient }</td>
             </tr>`
-
 //          mHTMLs.push( aRow )                  
      //aData = aHeadRow + aRow
      aData = aRow

@@ -1616,17 +1616,6 @@ pJSON =
       Description: 'EZ Data Surveys allows customers to create surveys using a simple text editor. The survey is uploaded to the web and produce a web survey.'
     },
     {
-      Id: 93,
-      Name: '123 Easy Card',
-      Client: '123 Easy',
-      ClientWeb: null,
-      ProjectWeb: 'Http://123easycard.com',
-      Location: 'Gaithersburg, MD',
-      ProjectType: 'NT4, IIS4, ASP, VB, SQL7 database, XML, Access',
-      Industry: 'Commercial Product',
-      Description: '123 Easy Card allows customers to create electonic business cards and greeting cards.'
-    },
-    {
       Id: 95,
       Name: 'Standards ;v',
       Client: 'National Institute of Standards and Technology',

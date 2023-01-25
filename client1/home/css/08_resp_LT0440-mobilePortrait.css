@@ -32,6 +32,9 @@ The .Section1 properites
   padding: 100px 0px 0px 0px;
   text-align: center;
 }
+/* .Section1Title::first-letter {
+  font-size: 150%;
+} */
 .Section1Paragraph {
   font-size: 18px;
   color:black;
@@ -44,7 +47,8 @@ The .Section1 properites
 The .Section2 properites
 ------------------------------------------*/
 .Section2 {
-  background-color: rgb(198 210 222);;
+  background-color: rgb(198 210 222);
+  background-color: rgb(231, 236, 241);
   width: 100%;
   height: 400px;
   top: 0px; /*<---ADD to adjust the top position*/
@@ -57,6 +61,9 @@ The .Section2 properites
   text-shadow: 0.5px 0.5px 0px #FFFFFF;
   padding: 10px 0px 20px 20px;
 }
+/* .Section2Title::first-letter {
+  font-size: 150%;
+} */
 .Section2Paragraph {
   padding-top: 0px;
 }
