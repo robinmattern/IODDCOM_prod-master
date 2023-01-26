@@ -90,19 +90,22 @@ body {
     width: 25%;
 }
 .name {
+    width: 50%;
+    padding: 0px 0px 0px 5px;
+    height: 40px;
     font-size: 18px;
-    padding: 10px 10px 0px 0px;
-    border-bottom: dotted 1px black;
-    height: 25px;
+    font-weight: 600;
     vertical-align: top;
 }
 .client {
+    width: 50%;
+    padding: 0px 0px 0px 5px;
+    height: 40px;
     font-size: 18px;
-    padding: 10px 20px 0px 0px;
-    border-bottom: dotted 1px black;
-    height: 25px;
+    font-weight: 500;
     vertical-align: top;
 }
+
 
 /*
 The @media MAX-width query properties
@@ -167,15 +170,20 @@ and (max-width: 736px)
         text-align: left;
     }
     .name {
-        width: 35%;
+        width: 50%;
         padding: 0px 0px 0px 5px;
         height: 40px;
-        font-size: 80%;
-        font-weight: 100;
+        font-size: 15px;
+        font-weight: 600;
+        vertical-align: top;
     }
     .client {
-        width: 10%;
+        width: 50%;
+        padding: 0px 0px 0px 5px;
         height: 40px;
+        font-size: 15px;
+        font-weight: 500;
+        vertical-align: top;
     }
     .Footer {
         display: none;
@@ -244,14 +252,19 @@ The @media MAX-width query properties
         text-align: left;
     }
     .name {
-        padding: 0px 0px 0px 5px;
+        width: 50%;
+        padding: 0px 0px 0px 10px;
         height: 40px;
-        font-size: 100%;
+        font-size: 15px;
+        font-weight: 600;
         vertical-align: top;
     }
     .client {
+        width: 50%;
+        padding: 0px 20px 0px 5px;
         height: 40px;
-        font-size: 100%;
+        font-size: 15px;
+        font-weight: 500;
         vertical-align: top;
     }
     .Footer {
