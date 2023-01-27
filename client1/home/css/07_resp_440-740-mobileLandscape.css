@@ -20,7 +20,7 @@ The .Section1 properites
 ------------------------------------------*/
 .Section1 {
   width: 100%;
-  height: 300px;
+  height: 260px;
   position: relative;
   color: var(--Section2-font-color);
   top: 70px; /*<---ADD to adjust the top position*/
@@ -41,6 +41,7 @@ The .Section1 properites
 The .Section2 properites
 ------------------------------------------*/
 .Section2 {
+  background-color: rgb(231, 236, 241);
   width: 100%;
   height: 400px;
   position: relative;
@@ -84,11 +85,23 @@ The .Section2 properites
 The .Footer properites
 ------------------------------------------*/
 .Footer {
-  height: 60px;
-  display: block;
+  display: flex;
+  height: 30px;
+  /* width: 440px; */
+  opacity: 0.82;
+  border-top: dotted 2px #696969;
 }
-.FooterNavListItem a {
-  font-size: 15px;
+.FooterNavList {
+  justify-content: center;
+  padding-left: 210px;
+  margin: 5px;
+  text-align: center;
+}
+.FooterNavListItem  {
+  padding: 0px 0px 10px 0px;
+}
+  .FooterNavListItem a {
+    color: #505050;
 }
 /* Footer END ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 

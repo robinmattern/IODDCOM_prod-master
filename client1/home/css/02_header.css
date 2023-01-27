@@ -171,7 +171,7 @@ and (max-width: 1000px)
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 /*MEDIA - Tablet PORTRAIT*/
 @media only screen
-and (min-width: 601px)
+and (min-width: 741px)
 and (max-width: 949px) 
 { 
     .Header {
@@ -262,7 +262,7 @@ and (max-width: 949px)
 /*-----------------------------------------*/  
 @media only screen
 and (min-width: 440px)
-and (max-width: 600px) 
+and (max-width: 740px) 
 { 
   .Logo {
         width: 300px;
