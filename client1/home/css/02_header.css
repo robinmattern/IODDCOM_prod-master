@@ -398,7 +398,7 @@ and (max-width: 440px)
         /*move menu around*/
         justify-content: left; /*was center*/
         padding-left: 120px; /*was deleted*/
-        margin-top: -200px; /*was deleted*/
+        margin-top: -100px; /*was deleted*/
         /*end of move around*/
     }
     .MenuWrap .Menu > div > div > ul > li > a {
