@@ -32,7 +32,7 @@
         <link rel="stylesheet"    href="css/08_resp_950-1100-tabletLandscape.css">
 -->
 
-<!-     <script src="../assets/json/db.json.js" type="application/javascript" ></script> -->
+        <script src="../assets/json/db.json.js" type="application/javascript" ></script>
         <script src="../assets/js/projects.js"  type="application/javascript" ></script>
 
 </head>
@@ -87,13 +87,7 @@
             </tbody>
             <script>
                 var pProjects = document.getElementById( "Projects" )
-//                  pProjects.innerHTML = fmtProjects( pJSON )
-
-                    fetch( 'http://localhost:3000/projects' )
-           .then( ( res  ) => res.json( ) )
-           .then( ( json ) => {  
-                                pProjects.innerHTML = fmtProjects( json ) } ) 
-           .catch(( err  ) =>   pProjects.innerHTML `** ${err.message}` );                     
+                    pProjects.innerHTML = fmtProjects( pJSON )
             </script>
             <tr class="last-row"><td colspan="3"></td></tr>
         </table>
