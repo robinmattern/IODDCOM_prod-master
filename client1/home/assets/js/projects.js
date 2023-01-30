@@ -1,25 +1,50 @@
 //---------------------------------------------------------------------------------------------------
- 
+
        aTests='live in Browser'
-//     aTests='test1 in NodeJS'
+//     aTests='test1 fetch iodd.com/client1/home'
+//     aTests='test1 fetch formr.net/home'
+//     aTests='test2 fetch /projects'
 
-  var aHeadRow = `<tr class="head-row"><td>Name</td><td>Email</td><td>Phone / Mobile</td></tr>`
+  var  aHeadRow = `<tr class="head-row"><td>Name</td><td>Email</td><td>Phone / Mobile</td></tr>`
 
+  if ( aTests.match( /test/ ) ) {   
+  var  fetch = require( 'node-fetch' )   // not required in Node v17.5+
+       }
+ //---------------------------------------------------------------------------------------------------
+      
   if ( aTests.match( /test1/ ) ) { 
 
-       var  pJSON    =  parseJSON( '../json/db.json.js' )
-       var  aHTML    =  fmtProjects(  pJSON )
+//     var  pJSON    =  parseJSON( '../json/db.json.js' )   // replaced by fetch api 
+//     var  aHTML    =  fmtProjects(  pJSON )
 
-            console.log( aHTML )
-            }
-
+    fetch( 'http://formr.net/home' )
+           .then( res => res.text( ) )
+           .then( text => console.log( text ) )     
+            } // eof test1
 //---------------------------------------------------------------------------------------------------
 
-function  fmtProjects( pJSON ) {     
-       var  mProjects =  pJSON.projects
+if ( aTests.match( /test2/ ) ) { 
+     
+    fetch( 'http://localhost:3000/projects?recs=5' )
+           .then( ( res  ) => res.json( ) )
+           .then( ( json ) => onFetch( json ) )
+           .catch(( err  ) => console.log( `** ${err.message}` ) );      
+                
+  function  onFetch( pJSON ) {
+       var  aHTML    =  fmtProjects( pJSON )
+            console.log( aHTML )   
+            } // eof onFetch 
+     
+        } // eof test2
+//---------------------------------------------------------------------------------------------------
 
-//       var  aHTML    =  mProjects.map( fmtProject ).join( "\n" )
-         var  aHTML    =  mProjects.sort(sortitem).map( fmtProject ).join( "\n" )
+function  fmtProjects( pJSON ) {  
+
+//     var  mProjects =  pJSON.projects   // as defined in db.json
+       var  mProjects =  pJSON                // as defined in /projeccts api
+
+//     var  aHTML  =  mProjects.map( fmtProject ).join( "\n" )
+       var  aHTML  =  mProjects.sort(sortitem).map( fmtProject ).join( "\n" )
 //     var  mHTMLs=[];  mProjects.forEach( ( pProject, i ) => { fmtProject( pProject, i ) } ); aHTML = mHTMLs.join( "\n" ) 
     return  aHTML
             
@@ -27,20 +52,20 @@ function  fmtProjects( pJSON ) {
 
   function  fmtProject( pProject, i ) {
 
-       var  aClass = i % 2 == 1 ? "row-even" : "row-odd"
+       var  aClass   =  i % 2 == 1 ? "row-even" : "row-odd"
 
-       var  aName    =     pProject.Name
-       var  aClient  =     pProject.Client
+       var  aName    =  pProject.Name
+       var  aClient  =  pProject.Client
 
        var  aRow     = `  
        		<tr Class="${ aClass }" id="R${ `${ i + 1 }`.padStart( 3, "0" ) }">
                  <td class="name">${ aName }</td>
                  <td class="client">${ aClient }</td>
-            </tr>`
+               </tr>`
 //          mHTMLs.push( aRow )                  
-     //aData = aHeadRow + aRow
-     aData = aRow
-     return aData
+//          aData = aHeadRow + aRow
+            aData = aRow
+    return  aData
             }   // eof  fmtProject
 //     ---  -------  =  ----------------------------------
             }   // eof  fmtProjects
