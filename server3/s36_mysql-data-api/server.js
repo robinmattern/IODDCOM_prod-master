@@ -23,9 +23,10 @@ var pDB = mysql.createConnection( {
 		Welcome to IODD MySQL Express Server API.<br>
 		Use any of the following APIs:<br>
 		<div style="margin-left:20px">
-		  <a href="/members"         >/members</a> (not implemented yet)<br>
-		  <a href="/members-projects">/members-projects</a> (not implemented yet)<br>     
-		  <a href="/projects"        >/projects</a><br> 
+		  <a href="/members"                >/members</a> (not implemented yet)<br>
+		  <a href="/members-projects"       >/members-projects</a> (not implemented yet)<br>     
+		  <a href="/projects"               >/projects</a><br> 
+		  <a href="//project-colaborators"  >/project-colaborators</a><br> 
 		</div>       
 		`);
 	} ) ;

@@ -148,8 +148,13 @@ if (aTests.match( /test2/ ) ) {
             aRow     =  aRow +    
       `<tr   Class="${ aClass }" id="${ aRowId }">
          <td class="memberSecondary" colspan=2>${ aColaborator }</td>
-       </tr>`
+       </tr>
+       `
             }
+            aRow     =  aRow +    
+      `<tr   Class="${ aClass }" id="${ aRowId }">
+         <td colspan=2 style="height:10px;"></td>
+       </tr>`
 
      return aRow
 //          } )
