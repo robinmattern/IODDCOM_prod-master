@@ -7,7 +7,7 @@
         <script src="https://www.w3schools.com/lib/w3.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
-        <title>Members</title>
+        <title>Projects</title>
             <link rel="shortcut icon" href="../favicon.png">
             <link rel="stylesheet"    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
 
@@ -86,8 +86,13 @@
             <tr class="head-row"><td class="head-name">Name</td><td class="head-email">Client</td></tr>
             <tbody id="Projects">
             </tbody>
-            <script>
-                var pProjects = document.getElementById( "Projects" )
+              <style>
+                .memberSecondary { padding-left: 83px; }
+                .memberSecondary::after { margin-bottom: 80px; }
+               
+              </style>
+              <script>
+//              var pProjects = document.getElementById( "Projects" )
 //                  pProjects.innerHTML = fmtProjects( pJSON )
 
 //              fetchJSON( 'http://localhost:3000/projects?recs=2' ).then( pJSON => {
@@ -96,7 +101,7 @@
 
                 fetchProjects( document.getElementById( "Projects" ) )
 
-            </script>
+              </script>
             <tr class="last-row"><td colspan="3"></td></tr>
         </table>
     </div>
