@@ -47,8 +47,7 @@ The .Section1 properites
 The .Section2 properites
 ------------------------------------------*/
 .Section2 {
-  background-color: rgb(198 210 222);
-  background-color: rgb(231, 236, 241);
+  background: var(--Section2BGColor);
   width: 100%;
   height: 400px;
   top: 0px; /*<---ADD to adjust the top position*/
