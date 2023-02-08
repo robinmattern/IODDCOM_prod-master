@@ -6,18 +6,45 @@ aTests='live in Browser'
   if ( aTests.match( /test1/ ) ) { 
 
        var  pJSON    =  parseJSON( '../json/db_v2.json.js' )
-       var  aHTML    =  fmtMembersProjects(  pJSON )
+       var  aHTML    =  fmtMembersProjectsLaptop(  pJSON )
 
             console.log( aHTML )
             }
 
 //---------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------
+      
+if ( aTests.match( /test1/ ) ) { 
 
+  //     var  pJSON    =  parseJSON( '../json/db.json.js' )   // replaced by fetch api 
+  //     var  aHTML    =  fmtMembers(  pJSON )
+  
+      fetch( 'http://formr.net/home' )
+             .then( res => res.text( ) )
+             .then( text => console.log( text ) )     
+              } // eof test1
+  //---------------------------------------------------------------------------------------------------
+  
+if ( aTests.match( /test2/ ) ) { 
+       
+      fetch( 'http://localhost:3000/members-projects?recs=5' )
+             .then( ( res  ) => res.json( ) )
+             .then( ( json ) => onFetch( json ) )
+             .catch(( err  ) => console.log( `** ${err.message}` ) );      
+                  
+    function  onFetch( pJSON ) {
+         var  aHTML    =  fmtMembersProjectsLaptop( pJSON )
+              console.log( aHTML )   
+              } // eof onFetch 
+       
+          } // eof test2
+  //---------------------------------------------------------------------------------------------------
+  
 function  fmtMembersProjectsLaptop( pJSON ) {     
-       var  mMembers_projects =  pJSON.members_projects
-
+//       var  mMembers_projects =  pJSON.members_projects
+         var  mMembers_projects =  pJSON   // as defined in /members-projects api
 //       var  aHTML    =  mMembers_projects.map( fmtMember ).join( "\n" )
-//       var  aHTML    =  mMembers_projects.sort(sortitem).map( fmtMemberProject ).join( "\n" )
+//       var  aHTML    =  mMembers_projects.sort(sortitem).map( fmtMemberProjectLaptop ).join( "\n" )
          var  aHTML    =  mMembers_projects.map( fmtMemberProjectLaptop ).join( "\n" )
 //       var  mHTMLs=[];  mMembers_projects.forEach( ( pMember, i ) => { fmtMember( pMember, i ) } ); aHTML = mHTMLs.join( "\n" ) 
     return  aHTML
@@ -33,6 +60,8 @@ function  fmtMembersProjectsLaptop( pJSON ) {
        var  aMI      =     pMember.Middlename;  aMI = ( aMI  > "" ) ?   ` ${ aMI.substr(0,1) }. ` : ""
        var  aNameBR    = `${ pMember.FirstName }${aMI} <br> ${ pMember.LastName }`
        var  aName    =   `${ pMember.FirstName }${aMI} ${ pMember.LastName }`
+       var  aLastName =    pMember.LastName
+       var  aBookmark =    aLastName.substring(0,1)
 //     var  aPhone   =     pMember.Phone1 + ( pMember.Phone2 > ""   ? `, ${ pMember.Phone2  }` : "" )
 //          aPhone   =     aPhone != "null" ? aPhone : ""
        var  aPhone1  =     pMember.Phone1
@@ -59,11 +88,12 @@ function  fmtMembersProjectsLaptop( pJSON ) {
        var  aRow     =     `
 
        <tr Class="${ aClass }" id="R${ `${ i + 1 }`.padStart( 3, "0" ) }">
-
+       
        <div class="members-projects">
        <table class="main-table">
-       <tbody><tr>
-          <td colspan="3" valign="top" align="center">
+       <tbody>
+          <tr>
+          <td id="${ aBookmark }" colspan="3" valign="top" align="center">
            <table class="${ aStyle}" cellspacing="0" cellpadding="10" align="left">
              <tbody>
             <tr><td colspan="4" class="member-line"><hr></td></tr>
@@ -140,9 +170,9 @@ function  fmtMembersProjectsLaptop( pJSON ) {
             }   // eof  parseJSON
 //--------  -------  =  -------------------------------------------------------
 
-function sortitem(a,b) {
-     var aSort = String(51 - a.Sort).padStart(2,"0")
-	return (a.LastName + a.FirstName + aSort) > (b.LastName + b.FirstName + aSort) ? 1 : -1
-	}
+// function sortitem(a,b) {
+//      var aSort = String(51 - a.Sort).padStart(2,"0")
+// 	return (a.LastName + a.FirstName + aSort) > (b.LastName + b.FirstName + aSort) ? 1 : -1
+// 	}
 //---------------------------------------------------------------------------------------------------
 

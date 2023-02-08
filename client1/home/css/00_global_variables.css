@@ -13,8 +13,9 @@
     --HamburgerWidthHeight: 60px;
 
     --HeaderFooterBGColor: rgb(198 210 222);
-        /*CHANGE MEETING DATE BELOW*/
-    --NextMeetingDate: "2/9/23";    
+    --Section2BGColor: whitesmoke;
+    /*CHANGE MEETING DATE BELOW*/
+    --NextMeetingDate: "02/09/23";    
     --GlobalMaxWidth: 900px;
     --AvatarImageWidth: 80%;
     
