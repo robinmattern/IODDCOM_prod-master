@@ -56,17 +56,17 @@ var pDB = mysql.createConnection( {
 		if ( error ) { 
 			console.log( `** Error: ${error.message}` );
 //	        res.send( `Error: ${error.message}` );
-			res.send( JSON.stringify( { Projects: { Error: error.message } } ) ); // to conform to db.json structure 
+			res.send( JSON.stringify( { projects: { Error: error.message } } ) ); // to conform to db.json structure 
 			res.end();
 			return
 		    }
 		if (results.length > 0) {
 			res.setHeader( 'Content-Type', 'application/json' );
 //			res.send( JSON.stringify(             results   ) );
-			res.send( JSON.stringify( { Projects: results } ) ); // to conform to db.json structure 
+			res.send( JSON.stringify( { projects: results } ) ); // to conform to db.json structure 
 		} else {
 //       	res.send( `{ error: "No projects found" }` );
-			res.send( JSON.stringify( { Projects: { Error: "No projects found" } } ) ); // to conform to db.json structure 
+			res.send( JSON.stringify( { projects: { Error: "No projects found" } } ) ); // to conform to db.json structure 
 		}
 		res.end();
 		};
@@ -91,7 +91,7 @@ var pDB = mysql.createConnection( {
 		    }
 		if (results.length > 0) {
 			res.setHeader( 'Content-Type', 'application/json' );
-			res.send( JSON.stringify( { Colaborators: results } ) );
+			res.send( JSON.stringify( { colaborators: results } ) );
 		} else {
 			res.send( `{ error: "No projects found" }` );
 		}
@@ -107,7 +107,7 @@ var pDB = mysql.createConnection( {
                   FROM  members_projects_view
                ORDER BY 1` 
 
-   var  aTable = "Letters"
+   var  aTable = "letters"
 
 		pDB.query( aSQL, onQuery )  
 

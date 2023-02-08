@@ -40,8 +40,8 @@ if ( aTests.match( /test2/ ) ) {
 
 function  fmtProjects( pJSON ) {  
 
-//     var  mProjects =  pJSON.projects   // as defined in db.json
-       var  mProjects =  pJSON                // as defined in /projeccts api
+       var  mProjects =  pJSON.projects   // as defined in db.json
+//     var  mProjects =  pJSON                // as defined in /projeccts api
 
 //     var  aHTML  =  mProjects.map( fmtProject ).join( "\n" )
        var  aHTML  =  mProjects.sort(sortitem).map( fmtProject ).join( "\n" )
