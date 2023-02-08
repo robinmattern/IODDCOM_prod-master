@@ -86,37 +86,44 @@ body {
 .row-even {
     background-color: #DCDCDC;
 }
-.head-name {
-    width: 30%;
-}
-.head-email {
-    width: 20%;
-}
-.head-phone1, 
-.head-phone2 {
-    width: 25%;
-}
-.name {
-    font-size: 18px;
+.head-date,
+.head-location,
+.head-host,
+.head-email,
+.head-phone,
+.head-agenda {
+    padding-left: 20px;
+    font-size: 20px;
     font-weight: 800;
-    padding: 0 20px 0 0;
-    border-bottom: dotted 1px black;
-    height: 25px;
+    width: 40%;
+    text-align: right;
 }
-.email {
+.meeting-date,
+.location,
+.host,
+.email a,
+.phone,
+.agenda {
+    padding-left: 20px;
     font-size: 20px;
-    padding: 0 20px 0 0;
-    border-bottom: dotted 1px black;
+    font-weight: 500;
+    width: 60%;
+    text-align: left;
 }
-
-.phone1, .phone2 {
-    font-size: 16px;
-    padding: 0 20px 0 0;
-    border-bottom: dotted 1px black;
+.desc-div {
+    border: 0px black solid;
 }
-.cellphone {
-    font-size: 20px;
-    padding: 0 20px 0 0;
+.desc-table {
+    padding: 10px 10px 10px 20px;
+    border: solid 1px black;
+    vertical-align: middle;
+    border-radius: 5%;
+    box-shadow: 5px 5px #888888;
+}
+.desc {
+    font-size: 22px;
+    padding: 40px 60px 20px 60px;
+    text-align: justify;
 }
 /*
 The @media MAX-width query properties
@@ -177,8 +184,8 @@ and (max-width: 736px)
     /*    padding: 0px 10px 0px 20px;*/
         width: 35%;
     }
-    .head-email {
-        padding: 0px 20px 0px 20px;
+    .xhead-email {
+        padding: 0px 0px 0px 0px;
         width: 10%;
         text-align: left;
     }
@@ -199,7 +206,7 @@ and (max-width: 736px)
     }
     .email {
         width: 10%;
-        height: 40px;
+        height: 0px;
     }
     .email-image  {
         width: 60%;
@@ -285,7 +292,7 @@ The @media MAX-width query properties
     /*    padding: 0px 10px 0px 20px;*/
         width: 25%;
     }
-    .head-email {
+    .xhead-email {
         padding: 0px 20px 0px 20px;
         width: 10%;
         text-align: left;
