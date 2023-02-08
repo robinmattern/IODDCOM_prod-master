@@ -85,12 +85,12 @@
     <div class="Section2Title">meeting (From MySQL)</div>
     <div class="members-list">
         <table class="main-table">
-            <!--<tr class="head-row"><td class="head-date">Date</td><td class="head-location">Location</td></tr>-->
+            <tr class="head-row"><td class="head-date">Date</td><td class="head-location">Location</td><td class="head-desc">Description</td></tr>
             <tbody id="Meetings">
             </tbody>
             <script>
                 var pMeetings = document.getElementById( "Meetings" )
-//                  pMeetings.innerHTML = fmtMeetings( pJSON )
+//                 pMeetings.innerHTML = fmtMeetings( pJSON )
 
                     fetch( 'http://localhost:3000/meetings' )
            .then( ( res  ) => res.json( ) )
