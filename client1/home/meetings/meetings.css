@@ -21,6 +21,13 @@ body {
     height: 0px;
 }
 .Section1 {
+    display: block;
+    height: 200px;
+}
+.Section1Title {
+    padding-top: 40px;
+}
+.Section1Paragraph {
     display: none;
 }
 .Section2 {
@@ -61,7 +68,7 @@ body {
 .main-table {
     margin: 20px 0 0 5px;
     border-collapse: collapse;
-    width: 95%;
+    width: 90%;
     border: black 0px solid;
 }
 
@@ -111,19 +118,22 @@ body {
     text-align: left;
 }
 .desc-div {
-    border: 0px black solid;
+    padding: 60px 40px 0px 0px;
+    width: 50%;
 }
 .desc-table {
-    padding: 10px 10px 10px 20px;
-    border: solid 1px black;
-    vertical-align: middle;
-    border-radius: 5%;
-    box-shadow: 5px 5px #888888;
+    width: 40%;
 }
 .desc {
     font-size: 22px;
     padding: 40px 60px 20px 60px;
     text-align: justify;
+    width: 80%;
+    padding: 10px 10px 10px 15px;
+    border: solid 1px black;
+    vertical-align: middle;
+    border-radius: 0%;
+    box-shadow: 5px 5px #888888;
 }
 /*
 The @media MAX-width query properties
@@ -149,7 +159,9 @@ and (max-width: 736px)
     .Section2 {
         display: block;
         top: 70px; /*orig 70*/
-        height: 89%;
+        max-width: 737px;
+        scroll-behavior: auto;
+        height: 65%;
         border: 0px black solid;
         background-color: #EAEAEA; /*very light gray*/
       }
@@ -171,10 +183,10 @@ and (max-width: 736px)
         scroll-behavior: auto;
     }
     .main-table {
-        margin: 20px 0 0 5px;
+        margin: 20px 0 0 15px;
         padding: 0px 0px 0px -20px;
         border-collapse: collapse;
-        width: 100%;
+        width: 95%;
         border: black 0px solid;
     }
     .head-row {
@@ -221,12 +233,37 @@ and (max-width: 736px)
         height: 40px;
         font-size: 90%;
     }
+    .desc-div {
+        padding: 50px 0px 0px 0px;
+        max-width: 50%;
+    }
+    
+    .desc {
+        font-size: 20px;
+        padding: 10px 10px 10px 10px;
+        text-align: justify;
+        width: 40%;
+        border: solid 1px black;
+        vertical-align: middle;
+        border-radius: 0%;
+        box-shadow: 5px 5px #888888;
+    }
+    .desc-table {
+        width: 50%;
+    }
     .Footer {
-        display: none;
-        max-width: 737px;
+        display: block;
+        max-width: 100%;
         margin: auto;
         height: 60px;
-        background-color: transparent;
+        /* background-color: transparent; */
+        padding: 10px 160px 0px 0px;
+    }
+    .FooterNavListItem  {
+        text-align: center;
+    }    
+    .FooterNavListItem a {
+        text-align: center;
     }
 }
 
