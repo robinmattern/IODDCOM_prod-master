@@ -79,8 +79,8 @@ function  fmtMeetings( pJSON ) {
                </tr>
                <tr>
                     <td class="head-agenda">Agenda</td><td class="agenda">${ aAgenda }</td>
-               </tr>
-               </table><br><br>
+               </tr>               
+               </table></div>
                <div class="desc-div"><table class="desc-table">
                     <tr><td class="desc" colspan="2">${ aDescription }</td></tr>
                </table></div>
