@@ -55,26 +55,42 @@ function  fmtMeetings( pJSON ) {
 //     var  aClass = "class=row-" + ( i % 2 ? "even" : "odd" )
 //     var  aClass   =   (  `class="row-even"` )
 
-//       var  aMI      =     pMember.Middlename;  aMI = ( aMI  > "" ) ?   ` ${ aMI.substr(0,1) }. ` : ""
-//       var  aName    = `${ pMember.FirstName }${aMI} ${ pMember.LastName }`
-//       var  aLastName =    pMember.LastName
-//       var  aBookmark =    aLastName.substring(0,1)
-//     var  aPhone   =     pMember.Phone1 + ( pMember.Phone2 > ""   ? `, ${ pMember.Phone2  }` : "" )
-//          aPhone   =     aPhone != "null" ? aPhone : ""
-//       var  aPhone1  =     pMember.Phone1
-//            aPhone1  =     aPhone1 != null ? aPhone1 : ""
-//       var  aPhone2  =     pMember.Phone2
-//            aPhone2  =     aPhone2 != null ? aPhone2 : ""
-//       var  aEmail   =     pMember.Email
        var aMeetingDate =    pMeeting.strMeetingDate
-       var aMeetingLocation = pMeeting.MeetingLocation
-       var aMeetingDesc =    pMeeting.MeetingDescription
+       var aMeetingTime =    pMeeting.strMeetingTime
+       var aHost        =    pMeeting.Host
+       var aHostPhone   =    pMeeting.HostPhone
+       var aHostEmail   =    pMeeting.HostEmail
+       var aLocation    =    pMeeting.Location
+       var aAgenda      =    pMeeting.Agenda
+       var aDescription =    pMeeting.Description
        var  aRow     = `  
-       		<tr Class="${ aClass }" id="R${ `${ i + 1 }`.padStart( 3, "0" ) }">
-                 <td class="meeting-date">${ aMeetingDate }</td>
-                 <td class="meeting-location">${ aMeetingLocation }</td>
-                 <td class="meeting-desc">${ aMeetingDesc }</td>
-               </tr>`
+       		<tr>
+                 <td class="head-date">Date/Time:</td><td class="meeting-date">${ aMeetingDate } / ${ aMeetingTime }</td>
+               </tr>
+               <tr>
+                 <td class="head-location">Location:</td><td class="location">${ aLocation }</td>
+               </tr>
+               <tr>
+                    <td class="head-host">Host:</td><td class="host">${ aHost }</td>
+               </tr>
+                    <td class="head-phone">Phone:</td><td class="phone">${ aHostPhone }</td>
+               <tr>
+                    <td class="head-email">Email:</td><td class="email"><a href="mailto:${ aHostEmail }">${ aHostEmail }</a></td>
+               </tr>
+               <tr>
+                    <td class="head-agenda">Agenda</td><td class="agenda">${ aAgenda }</td>
+               </tr>
+               </table><br><br>
+               <div class="desc-div"><table class="desc-table">
+                    <tr><td class="desc" colspan="2">${ aDescription }</td></tr>
+               </table></div>
+
+               
+               
+               
+               
+               
+               `
 
 //          mHTMLs.push( aRow )                  
      //aData = aHeadRow + aRow

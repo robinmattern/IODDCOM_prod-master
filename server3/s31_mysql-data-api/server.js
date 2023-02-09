@@ -11,8 +11,8 @@ var app         =  express();
 // -------------------------------------------------------------------------
 
 var pDB = mysql.createConnection( {
-		host     : 'localhost',
-		user     : 'root',
+		host     : '45.32.219.12',
+		user     : 'nimdas',
 		password : 'FormR!1234',
 		database : 'iodd'
 	} );
@@ -154,7 +154,7 @@ app.get( '/meetings', function( req, res ) {
 	if (aName == null) {
 	var aSQL = `SELECT * 
 				FROM meetings
-				ORDER BY MeetingDate DESC`
+				ORDER BY MeetingDateTime DESC`
 	}
 		pDB.query(aSQL, onQuery)
 	function onQuery( error, results, fields ) {
@@ -179,4 +179,5 @@ app.get( '/meetings', function( req, res ) {
 	app.listen(3000);
 	console.log( "\n  Server is running at: http://localhost:3000" )
 
+// EOF
 // EOF
