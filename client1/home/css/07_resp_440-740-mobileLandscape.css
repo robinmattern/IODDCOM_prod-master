@@ -94,7 +94,7 @@ The .Footer properites
 }
 .FooterNavList {
   justify-content: center;
-  padding-left: 210px;
+  padding-left: 0px;
   margin: 5px;
   text-align: center;
 }

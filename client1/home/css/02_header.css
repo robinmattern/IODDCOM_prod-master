@@ -316,7 +316,7 @@ and (max-width: 740px)
     }
   .HeaderNavListItemHome {
         padding: 25px 0px 0px 0px;
-        display: block;
+        display: none;
         width: 2px;
     }
   .HeaderNavListItemHome a {

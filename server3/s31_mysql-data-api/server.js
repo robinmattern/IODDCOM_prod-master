@@ -127,7 +127,7 @@ app.get( '/home', function( req, res ) {
 	if (aName == null) {
 	var aSQL = `SELECT strMeetingDate 
 				FROM meetings
-				ORDER BY MeetingDate DESC
+				ORDER BY strMeetingDate DESC
 				LIMIT 1`
 	}
 		pDB.query(aSQL, onQuery)

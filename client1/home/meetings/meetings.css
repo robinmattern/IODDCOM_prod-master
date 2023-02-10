@@ -156,6 +156,14 @@ and (max-width: 736px)
         margin: auto;
         /*background-color: cornflowerblue;*/
     }
+    .Section1 {
+        height: 180px
+    }
+    .Section1Title {
+        font-size: 25px;
+        text-align: left;
+        padding: 40px 0px 0px 20px;
+    }
     .Section2 {
         display: block;
         top: 70px; /*orig 70*/
@@ -183,55 +191,39 @@ and (max-width: 736px)
         scroll-behavior: auto;
     }
     .main-table {
-        margin: 20px 0 0 15px;
-        padding: 0px 0px 0px -20px;
+        margin: 20px 0 0 20px;
+        padding: 0px 0px 0px 0px;
         border-collapse: collapse;
-        width: 95%;
+        width: 90%;
         border: black 0px solid;
     }
     .head-row {
         padding: 0px 20px 0px 0px;
     }
-    .head-name {
-    /*    padding: 0px 10px 0px 20px;*/
-        width: 35%;
+    .head-date,
+    .head-location,
+    .head-host,
+    .head-email,
+    .head-phone,
+    .head-agenda {
+        padding-left: 20px;
+        font-size: 16px;
+        font-weight: 800;
+        width: 30%;
+        text-align: right;
+        vertical-align: top;
     }
-    .xhead-email {
-        padding: 0px 0px 0px 0px;
-        width: 10%;
+    .meeting-date,
+    .location,
+    .host,
+    .email a,
+    .phone,
+    .agenda {
+        padding-left: 20px;
+        font-size: 16px;
+        font-weight: 500;
+        width: 80%;
         text-align: left;
-    }
-    .head-phone1 {
-    /*    padding: 0px 10px 0px 20px;*/
-        width: 25%;
-    }
-    .head-phone2 {
-        /*    padding: 0px 10px 0px 20px;*/
-        width: 30%;
-    }
-    .name {
-        width: 35%;
-        padding: 0px 0px 0px 5px;
-        height: 40px;
-        font-size: 80%;
-        font-weight: 100;
-    }
-    .email {
-        width: 10%;
-        height: 0px;
-    }
-    .email-image  {
-        width: 60%;
-    }        
-    .phone1 {
-        width: 25%;
-        height: 40px;
-        font-size: 90%;
-    }    
-    .phone2 {
-        width: 30%;
-        height: 40px;
-        font-size: 90%;
     }
     .desc-div {
         padding: 50px 0px 0px 0px;
@@ -239,14 +231,17 @@ and (max-width: 736px)
     }
     
     .desc {
-        font-size: 20px;
+        font-size: 18px;
+        font-weight: 600;
+        color: blue;
         padding: 10px 10px 10px 10px;
         text-align: justify;
         width: 40%;
-        border: solid 1px black;
+        border: solid 6px blue;
         vertical-align: middle;
         border-radius: 0%;
-        box-shadow: 5px 5px #888888;
+        box-shadow: 8px 8px 2px 0px #888888;
+        background-color: gainsboro;
     }
     .desc-table {
         width: 50%;
@@ -257,13 +252,14 @@ and (max-width: 736px)
         margin: auto;
         height: 60px;
         /* background-color: transparent; */
-        padding: 10px 160px 0px 0px;
+        padding: 10px 0px 0px 0px;
     }
     .FooterNavListItem  {
         text-align: center;
     }    
     .FooterNavListItem a {
         text-align: center;
+        font-size: 12px;
     }
 }
 
@@ -283,90 +279,114 @@ The @media MAX-width query properties
     body {
         width: 100%;
     }
-    .HeaderQuickNav {
-        display: block;
-        text-align: center;
-        height: 270px;
+    .HeaderSpacer {
+        width: 130px;
     }
-
-    .TableSpacer {
-        height: 80px;
-        vertical-align: top;
+    .Section1 {
+        height: 180px;
+        top: 70px;
+    }
+    .Section1Title {
+        display: block;
+        font-size: 20px;
+        text-align: left;
+        padding: 30px 0px 0px 20px;
     }
     .Section2 {
-        background-color: #E5E4E2; /*platinum*/
-        top: 70px;
-        height: 90%;
-        width: 100%;
-        overflow-y: auto;
+        display: block;
+        top: 0px; /*orig 70*/
+        max-width: 737px;
+        scroll-behavior: auto;
+        height: 65%;
+        border: 0px black solid;
+        background-color: #EAEAEA; /*very light gray*/
       }
+    .Section2 div {
+        min-height: 0px;
+    }  
     .Section2Title {
         color: blue;
-        font-size: 180%;
+        font-size: 150%;
         font-family: var(--GlobalFontFamily);
         text-align: left;
         padding: 0px 0px 0px 20px;
     }
     .Section2Title::first-letter {
-        font-size:130%;
-        font-family: var(--GlobalFontFamily);
+        font-size:180%;
     }
     .members-list {
         margin: -10px 0px 0 5px;
         scroll-behavior: auto;
     }
     .main-table {
-        margin: 20px 0 0 5px;
+        margin: 20px 0 0 20px;
+        padding: 0px 0px 0px 0px;
         border-collapse: collapse;
-        width: 100%;
+        width: 90%;
         border: black 0px solid;
     }
     .head-row {
-        text-align: center;
         padding: 0px 20px 0px 0px;
     }
-    .head-name {
-    /*    padding: 0px 10px 0px 20px;*/
-        width: 25%;
+    .head-date,
+    .head-location,
+    .head-host,
+    .head-email,
+    .head-phone,
+    .head-agenda {
+        padding-left: 10px;
+        font-size: 17px;
+        font-weight: 800;
+        width: 30%;
+        text-align: right;
+        vertical-align: top;
     }
-    .xhead-email {
-        padding: 0px 20px 0px 20px;
-        width: 10%;
+    .meeting-date,
+    .location,
+    .host,
+    .email a,
+    .phone,
+    .agenda {
+        padding-left: 10px;
+        font-size: 17px;
+        font-weight: 500;
+        width: 80%;
         text-align: left;
     }
-    .head-phone1 {
-    /*    padding: 0px 10px 0px 20px;*/
+    .desc-div {
+        padding: 40px 50px 0px 0px;
+        max-width: 50%;
+    }
+    
+    .desc {
+        font-size: 20px;
+        font-weight: 600;
+        color: blue;
+        padding: 10px 10px 10px 10px;
+        text-align: left;
+        width: 45%;
+        border: solid 6px blue;
+        vertical-align: middle;
+        border-radius: 0%;
+        box-shadow: 8px 8px 2px 0px #888888;
+        background-color: gainsboro;
+    }
+    .desc-table {
         width: 50%;
     }
-    .head-phone2 {
-        display: none;
+    .Footer {
+        display: block;
+        max-width: 100%;
+        margin: auto;
+        height: 60px;
+        /* background-color: transparent; */
+        padding: 10px 0px 0px 0px;
     }
-    .name {
-        width: 40%;
-        padding: 0px 0px 0px 5px;
-        height: 40px;
-        font-size: 80%;
-        font-weight: 100;
-    }
-    .email {
-        width: 5%;
-        height: 40px;
-    }
-    .email-image  {
-        width: 70%;
-    }        
-    .phone1 {
-        width: 40%;
-        height: 40px;
-        font-size: 90%;
+    .FooterNavListItem  {
+        text-align: center;
     }    
-    .phone2 {
-        display: none;
-    }
-    .head-phone2 {
-        display: none;
-    }    
-    .last-row {
-        height: 80px;
+    .FooterNavListItem a {
+        text-align: center;
+        font-size: 12px;
     }
 }
