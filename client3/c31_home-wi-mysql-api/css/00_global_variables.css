@@ -1,0 +1,36 @@
+
+/* Basic Blocks Custom App */
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css');   /* .(21211.05.4) */
+
+
+/*-----------------------------------------
+:root selector for variables
+-------------------------------------------*/
+:root {
+    --GlobalFontFamily: Arial, Helvetica, sans-serif;
+    --HamburgerColor: blue;
+    --HamburgerWidthHeight: 60px;
+
+    --HeaderFooterBGColor: rgb(198 210 222);
+    --Section2BGColor: whitesmoke;
+    /*CHANGE MEETING DATE BELOW*/
+    --NextMeetingDate: "02/28/23";    
+    --GlobalMaxWidth: 900px;
+    --AvatarImageWidth: 80%;
+    
+    --CalloutIconCheck: "\f14a  \A"; /*checkbox*/
+    --CalloutIconCheck: "\f0da  \A"; /*Right Arrow*/
+    --CalloutIconCheck: "\f0a4  \A"; /*Right Hand Pointer*/
+    --CalloutIconCheck: "\f105  \A"; /*Right Arrow*/
+    --CalloutIconCheck: "\f328  \A"; /*Clip Board*/
+    --CalloutIconCheck: "\f0ca  \A"; /*Bullets {<li>}*/
+    --CalloutIconCheck: "\f064  \A"; /*Forward Arrow*/
+    --CalloutIconCheck: "\f0ae  \A"; /*ToDo List*/
+    --CalloutIconCheck: "\f35a  \A"; /*Right Arrow in Circles*/
+
+    --CalloutIconFontFamily: "Font Awesome 5 Free";    
+
+} 
+
+/* END CSS*/
