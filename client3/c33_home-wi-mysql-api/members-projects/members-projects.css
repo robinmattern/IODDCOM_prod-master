@@ -17,6 +17,40 @@ body {
     margin: 0;
     height: 100vh;
   } 
+.HeaderQuickNav {
+    display: none;
+    height: 0px;
+    top: 60px;
+    width: 1000px; /* var(--GlobalMaxWidth); */
+    position: fixed;
+    text-align: center;
+    color: blue;
+    font-weight: 800;
+    font-size: 20px;
+    padding-top: 10px;
+    z-index: 98;
+    /* opacity: 0.5; */
+}
+.QuickNav {
+    height: 25px;
+    width: var(--GlobalMaxWidth);
+    align-items: center;
+    text-align:center;
+    background-color:  var(--HeaderFooterBGColor);
+    color: blue;
+    letter-spacing: 4px;
+} 
+.QuickNav a {
+    text-decoration: none;
+    text-align: left;
+}
+.QuickNav a:hover,
+.QuickNav a:active {
+  color: red;
+}
+.MidpointBreak {
+    display: none;
+}
 .Section1 {
     display: none;
 }
@@ -53,6 +87,9 @@ body {
 .Secondary {
     display: none;
 }
+.main-table-laptop {
+    display: block;
+} 
 .main-table-mobile {
     display: none;
 }
@@ -138,7 +175,11 @@ body {
 .project-details {
     padding: 0px 20px 0px 0px;    
 }
-
+.last-row {
+    height: 160px;
+    text-align: center;
+    vertical-align: top;
+}
 /*
 The @media MAX-width query properties
 ***** IPHONE LANDSCAPE
@@ -156,12 +197,19 @@ and (max-width: 740px)
     body {
         width: 100%;
     }
+    .QuickNav {
+        width: 737px;
+        letter-spacing: 4px;
+     }     
+    .MidpointBreak {
+        display: none;
+    }      
     .Section1 {
         display: none;
     }
     .Section2 {
         display: block;
-        top: 70px;
+        top: 90px; /*was70px;*/
         height: 89%;
 /*      background-color: aliceblue; */
 /*      background-color: "#E5E4E2"; /*platinum*/

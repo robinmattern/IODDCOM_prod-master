@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="e-ial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <title></title>
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet"    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+    </head>
+    <body>
+
+        <!--  Header -->
+    <div class="Header">
+        <div class="MenuWrap">
+            <input type="checkbox" class="Toggler">
+            <div class="Hamburger" style="background: rgb(198 210 222);"><div></div></div>
+            <div class="Menu">
+                <div>
+                    <div>
+                        <ul class="MenuList">
+                            <li class="MenuListItem"><a href="../index.html" >Home</a></li>
+                            <li class="MenuListItemLine"><hr color="blue"></li>
+                            <li class="MenuListItem"><a href="../members/members.html">Members Listing</a></li>
+                            <li class="MenuListItemLine"><hr color="blue"></li>                            
+                            <li class="MenuListItem"><a href="#" target="_blank" >Guru Mail</a></li>
+                            <li class="MenuListItem"><a href="#">Support</a></li>
+                            <li class="MenuListItem"><a href="#">License</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+{
+            .Header {
+                background-color: gainsboro;
+                height: 75px;
+            }
+            .Logo {
+                text-align: right;
+                width: 15%;
+                padding: 0px 0px 20px 0px;
+            }
+            .LogoText { 
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 50px;
+                font-weight: 600;
+                color: white;
+                letter-spacing: 2px;
+                text-shadow: 3px 3px 3px black;
+                margin: 0px 0px 0px 20px;
+            }
+            .DeviceText::after{
+                content: "\ [big screen]"
+            }
+            .DeviceText {
+                font-size: 10px;
+                font-weight: 600;
+                font-family: var(--GlobalFontFamily);
+                color: black;
+                padding: 50px 0px 0px 0px;
+                position: fixed;
+            }            
+            .MenuWrap {
+                display: none;
+            }
+            .MenuListItem {
+                text-decoration: none;
+            }
+            .HeaderNavList {
+                width: 100%;
+            }
+            .HeaderSpacer {
+                width: 10%;
+            }
+            .HeaderNavListItemBack {
+                display: none;
+            }
+            .HeaderNavListItemHome a,
+            .HeaderNavListItemMtgLoc a {
+                text-decoration: none;
+                font-size: 18px;
+            }
+            .HeaderNavListItemCTA a {
+                font-size: 18px;
+                font-family: var(--GlobalFontFamily);
+                color: white;
+                background: blue ;
+                text-decoration: none;
+                padding: 10px;
+                border-radius: 8px;
+            }
+            .HeaderNavListItemCTA a:hover,
+            .HeaderNavListItemCTA a:active {
+                color: blue;
+                color: #C0C0C0; 
+            }
+            .next-meeting-date::after {
+                content: "/ 2/9/23";
+            }
+
+            .NextTag,
+            .next-meeting-date {
+                font-family: var(--GlobalFontFamily);
+                font-size: 18px;
+            }
+            /*------------------------------------------*/
+
+            .HeaderNavListItemCTA {
+                animation     : wiggle 400ms 2s 8 ease-out none;
+            }
+            /*-----------------------------------------
+            The @keyframes wiggle properties
+            ------------------------------------------*/
+
+            @keyframes wiggle {
+                0% { transform: rotateZ(  0deg ); }
+                50% { transform: rotateZ(-10deg ); }
+                100% { transform: rotateZ( 10deg ); }
+            }
+
+            .HeaderNavListItemAvatar {
+                width: 30%;
+                text-align: right;
+            }
+            .AvatarImage {
+                width: 250%;
+            }
+            .PencilDots {
+                display: none;
+            }
+            .Logo {
+                width: 20%;
+            }
+            .HeaderSpacer {
+                width: 10%;
+            }
+            .HeaderNavListItemBack {
+                width: 0%;
+            }
+            .HeaderNavListItemHome {
+                width: 10%;
+            }
+            .HeaderNavListItemMtgLoc {
+                width: 20%;
+            }
+            .HeaderNavListItemCTA {
+                width: 30%;
+            }
+            .HeaderNavListItemAvatar {
+                width: 30%;
+            }
+}            
+        </style>
+    
+<div class="new-div">
+    <table class="HeaderNavList">
+        <tbody>
+        <tr>
+            <td class="Logo">
+                <span class="LogoText">iodd</span><span class="DeviceText"></span>
+            </td>
+            <td class="HeaderSpacer"></td>
+            <td class="HeaderNavListItemBack">
+                <a href="../index.html" title="Go back Home"><img src="/client1/home/assets/images/buttonnBack.gif"></a>
+            </td>
+            <td class="HeaderNavListItemHome">
+                <a href="../index.html" title="Go back Home">Home</a>
+            </td>
+            <td class="HeaderNavListItemMtgLoc">
+                <a href="#" target="_blank" title="Meeting Location">Meeting Location</a>
+            </td>
+            <td class="HeaderNavListItemCTA">
+                <a href="#" target="_blank" title="Next Meeting"><span class="NextTag">Next </span>Meeting <span class="next-meeting-date"></span></a>
+            </td>
+            <td class="HeaderNavListItemAvatar">
+                <a href="#" target="_blank" title="Log Out"><img class="AvatarImage" src="/client1/home/assets/images/RJS-Avatar.gif"></a><a href="#"></a>
+                <a href="#"><img class="PencilDots" src="/client1/home/assets/images/pencilDots.gif"></a>&nbsp;
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>            
+ <!--
+            <ul  class="HeaderNavList">
+                <li class="HeaderNavListItemBack"><a href="../index.html" title="Go back Home"><img src="/home/assets/images/buttonBack.gif"></a></li>
+                <li class="HeaderNavListItem1"><a href="../index.html" title="Go back Home">Home</a></li>
+                <li class="HeaderNavListItem2"><a href="#" target="_blank" title="Next Meetins">Meeting Location</a></li>
+                <li class="HeaderNavListItemCTA"><a href="#" target="_blank" title="Next Meeting">Next&nbsp;Meeting&nbsp;<span class="next-meeting-date"></span></a></li>
+                <li class="HeaderNavListItemAvatar">
+                    <a href="#" target="_blank" title="Log Out"><img class="avatar-image" src="/home/assets/images/RJS-Avatar.gif"></a>
+                    <span><img src="/home/assets/images/pencilDots.gif"></span>
+                </li>
+            </ul>
+-->
+    <!-- END  Header -->
+
+    </body>
+</html>

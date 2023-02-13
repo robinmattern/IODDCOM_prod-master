@@ -28,6 +28,9 @@
     padding: 50px 0px 0px 0px;
     position: fixed;
 }
+.Header-nav-table {
+    width: 115%;
+}
 .HeaderNavListItemCTA {
     text-align: center;
 }
@@ -215,7 +218,11 @@ and (max-width: 949px)
     .PencilImage {
         display: none;
     }
-     {
+
+    /* .HeaderNavListItemCTA td {
+        width: 10px;
+    } */
+    .HeaderNavListItemCTA {
         text-align: center;
         width: 200px;
         padding: 0px 0px 0px 0px;
@@ -264,11 +271,15 @@ and (max-width: 949px)
 and (min-width: 440px)
 and (max-width: 740px) 
 { 
+    .Logo td {
+        width: 250px;
+    } 
   .Logo {
-        width: 300px;
-        padding: 1px 0px 0px 40px; 
-        /*display: none;*/
-    }
+      width: 250px;
+      padding: 1px 0px 0px 40px; 
+      /* text-align: left; */
+      /*display: none;*/
+}
   .DeviceText::after{
         content: "\ [mobile]"
     }
@@ -282,31 +293,38 @@ and (max-width: 740px)
     }
   .Header {
         height: 70px;
-        width: 700px;
+        width: 100%;
+        /* border: 2px black solid; */
     } 
+  .Header-nav-table {
+    align-items: center;
+    width: 95%;
+  }
   .HeaderNavList {
         font-size: 8px;
     }
   .HeaderSpacer {
-    width: 90px
+    width: 0px
   }
+
   .HeaderNavListItemBack,  
   .HeaderNavListItemMtgLoc,
   .HeaderNavListItemAvatar,
   .PencilImage {
+        width: 0px;
         display: none;
     }
   .HeaderNavListItemHome {
-        display: inline-block;
-        padding: 25px 30px 0px 0px;
+        padding: 25px 0px 0px 0px;
         display: none;
+        width: 2px;
     }
   .HeaderNavListItemHome a {
         font-size: 18px;
     }
-  .HeaderSpacer {
-        width: 0px;
-    }
+  .HeaderNavListItemCTA {
+        width: 200px;
+    }  
   .NextTag {
         display: none;
     }
@@ -347,11 +365,14 @@ and (max-width: 440px)
         width: 440px;
         height: 75px
     }
+    .Header-nav-table {
+        width: 95%;
+      }
     .HeaderNavListItem {
         list-style: none;
         display: inline-block;
     }
-     .Logo {
+    .Logo {
         width: 110px;
         display: flex;
         padding: 0px 0px 20px 35px;
@@ -383,11 +404,11 @@ and (max-width: 440px)
     .HeaderNavListItemCTA {
         display: flex;
         text-align: center;
-        width: 150px;
+        width: 140px;
         margin: 0px 0px 0px 0px;
     }
     .next-meeting-date {
-        font-size: 15px;
+        font-size: 12px;
         font-family: var(--GlobalFontFamily);
     } 
     .MenuWrap {  /*hamburger*/
@@ -410,7 +431,7 @@ and (max-width: 440px)
     .MenuList {
         border: blue 1px solid;
     }
-    .MenuListItem {
+    .MenuListItem  {
         margin: -35px;
     } /*--*/          
 }

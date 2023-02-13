@@ -5,7 +5,7 @@ aTests='live in Browser'
 //     aTests='test1 fetch formr.net/home'
 //       aTests='test2 fetch /members'
 
-  var  aHeadRow = `<tr class="head-row"><td>Name</td><td>Email</td><td>Phone / Mobile</td></tr>`
+  var  aHeadRow = `<tr class="head-row"><td>Date</td><td>Email</td><td>Phone / Mobile</td></tr>`
 
   if ( aTests.match( /test/ ) ) {   
   var  fetch = require( 'node-fetch' )   // not required in Node v17.5+
@@ -15,7 +15,7 @@ aTests='live in Browser'
   if ( aTests.match( /test1/ ) ) { 
 
 //     var  pJSON    =  parseJSON( '../json/db.json.js' )   // replaced by fetch api 
-//     var  aHTML    =  fmtMembers(  pJSON )
+//     var  aHTML    =  fmtMeetings(  pJSON )
 
     fetch( 'http://formr.net/home' )
            .then( res => res.text( ) )
@@ -25,63 +25,80 @@ aTests='live in Browser'
 
 if ( aTests.match( /test2/ ) ) { 
      
-    fetch( 'http://localhost:3000/members?recs=5' )
+    fetch( 'http://localhost:3000/meetings?recs=5' )
            .then( ( res  ) => res.json( ) )
            .then( ( json ) => onFetch( json ) )
-           .catch(( err  ) => console.log( `** ${err.message}` ) );      
+           .catch(( err  ) => console.log( `** ${err.message}` ) );
                 
   function  onFetch( pJSON ) {
-       var  aHTML    =  fmtMembers( pJSON )
+       var  aHTML    =  fmtMeetings( pJSON )
             console.log( aHTML )   
             } // eof onFetch 
      
         } // eof test2
 //---------------------------------------------------------------------------------------------------
 
-function  fmtMembers( pJSON ) {  
+function  fmtMeetings( pJSON ) {  
 
 //     var  mMembers =  pJSON.members   // as defined in db.json
-       var  mMembers =  pJSON                // as defined in /projeccts api
+       var  mMeetings =  pJSON                // as defined in /projeccts api
 
-       var  aHTML  =  mMembers.map( fmtMember ).join( "\n" )
+       var  aHTML  =  mMeetings.map( fmtMeeting ).join( "\n" )
 //     var  aHTML  =  mMembers.sort(sortitem).map( fmtMember ).join( "\n" )
 //     var  mHTMLs=[];  mMembers.forEach( ( pMember, i ) => { fmtMember( pMember, i ) } ); aHTML = mHTMLs.join( "\n" ) 
     return  aHTML            
 //     ---  -------  =  -----------------------------------
 
-  function  fmtMember( pMember, i ) {
+  function  fmtMeeting( pMeeting, i ) {
 
        var  aClass = i % 2 == 1 ? "row-even" : "row-odd"
 //     var  aClass = "class=row-" + ( i % 2 ? "even" : "odd" )
 //     var  aClass   =   (  `class="row-even"` )
 
-       var  aMI      =     pMember.Middlename;  aMI = ( aMI  > "" ) ?   ` ${ aMI.substr(0,1) }. ` : ""
-       var  aName    = `${ pMember.FirstName }${aMI} ${ pMember.LastName }`
-       var  aLastName =    pMember.LastName
-       var  aBookmark =    aLastName.substring(0,1)
-//     var  aPhone   =     pMember.Phone1 + ( pMember.Phone2 > ""   ? `, ${ pMember.Phone2  }` : "" )
-//          aPhone   =     aPhone != "null" ? aPhone : ""
-       var  aPhone1  =     pMember.Phone1
-            aPhone1  =     aPhone1 != null ? aPhone1 : ""
-       var  aPhone2  =     pMember.Phone2
-            aPhone2  =     aPhone2 != null ? aPhone2 : ""
-       var  aEmail   =     pMember.Email
-
+       var aMeetingDate =    pMeeting.strMeetingDate
+       var aMeetingTime =    pMeeting.strMeetingTime
+       var aHost        =    pMeeting.Host
+       var aHostPhone   =    pMeeting.HostPhone
+       var aHostEmail   =    pMeeting.HostEmail
+       var aLocation    =    pMeeting.Location
+       var aAgenda      =    pMeeting.Agenda
+       var aDescription =    pMeeting.Description
        var  aRow     = `  
-       		<tr Class="${ aClass }" id="R${ `${ i + 1 }`.padStart( 3, "0" ) }">
-                 <td class="name" id="${ aBookmark }"><a href="syschangepassword.js?username=${ aName }">${ aName }</a></td>
-                 <td class="email"><a href="mailto:${ aEmail }"><img class="email-image" src="../assets/images/Email.gif"></a></td>
-                 <td class="phone1">${ aPhone1 }</td>
-                 <td class="phone2">${ aPhone2}</td>
-               </tr>`
+       		<tr>
+                 <td class="head-date">Date/Time:</td><td class="meeting-date">${ aMeetingDate } / ${ aMeetingTime }</td>
+               </tr>
+               <tr>
+                 <td class="head-location">Location:</td><td class="location">${ aLocation }</td>
+               </tr>
+               <tr>
+                    <td class="head-host">Host:</td><td class="host">${ aHost }</td>
+               </tr>
+                    <td class="head-phone">Phone:</td><td class="phone">${ aHostPhone }</td>
+               <tr>
+                    <td class="head-email">Email:</td><td class="email"><a href="mailto:${ aHostEmail }">${ aHostEmail }</a></td>
+               </tr>
+               <tr>
+                    <td class="head-agenda">Agenda</td><td class="agenda">${ aAgenda }</td>
+               </tr>               
+               </table></div>
+               <div class="desc-div"><table class="desc-table">
+                    <tr><td class="desc" colspan="2">${ aDescription }</td></tr>
+               </table></div>
+
+               
+               
+               
+               
+               
+               `
 
 //          mHTMLs.push( aRow )                  
      //aData = aHeadRow + aRow
      aData = aRow
      return aData
-            }   // eof  fmtMember
+            }   // eof  fmtMeeting
 //     ---  -------  =  ----------------------------------
-            }   // eof  fmtMembers
+            }   // eof  fmtMeetings
 //--------  -------  =  -------------------------------------------------------
 
   function  parseJSON(  aFile ) {

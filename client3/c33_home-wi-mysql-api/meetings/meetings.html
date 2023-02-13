@@ -7,11 +7,7 @@
         <script src="https://www.w3schools.com/lib/w3.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
-<<<<<<< HEAD
-        <title>Projects</title>
-=======
         <title>Members</title>
->>>>>>> 51a7e29c9754220869c9b416b22f7ff8c4d73b22
             <link rel="shortcut icon" href="../favicon.png">
             <link rel="stylesheet"    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
 
@@ -29,20 +25,19 @@
             <link rel="stylesheet"    href="../css/08_resp_LT0440-mobilePortrait.css">
             <link rel="stylesheet"    href="../css/09_final.css">
         <!--BEGINNING OF LOCAL STYLE SHEETS (CSS)-->
-            <link rel="stylesheet"    href="projects.css">    
+            <link rel="stylesheet"    href="meetings.css">    
 <!--
         <link rel="stylesheet"    href="css/06_resp_1900-3000-desktop.css">
         <link rel="stylesheet"    href="css/07_resp_1100-1900-laptop.css">
         <link rel="stylesheet"    href="css/08_resp_950-1100-tabletLandscape.css">
 -->
 
-<!--    <script src="../assets/json/db.json.js"        type="application/javascript" ></script> -->
-<!--    <script src="../assets/js/projects.js"         type="application/javascript" ></script> -->
-        <script src="../assets/js/projects_u5-ram.js"  type="application/javascript" ></script>
+        <script src="../assets/json/db.json.js" type="application/javascript" ></script>
+        <script src="../assets/js/meetings.js"   type="application/javascript" ></script>
 
 </head>
 <body>
-<script>var aName = "Projects"</script>	
+<script>var aName = "Meetings"</script>	
 <div class="container">
 
 <!--  Header -->
@@ -50,12 +45,12 @@
 		#MenuBlank {display:block;}
 		#HomeLink {display:block;}
 		#HomeLinkLine {display:block;}
-		#MembersLink {display:block}
+		#MembersLink {display:none}
 		#ContactLink a {color:grey}
 		#BiosLink a {color:grey}
 		#MembersLinkLine {display:block}
 		#MembersProjectsLink {display:block}
-		#ProjectDetailsLink a {display:none}
+		#ProjectDetailsLink a {color:blue}
 		#MembersProjectsLinkLine {display:block}
 		#GuruLink a {color:grey}
 		#SupportLink a {color:grey}
@@ -66,7 +61,8 @@
 		#LoginLink {display:block}
 	    #MenuBlank {display:block;}
 	</style>
-	    <!--include using jQuery-->
+
+    <!--include using jQuery-->
 	    <div id="inc-header"></div>
 	    <script> 
 	      $("#inc-header").load("../includes/inc-header.html");
@@ -75,43 +71,44 @@
 <!-- END  Header -->
 
 <!--  Section1 -->
+
 		<!--include using jQuery-->
 		<div id="inc-section1"></div>
 		<script> 
-		$("#inc-section1").load("../includes/inc-section1.html");
+    		$("#inc-section1").load("../includes/inc-section1.html");
 		</script> 
     <!-- END  Section1 -->
 
 <!--  Section2 -->
-<div    class="Section2">
-    <div class="Section2Title">projects</div>
+<div class="Section2">
+    <table class="TableSpacer"><tr><td id="top">&nbsp;</td></tr><tbody></tbody></table>
+    <div class="Section2Title">meeting (From MySQL)</div>
     <div class="members-list">
         <table class="main-table">
-            <tr class="head-row"><td class="head-name">Name</td><td class="head-email">Client</td></tr>
-            <tbody id="Projects">
+            <tbody id="Meetings">
             </tbody>
-              <style>
-                .memberSecondary { padding-left: 83px; }
-                .memberSecondary::after { margin-bottom: 80px; }               
-              </style>
-              <script>
-//              var pProjects = document.getElementById( "Projects" )
-//                  pProjects.innerHTML = fmtProjects( pJSON )
+            <script>
+                var pMeetings = document.getElementById( "Meetings" )
+//                 pMeetings.innerHTML = fmtMeetings( pJSON )
 
-//              fetchJSON( 'http://localhost:3000/projects?recs=2' ).then( pJSON => {
-//                  pProjects.innerHTML = fmtProjects( pJSON ) 
-//                  } ) 
-
-                fetchProjects( document.getElementById( "Projects" ) )
-
-              </script>
-            <tr class="last-row"><td colspan="3"></td></tr>
+                    fetch( 'http://localhost:3000/meetings' )
+           .then( ( res  ) => res.json( ) )
+           .then( ( json ) => {  
+                                pMeetings.innerHTML = fmtMeetings( json ) } ) 
+           .catch(( err  ) =>   pMeetings.innerHTML `** ${err.message}` );                     
+            </script>
+            <tr class="last-row" id="bottom"><td colspan="4"></td></tr>
         </table>
     </div>
 </div>
 <!-- END  Section2 -->
 
 <!--  Footer -->
+        <!--include using w3schools-->
+        <!--
+        <div w3-include-html="../includes/inc-footer.html"></div>
+        -->
+
         <!--include using jQuery-->
         <div id="inc-footer"></div>
         <script> 
