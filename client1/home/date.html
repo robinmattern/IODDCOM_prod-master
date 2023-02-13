@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://www.w3schools.com/lib/w3.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+        <title>Dates</title>
+            <link rel="shortcut icon" href="../favicon.png">
+            <link rel="stylesheet"    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+
+        <!--BEGINNING OF Global STYLE SHEETS (CSS)-->
+            <!-- <link rel="stylesheet"    href="../css/00_global_variables.css">
+            <link rel="stylesheet"    href="../css/01_hamburger.css">
+            <link rel="stylesheet"    href="../css/02_header.css">
+            <link rel="stylesheet"    href="../css/03_footer.css">
+            <link rel="stylesheet"    href="../css/04_index.css"> -->
+        <!--The above needs to be incorporated in the local Dates.css below 010223-->
+        <!--RESPONSIVE STYLE SHEETS (CSS)-->
+            <!-- <link rel="stylesheet"    href="../css/05_resp_GT0950-bigScreen.css">
+            <link rel="stylesheet"    href="../css/06_resp_741-950-tabletPortrait.css">
+            <link rel="stylesheet"    href="../css/07_resp_440-740-mobileLandscape.css">
+            <link rel="stylesheet"    href="../css/08_resp_LT0440-mobilePortrait.css">
+            <link rel="stylesheet"    href="../css/09_final.css"> -->
+        <!--BEGINNING OF LOCAL STYLE SHEETS (CSS)-->
+            <!-- <link rel="stylesheet"    href="meetings.css">     -->
+<!--
+        <link rel="stylesheet"    href="css/06_resp_1900-3000-desktop.css">
+        <link rel="stylesheet"    href="css/07_resp_1100-1900-laptop.css">
+        <link rel="stylesheet"    href="css/08_resp_950-1100-tabletLandscape.css">
+-->
+
+        <!-- <script src="../assets/json/db.json.js" type="application/javascript" ></script> -->
+        <script src="assets/js/meeting-date.js"   type="application/javascript" ></script>
+
+</head>
+<body>
+<div class="dates">
+<table class="main-table">
+    <tr class="head-row"><td class="head-date">Date</td></tr>
+    <tbody id="MeetingDates">
+    </tbody>
+
+<script>
+    var pMeetingDates = document.getElementById( "MeetingDates" )
+//                  pMeetingDates.innerHTML = fmtMeetingDates( pJSON )
+
+        fetch( 'http://localhost:3000/home' )
+    .then( ( res  ) => res.json( ) )
+    .then( ( json ) => {  
+                        pMeetingDates.innerHTML = fmtMeetingDates( json ) } ) 
+    .catch(( err  ) =>  pMeetingDates.innerHTML `** ${err.message}` );                     
+</script>
+
+</table></div>
+</body>

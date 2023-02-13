@@ -50,13 +50,25 @@
         </div>
         <div class="HeaderSpacer"></div>
 -->
+
+<script>
+    var pDates = document.getElementById( "Dates" )
+//                  pMembers.innerHTML = fmtMembers( pJSON )
+
+        fetch( 'http://localhost:3000/home' )
+.then( ( res  ) => res.json( ) )
+.then( ( json ) => {  
+                    pDates.innerHTML = fmtDates( json ) } ) 
+.catch(( err  ) =>   pDates.innerHTML `** ${err.message}` );                     
+</script>
+
         <div>
             <div class="new-div">
                 <table class="Header-nav-table">
                     <tbody class="HeaderNavList"></tbody>
                     <tr class="Header-table-tr">
                         <td class="Logo">
-                            <span class="LogoText">iodd</span>
+                            <a href="../index.html"><span class="LogoText">iodd</span></a>
                             <span class="DeviceText"></span>
                         </td>
                         <td class="HeaderSpacer"></td>
