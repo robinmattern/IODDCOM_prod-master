@@ -67,13 +67,13 @@ var pDB = mysql.createConnection( {
 		if ( error ) { 
 			console.log( `** Error: ${error.message}` );
 //	        res.send( `Error: ${error.message}` );
-			res.send( JSON.stringify( { projects: { Error: error.message } } ) ); // to conform to db.json structure 
+			res.send( JSON.stringify( { projects: { Error: error.message } } ) );   // .(30208.06.1 RAM Add top table object to conform to db.json structure) 
 			res.end();
 			return
 		    }
 		if (results.length > 0) {
 			res.setHeader( 'Content-Type', 'application/json' );
-			res.send( JSON.stringify( { projects: results } ) );  // .(30208.01.1 RAM Add top table object)
+			res.send( JSON.stringify( { projects: results } ) );                    // .(30208.06.2 RAM Add top table object)
 		} else {
 			console.log( `** Error: "No Projects Found"` );
 			res.send( `{ projects: { Error: "No projects found" } }` );
@@ -105,7 +105,7 @@ app.get( '/members', function( req, res ) {
 		    }
 		if (results.length > 0) {
 			res.setHeader( 'Content-Type', 'application/json' );
-			res.send( JSON.stringify( { members: results } ) );   // .(30208.01.2 RAM Add top table object)
+			res.send( JSON.stringify( { members: results } ) );                     // .(30208.06.3)
 		} else {
 			res.send( `{ error: "No members found" }` );
 		}
@@ -134,7 +134,7 @@ app.get( '/members-projects', function( req, res ) {
 		    }
 		if (results.length > 0) {
 			res.setHeader( 'Content-Type', 'application/json' );
-			res.send( JSON.stringify( { "member-projects": results } ) );   // .(30208.01.3 RAM Add top table object)
+			res.send( JSON.stringify( { "members-projects": results } ) );          // .(30208.06.4).(30203.06.12 RAM Added s to member-projects)
 		} else {
 			res.send( `{ error: "No members-projects found" }` );
 		}
@@ -160,7 +160,7 @@ app.get( '/members-projects', function( req, res ) {
 		    }
 		if (results.length > 0) {
 			res.setHeader( 'Content-Type', 'application/json' );
-			res.send( JSON.stringify( { colaborators: results } ) );
+			res.send( JSON.stringify( { colaborators: results } ) );                // .(30208.06.5)
 		} else {
 			res.send( `{ error: "No projects found" }` );
 		}
@@ -176,7 +176,7 @@ app.get( '/members-projects', function( req, res ) {
                   FROM  members_projects_view
                ORDER BY 1` 
 
-   var  aTable = "letters"        // .(30208.01.3 RAM Make top table object lower case)
+   var  aTable = "letters"                                                          // .(30208.06.6)
 
 		pDB.query( aSQL, onQuery )  
 
@@ -212,7 +212,7 @@ app.get( '/home', function( req, res ) {
 	if (aName == null) {
     var aSQL  = `SELECT *     
 			   	 FROM meetings
-			 	 ORDER BY MeetingDateTime DESC `   // .(20307.01.1 RJS Was strMeetingTime) 
+			 	 ORDER BY MeetingDateTime DESC `                                    // .(20307.01.1 RJS Was strMeetingTime) 
 			  + `LIMIT 1`
 	    }
 		pDB.query(aSQL, onQuery)
@@ -253,7 +253,7 @@ app.get( '/meetings', function( req, res ) {
 		    }
 		if (results.length > 0) {
 			res.setHeader( 'Content-Type', 'application/json' );
-			res.send( JSON.stringify( { meetings: results } ) );  // .(30208.01.4RAM  Add top table object)
+			res.send( JSON.stringify( { meetings: results } ) );                    // .(30208.06.7)
 		} else {
 			res.send( `{ error: "No meetings found" }` );
 		}
@@ -263,8 +263,8 @@ app.get( '/meetings', function( req, res ) {
 // -------------------------------------------------------------------------
 // -------------------------------------------------------------------------
 
-	app.listen(3003);
-	console.log( "\n   Server is running at: http://localhost:3003" )
+	app.listen(3003);                                                               // .(30213.02.2 Change real port from 3000 to 3003)
+	console.log( "\n   Server is running at: http://localhost:3003" )               // .(30213.02.1 Change port from 3000 to 3003)
 
 // EOF
 // EOF
