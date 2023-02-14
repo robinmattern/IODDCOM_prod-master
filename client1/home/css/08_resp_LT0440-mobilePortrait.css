@@ -128,7 +128,7 @@ The .Section2 properites
 
 
 .Footer {
-    display: flex;
+    display: none;
     height: 30px;
     width: 440px;
     opacity: 0.82;
