@@ -56,6 +56,7 @@ var pDB = mysql.createConnection( {
 		if (results.length > 0) {
 			res.setHeader( 'Content-Type', 'application/json' );
 			res.send( JSON.stringify( results ) );
+			//res.send( JSON.stringify( { projects:results } ) );
 		} else {
 			res.send( `{ error: "No projects found" }` );
 		}
