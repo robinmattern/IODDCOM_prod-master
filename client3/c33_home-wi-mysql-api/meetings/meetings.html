@@ -91,7 +91,7 @@
                 var pMeetings = document.getElementById( "Meetings" )
 //                 pMeetings.innerHTML = fmtMeetings( pJSON )
 
-                    fetch( 'http://localhost:3000/meetings' )
+                    fetch( 'http://localhost:3003/meetings' )
            .then( ( res  ) => res.json( ) )
            .then( ( json ) => {  
                                 pMeetings.innerHTML = fmtMeetings( json ) } ) 

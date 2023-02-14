@@ -82,7 +82,7 @@
     <div class="HeaderQuickNav">
         <div class="QuickNav" align="center">
             <span class="QuickNavSpan" align="center"> 
-            <a href="#top" title="Go To The TOP"><img src="/client1/home/assets/images/ArrowRedUpSmall.gif"></a>&nbsp;
+            <a href="#top" title="Go To The TOP"><img src="/client1/c33_home-wi-mysql-api/assets/images/ArrowRedUpSmall.gif"></a>&nbsp;
             <a href="#A" title="Go To Last Names Starting with 'A'">A</a> 
             <a href="#B" title="Go To Last Names Starting with 'B'">B</a>
             <a href="#C" title="Go To Last Names Starting with 'C'">C</a> 
@@ -109,7 +109,7 @@
             <!--<a href="#X" title="Go To Last Names Starting with 'X'">--><font color="#949494">X</font><!--</a>--> 
             <!--<a href="#Y" title="Go To Last Names Starting with 'Y'">--><font color="#949494">Y</font><!--</a>--> 
             <a href="#Z" title="Go To Last Names Starting with 'Z'">Z</a>
-            <a href="#bottom" title="Go To The BOTTOM"><img src="/client1/home/assets/images/ArrowRedDownSmall.gif"></a>
+            <a href="#bottom" title="Go To The BOTTOM"><img src="/client1/c33_home-wi-mysql-api/assets/images/ArrowRedDownSmall.gif"></a>
             </span>
         </div>
     </div>
@@ -127,13 +127,13 @@
                 var pMembers = document.getElementById( "Members" )
 //                  pMembers.innerHTML = fmtMembers( pJSON )
 
-                    fetch( 'http://localhost:3000/members' )
+                    fetch( 'http://localhost:3003/members' )
            .then( ( res  ) => res.json( ) )
            .then( ( json ) => {  
                                 pMembers.innerHTML = fmtMembers( json ) } ) 
            .catch(( err  ) =>   pMembers.innerHTML `** ${err.message}` );                     
             </script>
-            <tr class="last-row" id="bottom"><td colspan="4"><a href="#top" title="Go To The TOP"><img src="/client1/home/assets/images/ArrowRedTopRedSmall.gif"></a></td></tr>
+            <tr class="last-row" id="bottom"><td colspan="4"><a href="#top" title="Go To The TOP"><img src="/client1/c33_home-wi-mysql-api/assets/images/ArrowRedTopRedSmall.gif"></a></td></tr>
         </table>
     </div>
 </div>

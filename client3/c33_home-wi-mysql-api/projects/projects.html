@@ -122,7 +122,7 @@
                 var pProjects = document.getElementById( "Projects" )
 //                  pProjects.innerHTML = fmtProjects( pJSON )
 
-                    fetch( 'http://localhost:3000/projects' )
+                    fetch( 'http://localhost:3003/projects' )
            .then( ( res  ) => res.json( ) )
            .then( ( json ) => {  
                                 pProjects.innerHTML = fmtProjects( json ) } ) 

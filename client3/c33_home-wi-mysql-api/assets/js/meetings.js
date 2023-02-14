@@ -25,7 +25,7 @@ aTests='live in Browser'
 
 if ( aTests.match( /test2/ ) ) { 
      
-    fetch( 'http://localhost:3000/meetings?recs=5' )
+    fetch( 'http://localhost:3003/meetings?recs=5' )
            .then( ( res  ) => res.json( ) )
            .then( ( json ) => onFetch( json ) )
            .catch(( err  ) => console.log( `** ${err.message}` ) );

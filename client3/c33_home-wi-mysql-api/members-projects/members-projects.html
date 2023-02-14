@@ -128,7 +128,7 @@
                 var pMembers = document.getElementById( "Members-laptop" )
 //                  pMembers.innerHTML = fmtMembersProjectsLaptop( pJSON )
 
-                    fetch( 'http://localhost:3000/members-projects' )
+                    fetch( 'http://localhost:3003/members-projects' )
            .then( ( res  ) => res.json( ) )
            .then( ( json ) => {  
                                 pMembers.innerHTML = fmtMembersProjectsLaptop( json ) } ) 
@@ -146,7 +146,7 @@
                 var pMembers = document.getElementById( "Members-mobile" )
 //                  pMembers.innerHTML = fmtMembersProjectsMobile( pJSON )
 
-                    fetch( 'http://localhost:3000/members-projects' )
+                    fetch( 'http://localhost:303/members-projects' )
            .then( ( res  ) => res.json( ) )
            .then( ( json ) => {  
                                 pMembers.innerHTML = fmtMembersProjectsMobile( json ) } ) 
