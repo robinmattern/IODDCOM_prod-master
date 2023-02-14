@@ -1,9 +1,9 @@
 //---------------------------------------------------------------------------------------------------
 
-       aTests='live in Browser'
-//     aTests='test1 fetch iodd.com/client3/c33_home-wi-mysql-api'
-//     aTests='test1 fetch formr.net/home'
-//       aTests='test2 fetch /projects'
+       aTests   = 'live in Browser'
+//     aTests   = 'test1 fetch iodd.com/client3/c33_home-wi-mysql-api'
+//     aTests   = 'test1 fetch formr.net/home'
+//     aTests   = 'test2 fetch /projects'
 
   var  aHeadRow = `<tr class="head-row"><td>Name</td><td>Email</td><td>Phone / Mobile</td></tr>`
 
@@ -40,31 +40,33 @@ if ( aTests.match( /test2/ ) ) {
 
 function  fmtProjects( pJSON ) {  
 
-//     var  mProjects =  pJSON.projects   // as defined in db.json
-       var  mProjects =  pJSON                // as defined in /projeccts api
+//     var  mProjects =  pJSON.Projects   // .(30209.01.1 RAM As is      defined in db.json)
+       var  mProjects =  pJSON.projects   // .(30209.01.1 RAM As is  now defined in /projects api)
+//     var  mProjects =  pJSON            // .(30209.01.1 RAM As     was defined in /projects api)
 
-     var  aHTML  =  mProjects.map( fmtProject ).join( "\n" )
-//       var  aHTML  =  mProjects.sort(sortitem).map( fmtProject ).join( "\n" )
-//     var  mHTMLs=[];  mProjects.forEach( ( pProject, i ) => { fmtProject( pProject, i ) } ); aHTML = mHTMLs.join( "\n" ) 
+       var  aHTML     =  mProjects.map( fmtProject ).join( "\n" )
+//     var  aHTML     =  mProjects.sort(sortitem).map( fmtProject ).join( "\n" )
+//     var  mHTMLs = []; mProjects.forEach( ( pProject, i ) => { fmtProject( pProject, i ) } ); aHTML = mHTMLs.join( "\n" ) 
     return  aHTML
             
 //     ---  -------  =  -----------------------------------
 
   function  fmtProject( pProject, i ) {
 
-       var  aClass   =  i % 2 == 1 ? "row-even" : "row-odd"
-       var  abgColor =     pProject.ProjectBGColor
-       var  aProjectStyle = pProject.ProjectStyle
-       var  aFirstName =    pProject.FirstName
-       var  aLastName =    pProject.LastName
-       var  aName    =     pProject.ProjectName
-       var  aBookmark =    aName.substring(0,1)
-       var  aClient  =     pProject.Client
-       var  aType    =     pProject.ProjectType
-       var  aDesc    =     pProject.Description
-       var  iProjID  =     pProject.ProjectId
-       var  aMemberNo =    pProject.MemberNo
-       var  aRow     = `
+       var  aClass        =  i % 2 == 1 ? "row-even" : "row-odd"
+       var  abgColor      =  pProject.ProjectBGColor
+       var  aProjectStyle =  pProject.ProjectStyle
+       var  aFirstName    =  pProject.FirstName
+       var  aLastName     =  pProject.LastName
+       var  aName         =  pProject.Name  // .(30214.01.1 RAM Was: pProject.ProjectName)
+       var  aBookmark     =  aName.substring(0,1)
+       var  aClient       =  pProject.Client
+       var  aType         =  pProject.ProjectType
+       var  aDesc         =  pProject.Description
+       var  iProjID       =  pProject.ProjectId
+       var  aMemberNo     =  pProject.MemberNo
+
+       var  aRow          = `
              <tr height="0px" Class="${ aClass } ${ aProjectStyle }" id="R${ `${ i + 1 }`.padStart( 3, "0" ) }">
                 <td bgcolor=${abgColor} class="name" id="${ aBookmark }"><br><b><u>Name</u>:</b> ${ aName }</td>
                 <td bgcolor=${abgColor} class="client"><br><b><u>Client</u>:</b> ${ aClient }</td>
@@ -110,8 +112,8 @@ function  fmtProjects( pJSON ) {
             }   // eof  parseJSON
 //--------  -------  =  -------------------------------------------------------
 
-// function sortitem(a,b) {
-// 	return (a.ProjectName) > (b.ProjectName) ? 1 : -1
-// 	}
+   function  sortitem(a,b) {
+     return (a.ProjectName) > (b.ProjectName) ? 1 : -1
+  	}
 //---------------------------------------------------------------------------------------------------
 

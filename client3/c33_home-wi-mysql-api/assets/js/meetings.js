@@ -40,8 +40,9 @@ if ( aTests.match( /test2/ ) ) {
 
 function  fmtMeetings( pJSON ) {  
 
-//     var  mMembers =  pJSON.members   // as defined in db.json
-       var  mMeetings =  pJSON                // as defined in /projeccts api
+//     var  mMeetings =  pJSON.meetings   // .(30209.01.6 RAM As is      defined in db.json)
+       var  mMeetings =  pJSON.meetings   // .(30209.01.6 RAM As is  now defined in /projects api)
+//     var  mMeetings =  pJSON            // .(30209.01.6 RAM As     was defined in /projects api)
 
        var  aHTML  =  mMeetings.map( fmtMeeting ).join( "\n" )
 //     var  aHTML  =  mMembers.sort(sortitem).map( fmtMember ).join( "\n" )
@@ -53,7 +54,7 @@ function  fmtMeetings( pJSON ) {
 
        var  aClass = i % 2 == 1 ? "row-even" : "row-odd"
 //     var  aClass = "class=row-" + ( i % 2 ? "even" : "odd" )
-//     var  aClass   =   (  `class="row-even"` )
+//     var  aClass = ( `class="row-even"` )
 
        var aMeetingDate =    pMeeting.strMeetingDate
        var aMeetingTime =    pMeeting.strMeetingTime

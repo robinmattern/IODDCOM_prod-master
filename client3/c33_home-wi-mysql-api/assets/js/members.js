@@ -40,8 +40,9 @@ if ( aTests.match( /test2/ ) ) {
 
 function  fmtMembers( pJSON ) {  
 
-//     var  mMembers =  pJSON.members   // as defined in db.json
-       var  mMembers =  pJSON                // as defined in /projeccts api
+//     var  mMembers =  pJSON.members    // .(30209.01.2 RAM As is      defined in db.json)
+       var  mMembers =  pJSON.members    // .(30209.01.2 RAM As is  now defined in /projects api)
+//     var  mMembers =  pJSON            // .(30209.01.2 RAM As     was defined in /projects api)
 
        var  aHTML  =  mMembers.map( fmtMember ).join( "\n" )
 //     var  aHTML  =  mMembers.sort(sortitem).map( fmtMember ).join( "\n" )

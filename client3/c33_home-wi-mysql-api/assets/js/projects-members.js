@@ -14,7 +14,10 @@ aTests='live in Browser'
 //---------------------------------------------------------------------------------------------------
 
 function  fmtProjectsMembers( pJSON ) {     
-       var  mMembers_projects =  pJSON.members_projects
+
+//     var  mMembers_projects =  pJSON.members_projects    // .(30209.01.3 RAM As is      defined in db.json)
+       var  mMembers_projects =  pJSON.members_projects    // .(30209.01.3 RAM As is  now defined in /projects api)
+//     var  mMembers_projects =  pJSON                     // .(30209.01.3 RAM As     was defined in /projects api)
 
 //       var  aHTML    =  mMembers_projects.map( fmtMember ).join( "\n" )
 //       var  aHTML    =  mMembers_projects.sort(sortitem).map( fmtMemberProject ).join( "\n" )
