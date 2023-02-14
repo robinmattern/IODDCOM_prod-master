@@ -264,7 +264,7 @@ app.get( '/meetings', function( req, res ) {
 // -------------------------------------------------------------------------
 
 	app.listen(3001);
-	console.log( "\n   Server is running at: http://localhost:3001" )
+	console.log( "\n   Server is running at: http://localhost:3003" )
 
 // EOF
 // EOF
