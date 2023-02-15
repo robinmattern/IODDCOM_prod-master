@@ -38,7 +38,12 @@
 </head>
 <body>
 
-<script>var aName = "Projects"</script>	
+<script>
+    var aName = "Projects"
+    var aAPI  = `${document.location.href}`.match( /iodd.com/i ) ? '/api3' : ''             //  .(30214.03.1 RAM Set if not running in Windows)
+    var aAPI_URL = aAPI ? '/api3' : 'http://localhost:3003'                                 // .(30214.03.2)
+</script>
+
 <div class="container">
 
 <!--  Header -->
@@ -122,7 +127,8 @@
                 var pProjects = document.getElementById( "Projects" )
 //                  pProjects.innerHTML = fmtProjects( pJSON )
 
-                    fetch( 'http://localhost:3003/projects' )
+//                  fetch( 'http://localhost:3003/projects' )                           //#.(30214.03.3)
+                    fetch( `${aAPI_URL}/projects` )                                     // .(30214.05.3)
            .then( ( res  ) => res.json( ) )
            .then( ( json ) => {  
                                 pProjects.innerHTML = fmtProjects( json ) } ) 

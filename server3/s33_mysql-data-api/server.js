@@ -16,26 +16,30 @@ var pDB = mysql.createConnection( {
 		password : 'FormR!1234',
 		database : 'iodd'
 	} );
+
+var aAPI = `${process.argv[1]}`.match( /^C:/ ) ? '' : '/api3'                           // .(30214.03.1 RAM Set if running in Windows)
+//     console.log( `aAPI: ${aAPI}, argv0: '${process.argv[1]}'`);
+
 // -------------------------------------------------------------------------
 
-	app.get( '/', function( req, res ) {
+	app.get( aAPI + '/', function( req, res ) {                                         // .(30214.03.2 RAM Add aAPI )
 		res.send(`
 		Welcome to IODD MySQL Express Server API.<br>
 		Use any of the following APIs:<br>
 		<div style="margin-left:20px">
-		  <a href="/home"                         >/home</a><br>                         <!-- .(20308.01.1 JRS Added) -->
+		  <a href="/home"                         >/home</a><br>                        <!-- .(20308.01.1 JRS Added) -->
 		  <a href="/members"                      >/members</a><br>
 		  <a href="/members-projects"             >/members-projects</a><br>     
 		  <a href="/projects"                     >/projects</a><br> 
-		  <a href="/projects?letters=a"           >/projects?letters=a</a><br>            <!-- .(20307.02.1 RAM Added) -->
-		  <a href="/project-colaborators"         >/project-colaborators</a><br>          <!-- .(20307.02.2) -->
-		  <a href="/project-colaborators-letters" >/project-colaborators-letters</a><br>  <!-- .(20307.02.3) -->
+		  <a href="/projects?letters=a"           >/projects?letters=a</a><br>          <!-- .(20307.02.1 RAM Added) -->
+		  <a href="/project-colaborators"         >/project-colaborators</a><br>        <!-- .(20307.02.2) -->
+		  <a href="/project-colaborators-letters" >/project-colaborators-letters</a><br><!-- .(20307.02.3) -->
 		</div>       
 		`);
 	} ) ;
 // -------------------------------------------------------------------------
 
-	app.get( '/projects', function( req, res ) {
+	app.get( aAPI + '/projects', function( req, res ) {                                 // .(30214.03.3)
 
 	var nRecs    = req.query.recs || 999 
 //  var aName    = req.query.name
@@ -67,13 +71,13 @@ var pDB = mysql.createConnection( {
 		if ( error ) { 
 			console.log( `** Error: ${error.message}` );
 //	        res.send( `Error: ${error.message}` );
-			res.send( JSON.stringify( { projects: { Error: error.message } } ) );   // .(30208.06.1 RAM Add top table object to conform to db.json structure) 
+			res.send( JSON.stringify( { projects: { Error: error.message } } ) );       // .(30208.06.1 RAM Add top table object to conform to db.json structure) 
 			res.end();
 			return
 		    }
 		if (results.length > 0) {
 			res.setHeader( 'Content-Type', 'application/json' );
-			res.send( JSON.stringify( { projects: results } ) );                    // .(30208.06.2 RAM Add top table object)
+			res.send( JSON.stringify( { projects: results } ) );                        // .(30208.06.2 RAM Add top table object)
 		} else {
 			console.log( `** Error: "No Projects Found"` );
 			res.send( `{ projects: { Error: "No projects found" } }` );
@@ -82,9 +86,8 @@ var pDB = mysql.createConnection( {
 		};
 	} );
 // -------------------------------------------------------------------------
-// -------------------------------------------------------------------------
 
-app.get( '/members', function( req, res ) {
+	app.get( aAPI + '/members', function( req, res ) {                                  // .(30214.03.4)
 
 	var nRecs = req.query.recs || 999 
 	var aName = req.query.name
@@ -105,7 +108,7 @@ app.get( '/members', function( req, res ) {
 		    }
 		if (results.length > 0) {
 			res.setHeader( 'Content-Type', 'application/json' );
-			res.send( JSON.stringify( { members: results } ) );                     // .(30208.06.3)
+			res.send( JSON.stringify( { members: results } ) );                         // .(30208.06.3)
 		} else {
 			res.send( `{ error: "No members found" }` );
 		}
@@ -114,7 +117,7 @@ app.get( '/members', function( req, res ) {
 	} );
 // -------------------------------------------------------------------------
 
-app.get( '/members-projects', function( req, res ) {
+	app.get( aAPI + '/members-projects', function( req, res ) {                         // .(30214.03.5)
 
 	var nRecs = req.query.recs || 999 
 	var aName = req.query.name
@@ -134,7 +137,7 @@ app.get( '/members-projects', function( req, res ) {
 		    }
 		if (results.length > 0) {
 			res.setHeader( 'Content-Type', 'application/json' );
-			res.send( JSON.stringify( { "members-projects": results } ) );          // .(30208.06.4).(30203.06.12 RAM Added s to member-projects)
+			res.send( JSON.stringify( { "members_projects": results } ) );              // .(30208.06.4).(30203.06.12 RAM Added s to member-projects).30203.06.12 RAM - s.b. _)
 		} else {
 			res.send( `{ error: "No members-projects found" }` );
 		}
@@ -142,10 +145,11 @@ app.get( '/members-projects', function( req, res ) {
 		};
 	} );
 // -------------------------------------------------------------------------
-	app.get( '/project-colaborators', function( req, res ) {
 
-   var  iId  =  req.query.id || 0  
-   var 	aSQL = `SELECT  Distinct * 
+	app.get( 'aAPI + /project-colaborators', function( req, res ) {                     // .(30214.03.6)
+
+    var iId  =  req.query.id || 0  
+    var aSQL = `SELECT  Distinct * 
                   FROM  members_projects_view ${ iId ? 
                 `WHERE  ProjectId = ${iId}` : `` }`
 
@@ -160,7 +164,7 @@ app.get( '/members-projects', function( req, res ) {
 		    }
 		if (results.length > 0) {
 			res.setHeader( 'Content-Type', 'application/json' );
-			res.send( JSON.stringify( { colaborators: results } ) );                // .(30208.06.5)
+			res.send( JSON.stringify( { colaborators: results } ) );                    // .(30208.06.5)
 		} else {
 			res.send( `{ error: "No projects found" }` );
 		}
@@ -169,14 +173,14 @@ app.get( '/members-projects', function( req, res ) {
 	} );  // app.get( '/project-colaborators', ... ) 
 // -------------------------------------------------------------------------
 
-	app.get( '/project-colaborators-letters', function( req, res ) {
+	app.get( aAPI + '/project-colaborators-letters', function( req, res ) {             // .(30214.03.7)
 
    var  iId  =  req.query.id || 0  
    var 	aSQL = `SELECT  Distinct substr(LastName,1,1) as Letter 
                   FROM  members_projects_view
                ORDER BY 1` 
 
-   var  aTable = "letters"                                                          // .(30208.06.6)
+   var  aTable = "letters"                                                              // .(30208.06.6)
 
 		pDB.query( aSQL, onQuery )  
 
@@ -204,7 +208,8 @@ app.get( '/members-projects', function( req, res ) {
 	} );  // app.get( '/project-colaborators-letters', ... ) 
 
 // -------------------------------------------------------------------------
-app.get( '/home', function( req, res ) {
+
+	app.get( 'aAPI + /home', function( req, res ) {                                     // .(30214.03.8)
 
 	var nRecs = req.query.recs || 999 
 	var aName = req.query.name
@@ -212,7 +217,7 @@ app.get( '/home', function( req, res ) {
 	if (aName == null) {
     var aSQL  = `SELECT *     
 			   	 FROM meetings
-			 	 ORDER BY MeetingDateTime DESC `                                    // .(20307.01.1 RJS Was strMeetingTime) 
+			 	 ORDER BY MeetingDateTime DESC `                                        // .(20307.01.1 RJS Was strMeetingTime) 
 			  + `LIMIT 1`
 	    }
 		pDB.query(aSQL, onQuery)
@@ -234,7 +239,7 @@ app.get( '/home', function( req, res ) {
 	} );
 // -------------------------------------------------------------------------
 
-app.get( '/meetings', function( req, res ) {
+	app.get( aAPI + '/meetings', function( req, res ) {                                 // .(30214.03.9)
 
 	var nRecs = req.query.recs || 999 
 	var aName = req.query.name
@@ -253,7 +258,7 @@ app.get( '/meetings', function( req, res ) {
 		    }
 		if (results.length > 0) {
 			res.setHeader( 'Content-Type', 'application/json' );
-			res.send( JSON.stringify( { meetings: results } ) );                    // .(30208.06.7)
+			res.send( JSON.stringify( { meetings: results } ) );                        // .(30208.06.7)
 		} else {
 			res.send( `{ error: "No meetings found" }` );
 		}
@@ -261,10 +266,16 @@ app.get( '/meetings', function( req, res ) {
 		};
 	} );
 // -------------------------------------------------------------------------
-// -------------------------------------------------------------------------
 
-	app.listen(3003);                                                               // .(30213.02.2 Change real port from 3000 to 3003)
-	console.log( "\n   Server is running at: http://localhost:3003" )               // .(30213.02.1 Change port from 3000 to 3003)
+    var nPort = 3003                                                                    // .(30213.02.3 RAM Set nPort once)
+
+	    app.listen( nPort );                                                            // .(30213.02.2 RAM Change real port from 3000 to 3003).(30213.02.4)
+    if (aAPI == '') {                                                                   // .(30214.03.11)
+        console.log( `\n   Server is running at: http://localhost:${nPort}` )           // .(30213.02.1 Change port from 3000 to 3003).(30213.02.5)
+    } else {                                                                            // .(30214.03.12 Beg)
+        console.log( `\n   Server is running at: https://IODD.com${aAPI} -> port:${nPort}` )
+        }                                                                               // .(30214.03.12 End)
+        console.log(   `   Server is running in: ${ process.argv[1] }\n` )              // .(30214.03.10 RAM Display root dir)
 
 // EOF
 // EOF

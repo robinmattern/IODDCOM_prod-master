@@ -33,13 +33,18 @@
         <link rel="stylesheet"    href="css/08_resp_950-1100-tabletLandscape.css">
     -->
 
-        <script src="../assets/json/db.json.js" type="application/javascript" ></script>
+<!--    <script src="../assets/json/db.json.js" type="application/javascript" ></script> -->
         <script src="../assets/js/members-projects-laptop.js"  type="application/javascript" ></script>
         <script src="../assets/js/members-projects-mobile.js"  type="application/javascript" ></script>
 
 </head>
 <body>
-<script>var aName = "MembersProjects"</script>	
+<script>
+    var aName = "MembersProjects"
+    var aAPI  = `${document.location.href}`.match( /iodd.com/i ) ? '/api1' : ''             // .(30214.03.1 RAM Set if not running in Windows)
+    var aAPI_URL = aAPI ? '/api1' : 'http://localhost:3001'                                 // .(30214.03.2)
+</script>
+
 <div class="container">
 
 <!--  Header -->
@@ -128,7 +133,8 @@
                 var pMembers = document.getElementById( "Members-laptop" )
 //                  pMembers.innerHTML = fmtMembersProjectsLaptop( pJSON )
 
-                    fetch( 'http://localhost:3000/members-projects' )
+//                  fetch( 'http://localhost:3003/members-projects' )                   //#.(30214.03.3)
+                    fetch( `${aAPI_URL}/members-projects` )                             // .(30214.05.3)
            .then( ( res  ) => res.json( ) )
            .then( ( json ) => {  
                                 pMembers.innerHTML = fmtMembersProjectsLaptop( json ) } ) 
@@ -146,7 +152,8 @@
                 var pMembers = document.getElementById( "Members-mobile" )
 //                  pMembers.innerHTML = fmtMembersProjectsMobile( pJSON )
 
-                    fetch( 'http://localhost:3000/members-projects' )
+//                  fetch( 'http://localhost:3000/members-projects' )                   //#.(30214.03.5)
+                    fetch( `${aAPI_URL}/members-projects` )                             // .(30214.05.5)
            .then( ( res  ) => res.json( ) )
            .then( ( json ) => {  
                                 pMembers.innerHTML = fmtMembersProjectsMobile( json ) } ) 

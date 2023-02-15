@@ -42,7 +42,8 @@ if ( aTests.match( /test1/ ) ) {
   
 function  fmtMembersProjectsMobile( pJSON ) {     
  //      var  mMembers_projects =  pJSON.members_projects
-         var  mMembers_projects = pJSON   // as defined in /members-projects api
+         var  mMembers_projects =  pJSON   // as defined in /members-projects api
+
 //       var  aHTML    =  mMembers_projects.map( fmtMember ).join( "\n" )
 //       var  aHTML    =  mMembers_projects.sort(sortitem).map( fmtMemberProject ).join( "\n" )
          var  aHTML    =  mMembers_projects.map( fmtMemberProjectMobile ).join( "\n" )

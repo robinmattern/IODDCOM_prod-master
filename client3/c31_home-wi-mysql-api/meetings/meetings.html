@@ -31,13 +31,17 @@
         <link rel="stylesheet"    href="css/07_resp_1100-1900-laptop.css">
         <link rel="stylesheet"    href="css/08_resp_950-1100-tabletLandscape.css">
 -->
-
-        <script src="../assets/json/db.json.js" type="application/javascript" ></script>
-        <script src="../assets/js/meetings.js"   type="application/javascript" ></script>
+<!--    <script src="../assets/json/db.json.js" type="application/javascript" ></script> -->
+        <script src="../assets/js/meetings.js"  type="application/javascript" ></script>
 
 </head>
 <body>
-<script>var aName = "Meetings"</script>	
+<script>
+    var aName = "Meetings"
+    var aAPI  = `${document.location.href}`.match( /iodd.com/i ) ? '/api1' : ''             // .(30214.03.1 RAM Set if not running in Windows)
+    var aAPI_URL = aAPI ? '/api1' : 'http://localhost:3001'                                 // .(30214.03.2)
+</script>
+	
 <div class="container">
 
 <!--  Header -->
@@ -89,9 +93,10 @@
             </tbody>
             <script>
                 var pMeetings = document.getElementById( "Meetings" )
-//                 pMeetings.innerHTML = fmtMeetings( pJSON )
+//                  pMeetings.innerHTML = fmtMeetings( pJSON )
 
-                    fetch( 'http://localhost:3000/meetings' )
+//                  fetch( 'http://localhost:3003/meetings' )                           //#.(30214.03.7)
+                    fetch( `${aAPI_URL}/meetings` )                                     // .(30214.05.7)
            .then( ( res  ) => res.json( ) )
            .then( ( json ) => {  
                                 pMeetings.innerHTML = fmtMeetings( json ) } ) 

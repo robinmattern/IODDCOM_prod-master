@@ -42,8 +42,8 @@ if ( aTests.match( /test2/ ) ) {
   
 function  fmtMembersProjectsLaptop( pJSON ) {     
 
-//       var  mMembers_projects =  pJSON.members_projects    // .(30209.01.4 RAM As is      defined in db.json)
-         var  mMembers_projects =  pJSON.members_projects    // .(30209.01.4 RAM As is  now defined in /projects api)
+//       var  mMembers_projects =  pJSON.members_projects    // .(30209.01.4 RAM As is      defined in db.json) 
+         var  mMembers_projects =  pJSON.members_projects    // .(30209.01.4 RAM As is  now defined in /projects api) 
 //       var  mMembers_projects =  pJSON                     // .(30209.01.4 RAM As     was defined in /projects api)
 
 //       var  aHTML    =  mMembers_projects.map( fmtMember ).join( "\n" )
