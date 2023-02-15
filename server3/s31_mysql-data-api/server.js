@@ -20,6 +20,38 @@ var pDB = mysql.createConnection( {
 var aAPI = `${process.argv[1]}`.match( /^C:/ ) ? '' : '/api1'                           // .(30214.03.1 RAM Set if running in Windows)
 //      console.log( `aAPI: ${aAPI}, argv0: '${process.argv[1]}'`);
 
+	app.get( '/projects', function( req, res ) {
+	var nRecs = req.query.recs || 999 
+	var aName = req.query.name
+	if (aName == null) {
+	var aSQL = `SELECT * 
+				FROM members_projects_colaboration_view
+				WHERE Id <= ${nRecs}
+				ORDER BY ProjectName, ProjectStyle `
+	} else {
+		var aSQL = `SELECT *
+					FROM members
+					WHERE LastName = '${aName}'`
+	}
+//		pDB.query( `SELECT * FROM projects WHERE Id <= ${nRecs}`, onQuery )
+		pDB.query(aSQL, onQuery)
+	function onQuery( error, results, fields ) {
+		if ( error ) { 
+			console.log( `** Error: ${error.message}` );
+			res.send( `Error: ${error.message}` );
+			res.end();
+			return
+		    }
+		if (results.length > 0) {
+			res.setHeader( 'Content-Type', 'application/json' );
+			res.send( JSON.stringify( results ) );
+			//res.send( JSON.stringify( { projects:results } ) );
+		} else {
+			res.send( `{ error: "No projects found" }` );
+		}
+		res.end();
+		};
+	} );
 // -------------------------------------------------------------------------
 
     app.get( aAPI + '/', function( req, res ) {                                         // .(30214.03.2 RAM Add aAPI )
