@@ -6,15 +6,45 @@ aTests='live in Browser'
   if ( aTests.match( /test1/ ) ) { 
 
        var  pJSON    =  parseJSON( '../json/db_v2.json.js' )
-       var  aHTML    =  fmtMembersProjects(  pJSON )
+       var  aHTML    =  fmtMembersProjectsMobile(  pJSON )
 
             console.log( aHTML )
             }
 
 //---------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------
+      
+if ( aTests.match( /test1/ ) ) { 
 
+  //     var  pJSON    =  parseJSON( '../json/db.json.js' )   // replaced by fetch api 
+  //     var  aHTML    =  fmtMembers(  pJSON )
+  
+      fetch( 'http://formr.net/home' )
+             .then( res => res.text( ) )
+             .then( text => console.log( text ) )     
+              } // eof test1
+  //---------------------------------------------------------------------------------------------------
+  
+  if ( aTests.match( /test2/ ) ) { 
+       
+      fetch( 'http://localhost:3003/members-projects?recs=5' )
+             .then( ( res  ) => res.json( ) )
+             .then( ( json ) => onFetch( json ) )
+             .catch(( err  ) => console.log( `** ${err.message}` ) );      
+                  
+    function  onFetch( pJSON ) {
+         var  aHTML    =  fmtMembersProjectsMobile( pJSON )
+              console.log( aHTML )   
+              } // eof onFetch 
+       
+          } // eof test2
+  //---------------------------------------------------------------------------------------------------
+  
 function  fmtMembersProjectsMobile( pJSON ) {     
-       var  mMembers_projects =  pJSON.members_projects
+
+//     var  mMembers_projects =  pJSON.members_projects    // .(30209.01.5 RAM As is      defined in db.json) 
+       var  mMembers_projects =  pJSON.members_projects    // .(30209.01.5 RAM As is  now defined in /projects api) 
+//     var  mMembers_projects =  pJSON                     // .(30209.01.5 RAM As     was defined in /projects api)
 
 //       var  aHTML    =  mMembers_projects.map( fmtMember ).join( "\n" )
 //       var  aHTML    =  mMembers_projects.sort(sortitem).map( fmtMemberProject ).join( "\n" )
@@ -30,40 +60,42 @@ function  fmtMembersProjectsMobile( pJSON ) {
 //     var  aClass = "class=row-" + ( i % 2 ? "even" : "odd" )
 //     var  aClass   =   (  `class="row-even"` )
 
-       var  aMI      =     pMember.Middlename;  aMI = ( aMI  > "" ) ?   ` ${ aMI.substr(0,1) }. ` : ""
+       var  aMI        =     pMember.Middlename;  aMI = ( aMI  > "" ) ?   ` ${ aMI.substr(0,1) }. ` : ""
        var  aNameBR    = `${ pMember.FirstName }${aMI} <br> ${ pMember.LastName }`
-       var  aName    =   `${ pMember.FirstName }${aMI} ${ pMember.LastName }`
-//     var  aPhone   =     pMember.Phone1 + ( pMember.Phone2 > ""   ? `, ${ pMember.Phone2  }` : "" )
-//          aPhone   =     aPhone != "null" ? aPhone : ""
-       var  aPhone1  =     pMember.Phone1
-            aPhone1  =     aPhone1 != null ? aPhone1 : ""
-       var  aPhone2  =     pMember.Phone2
-            aPhone2  =     aPhone2 != null ? aPhone2 : ""
-       var  aEmail   =     pMember.Email
-       var  aAddress =     pMember.Address1
-       var  aCity    =     pMember.City
-       var  aState   =     pMember.State
-       var  aZip     =     pMember.Zip
-       var  aProjName =    pMember.ProjectName
-       var  aClient  =     pMember.Client
-       var  aClientWeb =   pMember.ClientWeb
-       var  aLocation =    pMember.Location
-       var  aProjType =    pMember.ProjectType
-       var  aStyle    =    pMember.Style
-       var  aRole    =     pMember.Role
-       var  aDates   =     pMember.Dates
-       var  aDuration =    pMember.Duration
-       var  aBio     =     pMember.Bio
-       var  aDescription = pMember.Description
-       var  aSort    =     pMember.Sort
-       var  aRow     =     `
+       var  aName      = `${ pMember.FirstName }${aMI} ${ pMember.LastName }`
+       var  aLastName  =     pMember.LastName
+       var  aBookmark  =     aLastName.substring(0,1)
+//     var  aPhone     =     pMember.Phone1 + ( pMember.Phone2 > ""   ? `, ${ pMember.Phone2  }` : "" )
+//          aPhone     =     aPhone != "null" ? aPhone : ""
+       var  aPhone1    =     pMember.Phone1
+            aPhone1    =     aPhone1 != null ? aPhone1 : ""
+       var  aPhone2    =     pMember.Phone2
+            aPhone2    =     aPhone2 != null ? aPhone2 : ""
+       var  aEmail     =     pMember.Email
+       var  aAddress   =     pMember.Address1
+       var  aCity      =     pMember.City
+       var  aState     =     pMember.State
+       var  aZip       =     pMember.Zip
+       var  aProjName  =     pMember.ProjectName
+       var  aClient    =     pMember.Client
+       var  aClientWeb =     pMember.ClientWeb
+       var  aLocation  =     pMember.Location
+       var  aProjType  =     pMember.ProjectType
+       var  aStyle     =     pMember.Style
+       var  aRole      =     pMember.Role
+       var  aDates     =     pMember.Dates
+       var  aDuration  =     pMember.Duration
+       var  aBio       =     pMember.Bio
+       var  aDescription =   pMember.Description
+       var  aSort      =     pMember.Sort
+       var  aRow       =  `
 
        <!--<tr Class="${ aClass }" id="R${ `${ i + 1 }`.padStart( 3, "0" ) }">-->
 
        <div class="members-projects-mobile">
        <table class="main-table-mobile">
            <tr>
-             <td colspan="3" valign="top" align="center">
+             <td id="${ aBookmark }" colspan="3" valign="top" align="center">
                <table class="${ aStyle }" cellspacing="0" cellpadding="0" align="center" width="110%">
                    <tr>
                        <!--NAME-->
@@ -129,21 +161,6 @@ function  fmtMembersProjectsMobile( pJSON ) {
                     <td align="right" valign="top">Type:&nbsp;&nbsp;</td><td valign="bottom">${ aProjType }</td>
                   </tr>
                 <table>
-
-<!--
-                <div class="project-summary-list-mobile">
-                  <ul>
-                    <li class="project-summary-name-mobile">Project:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="project-name-mobile">${ aProjName }</span></li>
-                    <li>Owner: ${ aClient }</li>
-                    <li class="project-summary-web-mobile">Owner Web:<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${ aClientWeb }" target="_blank">${ aClientWeb }</a></li>
-                    <li>Dates: ${ aDates }</li>
-                    <li>Location: ${ aLocation }</li>
-                    <li class="project-summary-role-mobile">Role:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="project-role-mobile">${ aRole }</span></li>
-                    <li>Duration: ${ aDuration }</li>
-                    <li class="project-summary-type-mobile">Type: ${ aProjType }</li>
-                  </ul>
-                  </div>
--->
                   <span class="project-title-line-mobile"><hr></span>
                 </td>
               </tr>
@@ -183,9 +200,9 @@ function  fmtMembersProjectsMobile( pJSON ) {
             }   // eof  parseJSON
 //--------  -------  =  -------------------------------------------------------
 
-function sortitem(a,b) {
-     var aSort = String(51 - a.Sort).padStart(2,"0")
-	return (a.LastName + a.FirstName + aSort) > (b.LastName + b.FirstName + aSort) ? 1 : -1
-	}
+// function sortitem(a,b) {
+//      var aSort = String(51 - a.Sort).padStart(2,"0")
+// 	return (a.LastName + a.FirstName + aSort) > (b.LastName + b.FirstName + aSort) ? 1 : -1
+// 	}
 //---------------------------------------------------------------------------------------------------
 
