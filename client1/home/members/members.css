@@ -170,6 +170,9 @@ and (max-width: 736px)
         margin: auto;
         /*background-color: cornflowerblue;*/
     }
+    .HeaderQuickNav {
+        display: none;
+    }
     .QuickNav {
         width: 737px;
         letter-spacing: 4px;
@@ -280,12 +283,12 @@ The @media MAX-width query properties
         width: 100%;
     }
     .HeaderQuickNav {
-        display: block;
+        display: none;
         text-align: center;
         height: 270px;
     }
     .QuickNav {
-        padding: 10px 100px 0px 0px;
+        padding: 10px 120px 0px 0px;
         height: 60px;
         width: 500px;
         letter-spacing: 6px;
@@ -302,7 +305,7 @@ The @media MAX-width query properties
     }
     .Section2 {
         background-color: #E5E4E2; /*platinum*/
-        top: 70px;
+        top: 0px;
         height: 90%;
         width: 100%;
         overflow-y: auto;

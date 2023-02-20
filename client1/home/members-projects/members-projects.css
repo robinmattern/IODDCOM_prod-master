@@ -364,6 +364,9 @@ The @media MAX-width query properties
         max-width: 400px;
         margin: auto;
     }
+    .Logo {
+        padding: 0px 0px 0px 130px;
+    }
     .Section1 {
         display: none;
     }
