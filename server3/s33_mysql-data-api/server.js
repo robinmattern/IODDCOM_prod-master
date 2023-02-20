@@ -42,29 +42,29 @@ var aAPI = `${process.argv[1]}`.match( /^C:/ ) ? '' : '/api3'                   
 	app.get( aAPI + '/projects', function( req, res ) {                                 // .(30214.03.3)
 
 	var nRecs    = req.query.recs || 999 
-//  var aName    = req.query.name
-    var aLetters = req.query.letters || '' 
+    var aName    = req.query.name
 
-/*	if (aName == null) {
-	var aSQL = `SELECT * 
-				FROM members_projects_colaboration_view
-				WHERE Id <= ${nRecs}
-				ORDER BY ProjectName, ProjectStyle `
-*/                
-  	if (aLetters == '') {
-	var aSQL = `SELECT * 
-				  FROM projects, members_projects
-                 WHERE projects.Id = members_projects.ProjectId
-			 	   AND projects.Id <= ${nRecs}
-	 		  ORDER BY Name, ProjectStyle `
-	} else {
-   var  aSQL  = `SELECT  * 
-                   FROM  members, members_projects, projects  
-                  WHERE  members.Id  = members_projects.MemberId
-                    AND  projects.Id = members_projects.ProjectId
-                    AND  LastName like '${aLetters}%' 
-               ORDER BY  Name, Lastname` 
-	}
+
+    if (aName == null) {
+    var aSQL =   `SELECT  *
+                  FROM  members_projects_colaboration_view
+                 WHERE  Id <= ${nRecs}
+              ORDER BY  ProjectName, ProjectStyle `
+
+
+
+
+
+
+
+    } else {
+    var aSQL = `SELECT  *
+                  FROM  members
+                 WHERE
+
+                        LastName like '${aName}%'`                                      // .(30220.03.1 RAM Was = '${aName}')
+
+        }
 //		pDB.query( `SELECT * FROM projects WHERE Id <= ${nRecs}`, onQuery )
 		pDB.query(aSQL, onQuery)
 	function onQuery( error, results, fields ) {
