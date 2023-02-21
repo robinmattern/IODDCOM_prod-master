@@ -1,0 +1,14 @@
+{
+  "apps":
+
+   [ { "name"  :   'IODD_s62032'
+     , "script":   'server3/s32_mysql-data-api/server.js'
+     ,  watch  : [ 'server3/s32_mysql-data-api/'      ]
+        }
+
+   , { "name"  :   'IODD_s62033'
+     , "script":   'server3/s33_mysql-data-api/server.js'
+     ,  watch  : [ 'server3/s33_mysql-data-api/'      ]
+        }
+     ]
+  }
