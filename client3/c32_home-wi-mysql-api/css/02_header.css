@@ -404,7 +404,7 @@ and (max-width: 440px)
         display: flex;
         text-align: center;
         width: 140px;
-        margin: 0px 0px 0px 0px;
+        margin: 0px 0px 0px 70px;
     }
     .next-meeting-date {
         font-size: 12px;
