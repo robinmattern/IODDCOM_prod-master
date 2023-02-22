@@ -58,7 +58,7 @@ function  fmtProjects( pJSON ) {
        var  aProjectStyle =  pProject.ProjectStyle
        var  aFirstName    =  pProject.FirstName
        var  aLastName     =  pProject.LastName
-       var  aName         =  pProject.Name  // .(30214.01.1 RAM Was: pProject.ProjectName)
+       var  aName         =  pProject.ProjectName  // .(30214.01.1 RAM Was: pProject.ProjectName)
        var  aBookmark     =  aName.substring(0,1)
        var  aClient       =  pProject.Client
        var  aType         =  pProject.ProjectType

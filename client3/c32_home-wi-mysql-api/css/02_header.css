@@ -204,7 +204,6 @@ and (max-width: 949px)
         width: 100px;
     }
     .HeaderNavListItemBack,
-    .HeaderNavListItemHome,
     .HeaderNavListItemMtgLoc {
         display: none;
     }

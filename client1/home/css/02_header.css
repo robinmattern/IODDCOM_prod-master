@@ -207,7 +207,6 @@ and (max-width: 949px)
         width: 100px;
     }
     .HeaderNavListItemBack,
-    .HeaderNavListItemHome,
     .HeaderNavListItemMtgLoc {
         display: none;
     }
@@ -274,7 +273,7 @@ and (max-width: 949px)
 and (min-width: 440px)
 and (max-width: 740px) 
 { 
-    .Logo td {
+  .Logo td {
         width: 250px;
     } 
   .Logo {
