@@ -48,8 +48,7 @@ var aAPI = `${process.argv[1]}`.match( /^C:/ ) ? '' : '/api2'                   
 	if (aName == null) {
 	var aSQL = `SELECT * 
 				FROM members_projects_colaboration_view
-				WHERE Id <= ${nRecs}
-				ORDER BY ProjectName, ProjectStyle `
+				WHERE Id <= ${nRecs} `
 	}             
 //   	if (aLetters == '') {
 // 	var aSQL = `SELECT * 
