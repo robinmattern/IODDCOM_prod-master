@@ -157,12 +157,12 @@ and (max-width: 736px)
         /*background-color: cornflowerblue;*/
     }
     .Section1 {
-        height: 180px
+        height: 50px
     }
     .Section1Title {
         font-size: 25px;
         text-align: left;
-        padding: 40px 0px 0px 20px;
+        padding: 0px 0px 0px 20px;
     }
     .Section2 {
         display: block;
@@ -174,7 +174,7 @@ and (max-width: 736px)
         background-color: #EAEAEA; /*very light gray*/
       }
     .Section2 div {
-        min-height: 0px;
+        min-height: 10px;
     }  
     .Section2Title {
         color: blue;
@@ -182,6 +182,7 @@ and (max-width: 736px)
         font-family: var(--GlobalFontFamily);
         text-align: left;
         padding: 0px 0px 0px 20px;
+        margin-top: -20px;
     }
     .Section2Title::first-letter {
         font-size:180%;
@@ -191,7 +192,7 @@ and (max-width: 736px)
         scroll-behavior: auto;
     }
     .main-table {
-        margin: 20px 0 0 20px;
+        margin: 10px 0 0 20px;
         padding: 0px 0px 0px 0px;
         border-collapse: collapse;
         width: 90%;
@@ -226,7 +227,7 @@ and (max-width: 736px)
         text-align: left;
     }
     .desc-div {
-        padding: 50px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
         max-width: 50%;
     }
     
@@ -234,10 +235,10 @@ and (max-width: 736px)
         font-size: 18px;
         font-weight: 600;
         color: blue;
-        padding: 10px 10px 10px 10px;
+        padding: 5px;
         text-align: justify;
         width: 40%;
-        border: solid 6px blue;
+        border: solid 2px blue;
         vertical-align: middle;
         border-radius: 0%;
         box-shadow: 8px 8px 2px 0px #888888;
@@ -247,7 +248,7 @@ and (max-width: 736px)
         width: 50%;
     }
     .Footer {
-        display: block;
+        display: none;
         max-width: 100%;
         margin: auto;
         height: 60px;
