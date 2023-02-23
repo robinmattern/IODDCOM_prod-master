@@ -14,7 +14,10 @@ The @media MAX-width query properties
   
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
-
+/*Hamburger menu - controls menu vert spacing*/
+.MenuWrap .Menu > div > div > ul > li {
+    padding: 22px;
+  }
 /*-----------------------------------------
 The .Section1 properites
 ------------------------------------------*/
@@ -128,7 +131,7 @@ The .Section2 properites
 
 
 .Footer {
-    display: flex;
+    display: none;
     height: 30px;
     width: 440px;
     opacity: 0.82;

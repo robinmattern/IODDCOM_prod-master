@@ -232,7 +232,7 @@ and (max-width: 736px)
     }
     
     .desc {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 600;
         color: blue;
         padding: 5px;
@@ -281,7 +281,7 @@ The @media MAX-width query properties
         width: 100%;
     }
     .HeaderSpacer {
-        width: 130px;
+        width: 30px;
     }
     .Section1 {
         height: 180px;
@@ -355,18 +355,18 @@ The @media MAX-width query properties
         text-align: left;
     }
     .desc-div {
-        padding: 40px 50px 0px 0px;
+        padding: 5px 50px 0px 0px;
         max-width: 50%;
     }
     
     .desc {
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 600;
         color: blue;
         padding: 10px 10px 10px 10px;
         text-align: left;
         width: 45%;
-        border: solid 6px blue;
+        border: solid 2px blue;
         vertical-align: middle;
         border-radius: 0%;
         box-shadow: 8px 8px 2px 0px #888888;
@@ -376,7 +376,7 @@ The @media MAX-width query properties
         width: 50%;
     }
     .Footer {
-        display: block;
+        display: none;
         max-width: 100%;
         margin: auto;
         height: 60px;

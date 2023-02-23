@@ -270,8 +270,8 @@ and (max-width: 949px)
 and (min-width: 440px)
 and (max-width: 740px) 
 { 
-    .Logo td {
-        width: 250px;
+   td.Logo {
+        width: 400px;
     } 
   .Logo {
       width: 250px;
@@ -404,7 +404,7 @@ and (max-width: 440px)
         display: flex;
         text-align: center;
         width: 140px;
-        margin: 0px 0px 0px 70px;
+        margin: 0px 0px 0px 40px;
     }
     .next-meeting-date {
         font-size: 12px;
