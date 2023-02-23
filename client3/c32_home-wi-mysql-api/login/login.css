@@ -78,6 +78,44 @@ body {
     font-size: 25px;
     font-family: var(--GlobalFontFamily);
   }
+  /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*-----------------------------------------
+The @media MAX-width query properties
+***** IPHONE - Landscape
+/*If Device Width 
+  is >= 441px AND 
+  <= 740px Then...*/
+
+/*=========================================*/
+@media only screen
+and (min-width: 441px)
+and (max-width: 740px) 
+{ 
+  .imgcontainer {
+    margin: 16px 0 12px 0;
+  }
+  .container {
+    padding: 10px;
+    height: 170px;
+  }
+  h2 {
+    margin: 10px;
+  }
+  input[type=text], 
+  input[type=password] {
+    width: 99%;
+    padding: 12px 20px;
+    margin: 0px 0;
+  }
+  button {
+    width: 70%;
+  }
+
+  element.style {
+    margin-left: 20px;
+  }  
+}
   /* Change styles for span and cancel button on extra small screens */
   @media screen and (max-width: 300px) {
     span.psw {

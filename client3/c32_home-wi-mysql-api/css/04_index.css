@@ -133,7 +133,7 @@ The .Section2 properites
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      width: 90%;
+      width: 100%;
       padding-left: 20px;
       /*column-rule: dotted 1px #333;*/
       /*column-width: auto;*/

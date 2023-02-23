@@ -35,6 +35,8 @@ body {
     width: var(--GlobalMaxWidth);
     align-items: center;
     background-color:  var(--HeaderFooterBGColor);
+    /* background-color: "#E5E4E2"; */
+    background-color: #EAEAEA; /*very light gray*/
     color: blue;
     letter-spacing: 4px;
 } 
@@ -49,7 +51,7 @@ body {
     display: none;
 }
 .TableSpacer{
-    height: 100px;
+    height: 60px;
 }
 .Section1 {
     display: none;
@@ -170,19 +172,23 @@ and (max-width: 736px)
         margin: auto;
         /*background-color: cornflowerblue;*/
     }
+    #arrowUp {
+        display: none;
+    }
     .QuickNav {
         width: 540px;
-        letter-spacing: 2px;
+        letter-spacing: 3px;
+        padding-right: 10px;
      }     
     .MidpointBreak {
         display: none;
     }      
     .TableSpacer{
-        height: 20px;
+        height: 30px;
     }
     .Section2 {
         display: block;
-        top: 70px; /*orig 70*/
+        top: 55px; /*orig 70*/
         height: 89%;
         border: 0px black solid;
 /*      background-color: aliceblue; */
