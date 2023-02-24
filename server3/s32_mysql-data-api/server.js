@@ -214,10 +214,8 @@ var aAPI = `${process.argv[1]}`.match( /^C:/ ) ? '' : '/api2'                   
 
 	if (aName == null) {
     var aSQL  = `SELECT *     
-			   	 FROM meetings
-			 	 ORDER BY MeetingDateTime DESC `                                        // .(20307.01.1 RJS Was strMeetingTime) 
-			  + `LIMIT 1`
-	    }
+			   	 FROM meetings_view `
+	     }
 		pDB.query(aSQL, onQuery)
 	function onQuery( error, results, fields ) {
 		if ( error ) { 
@@ -243,10 +241,7 @@ var aAPI = `${process.argv[1]}`.match( /^C:/ ) ? '' : '/api2'                   
 	var aName = req.query.name
 	if (aName == null) {
 	var aSQL = `SELECT * 
-				FROM meetings
-				WHERE IsForWeb = 'Y'
-				ORDER BY strMeetingDate DESC
-				LIMIT 1`
+				FROM meetings_view `
 	}
 		pDB.query(aSQL, onQuery)
 	function onQuery( error, results, fields ) {
