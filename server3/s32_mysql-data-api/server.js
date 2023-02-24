@@ -123,8 +123,7 @@ var aAPI = `${process.argv[1]}`.match( /^C:/ ) ? '' : '/api2'                   
 	if (aName == null) {
 	var aSQL = `SELECT * 
 				FROM members_projects_view
-				WHERE Id <= ${nRecs}
-				ORDER BY LastName, FirstName, Sort `
+				WHERE Id <= ${nRecs} `
 	}
 		pDB.query(aSQL, onQuery)
 	function onQuery( error, results, fields ) {
@@ -245,7 +244,9 @@ var aAPI = `${process.argv[1]}`.match( /^C:/ ) ? '' : '/api2'                   
 	if (aName == null) {
 	var aSQL = `SELECT * 
 				FROM meetings
-				ORDER BY MeetingDateTime DESC`
+				WHERE IsForWeb = 'Y'
+				ORDER BY strMeetingDate DESC
+				LIMIT 1`
 	}
 		pDB.query(aSQL, onQuery)
 	function onQuery( error, results, fields ) {
