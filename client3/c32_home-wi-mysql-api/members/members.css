@@ -17,7 +17,7 @@ body {
     margin: auto;
 }
 .HeaderQuickNav {
-    display: flex;
+    display: none;
     height: 0px;
     top: 60px;
     width: 800px; /* var(--GlobalMaxWidth); */
@@ -34,9 +34,7 @@ body {
     height: 25px;
     width: var(--GlobalMaxWidth);
     align-items: center;
-    background-color:  var(--HeaderFooterBGColor);
-    /* background-color: "#E5E4E2"; */
-    background-color: #EAEAEA; /*very light gray*/
+    background-color: "#E5E4E2"; /*platinum*/
     color: blue;
     letter-spacing: 4px;
 } 
@@ -150,6 +148,9 @@ body {
 .cellphone {
     font-size: 20px;
     padding: 0 20px 0 0;
+}
+#bottom {
+    display: none;
 }
 /*
 The @media MAX-width query properties

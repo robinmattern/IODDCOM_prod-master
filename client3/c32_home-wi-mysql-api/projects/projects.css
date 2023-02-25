@@ -39,10 +39,10 @@ body {
     height: 25px;
     width: 800px;
     align-items: center; 
-    padding: 0px 70px 0px 0px;
-    background-color:  var(--HeaderFooterBGColor);
+    padding: 0px 0px 0px 100px;
+    background-color: whitesmoke; /*var(--HeaderFooterBGColor);*/
     color: blue;
-    letter-spacing: 4px;
+    letter-spacing: 5px;
 } 
 .QuickNav a {
     text-decoration: none;
