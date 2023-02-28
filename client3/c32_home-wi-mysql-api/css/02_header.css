@@ -108,7 +108,21 @@ The @keyframes wiggle properties
     width: 100%;
     padding-right: 30px;;
 }
-
+.HeaderNavListItemInits{
+    display: flex;
+    padding: 10px 20px 0px 0px;
+}
+.HeaderNavListItemInits a {
+    padding: var(--InitsFontPadding);
+    background-color: var(--InitsBGColor);
+    border: var(--InitsBorderColor) var(--InitsBorderWeight) solid;
+    border-radius: 50%;
+    color: var(--InitsFontColor);
+    font-size: var(--InitsFontSize);
+    font-weight: var(--InitsFontWeight);
+    font-family: var(--GlobalFontFamily);
+    text-decoration: none;
+}
 /*========================================*/
 /* Dropdown Menu Styles */
 .dropbtn {
@@ -279,10 +293,27 @@ and (max-width: 949px)
         display: flex;
         padding: 0px 100px 0px 0px;
     }
-    .AvatarImage {
+    .HeaderNavListItemInits{
+        display: flex;
+        padding: 10px 100px 0px 0px;
+    }
+ 
+    /* .HeaderNavListItemInits a {
+        padding: 8px;
+        background-color: gainsboro;
+        border: blue 3px solid;
+        border-radius: 50%;
+        color: black;
+        font-size: 16px;
+        font-weight: 600;
+        font-family: var(--GlobalFontFamily);
+        text-decoration: none;
+
+    } */
+    /* .AvatarImage {
         padding-top: 8px;
         width: 220%;
-    }
+    } */
     .PencilImage {
         display: none;
     }
