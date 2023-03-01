@@ -6,7 +6,7 @@ body {
   }
   form {
     font-family: var(--GlobalFontFamily);
-    border: 3px solid #f1f1f1;
+    border: 5px solid #f1f1f1;
   }
   
   input[type=text], input[type=password] {
@@ -38,40 +38,72 @@ body {
     background-color: #f44336;
   }
   
-  .imgcontainer {
+  .initscontainer {
     text-align: center;
     margin: 24px 0 12px 0;
   }
-  
-  img.avatar {
-    width: 40%;
+  .initscontainer span {
+    padding: var(--InitsFontPadding);
+    background-color: var(--InitsBGColor);
+    border: var(--InitsBorderColor) var(--InitsBorderWeight) solid;
     border-radius: 50%;
+    color: var(--InitsFontColor);
+    font-size: var(--InitsFontSize);
+    font-weight: var(--InitsFontWeight);
+    font-family: var(--GlobalFontFamily);
+    text-decoration: none;
+
   }
-  .imgavatar {
-      width: 6%;
+
+  .logincontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    display: none;
+  }
+  .logincontainer span {
+    padding: var(--InitsFontPadding);
+    background-color: var(--PlatinumColor);
+    border: darkgray var(--InitsBorderWeight) solid;
+    border-radius: 50%;
+    color: red;
+    font-size: var(--InitsFontSize);
+    font-weight: var(--InitsFontWeight);
+    font-family: var(--GlobalFontFamily);
+    text-decoration: none;
+  }
+  .namecontainer span {
+    padding: 3px 40px;
+    background-color: var(--InitsBGColor);
+    border: var(--InitsBorderColor) var(--InitsBorderWeight) solid;
+    border-radius: 0%;
+    color: var(--InitsFontColor);
+    font-size: 14px;
+    font-weight: 600;
+    font-family: var(--GlobalFontFamily);
+    text-decoration: none;
+    align-items: center;
   }
   .container {
-    height: 250px;
-    padding: 16px;
+    height: 350px;
+    padding: 116px;
+    background-color: var(--PlatinumColor);
   }
   
   span.psw {
     float: right;
     padding-top: 16px;
   }
-  .HeaderNavListItemBack {
-    display: none;
-  }
-  .HeaderNavListItemHome a,
-  .HeaderNavListItemMtgLoc a {
-    text-decoration: none;
-    font-size: 18px;
-    font-family: var(--GlobalFontFamily);
-  }
+  
   .LoginTitle {
     top: 75px;
     position: relative;
   }
+  .initscontainer {
+    top: 75px;
+    position: relative;
+    background-color: var(--PlatinumColor);
+  }
+  
   h2 {
     text-align: left;
     margin: 20px;

@@ -28,6 +28,8 @@ var aAPI = `${process.argv[1]}`.match( /^C:/ ) ? '' : '/api2'                   
 		Use any of the following APIs:<br>
 		<div style="margin-left:20px">
 		  <a href="/home"                         >/home</a><br>                        <!-- .(20308.01.1 JRS Added) -->
+		  <a href="/login"                        >/login</a><br>
+		  <a href="/meetings"                     >/meetings</a><br>
 		  <a href="/members"                      >/members</a><br>
 		  <a href="/members-projects"             >/members-projects</a><br>     
 		  <a href="/projects"                     >/projects</a><br> 
@@ -206,34 +208,32 @@ var aAPI = `${process.argv[1]}`.match( /^C:/ ) ? '' : '/api2'                   
 	} );  // app.get( '/project-colaborators-letters', ... ) 
 
 // -------------------------------------------------------------------------
+	app.get( aAPI + '/home', function( req, res ) {                                 // .(30214.03.9)
 
-	app.get( 'aAPI + /home', function( req, res ) {                                     // .(30214.03.8)
-
-	var nRecs = req.query.recs || 999 
-	var aName = req.query.name
-
-	if (aName == null) {
-    var aSQL  = `SELECT *     
-			   	 FROM meetings_view `
-	     }
-		pDB.query(aSQL, onQuery)
-	function onQuery( error, results, fields ) {
-		if ( error ) { 
-			console.log( `** Error: ${error.message}` );
-			res.send( `Error: ${error.message}` );
-			res.end();
-			return
-		    }
-		if (results.length > 0) {
-			res.setHeader( 'Content-Type', 'application/json' );
-			res.send( JSON.stringify( results ) );
-		} else {
-			res.send( `{ error: "No strMeetingDate found" }` );
+		var nRecs = req.query.recs || 999 
+		var aName = req.query.name
+		if (aName == null) {
+		var aSQL = `SELECT * 
+					FROM meetings_view `
 		}
-		res.end();
-		};
-	} );
-// -------------------------------------------------------------------------
+			pDB.query(aSQL, onQuery)
+		function onQuery( error, results, fields ) {
+			if ( error ) { 
+				console.log( `** Error: ${error.message}` );
+				res.send( `Error: ${error.message}` );
+				res.end();
+				return
+				}
+			if (results.length > 0) {
+				res.setHeader( 'Content-Type', 'application/json' );
+				res.send( JSON.stringify( { meetings: results } ) );                        // .(30208.06.7)
+			} else {
+				res.send( `{ error: "No meetings found" }` );
+			}
+			res.end();
+			};
+		} );
+	// -------------------------------------------------------------------------
 
 	app.get( aAPI + '/meetings', function( req, res ) {                                 // .(30214.03.9)
 
@@ -260,6 +260,35 @@ var aAPI = `${process.argv[1]}`.match( /^C:/ ) ? '' : '/api2'                   
 		res.end();
 		};
 	} );
+
+// -------------------------------------------------------------------------
+
+app.get( aAPI + '/login', function( req, res ) {                                 // .(30214.03.9)
+
+	var nRecs = req.query.recs || 999 
+	var aName = req.query.name
+	if (aName == null) {
+	var aSQL = `SELECT * 
+				FROM login_check_view `
+	}
+		pDB.query(aSQL, onQuery)
+	function onQuery( error, results, fields ) {
+		if ( error ) { 
+			console.log( `** Error: ${error.message}` );
+			res.send( `Error: ${error.message}` );
+			res.end();
+			return
+		    }
+		if (results.length > 0) {
+			res.setHeader( 'Content-Type', 'application/json' );
+			res.send( JSON.stringify( { login: results } ) );                        // .(30208.06.7)
+		} else {
+			res.send( `{ error: "No login-user found" }` );
+		}
+		res.end();
+		};
+	} );
+
 // -------------------------------------------------------------------------
 
     var nPort = 3002                                                                    // .(30213.02.3 RAM Set nPort once)
