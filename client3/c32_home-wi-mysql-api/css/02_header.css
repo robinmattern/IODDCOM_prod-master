@@ -29,7 +29,27 @@
     position: fixed;
 }
 .Header-nav-table {
-    width: 115%;
+    width: 120%;
+}
+td.Logo {
+    width: 30%;
+}
+td.HeaderSpacer {
+    width: 25%;
+}
+td.DropdownMenu {
+    width: 10%;
+    text-align: right;
+}
+td.HeaderNavListItemCTA {
+    width: 15%;
+}
+td.HeaderNavListItemInits {
+    width: 5%;
+}
+td.HeaderNavListItemLogin {
+    display: none;
+    width: 5%;
 }
 .HeaderNavListItemHome {
     display: none;
@@ -52,7 +72,6 @@
     color: blue;
     color: #C0C0C0; 
 }
-.NextTag,
 .next-meeting-date {
     font-family: var(--GlobalFontFamily);
     font-size: 14px;
@@ -71,43 +90,6 @@ The @keyframes wiggle properties
 }
 /*------------------------------------------*/
 
-.HeaderNavListItemBack,
-.NextTag {
-    display: none;
-}
-.HeaderNavListItemHome a,
-.HeaderNavListItemMtgLoc a {
-    text-decoration: none;
-    color: blue;
-    font-family: var(--GlobalFontFamily);
-    font-size: larger;
-    font-weight: 700;
-}
-.HeaderNavListItemHome a:hover,
-.HeaderNavListItemHome a:active,
-.HeaderNavListItemMtgLoc a:hover,
-.HeaderNavListItemMtgLoc a:active {
-    background-color: blue;
-    color: white;
-    font-family: var(--GlobalFontFamily);
-    font-size: larger;
-    padding: 5px;
-    border-radius: 8px;
-}    
-.HeaderNavListItemMtgLoc {
-    display: none;
-}
-
-.HeaderNavListItemAvatar {
-    display: flex;
-    width: 70px;
-    text-align: right;
-    padding: 10px 0px 0px 0px;
-}
-.AvatarImage {
-    width: 100%;
-    padding-right: 30px;;
-}
 .HeaderNavListItemInits{
     display: flex;
     padding: 10px 20px 0px 0px;
@@ -123,6 +105,22 @@ The @keyframes wiggle properties
     font-family: var(--GlobalFontFamily);
     text-decoration: none;
 }
+.HeaderNavListItemLogin{
+    display: flex;
+    padding: 10px 20px 0px 0px;
+}
+.HeaderNavListItemLogin a {
+    padding: var(--InitsFontPadding);
+    background-color: var(--PlatinumColor);
+    border: darkgray var(--InitsBorderWeight) solid;
+    border-radius: 50%;
+    color: red;
+    font-size: var(--InitsFontSize);
+    font-weight: var(--InitsFontWeight);
+    font-family: var(--GlobalFontFamily);
+    text-decoration: none;
+}
+
 /*========================================*/
 /* Dropdown Menu Styles */
 .dropbtn {
@@ -155,6 +153,7 @@ The @keyframes wiggle properties
     color: black;
     padding: 10px 16px;
     text-decoration: none;
+    text-align: center;
     display: block;
     font-size: 16px;
     font-family: var(--GlobalFontFamily);
@@ -258,103 +257,110 @@ and (max-width: 1000px)
 and (min-width: 741px)
 and (max-width: 949px) 
 { 
-    .Header {
-        height: 70px;
-        width: 100%;
-        border-bottom: 0px solid #000;
-    }
-    .Logo {
-        padding-left: 0px;
-        padding-bottom: -30px;
-    }
-    .DeviceText::after{
-        content: "\ [tablet]"
-    }
-    .DeviceText {
-        font-size: 10px;
-        font-weight: 600;
-        font-family: var(--GlobalFontFamily);
-        color: black;
-        padding: 50px 0px 0px 0px;
-        position: fixed;
-    }
-    .Header {
-        max-width: var(--GlobalMaxWidth);
-    }
-    .HeaderSpacer {
-        width: 100px;
-    }
-    .HeaderNavListItemHome,
-    .HeaderNavListItemBack,
-    .HeaderNavListItemMtgLoc {
-        display: none;
-    }
-    .HeaderNavListItemAvatar {
-        display: flex;
-        padding: 0px 100px 0px 0px;
-    }
-    .HeaderNavListItemInits{
-        display: flex;
-        padding: 10px 100px 0px 0px;
-    }
- 
-    /* .HeaderNavListItemInits a {
-        padding: 8px;
-        background-color: gainsboro;
-        border: blue 3px solid;
-        border-radius: 50%;
-        color: black;
-        font-size: 16px;
-        font-weight: 600;
-        font-family: var(--GlobalFontFamily);
-        text-decoration: none;
+        .Header {
+            height: 70px;
+            width: 100%;
+            border-bottom: 0px solid #000;
+        }
+        .Logo {
+            padding-left: 0px;
+            padding-bottom: -30px;
+        }
+        .DeviceText::after{
+            content: "\ [tablet]"
+        }
+        .DeviceText {
+            font-size: 10px;
+            font-weight: 600;
+            font-family: var(--GlobalFontFamily);
+            color: black;
+            padding: 50px 0px 0px 0px;
+            position: fixed;
+        }
+        td.Logo {
+            width: 30%;
+        }
+        td.HeaderSpacer {
+            width: 15%;
+        }
+        td.DropdownMenu {
+            width: 10%;
+            text-align: right;
+        }
+        td.HeaderNavListItemCTA {
+            width: 15%;
+        }
+        td.HeaderNavListItemInits {
+            width: 5%;
+        }
+        td.HeaderNavListItemLogin {
+            display: none;
+            width: 5%;
+        }
+        .Header {
+            max-width: var(--GlobalMaxWidth);
+        }
+        .Header-nav-table {
+            align-items: center;
+            width: 130%;
+        }    
+        .HeaderSpacer {
+            width: 100px;
+        }
+        .HeaderNavListItemHome,
+        .HeaderNavListItemBack,
+        .HeaderNavListItemMtgLoc {
+            display: none;
+        }
+        .HeaderNavListItemAvatar {
+            display: flex;
+            padding: 0px 100px 0px 0px;
+        }
+        .HeaderNavListItemInits{
+            display: flex;
+            padding: 10px 100px 0px 0px;
+        }
+        .PencilImage {
+            display: none;
+        }
 
-    } */
-    /* .AvatarImage {
-        padding-top: 8px;
-        width: 220%;
-    } */
-    .PencilImage {
-        display: none;
-    }
-
-    .HeaderNavListItemCTA {
-        text-align: center;
-        width: 200px;
-        padding: 0px 0px 0px 0px;
-    }
-    .HeaderNavListItemCTA a {
-        padding: 6px 6px;
-        font-size: 14px;
-    }    
-    .MenuWrap {  /*hamburger*/
-        display: none;
-        margin: 0px 0px 0px 30px
-    }
-    .MenuWrap .Menu > div {
-        /*move menu around*/
-        justify-content: left; /*was center*/
-        padding-left: 300px; /*was deleted*/
-        margin-top: -400px; /*was deleted*/
-        /*end of move around*/
-    }
-    .MenuWrap .Menu > div > div > ul > li > a {
-        font-size: 1rem;
-        font-weight: 600;
-        color: blue;
-        padding: 0px;
-    }
-    .MenuList {
-        border: blue 0px solid;
-    }
-    .MenuListItem {
-        margin: -29px;
-    }
-    /*
-    .MenuListItemFooter {
-        display: none;
-    }
-    */
+        .HeaderNavListItemCTA {
+            text-align: center;
+            width: 200px;
+            padding: 0px 0px 0px 0px;
+        }
+        .HeaderNavListItemCTA a {
+            padding: 6px 6px;
+            font-size: 14px;
+        }    
+        .MenuWrap {  /*hamburger*/
+            display: none;
+            margin: 0px 0px 0px 30px
+        }
+        .MenuWrap .Menu > div {
+            /*move menu around*/
+            justify-content: left; /*was center*/
+            padding-left: 300px; /*was deleted*/
+            margin-top: -400px; /*was deleted*/
+            /*end of move around*/
+        }
+        .MenuWrap .Menu > div > div > ul > li > a {
+            font-size: 1rem;
+            font-weight: 600;
+            color: blue;
+            padding: 0px;
+        }
+        .MenuList {
+            border: blue 0px solid;
+        }
+        .MenuListItem {
+            margin: -29px;
+        }
+        /*
+        .MenuListItemFooter {
+            display: none;
+        }
+        */
 }
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
@@ -367,89 +373,86 @@ and (max-width: 949px)
 and (min-width: 440px)
 and (max-width: 740px) 
 { 
-   td.Logo {
-        width: 400px;
-    } 
-  .Logo {
-      width: 250px;
-      padding: 1px 0px 0px 40px; 
-      /* text-align: left; */
-      /*display: none;*/
-}
-  .DeviceText::after{
-        content: "\ [mobile]"
-    }
-  .DeviceText {
-        font-size: 10px;
-        font-weight: 600;
-        font-family: var(--GlobalFontFamily);
-        color: black;
-        padding: 50px 0px 0px 0px;
-        position: fixed;
-    }
-  .Header {
-        height: 70px;
-        width: 100%;
-        /* border: 2px black solid; */
-    } 
-  .Header-nav-table {
-    align-items: center;
-    width: 95%;
-  }
-  .HeaderNavList {
-        font-size: 8px;
-    }
-  .HeaderSpacer {
-    width: 0px
-  }
-  .DropdownMenu {
-    display: none;
-  }    
-  .HeaderNavListItemBack,  
-  .HeaderNavListItemMtgLoc,
-  .HeaderNavListItemAvatar,
-  .PencilImage {
-        width: 0px;
-        display: none;
-    }
-  .HeaderNavListItemHome {
-        padding: 25px 0px 0px 0px;
-        display: none;
-        width: 2px;
-    }
-  .HeaderNavListItemHome a {
-        font-size: 18px;
-    }
-  .HeaderNavListItemCTA {
-        width: 200px;
-    }  
-  .NextTag {
-        display: none;
-    }
-  .MenuWrap {  /*hamburger*/
-        display: flex;
-        margin-top: 0px;
-        margin-left: 0px;
-    }
-  .MenuWrap .Menu > div {
-        /*move menu around*/
-        justify-content: left; /*was center*/
-        padding-left: 220px; /*was deleted*/
-        margin-top: -50px; /*was deleted*/
-        /*end of move around*/
-    }
-  .MenuWrap .Menu > div > div > ul > li > a {
-        font-size: 1rem;
-        font-weight: 600;
-        color: blue;
-        padding: 0px;
-    }
-  .MenuList {
-        border: blue 1px solid;
-    }
-  .MenuListItem {
-        margin: -30px;
-    }
+            .Logo {
+                width: 250px;
+                padding: 1px 0px 0px 40px; 
+                /* text-align: left; */
+                /*display: none;*/
+            }
+            .DeviceText::after{
+                content: "\ [mobile]"
+            }
+            .DeviceText {
+                font-size: 10px;
+                font-weight: 600;
+                font-family: var(--GlobalFontFamily);
+                color: black;
+                padding: 50px 0px 0px 0px;
+                position: fixed;
+            }
+            .Header {
+                height: 70px;
+                width: 100%;
+                /* border: 2px black solid; */
+            } 
+            .Header-nav-table {
+            align-items: center;
+            width: 100%;
+            }
+            td.Logo {
+                width: 20%;
+            }
+            td.HeaderSpacer {
+                width: 20%;
+            }
+            td.DropdownMenu {
+                display: none;
+                width: 0%;
+                text-align: right;
+            }
+            td.HeaderNavListItemCTA {
+                width: 50%;
+                text-align: center;
+            }
+            td.HeaderNavListItemInits {
+                /* display: none; */
+                width: 10%;
+            }
+            td.HeaderNavListItemLogin {
+                display: none;
+                width: 5%;
+            }    
+            .HeaderNavList {
+                font-size: 8px;
+            }
+            .PencilImage {
+                width: 0px;
+                display: none;
+            }
+            .MenuWrap {  /*hamburger*/
+                display: flex;
+                margin-top: 0px;
+                margin-left: 0px;
+            }
+            .MenuWrap .Menu > div {
+                /*move menu around*/
+                justify-content: left; /*was center*/
+                padding-left: 220px; /*was deleted*/
+                margin-top: -50px; /*was deleted*/
+                /*end of move around*/
+            }
+            .MenuWrap .Menu > div > div > ul > li > a {
+                font-size: 1rem;
+                font-weight: 600;
+                color: blue;
+                padding: 0px;
+            }
+            .MenuList {
+                border: blue 1px solid;
+            }
+            .MenuListItem {
+                margin: -30px;
+            }
 }
 
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
@@ -459,80 +462,94 @@ and (max-width: 740px)
 and (max-width: 440px)
   {
   /*--*/
-    .Header {
-        width: 440px;
-        height: 75px
-    }
-    .Header-nav-table {
-        width: 95%;
-      }
-    .HeaderNavListItem {
-        list-style: none;
-        display: inline-block;
-    }
-    .Logo {
-        width: 110px;
-        display: flex;
-        padding: 0px 0px 20px 35px;
-    }  
-    .DeviceText::after{
-        content: "\ [mobile]"
-    }
-    .DeviceText {
-        font-size: 10px;
-        font-weight: 600;
-        font-family: var(--GlobalFontFamily);
-        color: black;
-        padding: 50px 0px 0px 100px;
-        position: fixed;
-    }
-    .HeaderSpacer {
-        width: 0px;
-    }
-    .DropdownMenu {
-        display: none;
-    }    
-    .HeaderNavListItemBack,
-    .HeaderNavListItemHome,
-    .HeaderNavListItemMtgLoc,
-    .HeaderNavListItemAvatar,
-    .PencilImage {
-        display: none;
-    }
-    .NextTag {
-        display: none;
-    }
-    .HeaderNavListItemCTA {
-        display: flex;
-        text-align: center;
-        width: 140px;
-        margin: 0px 0px 0px 40px;
-    }
-    .next-meeting-date {
-        font-size: 12px;
-        font-family: var(--GlobalFontFamily);
-    } 
-    .MenuWrap {  /*hamburger*/
-        display: flex;
-        margin-top: 0px;
-    }
-    .MenuWrap .Menu > div {
-        /*move menu around*/
-        justify-content: left; /*was center*/
-        padding-left: 120px; /*was deleted*/
-        margin-top: -100px; /*was deleted*/
-        /*end of move around*/
-    }
-    .MenuWrap .Menu > div > div > ul > li > a {
-        font-size: 1rem;
-        font-weight: 600;
-        color: blue;
-        padding: 0px;
-    }
-    .MenuList {
-        border: blue 1px solid;
-    }
-    .MenuListItem  {
-        margin: -35px;
-    } /*--*/          
+                .Header {
+                    width: 440px;
+                    height: 75px
+                }
+                .Header-nav-table {
+                    width: 90%;
+                }    
+                td.Logo {
+                    width: 20%;
+                }
+                td.HeaderSpacer {
+                    width: 0%;
+                }
+                td.DropdownMenu {
+                    display: none;
+                    width: 0%;
+                    text-align: right;
+                }
+                td.HeaderNavListItemCTA {
+                    width: 70%;
+                    text-align: left;
+                }
+                td.HeaderNavListItemInits {
+                    display: none;
+                    width: 5%;
+                }
+                td.HeaderNavListItemLogin {
+                    display: none;
+                    width: 5%;
+                }        
+                .DropdownMenu {
+                    display: none;
+                }    
+                .HeaderNavListItemAvatar,
+                .PencilImage {
+                    display: none;
+                }      
+                .HeaderNavListItem {
+                    list-style: none;
+                    display: inline-block;
+                }
+                .Logo {
+                    width: 110px;
+                    display: flex;
+                    padding: 0px 0px 20px 35px;
+                }
+                .LogoText {
+                    font-size: 45px;
+                }  
+                .DeviceText::after{
+                    content: "\ [mobile]"
+                }
+                .DeviceText {
+                    font-size: 10px;
+                    font-weight: 600;
+                    font-family: var(--GlobalFontFamily);
+                    color: black;
+                    padding: 50px 0px 0px 90px;
+                    position: fixed;
+                }
+                .HeaderNavListItemCTA {
+                    display: flex;
+                    text-align: center;
+                    width: 100px;
+                    margin: 0px 0px 0px 40px;
+                }
+                .MenuWrap {  /*hamburger*/
+                    display: flex;
+                    margin-top: 0px;
+                }
+                .MenuWrap .Menu > div {
+                    /*move menu around*/
+                    justify-content: left; /*was center*/
+                    padding-left: 120px; /*was deleted*/
+                    margin-top: -100px; /*was deleted*/
+                    /*end of move around*/
+                }
+                .MenuWrap .Menu > div > div > ul > li > a {
+                    font-size: 1rem;
+                    font-weight: 600;
+                    color: blue;
+                    padding: 0px;
+                }
+                .MenuList {
+                    border: blue 1px solid;
+                }
+                .MenuListItem  {
+                    margin: -35px;
+                } 
+/*--*/          
 }

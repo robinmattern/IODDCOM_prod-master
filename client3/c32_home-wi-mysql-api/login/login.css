@@ -54,6 +54,23 @@ body {
     text-decoration: none;
 
   }
+
+  .logincontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    display: none;
+  }
+  .logincontainer span {
+    padding: var(--InitsFontPadding);
+    background-color: var(--PlatinumColor);
+    border: darkgray var(--InitsBorderWeight) solid;
+    border-radius: 50%;
+    color: red;
+    font-size: var(--InitsFontSize);
+    font-weight: var(--InitsFontWeight);
+    font-family: var(--GlobalFontFamily);
+    text-decoration: none;
+  }
   .namecontainer span {
     padding: 3px 40px;
     background-color: var(--InitsBGColor);
