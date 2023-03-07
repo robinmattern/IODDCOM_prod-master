@@ -17,6 +17,16 @@
     text-shadow: 3px 3px 3px black;
     margin: 0px 0px 0px 20px;
 }
+.LogoText a { 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 3px black;
+    margin: 0px 0px 0px 0px;
+}
 .DeviceText::after{
     content: "\ [big screen]"
 }
@@ -376,8 +386,7 @@ and (max-width: 740px)
             .Logo {
                 width: 250px;
                 padding: 1px 0px 0px 40px; 
-                /* text-align: left; */
-                /*display: none;*/
+                text-align: left;
             }
             .DeviceText::after{
                 content: "\ [mobile]"
