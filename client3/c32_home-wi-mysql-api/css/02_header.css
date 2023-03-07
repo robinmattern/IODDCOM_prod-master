@@ -9,8 +9,10 @@
     max-width: var(--GlobalMaxWidth);
 }
 .LogoText { 
+    position: relative;
+    z-index: 1;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 50px;
+    font-size: var(--GlobalIODDFontSize);
     font-weight: 600;
     color: white;
     letter-spacing: 2px;
@@ -19,7 +21,7 @@
 }
 .LogoText a { 
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 50px;
+    font-size: var(--GlobalIODDFontSize);
     font-weight: 600;
     color: white;
     text-decoration: none;
@@ -31,12 +33,13 @@
     content: "\ [big screen]"
 }
 .DeviceText {
+    position: fixed;
+    z-index: 0;
     font-size: 10px;
     font-weight: 600;
     font-family: var(--GlobalFontFamily);
     color: black;
     padding: 50px 0px 0px 0px;
-    position: fixed;
 }
 .Header-nav-table {
     width: 120%;
@@ -205,7 +208,6 @@ and (max-width: 1000px)
         font-family: var(--GlobalFontFamily);
         color: black;
         padding: 50px 0px 0px 0px;
-        position: fixed;
     }
     .MenuWrap {  /*hamburger*/
         display: none;
@@ -285,7 +287,6 @@ and (max-width: 949px)
             font-family: var(--GlobalFontFamily);
             color: black;
             padding: 50px 0px 0px 0px;
-            position: fixed;
         }
         td.Logo {
             width: 30%;
@@ -396,8 +397,7 @@ and (max-width: 740px)
                 font-weight: 600;
                 font-family: var(--GlobalFontFamily);
                 color: black;
-                padding: 50px 0px 0px 0px;
-                position: fixed;
+                padding: 45px 0px 0px 0px;
             }
             .Header {
                 height: 70px;
@@ -490,7 +490,7 @@ and (max-width: 440px)
                     text-align: right;
                 }
                 td.HeaderNavListItemCTA {
-                    width: 70%;
+                    width: 80%;
                     text-align: left;
                 }
                 td.HeaderNavListItemInits {
@@ -517,9 +517,6 @@ and (max-width: 440px)
                     display: flex;
                     padding: 0px 0px 20px 35px;
                 }
-                .LogoText {
-                    font-size: 45px;
-                }  
                 .DeviceText::after{
                     content: "\ [mobile]"
                 }
@@ -529,7 +526,6 @@ and (max-width: 440px)
                     font-family: var(--GlobalFontFamily);
                     color: black;
                     padding: 50px 0px 0px 90px;
-                    position: fixed;
                 }
                 .HeaderNavListItemCTA {
                     display: flex;
