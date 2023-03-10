@@ -156,8 +156,8 @@ The @keyframes wiggle properties
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: whitesmoke;
-    min-width: 160px;
+    background-color: aliceblue;
+    min-width: 200px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
@@ -166,7 +166,7 @@ The @keyframes wiggle properties
     color: black;
     padding: 10px 16px;
     text-decoration: none;
-    text-align: center;
+    text-align: left;
     display: block;
     font-size: 16px;
     font-family: var(--GlobalFontFamily);
