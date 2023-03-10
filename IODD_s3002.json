@@ -1,7 +1,7 @@
 {
   "apps":
 
-   [ { "name"  :   'IODD_s62032'
+   [ { "name"  :   'IODD_s3002'
      , "script":   'server3/s32_mysql-data-api/server.js'
      ,  watch  : [ 'server3/s32_mysql-data-api/'      ]
         }

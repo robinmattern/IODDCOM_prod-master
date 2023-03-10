@@ -28,6 +28,8 @@ var aAPI = `${process.argv[1]}`.match( /^C:/ ) ? '' : '/api2'                   
 		Use any of the following APIs:<br>
 		<div style="margin-left:20px">
 		  <a href="/home"                         >/home</a><br>                        <!-- .(20308.01.1 JRS Added) -->
+		  <a href="/login"                        >/login</a><br>
+		  <a href="/meetings"                     >/meetings</a><br>
 		  <a href="/members"                      >/members</a><br>
 		  <a href="/members-projects"             >/members-projects</a><br>     
 		  <a href="/projects"                     >/projects</a><br> 
@@ -42,30 +44,29 @@ var aAPI = `${process.argv[1]}`.match( /^C:/ ) ? '' : '/api2'                   
 	app.get( aAPI + '/projects', function( req, res ) {                                 // .(30214.03.3)
 
 	var nRecs    = req.query.recs || 999 
-//  var aName    = req.query.name
     var aLetters = req.query.letters || '' 
+	var aName    = req.query.name
 
-/*	if (aName == null) {
+	if (aName == null) {
 	var aSQL = `SELECT * 
 				FROM members_projects_colaboration_view
-				WHERE Id <= ${nRecs}
-				ORDER BY ProjectName, ProjectStyle `
-*/                
-  	if (aLetters == '') {
-	var aSQL = `SELECT * 
-				  FROM projects, members_projects
-                 WHERE projects.Id = members_projects.ProjectId
-			 	   AND projects.Id <= ${nRecs}
-	 		  ORDER BY Name, ProjectStyle `
-	} else {
-   var  aSQL  = `SELECT  * 
-                   FROM  members, members_projects, projects  
-                  WHERE  members.Id  = members_projects.MemberId
-                    AND  projects.Id = members_projects.ProjectId
-                    AND  LastName like '${aLetters}%' 
-               ORDER BY  Name, Lastname` 
-	}
-//		pDB.query( `SELECT * FROM projects WHERE Id <= ${nRecs}`, onQuery )
+				WHERE Id <= ${nRecs} `
+	}             
+//   	if (aLetters == '') {
+// 	var aSQL = `SELECT * 
+// 				  FROM projects, members_projects
+//                  WHERE projects.Id = members_projects.ProjectId
+// 			 	   AND projects.Id <= ${nRecs}
+// 	 		  ORDER BY Name, ProjectStyle `
+// 	} else {
+//    var  aSQL  = `SELECT  * 
+//                    FROM  members, members_projects, projects  
+//                   WHERE  members.Id  = members_projects.MemberId
+//                     AND  projects.Id = members_projects.ProjectId
+//                     AND  LastName like '${aLetters}%' 
+//                ORDER BY  Name, Lastname` 
+// 	}
+		//pDB.query( `SELECT * FROM projects WHERE Id <= ${nRecs}`, onQuery )
 		pDB.query(aSQL, onQuery)
 	function onQuery( error, results, fields ) {
 		if ( error ) { 
@@ -124,8 +125,7 @@ var aAPI = `${process.argv[1]}`.match( /^C:/ ) ? '' : '/api2'                   
 	if (aName == null) {
 	var aSQL = `SELECT * 
 				FROM members_projects_view
-				WHERE Id <= ${nRecs}
-				ORDER BY LastName, FirstName, Sort `
+				WHERE Id <= ${nRecs} `
 	}
 		pDB.query(aSQL, onQuery)
 	function onQuery( error, results, fields ) {
@@ -208,36 +208,32 @@ var aAPI = `${process.argv[1]}`.match( /^C:/ ) ? '' : '/api2'                   
 	} );  // app.get( '/project-colaborators-letters', ... ) 
 
 // -------------------------------------------------------------------------
+	app.get( aAPI + '/home', function( req, res ) {                                 // .(30214.03.9)
 
-	app.get( 'aAPI + /home', function( req, res ) {                                     // .(30214.03.8)
-
-	var nRecs = req.query.recs || 999 
-	var aName = req.query.name
-
-	if (aName == null) {
-    var aSQL  = `SELECT *     
-			   	 FROM meetings
-			 	 ORDER BY MeetingDateTime DESC `                                        // .(20307.01.1 RJS Was strMeetingTime) 
-			  + `LIMIT 1`
-	    }
-		pDB.query(aSQL, onQuery)
-	function onQuery( error, results, fields ) {
-		if ( error ) { 
-			console.log( `** Error: ${error.message}` );
-			res.send( `Error: ${error.message}` );
-			res.end();
-			return
-		    }
-		if (results.length > 0) {
-			res.setHeader( 'Content-Type', 'application/json' );
-			res.send( JSON.stringify( results ) );
-		} else {
-			res.send( `{ error: "No strMeetingDate found" }` );
+		var nRecs = req.query.recs || 999 
+		var aName = req.query.name
+		if (aName == null) {
+		var aSQL = `SELECT * 
+					FROM meetings_view `
 		}
-		res.end();
-		};
-	} );
-// -------------------------------------------------------------------------
+			pDB.query(aSQL, onQuery)
+		function onQuery( error, results, fields ) {
+			if ( error ) { 
+				console.log( `** Error: ${error.message}` );
+				res.send( `Error: ${error.message}` );
+				res.end();
+				return
+				}
+			if (results.length > 0) {
+				res.setHeader( 'Content-Type', 'application/json' );
+				res.send( JSON.stringify( { meetings: results } ) );                        // .(30208.06.7)
+			} else {
+				res.send( `{ error: "No meetings found" }` );
+			}
+			res.end();
+			};
+		} );
+	// -------------------------------------------------------------------------
 
 	app.get( aAPI + '/meetings', function( req, res ) {                                 // .(30214.03.9)
 
@@ -245,8 +241,7 @@ var aAPI = `${process.argv[1]}`.match( /^C:/ ) ? '' : '/api2'                   
 	var aName = req.query.name
 	if (aName == null) {
 	var aSQL = `SELECT * 
-				FROM meetings
-				ORDER BY MeetingDateTime DESC`
+				FROM meetings_view `
 	}
 		pDB.query(aSQL, onQuery)
 	function onQuery( error, results, fields ) {
@@ -265,6 +260,35 @@ var aAPI = `${process.argv[1]}`.match( /^C:/ ) ? '' : '/api2'                   
 		res.end();
 		};
 	} );
+
+// -------------------------------------------------------------------------
+
+app.get( aAPI + '/login', function( req, res ) {                                 // .(30214.03.9)
+
+	var nRecs = req.query.recs || 999 
+	var aName = req.query.name
+	if (aName == null) {
+	var aSQL = `SELECT * 
+				FROM login_check_view `
+	}
+		pDB.query(aSQL, onQuery)
+	function onQuery( error, results, fields ) {
+		if ( error ) { 
+			console.log( `** Error: ${error.message}` );
+			res.send( `Error: ${error.message}` );
+			res.end();
+			return
+		    }
+		if (results.length > 0) {
+			res.setHeader( 'Content-Type', 'application/json' );
+			res.send( JSON.stringify( { login: results } ) );                        // .(30208.06.7)
+		} else {
+			res.send( `{ error: "No login-user found" }` );
+		}
+		res.end();
+		};
+	} );
+
 // -------------------------------------------------------------------------
 
     var nPort = 3002                                                                    // .(30213.02.3 RAM Set nPort once)

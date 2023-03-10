@@ -14,13 +14,16 @@ The @media MAX-width query properties
 and (min-width: 441px)
 and (max-width: 740px) 
 { 
-
+  /*Hamburger menu - controls menu vert spacing*/
+  .MenuWrap .Menu > div > div > ul > li {
+    padding: 17px;
+  }
 /*-----------------------------------------
 The .Section1 properites
 ------------------------------------------*/
 .Section1 {
   width: 100%;
-  height: 230px;
+  height: 200px;
   position: relative;
   color: var(--Section2-font-color);
   top: 70px; /*<---ADD to adjust the top position*/
@@ -29,11 +32,11 @@ The .Section1 properites
 }
 .Section1Title {
   text-align: left;
-  padding: 5px 0px 0px 68px;
+  padding: 5px 0px 0px 40px;
   font-size: 30px;
 }
 .Section1Paragraph {
-  font-size: 20px;
+  font-size: 17px;
   padding: 0px 0px 0px 10px;
   text-align: center;
 }
@@ -54,7 +57,7 @@ The .Section2 properites
 }
 .Section2Title {
   text-align: left;
-  padding: 5px 0px 0px 68px;
+  padding: 5px 0px 0px 40px;
   font-size: 30px;
 }
 .Section2Paragraph {
@@ -86,7 +89,7 @@ The .Section2 properites
 The .Footer properites
 ------------------------------------------*/
 .Footer {
-  display: flex;
+  display: none;
   height: 30px;
   /* width: 440px; */
   opacity: 0.82;

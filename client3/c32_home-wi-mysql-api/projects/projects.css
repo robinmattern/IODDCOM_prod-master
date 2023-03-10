@@ -37,11 +37,12 @@ body {
 }
 .QuickNav {
     height: 25px;
-    width: var(--GlobalMaxWidth);
-    /* align-items: center; */
-    background-color:  var(--HeaderFooterBGColor);
+    width: 800px;
+    align-items: center; 
+    padding: 0px 0px 0px 100px;
+    background-color: whitesmoke; /*var(--HeaderFooterBGColor);*/
     color: blue;
-    letter-spacing: 4px;
+    letter-spacing: 5px;
 } 
 .QuickNav a {
     text-decoration: none;
@@ -58,7 +59,7 @@ body {
     height: 80px;
 }
 .Section2 {
-    top: 100px; /*orig 65*/
+    top: 5px; /*orig 65*/
     height: 90%;
     height: 100vh;
     background-color: "#E5E4E2"; /*platinum*/
@@ -220,7 +221,8 @@ and (max-width: 736px)
         margin: auto;
         /*background-color: cornflowerblue;*/
     }
-    .xHeaderQuickNav {
+    .HeaderQuickNav {
+        display: none;
         text-align: center;
         z-index: 98;
         /* opacity: 0.5; */
@@ -237,7 +239,7 @@ and (max-width: 736px)
     }
     .Section2 {
         display: block;
-        top: 90px; /*orig 70*/
+        top: 50px; /*orig 70*/
         height: 89%;
         border: 0px black solid;
         background-color: #EAEAEA; /*very light gray*/
@@ -355,7 +357,7 @@ The @media MAX-width query properties
         width: 500px;
     }
     .HeaderQuickNav {
-        display: block;
+        display: none;
         text-align: center;
         height: 270px;
     }
@@ -377,7 +379,7 @@ The @media MAX-width query properties
     }
     .Section2 {
         background-color: var(--Section2BGColor);
-        top: 80px;
+        top: 0px;
         height: 100%;
         width: 100%;
         overflow-y: auto;

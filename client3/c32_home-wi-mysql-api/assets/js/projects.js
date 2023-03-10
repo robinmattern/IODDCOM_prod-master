@@ -58,7 +58,7 @@ function  fmtProjects( pJSON ) {
        var  aProjectStyle =  pProject.ProjectStyle
        var  aFirstName    =  pProject.FirstName
        var  aLastName     =  pProject.LastName
-       var  aName         =  pProject.Name  // .(30214.01.1 RAM Was: pProject.ProjectName)
+       var  aName         =  pProject.ProjectName  // .(30214.01.1 RAM Was: pProject.ProjectName)
        var  aBookmark     =  aName.substring(0,1)
        var  aClient       =  pProject.Client
        var  aType         =  pProject.ProjectType
@@ -75,7 +75,7 @@ function  fmtProjects( pJSON ) {
                 <td bgcolor=${abgColor} class="type" colspan=2><br><b><u>Type</u>:</b> ${ aType }</td>
               </tr>
               <tr Class="${ aClass } ${ aProjectStyle }" id="R${ `${ i + 1 }`.padStart( 3, "0" ) }">
-                <td bgcolor=${abgColor} class="desc" colspan=2><b><u>Desc</u>:</b> ${ aDesc }</td>
+                <td bgcolor=${abgColor} class="desc" colspan=2><b><u>Description</u>:</b> ${ aDesc }</td>
               </tr>
               <tr Class="${ aClass } ${ aProjectStyle }" id="R${ `${ i + 1 }`.padStart( 3, "0" ) }">
                 <td bgcolor=${abgColor} class="colaboratorTitle" colspan=2><b><u>Colaborator(s)</u>:</b></td>

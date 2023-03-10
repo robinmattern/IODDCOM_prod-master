@@ -8,6 +8,8 @@
         <title></title>
         <link rel="shortcut icon" href="favicon.png">
         <link rel="stylesheet"    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+        
+
     </head>
     <body>
    
@@ -34,9 +36,9 @@
                             <li class="MenuListItem"     id="SupportLink"            ><a   href="#">Support</a></li>
                             <li class="MenuListItem"     id="LicenseLink"            ><a   href="#">License</a></li>
                             <li class="MenuListItemLine" id="MtgLocLinkLine"         ><hr></li>
-                            <li class="MenuListItem"     id="MtgLocLink"             ><a   href="#">Meeting Location</a></li>
+                            <li class="MenuListItem"     id="MtgLocLink"             ><a   href="meetings/meetings.html">Meeting Location</a></li>
                             <li class="MenuListItemLine" id="LoginLinkLine"          ><hr></li>
-                            <li class="MenuListItem"     id="LoginLink"              ><a   href="../login/login.html">Login</a></li>
+                            <li class="MenuListItem"     id="LoginLink"              ><a   href="login/login.html">Login</a></li>
                             <li class="MenuListItem"     id="MenuBlank"              ></li>
                         </ul>
                     </div>
@@ -50,6 +52,7 @@
         </div>
         <div class="HeaderSpacer"></div>
 -->
+
         <div>
             <div class="new-div">
                 <table class="Header-nav-table">
@@ -60,18 +63,23 @@
                             <span class="DeviceText"></span>
                         </td>
                         <td class="HeaderSpacer"></td>
-                        <td class="HeaderNavListItemBack"  ><a href="index.html"             title="Go back Home"><img src="assets/images/buttonBack.gif"></a></td>
-                        <td class="HeaderNavListItemHome"  ><a href="index.html"             title="Go back Home">Home</a></td>
-                        <td class="HeaderNavListItemMtgLoc"><a href="#" target="_blank"      title="Go To Meeting Information">Meeting Location</a></td>
-                        <td class="HeaderNavListItemCTA"   ><a href="meetings/meetings.html" title="CLICK For The Next Meeting Information"><span class="NextTag">Next </span>Meeting <span class="next-meeting-date"></span></a></td>
-                        <td class="HeaderNavListItemAvatar"><a href="login/login.html"       title="Log Out"><img class="AvatarImage" src="assets/images/RJS-Avatar.gif"></a><a href="#"><img class="PencilImage" src="assets/images/pencilDots.gif"></a>&nbsp;</td>
+                        <td class="DropdownMenu">
+                            <!--include using jQuery-->
+                            <div id="inc-dropdown"></div>
+                            <script> 
+                                $("#inc-dropdown").load("includes/inc-dropdown-home.html");
+                            </script> 
+                        </td>
+                        <td class="HeaderNavListItemCTA"><a href="meetings/meetings.html" title="CLICK For The Next Meeting Information">Meeting <span class="next-meeting-date"></span></a></td>
+                        <td class="HeaderNavListItemInits"><a href="login/login.html" title="Log Out">RS</a></td>
+                        <td class="HeaderNavListItemLogin"><a href="login/login.html" title="Log In">??</a></td>
                     </tr>
                     </tbody>
                 </table>
             </div>            
  <!--
             <ul  class="HeaderNavList">
-                <li class="HeaderNavListItemBack"><a href="../index.html" title="Go back Home"><img src="../assets/images/buttonBack.gif"></a></li>
+                <li class="HeaderNavListItemBack"><a href="../index.html" title="Go back Home"><img src="../assets/images/btnBack.gif"></a></li>
                 <li class="HeaderNavListItem1"><a href="../index.html" title="Go back Home">Home</a></li>
                 <li class="HeaderNavListItem2"><a href="#" target="_blank" title="Next Meetins">Meeting Location</a></li>
                 <li class="HeaderNavListItemCTA"><a href="#" target="_blank" title="Next Meeting">Next&nbsp;Meeting&nbsp;<span class="next-meeting-date"></span></a></li>
