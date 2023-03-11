@@ -178,23 +178,10 @@
     height: 2px;
     width: 110px;
     background: blue;
-    margin: 18px 0px 0px 0px;  
+    margin: 18px 0px 0px 0px;
+    text-align: left;
   }
-
-  /*----------------------------------*/
-  /*BEGIN Button CTA in the Menu */
-  .BtnCTA a {
-    color: white !important;
-    background: blue ;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-  }
-  .BtnCTA a:hover,
-  .BtnCTA a:active {
-    opacity: 0.7;
-  }
-  /*END Button CTA in the Menu */
+  
   /*----------------------------------*/
   
   /*END CSS*/

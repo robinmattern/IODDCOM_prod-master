@@ -124,10 +124,10 @@ The @keyframes wiggle properties
 }
 .HeaderNavListItemLogin a {
     padding: var(--InitsFontPadding);
-    background-color: var(--PlatinumColor);
-    border: darkgray var(--InitsBorderWeight) solid;
+    background-color: blue; /* var(--PlatinumColor);*/
+    border: #5A5A5A var(--InitsBorderWeight) solid;
     border-radius: 50%;
-    color: red;
+    color: darkblue;
     font-size: var(--InitsFontSize);
     font-weight: var(--InitsFontWeight);
     font-family: var(--GlobalFontFamily);
@@ -302,6 +302,7 @@ and (max-width: 949px)
             width: 15%;
         }
         td.HeaderNavListItemInits {
+            display: flex;
             width: 5%;
         }
         td.HeaderNavListItemLogin {
