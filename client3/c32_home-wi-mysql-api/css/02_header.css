@@ -74,6 +74,7 @@ td.HeaderNavListItemLogin {
 .HeaderNavListItemCTA a {
     font-family: var(--GlobalFontFamily);
     color: white;
+    font-size: var(--MenuCTAFontSize);
     font-weight: 600;
     background: blue ;
     text-decoration: none;
@@ -87,7 +88,7 @@ td.HeaderNavListItemLogin {
 }
 .next-meeting-date {
     font-family: var(--GlobalFontFamily);
-    font-size: 14px;
+    font-size: var(--MenuCTAFontSize);
 }
 /*------------------------------------------*/
 .HeaderNavListItemCTA {
@@ -124,10 +125,10 @@ The @keyframes wiggle properties
 }
 .HeaderNavListItemLogin a {
     padding: var(--InitsFontPadding);
-    background-color: var(--PlatinumColor);
-    border: darkgray var(--InitsBorderWeight) solid;
+    background-color: blue; /* var(--PlatinumColor);*/
+    border: #5A5A5A var(--InitsBorderWeight) solid;
     border-radius: 50%;
-    color: red;
+    color: darkblue;
     font-size: var(--InitsFontSize);
     font-weight: var(--InitsFontWeight);
     font-family: var(--GlobalFontFamily);
@@ -140,7 +141,7 @@ The @keyframes wiggle properties
     background-color: var(--HeaderFooterBGColor);
     color: blue;
     border-radius: 8px;
-    font-size: larger;
+    font-size: var(--MenuCTAFontSize);
     padding: 5px;
     font-family: var(--GlobalFontFamily);
     font-weight: 600;
@@ -160,6 +161,8 @@ The @keyframes wiggle properties
     min-width: 200px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    right: 0px;
+    /* ^^ to move the menu left:0 or right:0 */
 }
   
 .dropdown-content a {
@@ -176,12 +179,10 @@ The @keyframes wiggle properties
 .dropdown-content a:hover {
     background-color: rgb(66, 66, 245);
     color: white;
-}
-  
+}  
 .dropdown:hover .dropdown-content {
     display: block;
-}
-  
+} 
 .dropdown:hover .dropbtn {
     background-color: blue;
     color: white;
@@ -302,6 +303,7 @@ and (max-width: 949px)
             width: 15%;
         }
         td.HeaderNavListItemInits {
+            display: flex;
             width: 5%;
         }
         td.HeaderNavListItemLogin {
@@ -532,6 +534,11 @@ and (max-width: 440px)
                     text-align: center;
                     width: 100px;
                     margin: 0px 0px 0px 40px;
+                }
+                .next-meeting-date,
+                .HeaderNavListItemCTA a {
+                    font-size: 13px;
+                    padding: 6px;
                 }
                 .MenuWrap {  /*hamburger*/
                     display: flex;
