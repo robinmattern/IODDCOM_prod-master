@@ -78,7 +78,7 @@ td.HeaderNavListItemLogin {
     font-weight: 600;
     background: blue ;
     text-decoration: none;
-    padding: 10px;
+    padding: 6px;
     border-radius: 8px;
 }
 .HeaderNavListItemCTA a:hover,
@@ -185,7 +185,7 @@ The @keyframes wiggle properties
 } 
 .dropdown:hover .dropbtn {
     background-color: blue;
-    color: white;
+    color: #C0C0C0;
 }
 
 
