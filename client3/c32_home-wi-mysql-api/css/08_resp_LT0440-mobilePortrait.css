@@ -115,7 +115,7 @@ The .Section2 properites
   .Links ul li:before { 
     font-family: var(--CalloutIconFontFamily);
     font-weight: 600;
-    content: var(--CalloutIconCheck); /*checkbox*/ 
+    /* content: var(--CalloutIconCheck); checkbox  */
     padding: 0px 0px 0px 0px;
   }
   .Links ul li a {
