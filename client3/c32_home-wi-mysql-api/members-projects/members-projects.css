@@ -209,7 +209,7 @@ and (max-width: 740px)
     }
     .Section2 {
         display: block;
-        top: 5px; /*was70px;*/
+        top: 60px; /*was70px;*/
         height: 98%;
 /*      background-color: aliceblue; */
 /*      background-color: "#E5E4E2"; /*platinum*/

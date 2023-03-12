@@ -78,7 +78,7 @@ td.HeaderNavListItemLogin {
     font-weight: 600;
     background: blue ;
     text-decoration: none;
-    padding: 10px;
+    padding: 6px;
     border-radius: 8px;
 }
 .HeaderNavListItemCTA a:hover,
@@ -185,7 +185,7 @@ The @keyframes wiggle properties
 } 
 .dropdown:hover .dropbtn {
     background-color: blue;
-    color: white;
+    color: #C0C0C0;
 }
 
 
@@ -388,7 +388,7 @@ and (max-width: 740px)
 { 
             .Logo {
                 width: 250px;
-                padding: 1px 0px 0px 40px; 
+                padding: 1px 0px 0px 0px; 
                 text-align: left;
             }
             .DeviceText::after{
@@ -414,10 +414,10 @@ and (max-width: 740px)
                 width: 20%;
             }
             td.HeaderSpacer {
-                width: 20%;
+                width: 40%;
             }
             td.DropdownMenu {
-                display: none;
+                display: flex;
                 width: 0%;
                 text-align: right;
             }
@@ -441,7 +441,7 @@ and (max-width: 740px)
                 display: none;
             }
             .MenuWrap {  /*hamburger*/
-                display: flex;
+                display: none;
                 margin-top: 0px;
                 margin-left: 0px;
             }
