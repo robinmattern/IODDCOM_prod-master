@@ -185,7 +185,7 @@ The @keyframes wiggle properties
 } 
 .dropdown:hover .dropbtn {
     background-color: blue;
-    color: #C0C0C0;
+    color: white;
 }
 
 
@@ -416,6 +416,9 @@ and (max-width: 740px)
             td.HeaderSpacer {
                 width: 40%;
             }
+            .dropdown-content a {
+                padding: 8px 12px;
+            }    
             td.DropdownMenu {
                 display: flex;
                 width: 0%;
