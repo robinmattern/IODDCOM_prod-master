@@ -185,7 +185,7 @@ The @keyframes wiggle properties
 } 
 .dropdown:hover .dropbtn {
     background-color: blue;
-    color: white;
+    color: #C0C0C0;
 }
 
 
@@ -421,7 +421,7 @@ and (max-width: 740px)
             }    
             td.DropdownMenu {
                 display: flex;
-                width: 0%;
+                width: 10%;
                 text-align: right;
             }
             td.HeaderNavListItemCTA {
