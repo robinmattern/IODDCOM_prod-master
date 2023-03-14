@@ -116,6 +116,37 @@ var aAPI = `${process.argv[1]}`.match( /^C:/ ) ? '' : '/api2'                   
 		res.end();
 		};
 	} );
+
+// -------------------------------------------------------------------------
+
+app.get( aAPI + '/members-bios', function( req, res ) {                                  // .(30214.03.4)
+
+	var nRecs = req.query.recs || 999 
+	var aName = req.query.name
+	if (aName == null) {
+	var aSQL = `SELECT * 
+				FROM members_bio_view
+				WHERE Id <= ${nRecs}
+				ORDER BY LastName, FirstName `
+	}
+//		pDB.query( `SELECT * FROM members WHERE Id <= ${nRecs}`, onQuery )
+		pDB.query(aSQL, onQuery)
+	function onQuery( error, results, fields ) {
+		if ( error ) { 
+			console.log( `** Error: ${error.message}` );
+			res.send( `Error: ${error.message}` );
+			res.end();
+			return
+		    }
+		if (results.length > 0) {
+			res.setHeader( 'Content-Type', 'application/json' );
+			res.send( JSON.stringify( { "members-bios": results } ) );                         // .(30208.06.3)
+		} else {
+			res.send( `{ error: "No members found" }` );
+		}
+		res.end();
+		};
+	} );
 // -------------------------------------------------------------------------
 
 	app.get( aAPI + '/members-projects', function( req, res ) {                         // .(30214.03.5)

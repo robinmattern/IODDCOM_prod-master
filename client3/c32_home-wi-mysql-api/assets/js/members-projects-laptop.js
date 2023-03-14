@@ -64,6 +64,7 @@ function  fmtMembersProjectsLaptop( pJSON ) {
        var  aNameBR    = `${ pMember.FirstName }${aMI} <br> ${ pMember.LastName }`
        var  aName      = `${ pMember.FirstName }${aMI} ${ pMember.LastName }`
        var  aLastName  =     pMember.LastName
+       var  aFullNameBR =    pMember.FullNameBR
        var  aBookmark  =     aLastName.substring(0,1)
 //     var  aPhone     =     pMember.Phone1 + ( pMember.Phone2 > ""   ? `, ${ pMember.Phone2  }` : "" )
 //          aPhone     =     aPhone != "null" ? aPhone : ""
@@ -101,7 +102,7 @@ function  fmtMembersProjectsLaptop( pJSON ) {
              <tbody>
             <tr><td colspan="4" class="member-line"><hr></td></tr>
              <tr>
-               <td class="members-name">${ aNameBR }</td>
+               <td class="members-name">${ aFullNameBR }</td>
                <td class="members-bio" rowspan="2" valign="top">
                 <table class="members-bio-table"><tr><td>
                     <span class="member-bio-title">Bio:</span><br><br>${ aBio }
