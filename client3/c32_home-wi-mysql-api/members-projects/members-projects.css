@@ -221,7 +221,7 @@ and (max-width: 740px)
         font-size: 150%;
         font-family: var(--GlobalFontFamily);
         text-align: left;
-        padding: 0px 0px 0px 20px;
+        padding: 0px 0px 15px 20px;
     }
     .Section2Title::first-letter {
         font-size: 180%;
