@@ -417,7 +417,7 @@ and (max-width: 740px)
                 width: 40%;
             }
             .dropdown-content a {
-                padding: 8px 12px;
+                padding: 7px 12px;
             }    
             td.DropdownMenu {
                 display: flex;
