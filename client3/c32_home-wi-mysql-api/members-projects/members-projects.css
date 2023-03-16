@@ -261,11 +261,143 @@ and (max-width: 740px)
         margin: 20px 20px 20px 20px;
     } 
 
+/*ADDED 031623*/
+    .members-name-mobile {
+        font-size: 28px;
+        font-weight: 700;
+        width: 40%;
+        color: blue;
+        vertical-align: top;
+        padding: 10px 20px 20px 20px;
+        /*margin: 0px 0px 0px -20px;*/
+        border-top: solid 0px black;
+        border-left: solid 0px black;
+    }
+    .members-address-mobile {
+        margin: 0px 0px 5px -20px;
+        padding: 10px 0px 0px 0px;
+    }
+    .members-address-mobile tr td {
+        font-size: 15px;
+        width: 100%;
+        padding: 0px 0px 0px 40px;
+        border-bottom: solid 0px black;
+        border-top: solid 0px black;
+        border-left: solid 0px black;
+    }
+    .members-mobile-col3 {
+        width: 0px;
+    }        
+    .members-bio-table-mobile {
+        width: 90%;
+        padding: 10px 10px 10px 15px;
+        border: solid 1px black;
+        vertical-align: middle;
+        border-radius: 5%;
+        box-shadow: 5px 5px #888888;
+    }
+    .members-bio-title-mobile {
+        font-size: larger;
+        font-weight: 600;
+        margin: 0px 0px 0px -5px;
+    }
+    .members-bio-mobile {
+        font-size: 18px;
+    }    
+    .project-title-mobile {
+        font-size: 24px;
+        font-weight: 700;
+        color: blue;
+        padding: 0px 0px 0px 10px;
+    }
+    .project-title-line-mobile hr {
+        position: relative;
+        width: var(--DivisionLineWidth);
+        height: 1px;
+        border-top: 1px dashed black;
+        margin: 10px 20px 0px 10px;
+    }
+    .project-name-mobile td {
+        font-size: 118px;
+    }
+    .project-table {
+        font-size: 13px;
+        padding: 0px 5px 10px 15px;
+    }
+    .project-name-mobile {
+        font-size: 16px;
+        font-weight: 600;
+        color: blue;
+    }
+    .project-summary-list-mobile {
+        width: 99%;
+        border: 0px solid #000;
+        margin: 0 0;
+        font-family: var(--GlobalFontFamily);
+    }  
+    .project-summary-list-mobile ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 99%;
+        padding-left: 20px;
+    }
+    
+    .project-summary-list-mobile ul li {
+        list-style: none;
+        display: inline-block;
+        width: calc(100% / 1);
+        height: 4px;
+        text-align: left;
+        font-family: var(--GlobalFontFamily);
+        font-size: 15px;
+        margin: 10px 0px 10px 0px;
+    }
+    .project-summary-list-mobile ul li a {
+        color: blue;
+        font-family: var(--GlobalFontFamily);
+    }
+    .project-summary-list-mobile ul a:hover,
+    .project-summary-list-mobile ul a:active {
+        font-family: var(--GlobalFontFamily);
+        color: blue;
+    }
+    .project-summary-name-mobile,
+    .project-summary-web-mobile,
+    .project-summary-type-mobile, 
+    .project-summary-role-mobile {
+        padding: 0px 0px 20px 0px;
+    }
+    .project-details-mobile {
+        width: 110%;
+        font-size: 18px;
+        vertical-align: top;
+        text-align: left;
+        padding: 10px 0px 0px 0px;
+        border-top: dashed black 0px;
+    }
+    .project-details-td-mobile {
+        font-size: 12px;
+        width: 120%;
+        vertical-align: top;
+        text-align: left;
+        padding: 10px 20px 0px 20px;
+        border-top: dashed black 0px;
+    }
+    
+    hr {
+        position: relative;
+        border: none;
+        height: 2px;
+        width: var(--DivisionLineWidth);
+        background: blue;
+        margin: 20px 20px 20px 20px;
+    } 
 }
 /*
 The @media MAX-width query properties
 ***** IPHONE PORTRAIT
-/*If Device Width is <= to 414px Then...*/
+/*If Device Width is <= to 440px Then...*/
 
 /*=========================================*/
   @media only screen
