@@ -22,7 +22,7 @@ body {
 }
 
 .HeaderQuickNav {
-    display: flex;
+    display: none;
     height: 0px;
     top: 60px;
     width: 1000px; /* var(--GlobalMaxWidth); */
@@ -59,7 +59,7 @@ body {
     height: 80px;
 }
 .Section2 {
-    top: 5px; /*orig 65*/
+    top: 0px; /*orig 65*/
     height: 90%;
     height: 100vh;
     background-color: "#E5E4E2"; /*platinum*/
@@ -69,7 +69,7 @@ body {
 .Section2Title {
     font-size: 180%;
     font-style: var(--GlobalFontFamily);
-    padding: 20px 0px 0px 40px;
+    padding: 0px 0px 0px 40px;
     background-color: #F5F5F5; /* whitesmoke */
 }
 .Section2Title::first-letter {
@@ -281,7 +281,7 @@ and (max-width: 736px)
         width: 50%;
         padding: 5px 0px 0px 10px;
         height: 40px;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 600;
         vertical-align: top;
     }
@@ -289,18 +289,18 @@ and (max-width: 736px)
         width: 50%;
         padding: 5px 0px 0px 10px;
         height: 40px;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 500;
         vertical-align: top;
     }
     .type {
         padding: 0px 0px 20px 10px;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 500;
     }
     .desc {
         padding: 0px 20px 20px 10px;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 500;
     }
     .colaboratorTitle {
@@ -318,13 +318,13 @@ and (max-width: 736px)
     }
     .memberPrimary {
         padding: 0px 20px 0px 10px;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 500;
         /* border-bottom: var(--BorderThickness) black var(--BorderLine); */
     }
     .memberSecondary {
         padding: 0px 20px 10px 108px;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 500;
         border-bottom: 1px black var(--BorderLine);
     }    
