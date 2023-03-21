@@ -6,7 +6,7 @@
     "dependencies": {
     },
     "scripts": {
-        "start": "nodemon --use_strict server.js"
+        "start": "nodemon --use_strict server.mjs"
       },
     "browserslist": {
       "production": [
