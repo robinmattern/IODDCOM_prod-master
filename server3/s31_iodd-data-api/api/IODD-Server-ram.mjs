@@ -17,9 +17,9 @@
             pIODD.getLogin( )
             pIODD.getMembers( )
             pIODD.getProjects( )
-//            pIODD.getProjectCollaborators( )
+            pIODD.getProjectCollaborators( )
             pIODD.getMembersProjects( )
-//            pIODD.getProjectCollaboratorsLetters( '/letters' )
+            pIODD.getProjectCollaboratorsLetters( '/letters' )
             pIODD.getMeetings( )
             pIODD.start( )
        }
@@ -75,6 +75,7 @@
 
 
 
+
 //------------------------------------------------------------------------------
 
   this.getRoot  = function( aGetRoute, pValidArgs ) {
@@ -106,14 +107,12 @@
                 <a href="/meetings"                     >/meetings</a><br>
                 <a href="/members"                      >/members</a><br>
                 <a href="/members_bios"                 >/members_bios</a><br>
-<!--            <a href="/members?recs=10"              >/members?recs=10</a><br>-->
+                <a href="/members?recs=10"              >/members?recs=10</a><br>
                 <a href="/members_projects"             >/members_projects</a><br>
                 <a href="/projects"                     >/projects</a><br>
-<!--
                 <a href="/projects?letters=a,r"         >/projects?letters=a,r</a><br>
                 <a href="/project_colaborators"         >/project_colaborators</a><br>
                 <a href="/project_colaborators_letters" >/project_colaborators_letters</a><br>
--->
                 </div> `;
     return  aHTML
             }; // eof fmtRoot
@@ -121,152 +120,80 @@
        } // eof getRoot
 //---- -------------------------------------------------------------------
 
+//------------------------------------------------------------------------------
 
-// BEGINNING OF FETCHES (= MENU NAME)
+  this.getProjects = function( aGetRoute, pValidArgs ) {
 
-//=login===================================================================
-//-(Login)-----------------------------------------------------------------
+        var aMethod   = 'get'
+        var aGetRoute = '/projects'
 
-this.getLogin = function( ) {
-
-  var  aRoute = `${aAPI_Host}/login`
-
-  pApp.get( aRoute, async ( pReq, pRes ) => onGetRoute( pReq, pRes, '/login', { id: /[0-9]+/ }, fmtSQL ) )
-       sayMsg( 'get', aRoute )
-
+            pValidArgs={ id:     /[0-9]+/
+                       , name:   /[a-zA-Z][a-zA-Z0-9]+/
+                       , letters: /([a-z],)*[a-z]/
+                         }
 //          ---------------------------------------------------
 
-function  fmtSQL( pArgs ) {
-return  ` SELECT * FROM login_check_view `
+       pApp.get( `${aAPI_Host}${aGetRoute}`, async function( pReq, pRes ) {
 
-    }; // eof fmtSQL
-//     ---  ---------------------------------------------------
-  } // eof getLogin
-//---- -------------------------------------------------------------------
-//========================================================================
+                         sayMsg(  pReq, aMethod, aGetRoute )
+       var  pArgs     =  chkArgs( pReq, pRes,  pValidArgs  ); if (!pArgs) { return }
+       var  aSQL      =  fmtSQL(  pArgs )
+       var  mRecs     =  await getData( pDB,   aSQL  );
+                         sndRecs( pRes, mRecs, aSQL, aGetRoute )
 
-
-
-//=meetings================================================================
-//-(Meeting Notification)--------------------------------------------------
-
-this.getMeetings = function( ) {
-
-  var  aRoute = `${aAPI_Host}/meetings`
-
-  pApp.get( aRoute, async ( pReq, pRes ) => onGetRoute( pReq, pRes, '/meetings', { id: /[0-9]+/ }, fmtSQL ) )
-       sayMsg( 'get', aRoute )
-
+            } )   // eof pApp.get( /projects)
+                         sayMsg(  aMethod, aGetRoute )
 //          ---------------------------------------------------
 
-function  fmtSQL( pArgs ) {
-return  ` SELECT * FROM meetings_view `
+  function  fmtSQL( pArgs ) {
+       var  aClause   = '1 = 1'
+            aClause   =  pArgs.id      ? `ProjectId = ${ pArgs.id }`     : aClause
+            aClause   =  pArgs.name    ? `ProjectName LIKE '%${ pArgs.name }%'` : aClause
+            aClause   =  pArgs.letters ? `substring( ProjectName, 1, 1) in ( '${ pArgs.letters.replace( /,/g, "','" ) }' )` : aClause
 
-    }; // eof fmtSQL
+       var  aSQL      = `
+              SELECT  DISTINCT
+                      members_projects_colaboration_view.*
+                FROM  members_projects_colaboration_view
+               WHERE  ${aClause}
+            ORDER BY  ProjectName `
+    return  aSQL
+            }; // eof fmtSQL
 //     ---  ---------------------------------------------------
-  } // eof getmeetings
+       } // eof getProjects
 //---- -------------------------------------------------------------------
-//========================================================================
+//------------------------------------------------------------------------------
 
+  this.getMembers = function( aGetRoute, pValidArgs ) {
 
+    
+       var  aMethod   = 'get'
+       var  aRoute    = '/members'
 
-//=members=================================================================
-//-(Members Listing)-------------------------------------------------------
-
-this.getMembers = function( ) {
-
-  var  aRoute = `${aAPI_Host}/members`
-
-  pApp.get( aRoute, async ( pReq, pRes ) => onGetRoute( pReq, pRes, '/members', { id: /[0-9]+/ }, fmtSQL ) )
-       sayMsg( 'get', aRoute )
-
+//          aGetRoute =  aGetRoute  ? aGetRoute  : aRoute
+//          pValidArgs=  pValidArgs ? pValidArgs : { recs: /[0-9]/ }
 //          ---------------------------------------------------
 
-function  fmtSQL( pArgs ) {
-return  ` SELECT * FROM members_view `
+       pApp.get( `${aAPI_Host}${aRoute}`, async function( pReq, pRes ) {
 
-    }; // eof fmtSQL
-//     ---  ---------------------------------------------------
-  } // eof getMembers
-//---- -------------------------------------------------------------------
-//========================================================================
+                         sayMsg(  pReq, aMethod, aRoute )
+       var  pArgs     =  chkArgs( pReq, pRes,  pValidArgs  ); if (!pArgs) { return }
+       var  aSQL      =  fmtSQL(  pArgs )
+       var  mRecs     =  await getData( pDB,   aSQL  );
+                         sndRecs( pRes, mRecs, aSQL, aRoute )
 
-
-
-//=members_bios============================================================
-//-(Bios)------------------------------------------------------------------
-
-this.getMembersBios = function( ) {
-
-  var  aRoute = `${aAPI_Host}/members_bios`
-
-  pApp.get( aRoute, async ( pReq, pRes ) => onGetRoute( pReq, pRes, '/members_bios', { id: /[0-9]+/ }, fmtSQL ) )
-       sayMsg( 'get', aRoute )
-
+            } )   // eof pApp.get( /members )
+                         sayMsg(  aMethod, aRoute )
 //          ---------------------------------------------------
 
-function  fmtSQL( pArgs ) {
-return  ` SELECT * FROM members_bios_view `
-
-    }; // eof fmtSQL
+  function  fmtSQL( pArgs ) {
+            var aSQL = 
+            `SELECT * FROM members_view`
+    return  aSQL
+         }; // eof fmtSQL
 //     ---  ---------------------------------------------------
-  } // eof getMembersBios
+       } // eof getMembers
 //---- -------------------------------------------------------------------
-//========================================================================
-
-
-
-//=members_projects========================================================
-//-(Project Listing)-------------------------------------------------------
-
-this.getMembersProjects = function( ) {
-
-  var  aRoute = `${aAPI_Host}/members_projects`
-
-  pApp.get( aRoute, async ( pReq, pRes ) => onGetRoute( pReq, pRes, '/members_projects', { id: /[0-9]+/ }, fmtSQL ) )
-       sayMsg( 'get', aRoute )
-
-//          ---------------------------------------------------
-
-function  fmtSQL( pArgs ) {
-return  ` SELECT * FROM members_projects_view `
-
-    }; // eof fmtSQL
-//     ---  ---------------------------------------------------
-  } // eof getMembersProjects
-//---- -------------------------------------------------------------------
-
-
-
-//=projects================================================================
-//-(Project Details)-------------------------------------------------------
-
-this.getProjects = function( ) {
-
-  var  aRoute = `${aAPI_Host}/projects`
-
-  pApp.get( aRoute, async ( pReq, pRes ) => onGetRoute( pReq, pRes, '/projects', { id: /[0-9]+/ }, fmtSQL ) )
-       sayMsg( 'get', aRoute )
-
-//          ---------------------------------------------------
-
-function  fmtSQL( pArgs ) {
-return  ` SELECT * FROM members_projects_colaboration_view `
-
-    }; // eof fmtSQL
-//     ---  ---------------------------------------------------
-  } // eof getProjects
-//---- -------------------------------------------------------------------
-//========================================================================
-//END OF FETCHES
-
-
-
-
-
-
-
-// NOT NEEDED  ??????
 
 //------------------------------------------------------------------------------
 
@@ -302,6 +229,43 @@ return  ` SELECT * FROM members_projects_colaboration_view `
 
 //------------------------------------------------------------------------------
 
+this.getMembersBios = function( ) {
+
+  var  aRoute = `${aAPI_Host}/members_bios`
+
+  pApp.get( aRoute, async ( pReq, pRes ) => onGetRoute( pReq, pRes, '/members_bios', { id: /[0-9]+/ }, fmtSQL ) )
+       sayMsg( 'get', aRoute )
+
+//          ---------------------------------------------------
+
+function  fmtSQL( pArgs ) {
+return  ` SELECT * FROM members_bios_view `
+
+    }; // eof fmtSQL
+//     ---  ---------------------------------------------------
+  } // eof getMembersBios
+//---- -------------------------------------------------------------------
+
+
+
+//------------------------------------------------------------------------------
+
+  this.getMembersProjects = function( ) {
+
+       var  aRoute = `${aAPI_Host}/members_projects`
+
+       pApp.get( aRoute, async ( pReq, pRes ) => onGetRoute( pReq, pRes, '/members_projects', { id: /[0-9]+/ }, fmtSQL ) )
+            sayMsg( 'get', aRoute )
+
+//          ---------------------------------------------------
+
+  function  fmtSQL( pArgs ) {
+    return  ` SELECT * FROM members_projects_view `
+
+         }; // eof fmtSQL
+//     ---  ---------------------------------------------------
+       } // eof getMembersProjects
+//---- -------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
 
@@ -324,10 +288,51 @@ return  ` SELECT * FROM members_projects_colaboration_view `
        } // eof getProjectCollaboratorsLetters
 //---- -------------------------------------------------------------------
 
-// END OF NOT NEEDED
+//------------------------------------------------------------------------------
 
+  this.getMeetings = function( pValidArgs ) {
 
+//     var  pValidArgs= { id: /[0-9]+/, date: /1*[0-9]\/[0123][0-9]\/202[3-4]/, required: 'yes' }
+       var  pValidArgs= { id: /[0-9]+/, date: /1*[0-9]\/[123]*[0-9]\/202[3-4]/ }   // 4/02/2023  no workie
 
+            setRoute( 'get', '/meetings', pValidArgs, fmtSQL )
+
+//          ---------------------------------------------------
+
+  function  fmtSQL( pArgs ) {
+       var  aSQL = `
+              SELECT  *
+                FROM  meetings_view     ${ pArgs.date ?
+             ` WHERE  strMeetingDate = '${ pArgs.date }' ` : '' } `
+    return  aSQL
+         }; // eof fmtSQL
+//     ---  ---------------------------------------------------
+       } // eof getMeetings
+//---- -------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+
+  this.getLogin = function( ) {
+
+       var  aRoute    = '/login'
+       var  pValidArgs= { }
+
+       pApp.get( `${aAPI_Host}${aRoute}`, onget )
+
+     async  function onget ( pReq, pRes) {
+                     onGetRoute(   pReq, pRes, aRoute, pValidArgs, fmtSQL )
+                     }
+                     sayMsg( 'get', aRoute )
+//          ---------------------------------------------------
+
+  function  fmtSQL( pArgs ) {
+    return  ` SELECT * FROM login_check_view `
+
+         }; // eof fmtSQL
+//     ---  ---------------------------------------------------
+       } // eof getLogin
+//---- -------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
   function  setRoute( aMethod, aRoute_, pValidArgs, fmtSQL ) {
 

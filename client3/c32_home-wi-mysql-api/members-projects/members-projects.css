@@ -95,7 +95,7 @@ body {
 }
 .members-list {
     /*display: none; -- IMPORTANT*/
-    margin: -10px 0px 0px 40px;
+    margin: -10px 0px 0px 10px;
 }
 .members-name {
     font-size: 28px;

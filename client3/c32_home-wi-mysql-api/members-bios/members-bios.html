@@ -36,9 +36,9 @@
 </head>
 <body>
 <script>
-    var aName = "MembersProjects"
+    var aName = "MembersBios"
     var aAPI  = `${document.location.href}`.match( /iodd.com/i ) ? '/api2' : ''             //  .(30214.03.1 RAM Set if not running in Windows)
-    var aAPI_URL = aAPI ? '/api2' : 'http://localhost:3002'                                 // .(30214.03.2)
+    var aAPI_URL = aAPI ? '/api2' : 'http://localhost:3001'                                 // .(30214.03.2)
 </script>
 
 <div class="container">
@@ -91,7 +91,7 @@
                     </tbody>    
                     <script>
                         var pMembers = document.getElementById( "Members-laptop" )
-                            fetch( `${aAPI_URL}/members-bios` )                             // .(30214.05.3)
+                            fetch( `${aAPI_URL}/members_bios` )                             // .(30214.05.3)
                 .then( ( res  ) => res.json( ) )
                 .then( ( json ) => {  
                                         pMembers.innerHTML = fmtMembersProjectsLaptop( json ) } ) 

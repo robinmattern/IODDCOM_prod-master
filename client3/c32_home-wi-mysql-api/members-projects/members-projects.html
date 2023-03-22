@@ -42,7 +42,7 @@
 <script>
     var aName = "MembersProjects"
     var aAPI  = `${document.location.href}`.match( /iodd.com/i ) ? '/api2' : ''             //  .(30214.03.1 RAM Set if not running in Windows)
-    var aAPI_URL = aAPI ? '/api2' : 'http://localhost:3002'                                 // .(30214.03.2)
+    var aAPI_URL = aAPI ? '/api2' : 'http://localhost:3001'                                 // .(30214.03.2)
 </script>
 
 <div class="container">
@@ -133,8 +133,8 @@
                 var pMembers = document.getElementById( "Members-laptop" )
 //                  pMembers.innerHTML = fmtMembersProjectsLaptop( pJSON )
 
-//                  fetch( 'http://localhost:3002/members-projects' )                   //#.(30214.03.3)
-                    fetch( `${aAPI_URL}/members-projects` )                             // .(30214.05.3)
+//                  fetch( 'http://localhost:3001/members-projects' )                   //#.(30214.03.3)
+                    fetch( `${aAPI_URL}/members_projects` )                             // .(30214.05.3)
            .then( ( res  ) => res.json( ) )
            .then( ( json ) => {  
                                 pMembers.innerHTML = fmtMembersProjectsLaptop( json ) } ) 
@@ -152,11 +152,13 @@
                 var pMembers = document.getElementById( "Members-mobile" )
 //                  pMembers.innerHTML = fmtMembersProjectsMobile( pJSON )
 
-//                  fetch( 'http://localhost:3002/members-projects' )                   //#.(30214.03.5)
-                    fetch( `${aAPI_URL}/members-projects` )                             // .(30214.05.5)
-           .then( ( res  ) => res.json( ) )
-           .then( ( json ) => {  
-                                pMembers.innerHTML = fmtMembersProjectsMobile( json ) } ) 
+//                  fetch( 'http://localhost:3001/members-projects' )                   //#.(30214.03.5)
+                    fetch( `${aAPI_URL}/members_projects` )                             // .(30214.05.5)
+           .then( function( res  )  {
+            return res.json( ) } )
+           .then( function ( json )  {  
+            return                   pMembers.innerHTML = fmtMembersProjectsMobile( json ) 
+            } ) 
            .catch(( err  ) =>   pMembers.innerHTML `** ${err.message}` );   
             }                  
             </script>

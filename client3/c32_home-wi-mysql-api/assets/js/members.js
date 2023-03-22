@@ -25,7 +25,7 @@ aTests='live in Browser'
 
 if ( aTests.match( /test2/ ) ) { 
      
-    fetch( 'http://localhost:3002/members?recs=5' )
+    fetch( 'http://localhost:3001/members?recs=5' )
            .then( ( res  ) => res.json( ) )
            .then( ( json ) => onFetch( json ) )
            .catch(( err  ) => console.log( `** ${err.message}` ) );      
@@ -58,6 +58,7 @@ function  fmtMembers( pJSON ) {
 
        var  aMI      =     pMember.Middlename;  aMI = ( aMI  > "" ) ?   ` ${ aMI.substr(0,1) }. ` : ""
        var  aName    = `${ pMember.FirstName }${aMI} ${ pMember.LastName }`
+       var  aFullName =    pMember.FullName
        var  aLastName =    pMember.LastName
        var  aBookmark =    aLastName.substring(0,1)
 //     var  aPhone   =     pMember.Phone1 + ( pMember.Phone2 > ""   ? `, ${ pMember.Phone2  }` : "" )
@@ -70,7 +71,7 @@ function  fmtMembers( pJSON ) {
 
        var  aRow     = `  
        		<tr Class="${ aClass }" id="R${ `${ i + 1 }`.padStart( 3, "0" ) }">
-                 <td class="name" id="${ aBookmark }"><a href="syschangepassword.js?username=${ aName }">${ aName }</a></td>
+                 <td class="name" id="${ aBookmark }">${ aFullName }</td>
                  <td class="email"><a href="mailto:${ aEmail }"><img class="email-image" src="../assets/images/Email.gif"></a></td>
                  <td class="phone1">${ aPhone1 }</td>
                  <td class="phone2">${ aPhone2}</td>
