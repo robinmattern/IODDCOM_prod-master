@@ -25,7 +25,7 @@
 
 if ( aTests.match( /test2/ ) ) { 
      
-    fetch( 'http://localhost:3002/projects?recs=5' )
+    fetch( 'http://localhost:3001/projects?recs=5' )
            .then( ( res  ) => res.json( ) )
            .then( ( json ) => onFetch( json ) )
            .catch(( err  ) => console.log( `** ${err.message}` ) );      

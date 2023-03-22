@@ -39,7 +39,7 @@
 <script>
     var aName = "Meetings"
     var aAPI  = `${document.location.href}`.match( /iodd.com/i ) ? '/api2' : ''             // .(30214.03.1 RAM Set if not running in Windows)
-    var aAPI_URL = aAPI ? '/api2' : 'http://localhost:3002'                                 // .(30214.03.2)
+    var aAPI_URL = aAPI ? '/api2' : 'http://localhost:3001'                                 // .(30214.03.2)
 </script>
 	
 <div class="container">
@@ -95,7 +95,7 @@
                 var pMeetings = document.getElementById( "Meetings" )
 //                  pMeetings.innerHTML = fmtMeetings( pJSON )
 
-//                  fetch( 'http://localhost:3002/meetings' )                           //#.(30214.03.7)
+//                  fetch( 'http://localhost:3001/meetings' )                           //#.(30214.03.7)
                     fetch( `${aAPI_URL}/meetings` )                                     // .(30214.05.7)
            .then( ( res  ) => res.json( ) )
            .then( ( json ) => {  

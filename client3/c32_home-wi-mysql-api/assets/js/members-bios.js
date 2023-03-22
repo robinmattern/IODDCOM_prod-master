@@ -27,7 +27,7 @@ if ( aTests.match( /test1/ ) ) {
   
 if ( aTests.match( /test2/ ) ) { 
        
-      fetch( 'http://localhost:3002/members-bios?recs=5' )
+      fetch( 'http://localhost:3001/members-bios?recs=5' )
              .then( ( res  ) => res.json( ) )
              .then( ( json ) => onFetch( json ) )
              .catch(( err  ) => console.log( `** ${err.message}` ) );      
@@ -43,7 +43,7 @@ if ( aTests.match( /test2/ ) ) {
 
 function  fmtMembersProjectsLaptop( pJSON ) {     
 
-         var  mMembers_bios =  pJSON["members-bios"]       // .(30209.01.4 RAM As is  now defined in /projects api) 
+         var  mMembers_bios =  pJSON["members_bios"]       // .(30209.01.4 RAM As is  now defined in /projects api) 
          var  aHTML    =  mMembers_bios.map( fmtMemberProjectLaptop ).join( "\n" )
     return  aHTML
             
