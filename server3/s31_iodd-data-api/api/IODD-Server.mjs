@@ -134,9 +134,9 @@
 
 this.getLogin = function( ) {
 
-  var  aRoute = `${aAPI_Host}/login`
+  var  aRoute = '/login'
 
-  pApp.get( aRoute, async ( pReq, pRes ) => onGetRoute( pReq, pRes, aRoute, { id: /[0-9]+/ }, fmtSQL ) )
+  pApp.get( `${aAPI_Host}${aRoute}`, async ( pReq, pRes ) => onGetRoute( pReq, pRes, aRoute, { id: /[0-9]+/ }, fmtSQL ) )
        sayMsg( 'get', aRoute )
 
 //          ---------------------------------------------------
@@ -157,9 +157,9 @@ return  ` SELECT * FROM login_check_view `
 
 this.getMeetings = function( ) {
 
-  var  aRoute = `${aAPI_Host}/meetings`
+  var  aRoute = '/meetings'
 
-  pApp.get( aRoute, async ( pReq, pRes ) => onGetRoute( pReq, pRes, aRoute, { id: /[0-9]+/ }, fmtSQL ) )
+  pApp.get( `${aAPI_Host}${aRoute}`, async ( pReq, pRes ) => onGetRoute( pReq, pRes, aRoute, { id: /[0-9]+/ }, fmtSQL ) )
        sayMsg( 'get', aRoute )
 
 //          ---------------------------------------------------
@@ -180,9 +180,9 @@ return  ` SELECT * FROM meetings_view `
 
 this.getMembers = function( ) {
 
-  var  aRoute = `${aAPI_Host}/members`
+  var  aRoute = '/members'
 
-  pApp.get( aRoute, async ( pReq, pRes ) => onGetRoute( pReq, pRes, aRoute, { id: /[0-9]+/ }, fmtSQL ) )
+  pApp.get( `${aAPI_Host}${aRoute}`, async ( pReq, pRes ) => onGetRoute( pReq, pRes, aRoute, { id: /[0-9]+/ }, fmtSQL ) )
        sayMsg( 'get', aRoute )
 
 //          ---------------------------------------------------
@@ -203,9 +203,9 @@ return  ` SELECT * FROM members_view `
 
 this.getMembersBios = function( ) {
 
-  var  aRoute = `${aAPI_Host}/members_bios`
+  var  aRoute = '/members_bios'
 
-  pApp.get( aRoute, async ( pReq, pRes ) => onGetRoute( pReq, pRes, aRoute, { id: /[0-9]+/ }, fmtSQL ) )
+  pApp.get( `${aAPI_Host}${aRoute}`, async ( pReq, pRes ) => onGetRoute( pReq, pRes, aRoute, { id: /[0-9]+/ }, fmtSQL ) )
        sayMsg( 'get', aRoute )
 
 //          ---------------------------------------------------
@@ -226,9 +226,9 @@ return  ` SELECT * FROM members_bios_view `
 
 this.getMembersProjects = function( ) {
 
-  var  aRoute = `${aAPI_Host}/members_projects`
+  var  aRoute = '/members_projects'
 
-  pApp.get( aRoute, async ( pReq, pRes ) => onGetRoute( pReq, pRes, aRoute, { id: /[0-9]+/ }, fmtSQL ) )
+  pApp.get( `${aAPI_Host}${aRoute}`, async ( pReq, pRes ) => onGetRoute( pReq, pRes, aRoute, { id: /[0-9]+/ }, fmtSQL ) )
        sayMsg( 'get', aRoute )
 
 //          ---------------------------------------------------
@@ -248,9 +248,9 @@ return  ` SELECT * FROM members_projects_view `
 
 this.getProjects = function( ) {
 
-  var  aRoute = `${aAPI_Host}/projects`
+  var  aRoute = '/projects'
 
-  pApp.get( aRoute, async ( pReq, pRes ) => onGetRoute( pReq, pRes, aRoute, { id: /[0-9]+/ }, fmtSQL ) )
+  pApp.get( `${aAPI_Host}${aRoute}`, async ( pReq, pRes ) => onGetRoute( pReq, pRes, aRoute, { id: /[0-9]+/ }, fmtSQL ) )
        sayMsg( 'get', aRoute )
 
 //          ---------------------------------------------------
