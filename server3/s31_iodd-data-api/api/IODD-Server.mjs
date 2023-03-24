@@ -10,18 +10,23 @@
   if (process.argv[1].replace( /.*[\\/]/, '' ).match( /IODD.*\.mjs/ )) {
 
        var  pApp      =  express()
-       var  pIODD     =  new IODD
+       var  bQuiet // =  true        // Override .env Quiet = {true|false}
+       var  nPort  // =  54131       // Override .env Server_Port  
 
-            pIODD.init( pApp )
+       var  pIODD     =  new IODD
+            pIODD.init(  pApp, bQuiet )
+
             pIODD.getRoot( "/" )
             pIODD.getLogin( )
             pIODD.getMembers( )
+            pIODD.getMembersBios( )
             pIODD.getProjects( )
-//            pIODD.getProjectCollaborators( )
+//          pIODD.getProjectCollaborators( )
             pIODD.getMembersProjects( )
-//            pIODD.getProjectCollaboratorsLetters( '/letters' )
+//          pIODD.getProjectCollaboratorsLetters( '/letters' )
             pIODD.getMeetings( )
-            pIODD.start( )
+
+            pIODD.start( nPort ) // 
        }
 //--------  -----------------------------------------------------------------------------
 
@@ -129,9 +134,9 @@
 
 this.getLogin = function( ) {
 
-  var  aRoute = `${aAPI_Host}/login`
+  var  aRoute = '/login'
 
-  pApp.get( aRoute, async ( pReq, pRes ) => onGetRoute( pReq, pRes, '/login', { id: /[0-9]+/ }, fmtSQL ) )
+  pApp.get( `${aAPI_Host}${aRoute}`, async ( pReq, pRes ) => onGetRoute( pReq, pRes, aRoute, { id: /[0-9]+/ }, fmtSQL ) )
        sayMsg( 'get', aRoute )
 
 //          ---------------------------------------------------
@@ -152,9 +157,9 @@ return  ` SELECT * FROM login_check_view `
 
 this.getMeetings = function( ) {
 
-  var  aRoute = `${aAPI_Host}/meetings`
+  var  aRoute = '/meetings'
 
-  pApp.get( aRoute, async ( pReq, pRes ) => onGetRoute( pReq, pRes, '/meetings', { id: /[0-9]+/ }, fmtSQL ) )
+  pApp.get( `${aAPI_Host}${aRoute}`, async ( pReq, pRes ) => onGetRoute( pReq, pRes, aRoute, { id: /[0-9]+/ }, fmtSQL ) )
        sayMsg( 'get', aRoute )
 
 //          ---------------------------------------------------
@@ -175,9 +180,9 @@ return  ` SELECT * FROM meetings_view `
 
 this.getMembers = function( ) {
 
-  var  aRoute = `${aAPI_Host}/members`
+  var  aRoute = '/members'
 
-  pApp.get( aRoute, async ( pReq, pRes ) => onGetRoute( pReq, pRes, '/members', { id: /[0-9]+/ }, fmtSQL ) )
+  pApp.get( `${aAPI_Host}${aRoute}`, async ( pReq, pRes ) => onGetRoute( pReq, pRes, aRoute, { id: /[0-9]+/ }, fmtSQL ) )
        sayMsg( 'get', aRoute )
 
 //          ---------------------------------------------------
@@ -198,9 +203,9 @@ return  ` SELECT * FROM members_view `
 
 this.getMembersBios = function( ) {
 
-  var  aRoute = `${aAPI_Host}/members_bios`
+  var  aRoute = '/members_bios'
 
-  pApp.get( aRoute, async ( pReq, pRes ) => onGetRoute( pReq, pRes, '/members_bios', { id: /[0-9]+/ }, fmtSQL ) )
+  pApp.get( `${aAPI_Host}${aRoute}`, async ( pReq, pRes ) => onGetRoute( pReq, pRes, aRoute, { id: /[0-9]+/ }, fmtSQL ) )
        sayMsg( 'get', aRoute )
 
 //          ---------------------------------------------------
@@ -221,9 +226,9 @@ return  ` SELECT * FROM members_bios_view `
 
 this.getMembersProjects = function( ) {
 
-  var  aRoute = `${aAPI_Host}/members_projects`
+  var  aRoute = '/members_projects'
 
-  pApp.get( aRoute, async ( pReq, pRes ) => onGetRoute( pReq, pRes, '/members_projects', { id: /[0-9]+/ }, fmtSQL ) )
+  pApp.get( `${aAPI_Host}${aRoute}`, async ( pReq, pRes ) => onGetRoute( pReq, pRes, aRoute, { id: /[0-9]+/ }, fmtSQL ) )
        sayMsg( 'get', aRoute )
 
 //          ---------------------------------------------------
@@ -243,9 +248,9 @@ return  ` SELECT * FROM members_projects_view `
 
 this.getProjects = function( ) {
 
-  var  aRoute = `${aAPI_Host}/projects`
+  var  aRoute = '/projects'
 
-  pApp.get( aRoute, async ( pReq, pRes ) => onGetRoute( pReq, pRes, '/projects', { id: /[0-9]+/ }, fmtSQL ) )
+  pApp.get( `${aAPI_Host}${aRoute}`, async ( pReq, pRes ) => onGetRoute( pReq, pRes, aRoute, { id: /[0-9]+/ }, fmtSQL ) )
        sayMsg( 'get', aRoute )
 
 //          ---------------------------------------------------
@@ -357,9 +362,10 @@ return  ` SELECT * FROM members_projects_colaboration_view `
             } // eof pApp.get( /{aGetRoute}, onGetRoute )
 //---- -------------------------------------------------------------------
 
-        this.init  = function( pApp_, bQuiet_ ) {
+  this.init  = function( pApp_, bQuiet_ ) {
             pApp  =  pApp_  // express()
       var { pDB_,    aAPI_Host_, bQuiet_ } = init( pApp, pDB_Config, bQuiet_ );  // no workie without var, and must returned vars must be underlined
+//          pDB   =  pDB_; aAPI_Host = aAPI_Host_, bQuiet = bQuiet_              // but only works for objects, not "singleton"s. Probably not true, just a theory
             pDB   =  pDB_; aAPI_Host = aAPI_Host_                                // and must use underlined vars to reset globals
        }
 //     -------------------------------------------------------------

@@ -1,23 +1,26 @@
 
   import    express   from 'express'
-
   import  { IODD  }   from './api/IODD-Server.mjs'
 
-       var  pIODD  =  new IODD
+       var  pApp      =  express()
+       var  bQuiet // =  true        // Override .env Quiet = {true|false}
+       var  nPort  // =  54131       // Override .env Server_Port  
 
-       var  pApp   =  express()
+       var  pIODD     =  new IODD
 
-            pIODD.init( pApp,true )
+            pIODD.init(  pApp, bQuiet ) 
+             
             pIODD.getRoot( "/" )
             pIODD.getLogin( )
             pIODD.getMembers( )
             pIODD.getMembersBios( )
             pIODD.getProjects( )
-            //pIODD.getProjectCollaborators( )
+         // pIODD.getProjectCollaborators( )
             pIODD.getMembersProjects( )
-            //pIODD.getProjectCollaboratorsLetters( '/letters' )
+         // pIODD.getProjectCollaboratorsLetters( '/letters' )
             pIODD.getMeetings( )
-            pIODD.start( 3001 )
+
+            pIODD.start( nPort )
 
 
 
