@@ -240,7 +240,7 @@
 //          console.log( Object.keys(process.env).filter( aVar => aVar.match( /^DB/ ) ) )
 
   function  getEnv( aFile, bNewOnly ) {                                                             // .(30222.01.3 RAM Beg Write getEnv)).(30320.04.2 RAM Don't reurn existing values)
-       if (!fs.existsSync( aFile )) { console.log( `*** .env file, '${aFile}', not found` ); return process.env } // .(30319.01.1 RAM Do nothing if .env not found).(30322.03.1 RAM Display error)
+       if (!fs.existsSync( aFile )) { sayEnvErr(); return process.env }                             // .(30319.01.1 RAM Do nothing if .env not found).(30322.03.1 RAM Display error)
        var  mVars  =  fs.readFileSync( aFile, 'ASCII' ).split(/[\r\n]/), pVars = { }
             mVars.forEach( aVar => { if (aVar.replace( /^ +/, "" ) > "" && aVar.match( /^ *#/ ) == null ) {
        var  aKey = aVar.replace( /=.*/,  '' ).replace( /[ '"]/g,  '' );                             // .(30320.05.1 RAM No Quotes or spaces)
@@ -249,6 +249,11 @@
 //          pVars[aKey] = bNum ?  aVal.replace(/true/, '1').replace(/false/, '0') * 1 : aVal } } )
             pVars[aKey] = bNum ? (aVal.match(  /false|null|undefined/i ) ? false : (aVal.match( /true/i ) ? true : aVal * 1 )) : aVal } } )   // .(30322.06.4)
      return bNewOnly ? pVars : { ...process.env,  ...pVars }                                        // .(30319.01.2 RAM Add to existing env vars).(30320.04.2)
+
+  function  sayEnvErr() {                                                                           // .(30328.01.1 Beg Write seperate function)
+            console.log( `\n*** The .env file does NOT EXIST!\n     '${aFile}'\n` )
+            process.exit()
+            }                                                                                       // .(30328.01.1 End)
             }                                                                                       // .(30222.01.3 RAM End)
 //     -------------------------------------------------------------
 
