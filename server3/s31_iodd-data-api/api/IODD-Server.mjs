@@ -105,16 +105,17 @@
   function  fmtRoot( aName ) {
        var  aHTML = `
                 Welcome ${aName} to IODD MySQL Express Server API.<br>
-                Use any of the following APIs:<br>
-                <div style="margin-left:20px">
-                <a href="/login"                        >/login</a><br>
+                Use any of the following APIs:<br><br>
+                <div style="margin-left:40px; font-size:18px; line-height: 25px;">
+                <a href="/login?id=90"                  >/login</a><br>
                 <a href="/meetings"                     >/meetings</a><br>
                 <a href="/members"                      >/members</a><br>
                 <a href="/members_bios"                 >/members_bios</a><br>
-<!--            <a href="/members?recs=10"              >/members?recs=10</a><br>-->
                 <a href="/members_projects"             >/members_projects</a><br>
                 <a href="/projects"                     >/projects</a><br>
-<!--
+                <a href="/user?id=90"                   >/user</a><br>
+<!--                
+                <a href="/members?recs=10"              >/members?recs=10</a><br>
                 <a href="/projects?letters=a,r"         >/projects?letters=a,r</a><br>
                 <a href="/project_colaborators"         >/project_colaborators</a><br>
                 <a href="/project_colaborators_letters" >/project_colaborators_letters</a><br>
@@ -142,7 +143,8 @@ this.getLogin = function( ) {
 //          ---------------------------------------------------
 
 function  fmtSQL( pArgs ) {
-return  ` SELECT * FROM login_check_view `
+  return  ` SELECT * FROM login_check_view WHERE Id = ${ pArgs.id } `
+
 
     }; // eof fmtSQL
 //     ---  ---------------------------------------------------
@@ -263,9 +265,30 @@ return  ` SELECT * FROM members_projects_colaboration_view `
   } // eof getProjects
 //---- -------------------------------------------------------------------
 //========================================================================
+
+
+//=user===================================================================
+//-(user)-----------------------------------------------------------------
+
+this.getUser = function( ) {
+
+  var  aRoute = `/user`
+
+  pApp.get( `${aAPI_Host}${aRoute}`, async ( pReq, pRes ) => onGetRoute( pReq, pRes, '/user', { id: /[0-9]+/ }, fmtSQL ) )
+       sayMsg( 'get', aRoute )
+
+//          ---------------------------------------------------
+
+function  fmtSQL( pArgs ) {
+  return  ` SELECT * FROM members_view WHERE Id = ${ pArgs.id } `
+
+    }; // eof fmtSQL
+//     ---  ---------------------------------------------------
+  } // eof getUser
+//---- -------------------------------------------------------------------
+//========================================================================
+
 //END OF FETCHES
-
-
 
 
 
