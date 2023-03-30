@@ -221,9 +221,7 @@ this.getMembersProjects = function( ) {
 
 this.getProjects = function( ) {
 
-//          setRoute( 'get', '/projects', `SELECT * FROM members_projects_collaboration_view` )  //#.(30329.05.01 RAM Corrent spelling)
-            setRoute( 'get', '/projects', `SELECT * FROM members_projects_colaboration_view`  )  // .(30329.05.01 RAM Only one l)
-//          setRoute( 'get', '/projects', `SELECT * FROM members_projects_view` )                //#.(30329.05.01 RAM Can we use this?)
+            setRoute( 'get', '/projects', `SELECT * FROM members_projects_collaboration_view` )
 
          }; // eof getProjects
 //---- -------------------------------------------------------------------
@@ -337,41 +335,6 @@ return  ` SELECT  Distinct substr(LastName,1,1) as Letter
 //---- -------------------------------------------------------------------
 
 // END OF NOT NEEDED
-
-
-
-
-//function  setRoute( aMethod, aRoute_, fmtSQL, pValidArgs ) {                //#.(30328.02.1 RAM Switch Args)
-  function  setRoute( aMethod, aRoute_, pValidArgs, fmtSQL_ ) {               // .(30328.02.1 RAM Don't switch Args)
-
-   var  aRoute     = `${aAPI_Host}${aRoute_}`
-   var  fmtSQL     = (typeof(fmtSQL_) != 'undefined') ? fmtSQL_ : pValidArgs
-//      pValidArgs =  pValidArgs ? pValidArgs : fmtSQL
-    if (typeof(fmtSQL_) == 'object') {                                         // .(30328.02.2 Beg RAM Switch if object) 
-        fmtSQL     =  pValidArgs 
-        pValidArgs =  fmtSQL_                                                 // .(30328.02.2 End) 
-        }
-   switch (aMethod) {
-      case 'get'   : pApp.get(    aRoute, async ( pReq, pRes ) => { onRoute( aMethod, pReq, pRes, aRoute, pValidArgs, fmtSQL ) } ); break
-      case 'post'  : pApp.post(   aRoute, async ( pReq, pRes ) => { onRoute( aMethod, pReq, pRes, aRoute, pValidArgs, fmtSQL ) } ); break
-      case 'put'   : pApp.put(    aRoute, async ( pReq, pRes ) => { onRoute( aMethod, pReq, pRes, aRoute, pValidArgs, fmtSQL ) } ); break
-      case 'delete': pApp.delete( aRoute, async ( pReq, pRes ) => { onRoute( aMethod, pReq, pRes, aRoute, pValidArgs, fmtSQL ) } ); break
-//    case 'patch' : pApp.patch(  aRoute, xController ); break
-        default    : null
-        }
-        sayMsg( aMethod, aRoute_ )
- }
-//---- -------------------------------------------------------------------
-
-async function  onGetRoute( pReq, pRes, aRoute, pValidArgs, fmtSQL ) {
-       onRoute( 'get', pReq, pRes, aRoute, pValidArgs, fmtSQL )
-       } // eof onGetRoute 
-//---- -------------------------------------------------------------------
-
-async function  onPostRoute( pReq, pRes, aRoute, pValidArgs, fmtSQL ) {
-      onRoute( 'post', pReq, pRes, aRoute, pValidArgs, fmtSQL )
-       } // eof onGetRoute 
-//---- -------------------------------------------------------------------
 
 async function  onRoute( aMethod, pReq, pRes, aRoute, pValidArgs, fmtSQL ) {
 
