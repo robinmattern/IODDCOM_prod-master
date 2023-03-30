@@ -42,31 +42,50 @@
     padding: 50px 0px 0px 0px;
 }
 .Header-nav-table {
-    width: 120%;
+    width: 100%;
+    align-items: center;
 }
 td.Logo {
     width: 30%;
 }
 td.HeaderSpacer {
-    width: 25%;
+    width: 35%;
 }
 td.DropdownMenu {
     width: 10%;
     text-align: right;
+    display: flex;
 }
 td.HeaderNavListItemCTA {
-    width: 15%;
+    width: 20%;
 }
-td.HeaderNavListItemInits {
+td.HeaderNavListItemLogin {
+    display: flex;
+    width: 5%;
+}
+td.HeaderTrailingSpacer {
+    width: 1%;
+}
+/* LOGIN - LOGOUT DISPLAY ATTRIBUTES*/
+/*---------------------------------*/
+/* td.HeaderNavListItemInits {
+    display: none;
     width: 5%;
 }
 td.HeaderNavListItemLogin {
-    display: none;
+    display: flex;
     width: 5%;
 }
-.HeaderNavListItemHome {
-    display: none;
+#ContactAll {
+    display: flex;
+    font-size: 18px ;
 }
+.fa-file-text:before {
+    content: "\f15c";
+    font-size: 18px;
+} */
+/*---------------------------------*/
+/*END LOGIN - LOGOUT DISPLAY ATTRIBUTES */
 
 .HeaderNavListItemCTA {
     text-align: center;
@@ -104,7 +123,7 @@ The @keyframes wiggle properties
 }
 /*------------------------------------------*/
 
-.HeaderNavListItemInits{
+/* .HeaderNavListItemInits{
     display: flex;
     padding: 10px 20px 0px 0px;
 }
@@ -118,42 +137,49 @@ The @keyframes wiggle properties
     font-weight: var(--InitsFontWeight);
     font-family: var(--GlobalFontFamily);
     text-decoration: none;
-}
+} */
 .HeaderNavListItemLogin{
     display: flex;
     padding: 10px 20px 0px 0px;
 }
-.HeaderNavListItemLogin a {
-    padding: var(--InitsFontPadding);
-    background-color: blue; /* var(--PlatinumColor);*/
-    border: #5A5A5A var(--InitsBorderWeight) solid;
-    border-radius: 50%;
-    color: darkblue;
-    font-size: var(--InitsFontSize);
-    font-weight: var(--InitsFontWeight);
-    font-family: var(--GlobalFontFamily);
-    text-decoration: none;
-}
+/* .HeaderNavListItemLogin a { */
+    /* padding: var(--InitsFontPadding); */
+    /* background-color: blue; var(--PlatinumColor); */
+    /* border: #5A5A5A var(--InitsBorderWeight) solid; */
+    /* border-radius: 50%; */
+    /* color: darkblue; */
+    /* font-size: var(--InitsFontSize); */
+    /* font-weight: var(--InitsFontWeight); */
+    /* font-family: var(--GlobalFontFamily); */
+    /* text-decoration: none; */
+/* } */
 
 /*========================================*/
 /* Dropdown Menu Styles */
 .dropbtn {
-    background-color: var(--HeaderFooterBGColor);
-    color: blue;
+    background-color: blue; /*var(--HeaderFooterBGColor);*/
+    color: white;
     border-radius: 8px;
     font-size: var(--MenuCTAFontSize);
-    padding: 5px;
+    padding: 6px;
     font-family: var(--GlobalFontFamily);
     font-weight: 600;
     border: none;
     cursor: pointer;
+    top: 25px;
 }
   
 .dropdown {
+    margin-top: 12px;
     position: relative;
-    display: inline-block;
+    display: flex;
 }
-  
+div.dropdown-content {
+    top: 28px;
+    /* ^^ to move the menu Up and Down */
+    left: -20px;
+    /* ^^ to move the menu left:0 or right:0 */
+}  
 .dropdown-content {
     display: none;
     position: absolute;
@@ -161,8 +187,6 @@ The @keyframes wiggle properties
     min-width: 200px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    right: 0px;
-    /* ^^ to move the menu left:0 or right:0 */
 }
   
 .dropdown-content a {
@@ -184,8 +208,8 @@ The @keyframes wiggle properties
     display: block;
 } 
 .dropdown:hover .dropbtn {
-    background-color: blue;
-    color: #C0C0C0;
+    /* background-color: blue; */
+    /* color: #C0C0C0; */
 }
 
 
@@ -302,14 +326,14 @@ and (max-width: 949px)
         td.HeaderNavListItemCTA {
             width: 15%;
         }
-        td.HeaderNavListItemInits {
-            display: flex;
-            width: 5%;
-        }
-        td.HeaderNavListItemLogin {
+        /* td.HeaderNavListItemInits {
             display: none;
             width: 5%;
         }
+        td.HeaderNavListItemLogin {
+            display: flex;
+            width: 5%;
+        } */
         .Header {
             max-width: var(--GlobalMaxWidth);
         }
@@ -428,12 +452,12 @@ and (max-width: 740px)
                 width: 50%;
                 text-align: center;
             }
-            td.HeaderNavListItemInits {
-                /* display: none; */
-                width: 10%;
-            }
-            td.HeaderNavListItemLogin {
+            /* td.HeaderNavListItemInits {
                 display: none;
+                width: 10%;
+            } */
+            td.HeaderNavListItemLogin {
+                display: flex;
                 width: 5%;
             }    
             .HeaderNavList {
@@ -498,10 +522,10 @@ and (max-width: 440px)
                     width: 80%;
                     text-align: left;
                 }
-                td.HeaderNavListItemInits {
+                /* td.HeaderNavListItemInits {
                     display: none;
                     width: 5%;
-                }
+                } */
                 td.HeaderNavListItemLogin {
                     display: none;
                     width: 5%;
@@ -509,10 +533,12 @@ and (max-width: 440px)
                 .DropdownMenu {
                     display: none;
                 }    
-                .HeaderNavListItemAvatar,
-                .PencilImage {
+                
+                td.HeaderNavListItemLogin {
                     display: none;
-                }      
+                    width: 5%;
+                }                
+                
                 .HeaderNavListItem {
                     list-style: none;
                     display: inline-block;

@@ -17,8 +17,9 @@ html {
   margin: auto;
 }
 body {
-  background-color: cornflowerblue;
-  background-color: rgb(198 210 222);
+  /* background-color: cornflowerblue; */
+  /* background-color: rgb(198 210 222); */
+  background-color: var(--BodyBGColor);
 }
 
 .container {            /* custom element style */
@@ -165,11 +166,12 @@ The .Section2 properites
     .Links ul a:active {
       font-family: Arial, Helvetica, sans-serif;
       color: blue;
-      }  
-  /*------------------------------------------*/
+      }
+    /*------------------------------------------*/
 
 
-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+  
+
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 
 

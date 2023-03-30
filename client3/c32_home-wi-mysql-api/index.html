@@ -9,7 +9,8 @@
 	<title>Home</title>
 	<link rel="shortcut icon" href="favicon.png">
 	<link rel="stylesheet"    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
-
+	<link rel="stylesheet"    href="https://fonts.googleapis.com/css?family=Roboto+Slab" >
+	
 	<!--BEGINNING OF STYLE SHEETS (CSS)-->
 		<link rel="stylesheet"    href="css/00_global_variables.css">
 		<link rel="stylesheet"    href="css/01_hamburger.css">
@@ -21,13 +22,14 @@
 		<link rel="stylesheet"    href="css/06_resp_741-950-tabletPortrait.css">
 		<link rel="stylesheet"    href="css/07_resp_440-740-mobileLandscape.css">
 		<link rel="stylesheet"    href="css/08_resp_LT0440-mobilePortrait.css">
-		<link rel="stylesheet"    href="css/09_final.css">
+		<link rel="stylesheet"    href="css/09_variables.css">
 
-<!--
-	<link rel="stylesheet"    href="css/06_resp_1900-3000-desktop.css">
-	<link rel="stylesheet"    href="css/07_resp_1100-1900-laptop.css">
-	<link rel="stylesheet"    href="css/08_resp_950-1100-tabletLandscape.css">
--->
+	<script>
+		// document.cookie = "MemberID=1"
+		// //let c = 1;
+		// let c = document.cookie("MemberID");
+		// console.log(c);
+	</script>
 </head>
 <body>
 <script>var aName = "Home"</script>	
@@ -39,7 +41,7 @@
 		#HomeLink {display:none;}
 		#HomeLinkLine {display:none;}
 		#MembersLink {display:block}
-		#ContactLink a {color:grey}
+		#ContactLink a {color:blue;}
 		#BiosLink a {color:blue}
 		#MembersLinkLine {display:block}
 		#MembersProjectsLink {display:block}
@@ -82,7 +84,7 @@
 						<ul>
 							<li><i class="fa fa-address-book"></i>&nbsp;&nbsp;<a href="members/members.html">Member Listing</a>&nbsp;<img class="PencilImage" src="assets/images/pencilDots.gif"></li> <!-- .(30214.02.1 RAM Was href="../m") -->
 							<li id="BiosLink"><i class="fa fa-graduation-cap"></i>&nbsp;&nbsp;<a href="members-bios/members-bios.html">Bios</a>&nbsp;<img class="PencilImage" src="assets/images/pencilDots.gif"></li>
-							<li id="ContactLink"><i class="fa fa-file-text"></i>&nbsp;&nbsp;<a href="#">Contact Sheet</a>&nbsp;<img class="PencilImage" src="assets/images/pencilDots.gif"></li>
+							<li id="ContactLink"><span id="ContactAll"><i class="fa fa-file-text"></i>&nbsp;&nbsp;<a href="#">Contact Sheet</a>&nbsp;<img class="PencilImage" src="assets/images/pencilDots.gif"></span></li>
 							
 						</ul>
 						<li>Projects <a href="#"><img class="PencilImageProjectss" src="assets/images/pencilDots.gif"></a></li>
