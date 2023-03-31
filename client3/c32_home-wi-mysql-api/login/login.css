@@ -7,13 +7,14 @@
   text-align: right;
   margin: 0px 5px 0px 0px;
 }
-.logout-temp-span {
+.logout-temp-span a {
   text-decoration: none;
   color: white;
+  font-family: monospace;
   font-weight: 700;
-  background-color: #ECECEC;
+  background-color: blue;
   padding: 2px 8px 2px 8px;
-  border: 1px solid gray;
+  border: 1px solid blue;
   border-radius: 8px;
 }
 .Section1 {
