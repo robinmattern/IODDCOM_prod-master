@@ -8,7 +8,7 @@
         <title></title>
         <link rel="shortcut icon" href="favicon.png">
         <link rel="stylesheet"    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
-        
+
     </head>
     <body>
    
@@ -54,12 +54,13 @@
 
         <div>
             <div class="new-div">
-                <table class="Header-nav-table">
+                <table class="Header-nav-table" valign="center">
                     <tbody class="HeaderNavList"></tbody>
                     <tr class="Header-table-tr">
                         <td class="Logo">
                             <span class="LogoText">iodd</span>
                             <span class="DeviceText"></span>
+                            
                         </td>
                         <td class="HeaderSpacer"></td>
                         <td class="DropdownMenu">
@@ -70,85 +71,19 @@
                             </script> 
                         </td>
                         <td class="HeaderNavListItemCTA"><a href="meetings/meetings.html" title="CLICK For The Next Meeting Information">Meeting <span class="next-meeting-date"></span></a></td>
-                        <td class="HeaderNavListItemInits"><a href="login/login.html" title="Edit Profile">RS</a></td>
-                        <td class="HeaderNavListItemLogin"><a href="login/login.html" title="Log In">??</a></td>
+                        <!--<td class="HeaderNavListItemInits"><a href="login/login.html" title="Edit Profile"></a></td>-->
+                        <!-- <td class="HeaderNavListItemLogin"><a href="login/login.html" data-title="Log In"></a></td> -->
+                        <!-- <td class="HeaderNavListItemLogin" id="id2"><a href="login/login.html" class="ToolTip"><span class="ToolTipHide"></span></a></td> -->
+                        <td class="LoginTD"><a href="login/login.html?id=90" title="Log In"><span id="log"></span></a></td>
+                        <td class="HeaderTrailingSpacer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     </tr>
                     </tbody>
                 </table>
             </div>            
- <!--
-            <ul  class="HeaderNavList">
-                <li class="HeaderNavListItemBack"><a href="../index.html" title="Go back Home"><img src="../assets/images/btnBack.gif"></a></li>
-                <li class="HeaderNavListItem1"><a href="../index.html" title="Go back Home">Home</a></li>
-                <li class="HeaderNavListItem2"><a href="#" target="_blank" title="Next Meetins">Meeting Location</a></li>
-                <li class="HeaderNavListItemCTA"><a href="#" target="_blank" title="Next Meeting">Next&nbsp;Meeting&nbsp;<span class="next-meeting-date"></span></a></li>
-                <li class="HeaderNavListItemAvatar">
-                    <a href="#" target="_blank" title="Log Out"><img class="avatar-image" src="../assets/images/RJS-Avatar.gif"></a>
-                    <span><img src="../assets/images/pencilDots.gif"></span>
-                </li>
-            </ul>
--->
         </div>
     </div>
     <!-- END  Header -->
 
-    <script>
-/*
-        if (aName == "Home")  {  // Note: "==" means "is equal to", and "=" means "is assigned to"
-             var pMenuItem = $("#id1").css("color", "grey");
-             //var pMenuLine = $('#id2'); pMenuLine.style.backgroundColor = "red" 
-             } 
-        if (aName == "Members")  {   // or 
-           var pMemberItem = $("#id3"); pMemberItem.style.color = "gray"
-        //     $('$id4").style.backgroundColor = "grey" 
-             } 
-        if (aName == "MembersProjects")  {   // or 
-           var pMemberProjectItem = $("#id4"); pMemberProjectItem.style.color = "gray"
-             } 
-        if (aName == "GuruMail")  {   // or 
-           var pGuruMailItem = $("#id5"); pGuruMailItem.style.color = "gray"
-             } 
-        if (aName == "Support")  {   // or 
-           var pSupportItem = $("#id6"); pSupportItem.style.color = "gray"
-             } 
-        if (aName == "License")  {   // or 
-           var pLicenseItem = $("#id7"); pLicenseItem.style.color = "gray"
-             } 
-        if (aName == "Login")  {   // or 
-           var pLoginItem = $("#id8"); pLoginItem.style.color = "gray"
-             } 
-*/
-    </script>
-        
-
-<script>
-/*
-        PageName = ""
-        //pTagHome.style.color = 'blue';
-        //pTagMembers.style.color = "blue";
-        //pTagLine.style.backgroundColor = 'blue';
-        if ( document.URL.includes("inc-header.html") ) {
-            PageName = "Home"
-            pTagHome = document.getElementById("id1") 
-            pTagHome.style.color = 'red';
-            //pTagHome.style.fontWeight = "900";   
-            //pTagHome.style.display = 'none';   
-            pTagLine = document.getElementById("id2") 
-            pTagLine.style.backgroundColor = 'red';   
-            pTagLine.style.height = '2px';   
-            //pTagLine.style.display = 'none';   
-        }
-        if ( document.URL.includes("members.html") ) {
-            PageName = "Members"
-            pTagMembers = document.getElementById("id3") 
-            pTagMembers.style.color = "red"   
-        }
-        //pTag = document.getElementById("id1") 
-        //pTag.style.color = 'red';   
-        //console.log("PageName", PageName )
-        //console.log (document.URL)
-        //debugger
-*/
-    </script>     
+    <script src="assets/js/header.js"></script>     
     </body>
 </html>

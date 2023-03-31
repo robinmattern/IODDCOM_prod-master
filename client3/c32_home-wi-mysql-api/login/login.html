@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://www.w3schools.com/lib/w3.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
   <link rel="shortcut icon" href="favicon.png">
   <link rel="stylesheet"    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
@@ -18,13 +17,17 @@
   <link rel="stylesheet"    href="../css/06_resp_741-950-tabletPortrait.css">
   <link rel="stylesheet"    href="../css/07_resp_440-740-mobileLandscape.css">
   <link rel="stylesheet"    href="../css/08_resp_LT0440-mobilePortrait.css">
-  <link rel="stylesheet"    href="../css/09_final.css">
+  <link rel="stylesheet"    href="../css/09_variables.css">
 <!--BEGINNING OF LOCAL STYLE SHEETS (CSS)-->
   <link rel="stylesheet"    href="login.css">
 
 </head>
 <body>
-<script>var aName = "Login"</script>	
+<script src="../assets/js/login.js"></script>
+
+
+<script>
+var aName = "Login"</script>	
     <!--  Header -->
     <style>
     #MenuBlank {display:block;}
@@ -45,61 +48,57 @@
 		#LoginLinkLine {display:block;}
 		#LoginLink {display:none}
     #MenuBlank {display:block;}
-	  </style>
+    /*#log {display:none}*/
+    </style>
 
-	  <!--include using jQuery-->
-	    <div id="inc-header"></div>
-	    <script> 
-	      $("#inc-header").load("../includes/inc-header.html");
-	    </script> 
-    <!-- END  Header -->
 
-  <div class="LoginTitle">
-    <h2>login form</h2>
-  </div>  
-<form action="/action_page.php" method="post" style="background-color:cornflowerblue">
-  <div class="initscontainer">
-    <span>RS</span>
-  </div>
-  <div class="logincontainer">
-    <span>??</span>
-  </div>
-  <div class="namecontainer">
-    <span>Welcome Richard Schinner</span>
-  </div>
-  <div class="container">
-    <label for="uname"><b style="font-family: var(--GlobalFontFamily);">Username</b></label>
-    <input type="text" style="font-family: var(--GlobalFontFamily);" placeholder="Enter Username" name="uname" required>
 
-    <label for="psw"><b style="font-family: var(--GlobalFontFamily);">Password</b></label>
-    <input type="password" style="font-family: var(--GlobalFontFamily);" placeholder="Enter Password" name="psw" required>
-        
-    <button type="submit" style="font-family: var(--GlobalFontFamily);">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"><b style="font-family: var(--GlobalFontFamily);"> Remember me</b>
-    </label>
-  </div>
+  <!--include using jQuery-->
+    <div id="inc-header"></div>
+    <script> 
+      $("#inc-header").load("../includes/inc-header.html");
+    </script> 
+  <!-- END  Header -->
 
-  <div class="container">
-    <button style="font-family: var(--GlobalFontFamily);" type="button" class="cancelbtn">Cancel</button>
-    <span class="psw"  style="font-family: var(--GlobalFontFamily);">Forgot <a href="#"><b style="font-family: var(--GlobalFontFamily);">password?</b></a></span>
-  </div>
-</form>
-    <!--  Footer -->
-        <!--include using w3schools-->
-        <!--
-        <div w3-include-html="../includes/inc-footer.html"></div>
-        -->
+  <!--  Section 1 -->
+    <div class="Section1"> 
+      <div class="logout-temp-div"><br>
+        <span class="logout-temp-span"><a href="login.html?id=15">BT</a></span>
+        <span class="logout-temp-span"><a href="login.html?id=6">KF</a></span>
+        <span class="logout-temp-span"><a href="login.html?id=9">RM</a></span>
+        <span class="logout-temp-span"><a href="login.html?id=90">RS</a></span>
+        <span class="logout-temp-span"><a href="login.html">Logout</a></span>
+      </div>
+      <div class="Section1Title">institute of database developers</div>
+      <div class="login">
+        <h1>Login</h1>
+        <form action="/auth" method="post">
+          <label for="username">
+            <!-- font awesome icon -->
+            <i class="fas fa-user"></i>
+          </label>
+          <input type="text" name="username" placeholder="eMail" id="username" required>
+          <label for="password">
+            <i class="fas fa-lock"></i>
+          </label>
+          <input type="password" name="password" placeholder="Password" id="password" required>
+          <input type="submit" value="Login">
+        </form>
+      </div>
+    </div>
+  <!--  END Section 1 -->
 
+  <!--  Section 2 -->
+  <!--  END Section 2 -->
+  <!--  Footer -->
         <!--include using jQuery-->
         <div id="inc-footer"></div>
         <script> 
             $("#inc-footer").load("../includes/inc-footer.html");
         </script> 
-    <!-- END  Footer -->
+  <!-- END  Footer -->
 
-<script>
-    w3.includeHTML();
-</script> 
+  <script src="../assets/js/login.js"></script>
+ 
 </body>
 </html>
