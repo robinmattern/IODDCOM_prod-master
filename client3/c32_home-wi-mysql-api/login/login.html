@@ -82,6 +82,8 @@ var aName = "Login"</script>
             <i class="fas fa-lock"></i>
           </label>
           <input type="password" name="password" placeholder="Password" id="password" required>
+          Show Password&nbsp;  <input type="checkbox" onclick="myFunction()">
+
           <input type="submit" value="Login">
         </form>
       </div>
@@ -99,6 +101,16 @@ var aName = "Login"</script>
   <!-- END  Footer -->
 
   <script src="../assets/js/login.js"></script>
- 
+  <script>
+      function myFunction() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
+</script>
+
 </body>
 </html>
