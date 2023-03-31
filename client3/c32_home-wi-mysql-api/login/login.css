@@ -1,160 +1,111 @@
-@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css');   /* .(21211.05.4) */
-
-body {
-    font-family: var(--GlobalFontFamily);
-  }
-  form {
-    font-family: var(--GlobalFontFamily);
-    border: 5px solid #f1f1f1;
-  }
-  
-  input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-  }
-  
-  button {
-    background-color: #04AA6D;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  button:hover {
-    opacity: 0.8;
-  }
-  
-  .cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
-  }
-  
-  .initscontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-  }
-  .initscontainer span {
-    padding: var(--InitsFontPadding);
-    background-color: var(--InitsBGColor);
-    border: var(--InitsBorderColor) var(--InitsBorderWeight) solid;
-    border-radius: 50%;
-    color: var(--InitsFontColor);
-    font-size: var(--InitsFontSize);
-    font-weight: var(--InitsFontWeight);
-    font-family: var(--GlobalFontFamily);
-    text-decoration: none;
-
-  }
-
-  .logincontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-    display: none;
-  }
-  .logincontainer span {
-    padding: var(--InitsFontPadding);
-    background-color: var(--PlatinumColor);
-    border: darkgray var(--InitsBorderWeight) solid;
-    border-radius: 50%;
-    color: red;
-    font-size: var(--InitsFontSize);
-    font-weight: var(--InitsFontWeight);
-    font-family: var(--GlobalFontFamily);
-    text-decoration: none;
-  }
-  .namecontainer span {
-    padding: 3px 40px;
-    background-color: var(--InitsBGColor);
-    border: var(--InitsBorderColor) var(--InitsBorderWeight) solid;
-    border-radius: 0%;
-    color: var(--InitsFontColor);
-    font-size: 14px;
-    font-weight: 600;
-    font-family: var(--GlobalFontFamily);
-    text-decoration: none;
-    align-items: center;
-  }
-  .container {
-    height: 350px;
-    padding: 116px;
-    background-color: var(--PlatinumColor);
-  }
-  
-  span.psw {
-    float: right;
-    padding-top: 16px;
-  }
-  
-  .LoginTitle {
-    top: 75px;
-    position: relative;
-  }
-  .initscontainer {
-    top: 75px;
-    position: relative;
-    background-color: var(--PlatinumColor);
-  }
-  
-  h2 {
-    text-align: left;
-    margin: 20px;
-    font-size: 25px;
-    font-family: var(--GlobalFontFamily);
-  }
-  /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
-/*-----------------------------------------
-The @media MAX-width query properties
-***** IPHONE - Landscape
-/*If Device Width 
-  is >= 441px AND 
-  <= 740px Then...*/
-
-/*=========================================*/
-@media only screen
-and (min-width: 441px)
-and (max-width: 740px) 
-{ 
-  .imgcontainer {
-    margin: 16px 0 12px 0;
-  }
-  .container {
-    padding: 10px;
-    height: 170px;
-  }
-  h2 {
-    margin: 10px;
-  }
-  input[type=text], 
-  input[type=password] {
-    width: 99%;
-    padding: 12px 20px;
-    margin: 0px 0;
-  }
-  button {
-    width: 70%;
-  }
-
-  element.style {
-    margin-left: 20px;
-  }  
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+  font-size: 16px;
 }
-  /* Change styles for span and cancel button on extra small screens */
-  @media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
-    .cancelbtn {
-       width: 100%;
-    }
-  }
+.logout-temp-div {
+  text-align: right;
+  margin: 0px 5px 0px 0px;
+}
+.logout-temp-span {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  background-color: #ECECEC;
+  padding: 2px 8px 2px 8px;
+  border: 1px solid gray;
+  border-radius: 8px;
+}
+.Section1 {
+  height: 700px; /*was 120px*/
+  width: var(--GlobalMaxWidth);
+  width: 100%;
+  top: 60px;
+  left: 0px;  
+  background: url( '../assets/images/monaco-blue-soft.jpg');
+  /*background-color: whitesmoke;*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.Section1Title {
+  padding: 30px 0px 0px 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: whitesmoke;
+  text-shadow: 1px 1px 3px #000000;
+}
+.Section2 {
+  height: 600px;
+  background-color: aliceblue;
+}
+.login {
+  width: 400px;
+  background-color: #ffffff;
+  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+  margin: 80px auto;
+}
+.login h1 {
+  text-align: center;
+  color: #5b6574;
+  font-size: 24px;
+  padding: 20px 0 20px 0;
+  border-bottom: 1px solid #dee0e4;
+}
+.login form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 20px;
+}
+.login form label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: #3274d6;
+  color: #ffffff;
+}
+.login form input[type="password"], .login form input[type="text"] {
+  width: 310px;
+  height: 50px;
+  border: 1px solid #dee0e4;
+  margin-bottom: 20px;
+  padding: 0 15px;
+}
+.login form input[type="submit"] {
+  width: 100%;
+  padding: 15px;
+ margin-top: 20px;
+  background-color: #3274d6;
+  border: 0;
+  cursor: pointer;
+  font-weight: bold;
+  color: #ffffff;
+  transition: background-color 0.2s;
+}
+.login form input[type="submit"]:hover {
+background-color: #2868c7;
+  transition: background-color 0.2s;
+}
+
+.Footer {
+  display: block;
+  height: 100px;
+  /* width: 440px; */
+  /* opacity: 0.82; */
+  /* border-top: dotted 2px #696969; */
+
+} 
+.FooterNavList {
+  justify-content: center;
+  padding-left: 0px;
+  margin: 5px;
+  text-align: center;
+}
+.FooterNavListItem  {
+  padding: 10px 0px 10px 0px;
+}
+  .FooterNavListItem a {
+    color: #505050;
+}

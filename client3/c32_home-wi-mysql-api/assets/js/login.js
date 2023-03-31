@@ -1,0 +1,74 @@
+
+var id = 90
+debugger
+function clearListCookies()
+{
+    var cookies = document.cookie.split(";");
+    for (var i = 0; i < cookies.length; i++)
+    {
+        var spcook =  cookies[i].split("=");
+        deleteCookie(spcook[0]);
+    }
+    function deleteCookie(cookiename)
+    {
+        var d = new Date();
+        d.setDate(d.getDate() - 1);
+        var expires = ";expires="+d;
+        var name=cookiename;
+        //alert(name);
+        var value="";
+        document.cookie = name + "=" + value + expires + "; path=/";
+    }
+    //window.location = ""; // TO REFRESH THE PAGE
+}
+     clearListCookies()
+
+//alert("DocumentCookieBefore: '" + document.cookie + "'")
+//document.cookie = "UserID = ; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/;"
+//document.cookie = "UserID = ' ${id} `; path=/"
+
+//document.cookie = "UserID = 15; path=/"
+//alert("DocumentCookieAfter: '" + document.cookie + "'")
+
+//alert(`UserID Set to nn\n ${document.cookie}`)
+var  nID  = window.location.search.match( /id=([0-9]+)/)                         // .(30329.09.1 RAM Get nID from URL)
+            nID  = (nID && nID[1]) ? nID[1] : 0                                         // .(30329.09.2)
+            //if (nID > 0) {
+             //clearListCookies()
+             // window.location = ""; // TO REFRESH THE PAGE
+            //}
+
+            document.cookie = "UserID = ; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/;"
+            document.cookie = `UserID = ${nID}; path=/`
+
+            setUserForm( nID )                                                          // .(30329.06.1 RAM Use it)
+
+//--------  ---------------------------------------------------------
+
+  async function setUserForm( nID ) {                                                   // .(30329.06.1 Beg RAM Write function setUserForm)
+
+       var  pUser = await fetchLoginData( nID )
+       var  pForm = document.forms[0]
+            pForm.username.value = pUser.email
+            }                                                                           // .(30329.06.1 End)
+//--------  ---------------------------------------------------------
+
+async  function fetchLoginData( nID ) {                                               // .(30329.04.2 Beg RAM Write function fetchLoginData)
+
+    var  pLoginData = { id: 0, code: "", name : "", email: "" }
+
+     if (nID == 90) {
+         pLoginData =
+           { id   :  nID
+           , code : "RS"
+           , name : "Rick Schinner"
+           , email: "evantage@comcast.net"
+             }
+         }
+     if (nID == 15) { pLoginData = { id: nID, code: "BT", name : "Bruce Troutman", email: "bruce.troutman@gmail.com" } }
+     if (nID == 9) { pLoginData = { id: nID, code: "RM", name : "Robin Mattern",  email: "robin.mattern@gmail.com"  } }
+     if (nID == 6) { pLoginData = { id: nID, code: "KF", name : "Kennett Fussell",  email: "kffussellathome@gmail.com "  } }
+     
+ return  pLoginData
+      }                                                                                 // .(30329.04.2 End)
+//   -----  ---------------------------------------------------------

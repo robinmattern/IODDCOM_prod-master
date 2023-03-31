@@ -84,13 +84,7 @@ function  fmtMeetings( pJSON ) {
                </table></div>
                <div class="desc-div"><table class="desc-table">
                     <tr><td class="desc" colspan="2">${ aDescription }</td></tr>
-               </table></div>
-
-               
-               
-               
-               
-               
+               </table></div>               
                `
 
 //          mHTMLs.push( aRow )                  

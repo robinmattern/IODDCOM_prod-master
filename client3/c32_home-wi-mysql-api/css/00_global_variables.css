@@ -9,7 +9,7 @@
 -------------------------------------------*/
 :root {
     /*CHANGE MEETING DATE BELOW*/
-    --NextMeetingDate: "04/01/23";    
+    --NextMeetingDate: "04/15/23";    
 
     --GlobalFontFamily: Arial, Helvetica, sans-serif;
     --GlobalIODDFontSize: 45px;
@@ -19,6 +19,8 @@
 
     --PlatinumColor: #E5E4E2;
     --HeaderFooterBGColor: rgb(198 210 222);
+    --BodyBGColor: #EDEDED;
+    --BodyBGColor: aliceblue;
     --Section2BGColor: whitesmoke;
     --GlobalMaxWidth: 900px;
     /*--AvatarImageWidth: 80%;*/
@@ -44,5 +46,4 @@
     --CalloutIconFontFamily: "Font Awesome 5 Free";    
 
 } 
-
 /* END CSS*/
