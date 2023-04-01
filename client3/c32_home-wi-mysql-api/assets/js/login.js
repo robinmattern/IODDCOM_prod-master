@@ -50,6 +50,7 @@ var  nID  = window.location.search.match( /id=([0-9]+)/)                        
        var  pUser = await fetchLoginData( nID )
        var  pForm = document.forms[0]
             pForm.username.value = pUser.email
+            pForm.password.value = pUser.pin
             }                                                                           // .(30329.06.1 End)
 //--------  ---------------------------------------------------------
 
@@ -61,14 +62,15 @@ async  function fetchLoginData( nID ) {                                         
          pLoginData =
            { id   :  nID
            , code : "RS"
-           , name : "Rick Schinner"
+           , name : "Richard Schinner"
            , email: "evantage@comcast.net"
+           , pin: "iodd"
              }
          }
-     if (nID == 15) { pLoginData = { id: nID, code: "BT", name : "Bruce Troutman", email: "bruce.troutman@gmail.com" } }
-     if (nID == 9) { pLoginData = { id: nID, code: "RM", name : "Robin Mattern",  email: "robin.mattern@gmail.com"  } }
-     if (nID == 6) { pLoginData = { id: nID, code: "KF", name : "Kennett Fussell",  email: "kffussellathome@gmail.com "  } }
-     
+     if (nID == 15) { pLoginData = { id: nID, code: "BT", name : "Bruce Troutman", email: "bruce.troutman@gmail.com", pin: "iodd" } }
+     if (nID == 9) { pLoginData = { id: nID, code: "RM", name : "Robin Mattern",  email: "robin.mattern@gmail.com", pin: "iodd"  } }
+     if (nID == 6) { pLoginData = { id: nID, code: "KF", name : "Kennett Fussell",  email: "kffussellathome@gmail.com", pin: "iodd"  } }
+     if (nID == "") { pLoginData = { id: nID, code: "", name : "",  email: "", pin: ""  } }
  return  pLoginData
       }                                                                                 // .(30329.04.2 End)
 //   -----  ---------------------------------------------------------
