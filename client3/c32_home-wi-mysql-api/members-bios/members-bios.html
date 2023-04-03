@@ -33,6 +33,7 @@
         <link rel="stylesheet"    href="css/08_resp_950-1100-tabletLandscape.css">
     -->
         <script src="../assets/js/members-bios.js"  type="application/javascript" ></script>
+        <script src="../assets/js/header.js"></script>
 </head>
 <body>
 <script>
@@ -65,19 +66,23 @@
 	    #MenuBlank {display:block;}
 	</style>
 
-    <!--include using jQuery-->
-	    <div id="inc-header"></div>
-	    <script> 
-	      $("#inc-header").load("../includes/inc-header.html");
-	    </script> 
+		<!-- inc-header-->
+        <div id="inc-header"></div>
+        <script> 
+                //$("#inc-header").load("../includes/inc-header.html");
+              setHTML( 'inc-header', '../includes/inc-header.html' );   
+        </script> 
+        <!-- END inc-header -->
     <!-- END  Header -->
 
     <!--  Section1 -->
-		<!--include using jQuery-->
-        <div id="inc-section1"></div>
-        <script> 
-        $("#inc-section1").load("../includes/inc-section1.html");
-        </script> 
+ 		<!-- inc-section1-->
+            <div id="inc-section1"></div>
+            <script> 
+                    //$("#inc-section1").load("../includes/inc-section1.html");
+                setHTML( 'inc-section1', '../includes/inc-section1.html' );   
+            </script> 
+         <!-- END inc-section1 -->
     <!-- END  Section1 -->
 
     <!--  Section2 -->
@@ -104,11 +109,13 @@
     <!-- END  Section2 -->
 
     <!--  Footer -->
-        <!--include using jQuery-->
-        <div id="inc-footer"></div>
-        <script> 
-            $("#inc-footer").load("../includes/inc-footer.html");
-        </script> 
+  		<!-- inc-footer-->
+          <div id="inc-footer"></div>
+          <script> 
+                  //$("#inc-footer").load("../includes/inc-footer.html");
+                setHTML( 'inc-footer', '../includes/inc-footer.html' );   
+          </script> 
+      <!-- END inc-footer -->
     <!-- END  Footer -->
 
 </div> <!--Container ending div-->

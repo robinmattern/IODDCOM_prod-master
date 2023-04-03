@@ -89,7 +89,18 @@
 background-color: #2868c7;
   transition: background-color 0.2s;
 }
-
+#login-error {
+  border-top: red 1px solid;
+  border-bottom: red 1px solid;
+  color: red;
+  font-size: 14px;
+  background-color: yellow;
+  padding: 10px 0px 10px 0px;
+  display: none;
+}
+#login-error a {
+  font-size: 14px;
+}
 .Footer {
   display: block;
   height: 60px;
