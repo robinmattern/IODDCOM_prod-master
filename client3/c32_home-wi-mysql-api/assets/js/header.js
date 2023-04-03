@@ -61,10 +61,12 @@
             var aLogIn = iLogin;
             //let aLogIn = "<a href='#' title='Welcome' style='text-decoration:none;'>RS</a>";
             var pSpan = $("#log") 
-            document.getElementById("log").innerHTML = aLogIn;
+            //document.getElementById("log").innerHTML = aLogIn;
+            pSpan.html(aLogIn)
             $("#ContactAll").css("display", "block");
             $("#ContactLink").css("display", "block");
-            $("#ContactDrop").css("display", "block");
+            $("#contact-dropdown").css("display", "block");
+            $("#login-inits").css("width", "35px")
             pSpan.css("text-decoration", "none");
             pSpan.css("color", "white");
             pSpan.css("padding", "4px");
@@ -72,9 +74,9 @@
             pSpan.css("font-size", "18px");
             pSpan.css("font-weight", "500");
             pSpan.css("font-family", "monospace");
-            pSpan.css("text-align", "center");
             pSpan.css("border-radius", "50%");
             pSpan.css("border", "solid #5A5A5A 3px");
+            pSpan.a.css("text-align", "center");
             // pSpan.css("display", "block");
         } 
         else if (id == 0)  
@@ -83,10 +85,11 @@
             //let aLogIn = "<a class="login" href='../login/login.html'>Log In</a>";            
             var pSpan = $("#log") 
             pSpan.css("text-decoration", "none");
-            document.getElementById("log").innerHTML = aLogIn;
+            //document.getElementById("log").innerHTML = aLogIn;
+            pSpan.html(aLogIn)
             $("#ContactAll").css("display", "none");
             $("#ContactLink").css("display", "none");
-            $("#ContactDrop").css("display", "none");
+            $("#contact-dropdown").css("display", "none");
             pSpan.css("color", "white");
             pSpan.css("padding", "5px");
             pSpan.css("width", "60px");
@@ -94,10 +97,11 @@
             pSpan.css("font-size", "15px");
             pSpan.css("font-weight", "600");
             pSpan.css("font-family", "arial");
-            pSpan.css("text-align", "center");
             pSpan.css("border-radius", "8px");
             pSpan.css("border", "solid #5A5A5A 0px");
-            pSpan.css("display", "flex");
+            // pSpan.css("display", "flex");
+            //pSpan.a.css("text-align", "center");
+
         }
         else
         {
@@ -105,9 +109,6 @@
         }
     
         
-
-
-
         function myFunction(x) 
         {
             if (x.matches) {        // If media query matches
@@ -125,3 +126,19 @@
             myFunction(x)               // Call listener function at run time
             x.addListener(myFunction)   // Attach listener function on state changes
 
+        //  ------------------------------------------------------------
+
+        //  ------------------------------------------------------------
+        // For the includes
+
+        async  function  setHTML( aDivID, aFile ) {                         // .(30401.02.1 Beg RAM Add function)
+            var aPath     =  window.location.href.replace( /[^/]+$/, '')
+        //                   console.log( `${aPath}/includes/inc-header-home.html` ) 
+            var response  =  await fetch( `${aPath}${aFile}` );
+            var aHTML     =  await response.text()
+            var pDiv      =  $( `#${aDivID}` ) 
+                pDiv.html(   aHTML )
+        //      sayMsg(     `setHTML[2]     Included '${aFile}’`, nSay2)
+            }                                                           // .(30401.02.1 End)
+        //  ------------------------------------------------------------        //  ------------------------------------------------------------
+        

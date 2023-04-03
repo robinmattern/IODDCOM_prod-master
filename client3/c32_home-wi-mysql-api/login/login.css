@@ -5,7 +5,7 @@
 }
 .logout-temp-div {
   text-align: right;
-  margin: 0px 5px 0px 0px;
+  margin: 0px 20px 0px 0px;
 }
 .logout-temp-span a {
   text-decoration: none;
@@ -92,7 +92,7 @@ background-color: #2868c7;
 
 .Footer {
   display: block;
-  height: 100px;
+  height: 60px;
   /* width: 440px; */
   /* opacity: 0.82; */
   /* border-top: dotted 2px #696969; */

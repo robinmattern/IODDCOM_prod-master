@@ -317,7 +317,10 @@ and (max-width: 949px)
             width: 30%;
         }
         td.HeaderSpacer {
-            width: 15%;
+            width: 5%;
+        }
+        td.HeaderTrailingSpacer {
+            width: 100px;
         }
         td.DropdownMenu {
             width: 10%;
@@ -341,17 +344,8 @@ and (max-width: 949px)
             align-items: center;
             width: 130%;
         }    
-        .HeaderSpacer {
-            width: 100px;
-        }
-        .HeaderNavListItemHome,
-        .HeaderNavListItemBack,
-        .HeaderNavListItemMtgLoc {
-            display: none;
-        }
-        .HeaderNavListItemAvatar {
-            display: flex;
-            padding: 0px 100px 0px 0px;
+        td.HeaderSpacer {
+            width: 200px;
         }
         .HeaderNavListItemInits{
             display: flex;
@@ -370,6 +364,9 @@ and (max-width: 949px)
             padding: 6px 6px;
             font-size: 14px;
         }    
+        #inc-dropdown {
+            width: 10px;
+        }
         .MenuWrap {  /*hamburger*/
             display: none;
             margin: 0px 0px 0px 30px
@@ -416,7 +413,7 @@ and (max-width: 740px)
                 text-align: left;
             }
             .DeviceText::after{
-                content: "\ [mobile]"
+                content: "\ [tablet]"
             }
             .DeviceText {
                 font-size: 10px;
@@ -460,6 +457,9 @@ and (max-width: 740px)
                 display: flex;
                 width: 5%;
             }    
+            #log {
+                display: flex;
+            }
             .HeaderNavList {
                 font-size: 8px;
             }
@@ -522,10 +522,6 @@ and (max-width: 440px)
                     width: 80%;
                     text-align: left;
                 }
-                /* td.HeaderNavListItemInits {
-                    display: none;
-                    width: 5%;
-                } */
                 td.HeaderNavListItemLogin {
                     display: none;
                     width: 5%;
@@ -533,12 +529,7 @@ and (max-width: 440px)
                 .DropdownMenu {
                     display: none;
                 }    
-                
-                td.HeaderNavListItemLogin {
-                    display: none;
-                    width: 5%;
-                }                
-                
+                                
                 .HeaderNavListItem {
                     list-style: none;
                     display: inline-block;
@@ -568,6 +559,9 @@ and (max-width: 440px)
                 .HeaderNavListItemCTA a {
                     font-size: 13px;
                     padding: 6px;
+                }
+                #log {
+                    display: none;
                 }
                 .MenuWrap {  /*hamburger*/
                     display: flex;

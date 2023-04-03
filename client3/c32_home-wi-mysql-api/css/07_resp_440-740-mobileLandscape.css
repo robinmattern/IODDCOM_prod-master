@@ -23,7 +23,7 @@ The .Section1 properites
 ------------------------------------------*/
 .Section1 {
   width: 100%;
-  max-width: 800px;
+  max-width: var(--GlobalMaxWidth);
   height: 300px;
   position: relative;
   color: var(--Section2-font-color);
@@ -91,9 +91,9 @@ The .Footer properites
 ------------------------------------------*/
 .Footer {
   display: none;
-  height: 30px;
+  height: 60px;
   /* width: 440px; */
-  opacity: 0.82;
+  opacity: 1;
   border-top: dotted 2px #696969;
 }
 .FooterNavList {
