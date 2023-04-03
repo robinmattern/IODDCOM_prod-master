@@ -1,6 +1,6 @@
 
 var id = 90
-debugger
+//debugger
 function clearListCookies()
 {
     var cookies = document.cookie.split(";");
@@ -64,12 +64,12 @@ async  function fetchLoginData( nID ) {                                         
            , code : "RS"
            , name : "Richard Schinner"
            , email: "evantage@comcast.net"
-           , pin: "iodd"
+           , pin: "blueNSX"
              }
          }
-     if (nID == 15) { pLoginData = { id: nID, code: "BT", name : "Bruce Troutman", email: "bruce.troutman@gmail.com", pin: "iodd" } }
-     if (nID == 9) { pLoginData = { id: nID, code: "RM", name : "Robin Mattern",  email: "robin.mattern@gmail.com", pin: "iodd"  } }
-     if (nID == 6) { pLoginData = { id: nID, code: "KF", name : "Kennett Fussell",  email: "kffussellathome@gmail.com", pin: "iodd"  } }
+     if (nID == 15) { pLoginData = { id: nID, code: "BT", name : "Bruce Troutman", email: "bruce.troutman@gmail.com", pin: "fishfortrout" } }
+     if (nID == 9) { pLoginData = { id: nID, code: "RM", name : "Robin Mattern",  email: "robin.mattern@gmail.com", pin: "scroogemcduck"  } }
+     if (nID == 6) { pLoginData = { id: nID, code: "KF", name : "Kennett Fussell",  email: "kffussellathome@gmail.com", pin: "doctorprof"  } }
      if (nID == "") { pLoginData = { id: nID, code: "", name : "",  email: "", pin: ""  } }
  return  pLoginData
       }                                                                                 // .(30329.04.2 End)

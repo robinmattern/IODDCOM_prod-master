@@ -24,32 +24,29 @@
 </head>
 <body>
 <script src="../assets/js/login.js"></script>
-
-
-<script>
-var aName = "Login"</script>	
-    <!--  Header -->
-    <style>
-    #MenuBlank {display:block;}
-		#HomeLink {display:block;}
-		#HomeLinkLine {display:block;}
-		#MembersLink {display:block}
-		#ContactLink a {color:grey}
-		#BiosLink a {color:grey}
-		#MembersLinkLine {display:block}
-		#MembersProjectsLink {display:block}
-		#ProjectDetailsLink a {color:blue}
-		#MembersProjectsLinkLine {display:block}
-		#GuruLink a {color:grey}
-		#SupportLink a {color:grey}
-		#LicenseLink a {color:grey;}
-		#MtgLocLinkLine {display:block;}
-		#MtgLocLink a {display: block}
-		#LoginLinkLine {display:block;}
-		#LoginLink {display:none}
-    #MenuBlank {display:block;}
-    /*#log {display:none}*/
-    </style>
+<script> var aName = "Login" </script>	
+<!--  Header -->
+  <style>
+      #MenuBlank {display:block;}
+      #HomeLink {display:block;}
+      #HomeLinkLine {display:block;}
+      #MembersLink {display:block}
+      #ContactLink a {color:grey}
+      #BiosLink a {color:grey}
+      #MembersLinkLine {display:block}
+      #MembersProjectsLink {display:block}
+      #ProjectDetailsLink a {color:blue}
+      #MembersProjectsLinkLine {display:block}
+      #GuruLink a {color:grey}
+      #SupportLink a {color:grey}
+      #LicenseLink a {color:grey;}
+      #MtgLocLinkLine {display:block;}
+      #MtgLocLink a {display: block}
+      #LoginLinkLine {display:block;}
+      #LoginLink {display:none}
+      #MenuBlank {display:block;}
+      /*#log {display:none}*/
+  </style>
 
 
 
@@ -82,7 +79,7 @@ var aName = "Login"</script>
             <i class="fas fa-lock"></i>
           </label>
           <input type="password" name="password" placeholder="Password" id="password" required>
-          Show Password&nbsp;  <input type="checkbox" onclick="myFunction()">
+          <div id="show-pin">Show Password&nbsp;  <input type="checkbox" onclick="showPin()"></div>
 
           <input type="submit" value="Login">
         </form>
@@ -101,8 +98,9 @@ var aName = "Login"</script>
   <!-- END  Footer -->
 
   <script src="../assets/js/login.js"></script>
+
   <script>
-      function myFunction() {
+      function showPin() {
         var x = document.getElementById("password");
         if (x.type === "password") {
           x.type = "text";
@@ -110,7 +108,25 @@ var aName = "Login"</script>
           x.type = "password";
         }
       }
-</script>
+  </script>
 
+  <script>
+
+    const url = window.location.href;
+    // alert("url: " + url);
+    var nPos = url.indexOf("?");
+    //alert("nPos = " + nPos);
+
+  if (nPos >= 0) {
+    $("#show-pin").css("display", "block");
+    //alert("true")    
+    //console.log('The query parameter is set');
+  } else {
+    $("#show-pin").css("display", "none");
+    //alert("false")
+    //console.log('The query parameter is not set');
+  }
+
+  </script>
 </body>
 </html>
