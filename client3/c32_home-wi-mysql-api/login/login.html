@@ -21,6 +21,8 @@
 <!--BEGINNING OF LOCAL STYLE SHEETS (CSS)-->
   <link rel="stylesheet"    href="login.css">
 
+  <script src="../assets/js/header.js"></script>
+
 </head>
 <body>
 <script src="../assets/js/login.js"></script>
@@ -50,11 +52,14 @@
 
 
 
-  <!--include using jQuery-->
-    <div id="inc-header"></div>
-    <script> 
-      $("#inc-header").load("../includes/inc-header.html");
-    </script> 
+  <!-- inc-header-->
+			<div id="inc-header"></div>
+			<script> 
+        //$("#inc-header").load("../includes/inc-header.html");
+			  setHTML( 'inc-header', '../includes/inc-header.html' );   
+			</script> 
+		<!-- END inc-header -->
+
   <!-- END  Header -->
 
   <!--  Section 1 -->
@@ -68,7 +73,10 @@
       </div>
       <div class="Section1Title">institute of database developers</div>
       <div class="login">
-        <h1>Login</h1>
+        <h1>
+          Login<br>
+          <div id="login-error">jjonson2@gmail.com is not in IODD's database<br>Contact <a href="#">System Administrator</a> for Help</div>
+        </h1>
         <form action="/auth" method="post">
           <label for="username">
             <!-- font awesome icon -->
@@ -90,11 +98,13 @@
   <!--  Section 2 -->
   <!--  END Section 2 -->
   <!--  Footer -->
-        <!--include using jQuery-->
-        <div id="inc-footer"></div>
-        <script> 
-            $("#inc-footer").load("../includes/inc-footer.html");
-        </script> 
+  <!-- inc-footer-->
+			<div id="inc-footer"></div>
+			<script> 
+        			//$("#inc-footer").load("../includes/inc-footer.html");
+			  	setHTML( 'inc-footer', '../includes/inc-footer.html' );   
+			</script> 
+		<!-- END inc-footer -->
   <!-- END  Footer -->
 
   <script src="../assets/js/login.js"></script>

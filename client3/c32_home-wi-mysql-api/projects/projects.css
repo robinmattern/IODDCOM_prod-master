@@ -58,6 +58,9 @@ body {
 .TableSpacer{
     height: 80px;
 }
+.Section1 {
+    display: none;
+}
 .Section2 {
     top: 0px; /*orig 65*/
     height: 90%;
