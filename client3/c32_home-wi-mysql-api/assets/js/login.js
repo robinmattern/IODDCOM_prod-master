@@ -71,6 +71,34 @@ async  function fetchLoginData( nID ) {                                         
      if (nID == 9) { pLoginData = { id: nID, code: "RM", name : "Robin Mattern",  email: "robin.mattern@gmail.com", pin: "scroogemcduck"  } }
      if (nID == 6) { pLoginData = { id: nID, code: "KF", name : "Kennett Fussell",  email: "kffussellathome@gmail.com", pin: "doctorprof"  } }
      if (nID == "") { pLoginData = { id: nID, code: "", name : "",  email: "", pin: ""  } }
+     if (nID == 500) { 
+        pLoginData = 
+            { id: nID
+            , code: "Login"
+            , name : "Donald Duck"
+            , email: "dduck@gmail.com"
+            , pin: "lovedaisy" 
+            } 
+            $("#login-error").css("display", "block");
+            $("#login-button").css("display", "none");
+            $("#show-pin").css("display", "none");
+            var pSpan = $("#log") 
+            pSpan.css("text-decoration", "none");
+            pSpan.html(aLogIn)
+            $("#ContactAll").css("display", "none");
+            $("#ContactLink").css("display", "none");
+            $("#contact-dropdown").css("display", "none");
+            pSpan.css("color", "white");
+            pSpan.css("padding", "5px");
+            pSpan.css("width", "60px");
+            pSpan.css("background-color", "blue");
+            pSpan.css("font-size", "15px");
+            pSpan.css("font-weight", "600");
+            pSpan.css("font-family", "arial");
+            pSpan.css("border-radius", "8px");
+            pSpan.css("border", "solid #5A5A5A 0px");
+
+        }
  return  pLoginData
       }                                                                                 // .(30329.04.2 End)
 //   -----  ---------------------------------------------------------

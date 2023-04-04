@@ -65,6 +65,7 @@
   <!--  Section 1 -->
     <div class="Section1"> 
       <div class="logout-temp-div"><br>
+        <span class="logout-temp-span"><a href="login.html?id=500">??</a></span>
         <span class="logout-temp-span"><a href="login.html?id=15">BT</a></span>
         <span class="logout-temp-span"><a href="login.html?id=6">KF</a></span>
         <span class="logout-temp-span"><a href="login.html?id=9">RM</a></span>
@@ -75,7 +76,7 @@
       <div class="login">
         <h1>
           Login<br>
-          <div id="login-error">jjonson2@gmail.com is not in IODD's database<br>Contact <a href="#">System Administrator</a> for Help</div>
+          <div id="login-error">dduck@gmail.com is not in IODD's database<br>Contact <a href="#">System Administrator</a> for Help</div>
         </h1>
         <form action="/auth" method="post">
           <label for="username">
@@ -83,13 +84,15 @@
             <i class="fas fa-user"></i>
           </label>
           <input type="text" name="username" placeholder="eMail" id="username" required>
+
           <label for="password">
             <i class="fas fa-lock"></i>
           </label>
           <input type="password" name="password" placeholder="Password" id="password" required>
-          <div id="show-pin">Show Password&nbsp;  <input type="checkbox" onclick="showPin()"></div>
 
-          <input type="submit" value="Login">
+          <div id="show-pin">Show Password&nbsp;  <input type="checkbox" onclick="showPin()"></div><br><br>
+
+          <input id="login-button" type="submit" value="Login">
         </form>
       </div>
     </div>
@@ -123,11 +126,11 @@
   <script>
 
     const url = window.location.href;
-    // alert("url: " + url);
+//    alert("url: " + url);
     var nPos = url.indexOf("?");
-    //alert("nPos = " + nPos);
+//    alert("nPos = " + nPos);
 
-  if (nPos >= 0) {
+  if ( nPos >= 0 ) {
     $("#show-pin").css("display", "block");
     //alert("true")    
     //console.log('The query parameter is set');
