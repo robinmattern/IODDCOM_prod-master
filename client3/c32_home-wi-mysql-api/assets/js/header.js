@@ -48,6 +48,9 @@
           case 90:
             iLogin = "RS";
             break;
+          case 500:
+            iLogin = "&nbsp;Login";
+            break;          
           default:
             iLogin = "??";
         }
@@ -101,6 +104,26 @@
             pSpan.css("border", "solid #5A5A5A 0px");
             // pSpan.css("display", "flex");
             //pSpan.a.css("text-align", "center");
+        } 
+        else if (id == 500)  
+        {
+            let aLogIn = "Log In";
+            //let aLogIn = "<a class="login" href='../login/login.html'>Log In</a>";            
+            var pSpan = $("#log") 
+            pSpan.css("text-decoration", "none");
+            pSpan.html(aLogIn)
+            $("#ContactAll").css("display", "none");
+            $("#ContactLink").css("display", "none");
+            $("#contact-dropdown").css("display", "none");
+            pSpan.css("color", "white");
+            pSpan.css("padding", "5px");
+            pSpan.css("width", "60px");
+            pSpan.css("background-color", "blue");
+            pSpan.css("font-size", "15px");
+            pSpan.css("font-weight", "600");
+            pSpan.css("font-family", "arial");
+            pSpan.css("border-radius", "8px");
+            pSpan.css("border", "solid #5A5A5A 0px");
 
         }
         else
