@@ -15,68 +15,29 @@
        var  mColDefs      =  mCols.map( pRec => { return { Name: pRec.name, Type: pRec.type, Len: pRec.columnLength, Decs: pRec.decimals } } )
     return  mRecs
         } catch( pError ) {
-//          aSQL          =  aSQL.replace( /\n           /g, '\n     ').replace( /^[\n]+/, '' ).replace( /[ \n]+$/, '' ) //#.(30328.04.2)
-            console.log(    `  *** Error: ${pError.message}\n${ saySQL( aSQL ) }\n` );
-//  return  { "error":        '*** Error: ${pError.message}\n${ aSQL}' };
-    return  [ "error",        `*** Error: ${pError.message}\n${ saySQL( aSQL ) }` ] // .replace( /"/g, '\\"' ) ]; // .(30328.04.2)
+            aSQL          =  aSQL.replace( /\n           /g, '\n     ').replace( /^[\n]+/, '' ).replace( /[ \n]+$/, '' )
+            console.log(    `  *** Error: ${pError.message}\n${aSQL}\n` );
+//  return  { "error":        '*** Error: ${pError.message}\n${aSQL}' };
+    return  [ "error",        `*** Error: ${pError.message}\n${aSQL}` ] // .replace( /"/g, '\\"' ) ];
 //  return `{ "error":        '*** Error: ${pError.message}\n${aSQL}' }`;
             }
        }
 //     -------------------------------------------------------------
 
-  function  saySQL( aSQL ) {                                                                                        // .(30328.04.3 Beg RAM Add)
-    return (aSQL || '').replace( /\n           /g, '\n     ').replace( /^[\n]+/, '' ).replace( /[ \n]+$/, '' )
-        }                                                                                                         // .(30328.04.3 End)
-
-//function  setRoute( aMethod, aRoute_, fmtSQL, pValidArgs ) {                //#.(30328.02.1 RAM Switch Args)
-function  setRoute( aMethod, aRoute_, pValidArgs, fmtSQL_ ) {               // .(30328.02.1 RAM Don't switch Args)
-
-  var  aRoute     = `${aAPI_Host}${aRoute_}`
-       fmtSQL     = (typeof(fmtSQL_) != 'undefined') ? fmtSQL_ : pValidArgs
-//      pValidArgs =  pValidArgs ? pValidArgs : fmtSQL
-   if (typeof(fmtSQL_) == 'object') {                                         // .(30328.02.2 Beg RAM Switch if object) 
-       fmtSQL     =  pValidArgs 
-       pValidArgs =  fmtSQL_                                                 // .(30328.02.2 End) 
-       }
-  switch (aMethod) {
-     case 'get'   : pApp.get(    aRoute, async ( pReq, pRes ) => { onRoute( aMethod, pReq, pRes, aRoute, pValidArgs, fmtSQL ) } ); break
-     case 'post'  : pApp.post(   aRoute, async ( pReq, pRes ) => { onRoute( aMethod, pReq, pRes, aRoute, pValidArgs, fmtSQL ) } ); break
-     case 'put'   : pApp.put(    aRoute, async ( pReq, pRes ) => { onRoute( aMethod, pReq, pRes, aRoute, pValidArgs, fmtSQL ) } ); break
-     case 'delete': pApp.delete( aRoute, async ( pReq, pRes ) => { onRoute( aMethod, pReq, pRes, aRoute, pValidArgs, fmtSQL ) } ); break
-//    case 'patch' : pApp.patch(  aRoute, xController ); break
-       default    : null
-       }
-       sayMsg( aMethod, aRoute_ )
-}
-//---- -------------------------------------------------------------------
-
-
-  function chkSQL( pValidArgs, fmtSQL_) {
-      var  fmtSQL     = (typeof(fmtSQL_) != 'undefined') ? fmtSQL_ : '' // pValidArgs || ''     
-           pValidArgs =  pValidArgs ? pValidArgs : {}
-       if (typeof(fmtSQL) == 'object' || typeof(pValidArgs) == 'function') {      // .(30328.02.2 Beg RAM Switch if object) 
-           fmtSQL     =  typeof(pValidArgs) != 'object' ? pValidArgs : ''  
-           pValidArgs =  fmtSQL_ || {}                                                // .(30328.02.2 End) 
-           }
-  //   if (typeof(pValidArgs) == 'string') { pValidArgs = {} }    
-       if (typeof(pValidArgs) == 'string') { fmtSQL = pValidArgs; pValidArgs = {} }    
-           console.log( `pValidArgs: ${ inspect( pValidArgs, { depth: 99 } ) }, fmtSQL: '${ inspect(fmtSQL, {depth:99})}'` ) 
-  return [ pValidArgs, fmtSQL ]
-           }
-
   function  sndRecs( pRes, mRecs, aSQL, aDatasetName ) {
-//          aSQL      =  aSQL.replace( /\n           /g, '\n     ').replace( /^[\n]+/,  '' ).replace( /[ \n]+$/, '' )  //#.(30328.04.4)  
+//          aSQL      =  aSQL.replace( /\n           /g, '\n     ').replace( /^[\n]+/,  '' ).replace( /[ \n]+$/, '' )
+            aSQL      =  aSQL.replace( /\n           /g, '\n     ').replace( /^[\n ]+/, '' ).replace( /[ \n]+$/, '' )
      var  aRecords  =  aDatasetName ? aDatasetName.replace( /^\//, "" ) : 'records'
         if (String(mRecs[0]).match(/error/ )) {
 //          aJSON     =  JSON.stringify( { "error":      mRecs[1].replace( /[ \n]+$/, '' )     } )
             aJSON     =                 `{ "error": \`${ mRecs[1].replace( /[ \n]+$/, '' ) }\` }`
         } else {
         if (mRecs.length > 0) {
-                         sayMsg( `${ saySQL( aSQL ) }\n       * ${ `${mRecs.length}`.padStart(3) } ${aRecords} found`.replace( /\n/g, '\n           ') ); // .(30328.04.4)
+                         sayMsg( `${aSQL || ''}\n       * ${ `${mRecs.length}`.padStart(3) } ${aRecords} found`.replace( /\n/g, '\n           ') );
        var  pRecs     =  mRecs; if (aDatasetName) { pRecs = {}; pRecs[aRecords] = mRecs }
        var  aJSON     =  fmtJSON( pRecs, aSQL )
         } else {
-                         sayErr( `${ saySQL( aSQL ) }\n ** No ${aRecords} found` );                                      // .(30328.04.6)
+                         sayErr( `${aSQL || ''}\n ** No ${aRecords} found` );
        var  aJSON     =  JSON.stringify( {  "warning":   ` ** No ${aRecords} found` } )
          }  }
                          sndJSON( pRes, aJSON, aRecords )
@@ -293,7 +254,7 @@ function  setRoute( aMethod, aRoute_, pValidArgs, fmtSQL_ ) {               // .
             console.log( `\n*** The .env file does NOT EXIST!\n     '${aFile}'\n` )
             process.exit()
             }                                                                                       // .(30328.01.1 End)
-       }                                                                                       // .(30222.01.3 RAM End)
+            }                                                                                       // .(30222.01.3 RAM End)
 //     -------------------------------------------------------------
 
    export { getData, sndRecs,  fmtJSON,  sndJSON, chkArgs, fmtArgs }
