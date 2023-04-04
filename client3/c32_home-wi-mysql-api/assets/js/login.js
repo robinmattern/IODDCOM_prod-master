@@ -1,28 +1,60 @@
-       var  nSay = 1, nSay2 = 1                                                         // .(30329.02.1 RAM Added sayMsg)
 
-       var  nID  = window.location.search.match( /id=([0-9]+)/)                         // .(30329.09.1 RAM Get nID from URL)
+var id = 90
+//debugger
+function clearListCookies()
+{
+    var cookies = document.cookie.split(";");
+    for (var i = 0; i < cookies.length; i++)
+    {
+        var spcook =  cookies[i].split("=");
+        deleteCookie(spcook[0]);
+    }
+    function deleteCookie(cookiename)
+    {
+        var d = new Date();
+        d.setDate(d.getDate() - 1);
+        var expires = ";expires="+d;
+        var name=cookiename;
+        //alert(name);
+        var value="";
+        document.cookie = name + "=" + value + expires + "; path=/";
+    }
+    //window.location = ""; // TO REFRESH THE PAGE
+}
+     clearListCookies()
+
+//alert("DocumentCookieBefore: '" + document.cookie + "'")
+//document.cookie = "UserID = ; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/;"
+//document.cookie = "UserID = ' ${id} `; path=/"
+
+//document.cookie = "UserID = 15; path=/"
+//alert("DocumentCookieAfter: '" + document.cookie + "'")
+
+//alert(`UserID Set to nn\n ${document.cookie}`)
+var  nID  = window.location.search.match( /id=([0-9]+)/)                         // .(30329.09.1 RAM Get nID from URL)
             nID  = (nID && nID[1]) ? nID[1] : 0                                         // .(30329.09.2)
+            //if (nID > 0) {
+             //clearListCookies()
+             // window.location = ""; // TO REFRESH THE PAGE
+            //}
 
             document.cookie = "UserID = ; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/;"
             document.cookie = `UserID = ${nID}; path=/`
-//          sayMsg( `User ID set to ${nID}\nCookie now is: '${document.cookie}'`,2 )    //#.(30329.02.12)
-            sayMsg( `login.js[1]    Cookie now set to: '${document.cookie}'`,nSay2 )       // .(30329.02.12)
 
             setUserForm( nID )                                                          // .(30329.06.1 RAM Use it)
-            sayMsg( `login.js[2]    End of script` )                                    // .(30329.02.13)
 
 //--------  ---------------------------------------------------------
 
-  async function setUserForm( nID ) {                                                   // .(30329.06.2 Beg RAM Write function setUserForm)
+  async function setUserForm( nID ) {                                                   // .(30329.06.1 Beg RAM Write function setUserForm)
 
        var  pUser = await fetchLoginData( nID )
        var  pForm = document.forms[0]
             pForm.username.value = pUser.email
-            sayMsg( `setUserForm[1] pForm.username set to "${pForm.username.value}"`) // , 2)
-            }                                                                           // .(30329.06.2 End)
-//   -----  ---------------------------------------------------------
+            pForm.password.value = pUser.pin
+            }                                                                           // .(30329.06.1 End)
+//--------  ---------------------------------------------------------
 
-  async  function fetchLoginData( nID ) {                                               // .(30329.04.2 Beg RAM Write function fetchLoginData)
+async  function fetchLoginData( nID ) {                                               // .(30329.04.2 Beg RAM Write function fetchLoginData)
 
     var  pLoginData = { id: 0, code: "", name : "", email: "" }
 
@@ -30,20 +62,15 @@
          pLoginData =
            { id   :  nID
            , code : "RS"
-           , name : "Rick Schinner"
-           , email: "rjs@gmail.com"
+           , name : "Richard Schinner"
+           , email: "evantage@comcast.net"
+           , pin: "blueNSX"
              }
          }
-     if (nID == 91) { pLoginData = { id: nID, code: "BT", name : "Bruce Troutman", email: "bruce.troutman@gmail.com" } }
-     if (nID == 92) { pLoginData = { id: nID, code: "RM", name : "Robin Mattern",  email: "robin.mattern@gmail.com"  } }
-
+     if (nID == 15) { pLoginData = { id: nID, code: "BT", name : "Bruce Troutman", email: "bruce.troutman@gmail.com", pin: "fishfortrout" } }
+     if (nID == 9) { pLoginData = { id: nID, code: "RM", name : "Robin Mattern",  email: "robin.mattern@gmail.com", pin: "scroogemcduck"  } }
+     if (nID == 6) { pLoginData = { id: nID, code: "KF", name : "Kennett Fussell",  email: "kffussellathome@gmail.com", pin: "doctorprof"  } }
+     if (nID == "") { pLoginData = { id: nID, code: "", name : "",  email: "", pin: ""  } }
  return  pLoginData
       }                                                                                 // .(30329.04.2 End)
 //   -----  ---------------------------------------------------------
-
-   function sayMsg( aMsg, nSay_) {                                                      // .(30329.02.11 Beg RAM Write function)
-            nSay_ =  nSay_ ? nSay_ : nSay
-        if (nSay_ == 1 || nSay_ == 3) { console.log( aMsg) }
-        if (nSay_ == 2 || nSay_ == 3) {       alert( aMsg) }
-            }                                                                           // .(30329.02.11 End)
-// --------------------------------------------------------------

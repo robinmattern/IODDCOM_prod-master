@@ -36,8 +36,7 @@ td.HeaderNavListItemLogin a::before {
     font-weight: var(--InitsFontWeight);
     color: white;
 /*  ^^^ change font color from whitesmoke to blue ^^^ */
-
-/*  content: "RS";  *//* .(30329.08.1 RAM Set value in Javascript) */ 
+    content: "RS";
 /*  ^^^ change content from Inits to LO ^^^ */
 }
 .ToolTipHide::after{

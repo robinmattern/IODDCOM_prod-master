@@ -34,7 +34,7 @@
 
 <!--    <script src="../assets/json/db.json.js" type="application/javascript" ></script> -->
         <script src="../assets/js/members.js"   type="application/javascript" ></script>
-
+        <script src="../assets/js/header.js"></script>
 </head>
 <body>
 <script>
@@ -67,22 +67,26 @@
 	    #MenuBlank {display:block;}
 	</style>
 
-    <!--include using jQuery-->
-	    <div id="inc-header"></div>
-	    <script> 
-	      $("#inc-header").load("../includes/inc-header.html");
-	    </script> 
+	<!-- inc-header-->
+        <div id="inc-header"></div>
+        <script> 
+                //$("#inc-header").load("../includes/inc-header.html");
+              setHTML( 'inc-header', '../includes/inc-header.html' );   
+        </script> 
+    <!-- END inc-header -->
 
 <!-- END  Header -->
 
 <!--  Section1 -->
+  		<!-- inc-section1-->
+          <div id="inc-section1"></div>
+          <script> 
+                  //$("#inc-section1").load("../includes/inc-section1.html");
+                setHTML( 'inc-section1', '../includes/inc-section1.html' );   
+          </script> 
+<!-- END inc-section1 -->
 
-		<!--include using jQuery-->
-		<div id="inc-section1"></div>
-		<script> 
-    		$("#inc-section1").load("../includes/inc-section1.html");
-		</script> 
-    <!-- END  Section1 -->
+<!-- END  Section1 -->
     <!-- HeaderQuickNav -->
     <div class="HeaderQuickNav">
         <div class="QuickNav" align="center">
@@ -146,17 +150,15 @@
 <!-- END  Section2 -->
 
 <!--  Footer -->
-        <!--include using w3schools-->
-        <!--
-        <div w3-include-html="../includes/inc-footer.html"></div>
-        -->
+  		<!-- inc-footer-->
+          <div id="inc-footer"></div>
+          <script> 
+                  //$("#inc-footer").load("../includes/inc-footer.html");
+                setHTML( 'inc-footer', '../includes/inc-footer.html' );   
+          </script> 
+        <!-- END inc-footer -->
+<!-- END  Footer -->
 
-        <!--include using jQuery-->
-        <div id="inc-footer"></div>
-        <script> 
-            $("#inc-footer").load("../includes/inc-footer.html");
-        </script> 
-    <!-- END  Footer -->
 </div> <!--Container ending div-->
 <script>
     w3.includeHTML();

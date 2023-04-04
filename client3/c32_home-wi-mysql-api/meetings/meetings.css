@@ -124,16 +124,21 @@ body {
 .desc-table {
     width: 40%;
 }
+td.desc {
+    /* border: solid 2px blue;
+    border-radius: 10%;
+    box-shadow: 5px 5px 5PX #888888; */
+}
 .desc {
     font-size: 20px;
     padding: 40px 60px 20px 60px;
     text-align: justify;
     width: 80%;
     padding: 10px 10px 10px 15px;
-    border: solid 2px blue;
+    border: solid 3px blue;
     vertical-align: middle;
-    border-radius: 0%;
-    box-shadow: 5px 5px #888888;
+    /* border-radius: 10%; */
+    box-shadow: 5px 5px 5PX #888888;
 }
 /*
 The @media MAX-width query properties
@@ -229,6 +234,7 @@ and (max-width: 736px)
     .desc-div {
         padding: 40px 0px 0px 0px;
         max-width: 50%;
+        border-radius: 0%;
     }
     
     .desc {
