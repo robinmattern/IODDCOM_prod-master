@@ -71,10 +71,11 @@
 # .(30402.02  4/02/23 RAM  2:53p| Add getStyle, getJSON and modify getHTML
 # .(30402.03  4/02/23 RAM  3:18p| Add indexObj
 # .(30402.05  4/02/23 RAM  5:24p| Reuse sayMsg. Plus lots of changes for 'n Records found'
-# .(30403.04  4/03/23 RAM  1:09p| Write sndFile 
+# .(30403.04  4/03/23 RAM  1:09p| Write sndFile
 # .(30403.05  4/03/23 RAM  3:40p| Write putData
 # .(30403.06  4/03/23 RAM  7:07p| Add chkSQL and default pValidArgs: { id : /[0-9]+/ }
-# .(30403.07  4/03/23 RAM  7:45p| Trim mArg in chkArgs 
+# .(30403.07  4/03/23 RAM  7:45p| Trim mArg in chkArgs
+# .(30406.01  4/06/23 RAM  9:10a| Return InsertId
 
 ##PRGM     +====================+===============================================+
 ##ID                            |
@@ -99,18 +100,19 @@
 //  ------  ------------------  =   -------------------------------- ------------------ ------------------+
 
  async function  putData( pDB, aSQL, aDatasetName ) {                                                                                                // .(30403.05.1 Beg RAM Write function)
-       var  aRecords      = `${ aDatasetName ? aDatasetName.replace( /^\//, "" ) : '' } record` 
-       var  aAction       =  aSQL.match( /INSERT/i ) ? 'inserted' : (aSQL.match( /DELETE/i ) ? 'deleted' : 'updated' )                               // .(30403.05.5 RAM Added deleted)                                                       
+       var  aRecords      = `${ aDatasetName ? aDatasetName.replace( /^\//, "" ) : '' } record`
+       var  aAction       =  aSQL.match( /INSERT/i ) ? 'inserted' : (aSQL.match( /DELETE/i ) ? 'deleted' : 'updated' )                               // .(30403.05.5 RAM Added deleted)
        try {
        var  mRecs         =  await pDB.execute( aSQL );
 //     var  mColDefs      =  mCols.map( pRec => { return { Name: pRec.name, Type: pRec.type, Len: pRec.columnLength, Decs: pRec.decimals } } )
-           if (aDatasetName) {  var aRecords = `${aRecords}${ (mRecs[0].affectedRows == 1) ? '' : 's' }`                                                 
-                 sayMsg( `${ saySQL( aSQL ) }\n     *  ${ `${mRecs[0].affectedRows}` } ${ aRecords  }, ${aAction}`.replace( /\n/g, '\n           ') ); }   
-    return  [ "success", `${ `${mRecs[0].affectedRows}` } ${ aRecords  }, ${aAction}`, mRecs[0].affectedRows ]             
+       var  nID           =  aSQL.match( /INSERT/i ) ? mRecs[0].insertId : 0, aRecords                                                               // .(30406.01.1 RAM Return InsertedId)
+        if (aDatasetName) {  aRecords = `${aRecords}${ (mRecs[0].affectedRows == 1) ? '' : 's' } ${ nID ? `, ${nID}` : '' }` }                       // .(30406.01.2)
+                 sayMsg( `${ saySQL( aSQL ) }\n     *  ${ `${mRecs[0].affectedRows}` } ${ aRecords  }, ${aAction}`.replace( /\n/g, '\n           ') );
+    return  [ "success", `${ mRecs[0].affectedRows } ${ aRecords }, ${aAction}`, { affectedRows: mRecs[0].affectedRows , affectedId: nID } ]         // .(30406.01.3)
         } catch( pError ) {
                  sayErr(    `*** Error:  ${pError.message}.\n${   saySQL( aSQL, 31 ) }\n` );
     return  [ "error",          `Error:  ${pError.message}.  <br>
-                                          &nbsp; &nbsp; &nbsp; ${ saySQL( aSQL     ) }` ] 
+                                          &nbsp; &nbsp; &nbsp; ${ saySQL( aSQL     ) }` ]
             }
          }; // eof putData                                                                                                                           // .(30403.05.1 End)
 //  ------  ------------------  =   -------------------------------- ------------------ ------------------+
@@ -209,8 +211,8 @@
        var  aRoute     = `${aAPI_Host}${aRoute_}`
       var { pValidArgs, fmtSQL } = chkSQLargs( pValidArgs_, fmtSQL_ )                                       // .(30328.05.1 RAM Use chkArgs4SQL)
 
-                           async function onRoute( pReq, pRes )    { onRoute_( aMethod, pReq, pRes, aRoute, pValidArgs, fmtSQL ) }
-//                                        async  ( pReq, pRes ) => { onRoute_( aMethod, pReq, pRes, aRoute, pValidArgs, fmtSQL ) }
+                           async function onRoute( pReq, pRes )    { onRoute_( aMethod, pReq, pRes, aRoute_, pValidArgs, fmtSQL ) } // .(40405.02.1 Use Original route)
+//                                        async  ( pReq, pRes ) => { onRoute_( aMethod, pReq, pRes, aRoute,  pValidArgs, fmtSQL ) } //#.(40405.02.1)
     switch (aMethod) {
 //    case 'get'   : pApp.get(    aRoute, async  ( pReq, pRes ) => { onRoute ( aMethod, pReq, pRes, aRoute, pValidArgs, fmtSQL ) } ); break
       case 'get'   : pApp.get(    aRoute, onRoute ); break
@@ -226,7 +228,7 @@
 
   function chkSQLargs( pValidArgs, fmtSQL_) {                                                               // .(30328.05.2 Beg RAM Write chkSQLargs)
       var  fmtSQL      = (typeof(fmtSQL_) != 'undefined') ? fmtSQL_ : '' // pValidArgs || ''
-           pValidArgs  =  pValidArgs ? pValidArgs : { }                                       
+           pValidArgs  =  pValidArgs ? pValidArgs : { }
        if (typeof(fmtSQL) == 'object' || typeof(pValidArgs) == 'function') {                                // .(30328.02.3 Beg RAM Switch if object)
            fmtSQL      =  typeof(pValidArgs) != 'object' ? pValidArgs : ''
            pValidArgs  =  fmtSQL_ || { id : /[0-9]+/ }                                                      // .(30328.02.3 End)
@@ -242,7 +244,7 @@
   function chkSQL( fmtSQL, pArgs ) {                                                                        // .(30403.06.4 RAM Beg Write chkSQL )
        var aSQL      =  typeof( fmtSQL ) == 'string' ? fmtSQL : fmtSQL( pArgs )
        if (pArgs.id) {  aSQL = aSQL.match( /id *=/i ) ? aSQL : `${aSQL} WHERE id = ${pArgs.id}` }           // .(30403.06.2 RAM Kludge)
-    return aSQL 
+    return aSQL
            }                                                                                                // .(30403.06.4 End)
 //  ------  ------------------  =   -------------------------------- ------------------ ------------------+
 
@@ -254,7 +256,8 @@
         if (mRecs.length > 0) { aRecords = ( mRecs.length != 1 ) ? aRecords : aRecords.replace( /s$/, "" ).replace(  /ies$/, 'y' )                            // .(30402.05.25)
  //                       sayMsg( `${ saySQL( aSQL    ) }\n       * ${ `${mRecs.length}`.padStart(3) } ${aRecords} found`.replace( /\n/g, '\n           ') ); //#.(30328.04.4).(30402.05.24)
                           sayMsg( `${ saySQL( aSQL    ) }\n     *  ${  `${mRecs.length}` } ${  aRecords      }, returned`.replace( /\n/g, '\n           ') ); // .(30328.04.4).(30402.05.24)
-       var  pRecs      =  mRecs; if (aDatasetName) { pRecs = {}; pRecs[aRecords] = mRecs }
+//     var  pRecs      =  mRecs; if (aDatasetName) { pRecs = {}; pRecs[aRecords]     = mRecs }              //#.(30404.01.2)
+       var  pRecs      =  mRecs; if (aDatasetName) { pRecs = {}; pRecs[aDatasetName.replace( /^\//, "" )] = mRecs }  // .(30404.01.2 RAM Use aDatasetName, not Records)
        var  aJSON      =  fmtJSON( pRecs, aSQL )
                           sayMsg( `Handler,    '${aOnRouteFnc ? aOnRouteFnc : 'routeHandler'}', executed` ); // .(30331.01.4)
         } else {
@@ -270,10 +273,10 @@
 //                        pRes.sendFile( `${__dirname}/../../${aFile.replace( /^\.\//, '' )}` )
 //                        pRes.sendFile( `/../../${aFile.replace( /^\.\//, '' )}` )
                           pRes.sendFile(  aFile.replace( /^\.\//, '' ), { root: `${__dirname}/../../` } )
-                          sayMsg( `Handler,    '${aOnRouteFnc ? aOnRouteFnc : 'routeHandler'}', executed` );    
-                          sayMsg( `File,       '${ aFile }', sent` );    
-        } catch( pErr ) {  aMsg = `File: '${ aFile }'\n  *** Error: ${pError.message}`                      // 'Forbidden' not caught  
-                          sayErr(  aMsg ); 
+                          sayMsg( `Handler,    '${aOnRouteFnc ? aOnRouteFnc : 'routeHandler'}', executed` );
+                          sayMsg( `File,       '${ aFile }', sent` );
+        } catch( pErr ) {  aMsg = `File: '${ aFile }'\n  *** Error: ${pError.message}`                      // 'Forbidden' not caught
+                          sayErr(  aMsg );
     return           `{ "error": ${aMsg} }` }
          }; // eof fmtJSON                                                                                  // .(30403.04.1 End)
 //  ------  ------------------  =   -------------------------------- ------------------ ------------------+
@@ -312,7 +315,7 @@
             mErrArgs   =  pValidArgs.required ? [ [ 'Required', 'yes' ] ] : [ ]
          }  }
         if (mErrArgs.length == 0) {
-    return  pArgs // pReq.query  // all or nothing                                                                    // .(30403.02.6)  
+    return  pArgs // pReq.query  // all or nothing                                                                    // .(30403.02.6)
             }
                           sndError( pRes, `Invalid Arguments:`,   mErrArgs.map( mArg => mArg.join(' = ') ) )
        var  aMsg       =                  `Invalid Arguments: '${ mErrArgs.map( mArg => mArg.join(' = ') ).join() }'` // .(30402.05.6)
@@ -324,7 +327,7 @@
        var  rTestVals  =  pValidArgs[ mArg[0] ], bOk = false                                                // .(30403.07.1 RAM Add trim)
         if (rTestVals !=  null) {
        var  bOk        =  rTestVals.test( mArg[1] )                                                         // .(30403.07.2)
-            pReq.query[   mArg[0].toLowerCase() ] =  mArg[1]                                                // .(30403.07.3).(30328.04.1 RAM Put bak in to pReq.query??) 
+            pReq.query[   mArg[0].toLowerCase() ] =  mArg[1]                                                // .(30403.07.3).(30328.04.1 RAM Put bak in to pReq.query??)
             }
     return  bOk ? false : true
 
@@ -342,7 +345,7 @@
 //  ------  ------------------  =   -------------------------------- ------------------ ------------------+
 
   function  sndHTML( pRes, aHTML, aURI, aOnRouteFnc ) {                                                     // .(30331.01.4)
-                          sayMsg( `Handler,    '${aOnRouteFnc ? aOnRouteFnc : 'onRoute'}', executed` );      // .(30331.01.6)
+                          sayMsg( `Handler,    '${aOnRouteFnc ? aOnRouteFnc : 'onRoute'}', executed` );     // .(30331.01.6)
             pRes.send( aHTML )
         if (aURI) {       sayMsg( `HTML Page,  '${aURI}', sent\n` ) }
 
@@ -608,7 +611,7 @@ async  function  readFile( aFile, bJSON ) {
          }; // eof getJSON                                                              // .(30402.01.1 End)
 //  ------  ------------------  =   -------------------------------- ------------------ ------------------+
 
-   export { putData, getData,   sndRecs,  fmtJSON,  sndJSON,  chkArgs, fmtArgs }        // .(30403.05.2 RAM Add putData)  
+   export { putData, getData,   sndRecs,  fmtJSON,  sndJSON,  chkArgs, fmtArgs }        // .(30403.05.2 RAM Add putData)
    export { sndHTML, sndError,  setError, setRoute, sayMsg,   init, start }             // .(30328.03.2 RAM)
    export { getHTML, getStyles, getJSON,  sndFile,  indexObj, chkSQL }                  // .(30402.02.4 RAM).(30402.03.2).(30403.04.1).(30403.06.5)
 

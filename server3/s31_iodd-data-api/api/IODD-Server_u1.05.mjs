@@ -44,6 +44,13 @@
 # .(30403.04  4/03/23 RAM  3:10p| Add sndFile
 # .(30403.05  4/03/23 RAM  7:36p| Add putData
 # .(30403.06  4/03/23 RAM  8:46p| Add chkSQL
+# .(30404.01  4/04/23 RAM  1:20p| Fix aDatasetName / aRecords being plural
+# .(30404.02  4/04/23 RAM  3:24p| Add Login_getRoute and Login_GetForm
+# .(30404.03  4/04/23 RAM  2:00p| Return JSON for /login routes
+
+
+# .(30405.03  4/05/23 RAM  8:30a| Add ${aAPI_Host} to URLs)
+# .(30406.01  4/06/23 RAM  9:15a| Insert into login_log
 
 ##PRGM     +====================+===============================================+
 ##ID                            |
@@ -56,7 +63,7 @@
     import { chkArgs, sndHTML, getData, sndRecs, sndFile } from './assets/mjs/server-fns_u1.05.mjs';   // .(30403.04.3 RAM Add sndFile)
     import { init, start, setRoute, sayMsg, sndError     } from './assets/mjs/server-fns_u1.05.mjs';   // .(30327.01.1 RAM)
     import { getHTML, getStyles, getJSON,  indexObj      } from './assets/mjs/server-fns_u1.05.mjs';   // .(30402.02.4 RAM).(30402.04.5)
-    import { putData, chkSQL                             } from './assets/mjs/server-fns_u1.05.mjs';   // .(30403.05.3 RAM Add putData).(30403.06.5 RAM Add chkSQL)
+    import { putData, chkSQL,    sndJSON                 } from './assets/mjs/server-fns_u1.05.mjs';   // .(30403.05.3 RAM Add putData).(30403.06.5 RAM Add chkSQL).(30404.03.1)
 
 //  ------  ------------------  =   -------------------------------- ------------------ ------------------+
 
@@ -71,8 +78,12 @@
 
             pIODD.Root_getRoute( "/" )
 //          pIODD.Table_getRoute()
+
             pIODD.Login_getRoute( )
+            pIODD.Login_getForm( )      // .(30404.02.1)
             pIODD.Login_postRoute( )    // .(30403.02.1)
+//          pIODD.Login_postForm( )     // .(30403.02.1)
+
             pIODD.Members_getRoute( )
             pIODD.MembersBios_getRoute( )
             pIODD.Projects_getRoute( )
@@ -130,14 +141,12 @@ this.Table_getRoute = function( aGetRoute, pValidArgs ) {
         ORDER BY  Id `
         }
     return  aSQL
-        };
+        };  // eof fmtSQL
 //     ---  ---------------------------------------------------
-   }
+    }; // eof Table_getRoute
 //---- -------------------------------------------------------------------
 
-//------------------------------------------------------------------------------
-
-this.Root_getRoute  = function( aRoute_,  pValidArgs ) {
+  this.Root_getRoute  = function( aRoute_,  pValidArgs ) {
 
        var  aMethod             =  'get'
        var  aRoute              =  '/'
@@ -156,25 +165,30 @@ this.Root_getRoute  = function( aRoute_,  pValidArgs ) {
                          sayMsg(  pReq, aMethod, aRoute )
        var  pArgs     =  chkArgs( pReq, pRes, pValidArgs ); if (!pArgs) { return }
        var  aHTML     =  fmtHTML( pArgs.name || '' )
-                         sndHTML( pRes, aHTML, `${aRoute}${pReq.args}`, "Root_getRouteHandler" )                      // .(30331.01.1)
+                         sndHTML( pRes, aHTML, `${aRoute}${pReq.args}`, "Root_getRouteHandler" )            // .(30331.01.1)
             }
 //          ------------------  =   --------------------------------
 
-  function  fmtHTML( aName ) {
+  function  fmtHTML( aName ) {                                                                              // .(30405.03.1 Beg RAM Add ${aAPI_Host} to URLs)
        var  aHTML = `
             Welcome ${aName} to IODD MySQL Express Server API.<br>
             Use any of the following APIs:<br><br>
             <div style="margin-left:40px; font-size:18px; line-height: 25px;">
-            <a href="/login?id=90"                    >/login?id=90</a><br>
-            <a href="/login?username=a.b@c&password=" >/login form</a><br>
-            <a href="/meetings"                       >/meetings</a><br>
-            <a href="/members"                        >/members</a><br>
-            <a href="/members_bios"                   >/members_bios</a><br>
-            <a href="/members_projects"               >/members_projects</a><br>
-            <a href="/projects"                       >/projects</a><br>
-            <a href="/project_collaborators"          >/project_collaborators</a><br>
-            <a href="/users"                          >/users</a><br>                                       <!-- .(30328.03.1 Add Users) -->
-            <a href="/user?id=7"                      >/user?id=7</a><br>
+
+            <a href="${aAPI_Host}/login?id=90"                    >/login?id=90</a><br>
+            <a href="${aAPI_Host}/login_form?id=90"               >/login_form?id=90</a><br>
+<!--        <a href="${aAPI_Host}/login_form?form&id=90"          >/login_form?form&id=90</a><br> -->
+<!--        <a href="${aAPI_Host}/login_form_post?username=a.b@c&password=" >/login_form_post</a><br> -->
+<!--        <a href="${aAPI_Host}/login_form"                     >/login_form?id=90</a><br> -->
+
+            <a href="${aAPI_Host}/meetings"                       >/meetings</a><br>
+            <a href="${aAPI_Host}/members"                        >/members</a><br>
+            <a href="${aAPI_Host}/members_bios"                   >/members_bios</a><br>
+            <a href="${aAPI_Host}/members_projects"               >/members_projects</a><br>
+            <a href="${aAPI_Host}/projects"                       >/projects</a><br>
+            <a href="${aAPI_Host}/project_collaborators"          >/project_collaborators</a><br>
+            <a href="${aAPI_Host}/users"                          >/users</a><br>                         <!-- .(30328.03.1 Add Users) -->
+            <a href="${aAPI_Host}/user?id=7"                      >/user?id=7</a><br>                     <!-- .(30405.03.1 End) -->
             </div> `;
     return  aHTML
             }; // eof fmtRoot
@@ -185,15 +199,31 @@ this.Root_getRoute  = function( aRoute_,  pValidArgs ) {
 // BEGINNING OF FETCHES (= MENU NAME)
 
 //=login==================================================================
-//-(Login)----------------------------------------------------------------
+//-(getLogin)----------------------------------------------------------------
 
-  this.Login_getRoute  = function( ) {
+  this.Login_getRoute  = function( ) {    // Send back JSON                                                 // .(30404.02.x )
 
        var  pValidArgs ={ id : /[0-9]+/ }
 
-            setRoute( pApp, 'get', '/login', Login_getRouteHandler )
+            setRoute( pApp, 'get', '/login', getRouteHandler, pValidArgs, `SELECT * FROM login_view2`  )
 
- async function  Login_getRouteHandler( aMethod, pReq, pRes, aRoute ) {
+            function getRouteHandler(aMethod, pReq, pRes, aRoute, pValidArgs, fmtSQL ) {
+                JSON_getRouteHandler(aMethod, pReq, pRes, aRoute, pValidArgs, fmtSQL )
+                }
+
+         }; // eof Login_getRoute
+//--------  ------------------  =   -------------------------------- -----
+
+//-(getLogin_form)--------------------------------------------------------
+
+  this.Login_getForm  = function( ) {     // Send back HTML form with route = '/login?form' if present      // .(30404.02.x)
+
+       var  pValidArgs ={ id : /[0-9]+/ }
+
+
+            setRoute( pApp, 'get', '/login_form', Login_getFormHandler )
+
+ async function  Login_getFormHandler( aMethod, pReq, pRes, aRoute ) {
 
                          sayMsg(  pReq, aMethod, aRoute )
        var  pArgs     =  chkArgs( pReq, pRes,  pValidArgs   ); if (!pArgs) { return }
@@ -204,8 +234,9 @@ this.Root_getRoute  = function( aRoute_,  pValidArgs ) {
             mRecs     =  [ { Email: "", PIN: "" } ]
             }
 //     var  aHTML     =  fmtHTML( mRecs[0], await fmtStyles( ) )                                            // .(30402.04.1)
+
        var  aHTML     =  await fmtHTML( mRecs[0] )                                                          // .(30403.01.1)
-                         sndHTML( pRes, aHTML, `${aRoute}${pReq.args}`, "Login_getRouteHandler" )           // .(30331.01.1)
+                         sndHTML( pRes, aHTML, `${aRoute}${pReq.args}`, "Login_getFormHandler" )            // .(30331.01.1).(30404.02.x)
             }
 //     ---  ------------------  =   --------------------------------
 
@@ -218,15 +249,16 @@ this.Root_getRoute  = function( aRoute_,  pValidArgs ) {
     return  await Login_fmtHTML( pData )                                                                    // .(30403.01.2 RAM Use shared function )
             }; // eof fmtHTML
 //     ---  ------------------  =   --------------------------------
-         }; // eof Login_getRoute
+         }; // eof Login_getForm
 //--------  ------------------  =   -------------------------------- -----
 
-//-(addLogin)-------------------------------------------------------------
+//-(postLoginRoute)------------------------------------------------------------
 
-  this.Login_postRoute = function( ) {
+  this.Login_postRoute = function( ) {    // Send back JSON if found, otherwise send back empty JSON or HTML form with error and route = '/login?form' if present
 
        var  pValidArgs =  { username : /[a-zA-Z0-9]+/
                           , password : /[a-zA-Z0-9]{4,}/
+
                             }
             setRoute( pApp, 'post', '/login', Login_postRouteHandler )
 
@@ -234,47 +266,48 @@ this.Root_getRoute  = function( aRoute_,  pValidArgs ) {
 
  async function Login_postRouteHandler( aMethod, pReq, pRes, aRoute ) {
 
+       var { fmtSQL1, fmtSQL2, fmtSQL3, fmtSQL4 } = Login_fmtSQLfns                                         // .(30404.04.1).(30406.01.7)
+
                          sayMsg(  pReq, aMethod, aRoute )
        var  pArgs     =  chkArgs( pReq, pRes, pValidArgs ); if (!pArgs) { return }
 
        var  mRecs1    =  await getData( pDB,  fmtSQL1( pArgs  ), aRoute );                                  // .(30403.01.3 RAM Check if username & password are in DB)
 
-        if (mRecs1[0] == 'error') {  // sndError( pRes, mRecs1[1] ); return
+        if (mRecs1[0] == 'error') {  // sndError( pRes, mRecs1[1] ); return                                 // .(30404.05.x RAM If not found)
 
-       var  pArgs2    =  pArgs;   pArgs.password=""; // { username: pArgs.username, password: '' }
-       var  aHTML     =  await fmtHTML( pArgs2,  "Unknown Username and/or password" )                       // .(30403.02.2)
-                         sndHTML( pRes, aHTML, `${aRoute}${pReq.args}`, "Login_postRouteHandler_Err" )      // .(30331.01.1)
-        } else {
+                         sndJSON( pRes, JSON.stringify( { login: [] } ), 'login' )                          // .(30404.02.1 RAM Return empty JSON)
+        } else { // no error
 
        var  mRecs2    =  await putData( pDB, fmtSQL2( mRecs1[0] ), aRoute ); if (mRecs2[0] == 'error') { sndError( pRes, mRecs2[1] ); return }  // .(30403.05.4).(30403.02.3 RAM Delete prior Login records)
        var  mRecs3    =  await putData( pDB, fmtSQL3( mRecs1[0] ), aRoute ); if (mRecs3[0] == 'error') { sndError( pRes, mRecs3[1] ); return }  // .(30403.05.5).(30403.02.4 RAM Change getData to putData)
-//     var  mRecs4    =  await getData( pDB, fmtSQL3( mRecs2[0] ), aRoute ); if (mRecs3[0] == 'error') { sndError( pRes, mRecs3[1] ); return }
-       var  aFile     =  './home/index.html'
-                         sndFile( pRes, aFile, `${aRoute}${pReq.args}`, "Login_postRouteHandler" )          // .(30331.01.1).(30403.04.4)
+            mRecs3    =  [ { Id: mRecs3[2].affectedId, Count: mRecs3[2].affectedRows } ]                                                        // .(30406.01.4)
+       var  mRecs4    =  await putData( pDB, fmtSQL4( mRecs3[0] ), aRoute ); if (mRecs4[0] == 'error') { sndError( pRes, mRecs4[1] ); return }  // .(30406.01.5 RAM Insert into login_log)
+       var  mRecs5    =  mRecs1; // [ { Id: mRecs1[0].Id, InItials: mRecs1[0] }]
+                         sndJSON( pRes, JSON.stringify( { login: mRecs5 } ) , 'login' )                     // .(30404.02.2)
                          }
-            }
+            } // eof Login_postRouteHandler
 //     ---  ------------------  =   --------------------------------
+         }; // eof Login_postRoute
+//--------  ------------------  =   -------------------------------- -----
 
- async function fmtHTML( pData ) { return await Login_fmtHTML( pData ) }                                    // .(30403.01.4 RAM Use shared function )
+  var Login_fmtSQLfns = {                                                                                   // .(30404.04.2 RAM Combine fmtSQL functions)
 
-//     ---  ------------------  =   --------------------------------
-
-  function  fmtSQL1( pArgs ) {
+             fmtSQL1 : function( pArgs ) {                                                                  // .(30404.04.3 RAM Define function differently)
 
     return  `SELECT * FROM login_view2
               WHERE Email    = '${ pArgs.username }'
                 AND Password = '${ pArgs.password }'
                 AND Active   = 'Y'`
-            }; // eof fmtSQL1
+            } // eof fmtSQL1
 //     ---  ------------------  =   --------------------------------
 
-  function  fmtSQL2( pData ) {
+         ,  fmtSQL2 : function( pData ) {                                                                   // .(30404.04.4)
 
     return `DELETE FROM login  WHERE MemberId = ${pData.Id}`
-            }; // eof fmtSQL2
+            } // eof fmtSQL2
 //     ---  ------------------  =   --------------------------------
 
-  function  fmtSQL3( pData ) {
+         ,  fmtSQL3 : function( pData ) {                                                                   // .(30404.04.5)
 
        var  aNow = (new Date).toISOString().replace( /T/, ' ').substring(0,19)
             pData.LastPageVisited = ``
@@ -286,7 +319,7 @@ this.Root_getRoute  = function( aRoute_,  pValidArgs ) {
        var aSQL =
            `INSERT INTO login
                  ( MemberId, LastName, LastPageVisited, LogInDateTime, LogOutDateTime, CreatedAt, UpdatedAt )
-            VALUES
+              VALUES
                  (  ${pData.Id }, '${pData.LastName}', '${pData.LastPageVisited}'
                  ,  ${pData.LogInDateTime}
                  ,  ${pData.LogOutDateTime}
@@ -294,13 +327,20 @@ this.Root_getRoute  = function( aRoute_,  pValidArgs ) {
                  ,  ${pData.UpdatedAt}
                     ); `
     return  aSQL
-            }; // eof fmtSQL3
+            } // eof fmtSQL3
 //     ---  ------------------  =   --------------------------------
-         }; // eof Login_postRoute
+
+         ,  fmtSQL4( pData ) {                                                                              // .(30406.01.6 Beg RAM Write function)
+
+    return `INSERT INTO login_log
+              SELECT Id, MemberId, LastName, LastPageVisited, LogInDateTime, CreatedAt, UpdatedAt
+                FROM login WHERE id = ${pData.Id};`
+            }  // eof fmtSQL4                                                                               // .(30406.01.6 End)
+//     ---  ------------------  =   --------------------------------
+         }; // eop Login_fmtSQLfns                                                                          // .(30404.04.6)
 //--------  ------------------  =   -------------------------------- -----
 
-//          fmtHTML =       function( pData ) { ... }                                              // .(30330.06.3 Beg RAM Write function fmtLogin).(30402.04.3 RAM Add styles )
- async function Login_fmtHTML( pData, aErr ) {                                                     // .(30403.01.5 Beg Move to shared async function ).(.30403.05.1)
+ async function Login_fmtHTML( pData, aErr ) {                                                              // .(30403.01.5 Beg Move to shared async function ).(.30403.05.1)
 
        var  mStyles   = [ '.Section1Title', '.login', '.login form', '.login h1' , '.login form label'
                         , '.login form input[type="password"], .login form input[type="text"]'
@@ -392,6 +432,7 @@ this.MembersProjects_getRoute = function( ) {
 
          }; // eof getMembersProjects
 //--------  ------------------  =   -------------------------------- -----
+
 
 //=projects================================================================
 //-(Project Details)-------------------------------------------------------
