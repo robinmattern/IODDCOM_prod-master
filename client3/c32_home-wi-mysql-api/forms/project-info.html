@@ -19,14 +19,13 @@
   <link rel="stylesheet"    href="../css/08_resp_LT0440-mobilePortrait.css">
   <link rel="stylesheet"    href="../css/09_variables.css">
 <!--BEGINNING OF LOCAL STYLE SHEETS (CSS)-->
-  <link rel="stylesheet"    href="login.css">
+  <link rel="stylesheet"    href="project-info.css">
 
   <script src="../assets/js/header.js"></script>
-
 </head>
 <body>
-<script src="../assets/js/login.js"></script>
-<script> var aName = "Login" </script>	
+<script src="../assets/js/personal.js"></script>
+<script> var aName = "Personal" </script>	
 <!--  Header -->
   <style>
       #MenuBlank {display:block;}
@@ -64,45 +63,55 @@
 
   <!--  Section 1 -->
     <div class="Section1"> 
-      <div class="logout-temp-div"><br>
-        <span class="logout-temp-span"><a href="login.html?id=500">??</a></span>
-        <span class="logout-temp-span"><a href="login.html?id=15">BT</a></span>
-        <span class="logout-temp-span"><a href="login.html?id=6">KF</a></span>
-        <span class="logout-temp-span"><a href="login.html?id=9">RM</a></span>
-        <span class="logout-temp-span"><a href="login.html?id=90">RS</a></span>
-        <span class="logout-temp-span"><a href="login.html">Logout</a></span>
-      </div>
       <div class="Section1Title">institute of database developers</div>
-      <div class="login">
+
+      <div class="form-setting">
         <h1>
-          Login<br>
-          <div id="login-error">sMcduck@gmail.com is not in IODD's database<br>Contact <a href="#">System Administrator</a> for Help</div>
+          Project(s) Information<br>
+          <div class="member-title">For: Richard Schinner</div>
+          <div class="req-fields-notice">* required fields</div>  
+          <div id="projects-form-error">ERROR!</div>
+          
+          <div class="ProjectDropdownMenu">
+            <div class="project-dropdown">
+              <button class="project-dropbtn" tabindex="-1">Select Project</button>
+              <div class="project-dropdown-content">
+                <hr style="border-top: 3px solid #C0C0C0">
+                  <!-- <a href="../index.html" title="Go Home"><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a>
+                <hr style="border-top: 1px solid blue"> -->
+                  <!--<a href="#" title="">123 Easy Card~93</a>-->
+                  <a href="#" title="">Automated Engineering System~150</a>
+                  <a href="#" title="">Automated Menu System~44</a>
+                  <!--<a href="#" title="">Financial Improvement Progress System~99</a>-->
+                    <!--<a href="#" title="">Office Of Weights & Measures~51</a>-->
+                  <a href="#" title="">PFEP (Plan For Every Part)~149</a>
+                  <!--<a href="#" title="">Web Time Cards~2</a>-->
+                <hr style="border-top: 1px solid blue">
+              </div>
+            </div>
+          </div><span class="new-project"><a href="#" title="Add a new project">+</a></span>
+          
         </h1>
-        <form action="/login" method="post">
-          <label class="label-styles" for="username">
-            <!-- font awesome icon -->
-            <i class="fas fa-user"></i>
-          </label>
-          <input type="text" name="username" placeholder="eMail" id="username" required>
-
-          <label class="label-styles" for="password">
-            <i class="fas fa-lock"></i>
-          </label>
-          <div>
-            <input type="password" name="password" placeholder="Password" id="password" required >
-            <input id="trigger" type="checkbox" onclick="showPin()">
-            <label for="trigger" class="checker"></label>
+        <form action="/project-info" method="post">
+          <br><br>
+          <div class="form-div">
 
 
+            <table class="company-address2-title"><tr>
+              <td width="45%"><font color="blue"><b>Company Address 2</b></font></td>
+            </tr></table>
+            <ul class="company-address2">
+              <li><input type="text" name="company-address2" placeholder="Company Address 2" id="co-addr2"></li>
+            </ul><br><br>
 
-            <!--<div class="pin-div"><input id="trigger" class="checkbox-image" type="checkbox" onclick="showPin()"></div>-->
-
+            <input id="login-button" type="submit" value="Submit">
           </div>
-          <input id="login-button" type="submit" value="Login">
+
         </form>
       </div>
-    </div>
+      <br><br><br><br>
 
+    </div>
   <!--  END Section 1 -->
 
   <!--  Section 2 -->
@@ -117,8 +126,7 @@
 		<!-- END inc-footer -->
   <!-- END  Footer -->
 
-  <script src="../assets/js/login.js"></script>
-
+      
   <script>
       function showPin() {
         var x = document.getElementById("password");

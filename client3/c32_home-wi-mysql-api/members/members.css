@@ -149,9 +149,7 @@ body {
     font-size: 20px;
     padding: 0 20px 0 0;
 }
-#bottom {
-    display: none;
-}
+
 /*
 The @media MAX-width query properties
 ***** IPHONE - Landscape
@@ -196,7 +194,7 @@ and (max-width: 736px)
 /*      background-color: "#E5E4E2"; /*platinum*/
         background-color: #EAEAEA; /*very light gray*/
       }
-        .Section2Title {
+    .Section2Title {
         color: blue;
         font-size: 150%;
         font-family: var(--GlobalFontFamily);
@@ -254,13 +252,18 @@ and (max-width: 736px)
     .phone1 {
         width: 25%;
         height: 40px;
-        font-size: 16px%;
+        font-size: 16px;
     }    
     .phone2 {
         width: 30%;
         height: 40px;
         font-size: 16px;
     }
+    .last-row {
+        height: 100px;
+        text-align: center;
+        vertical-align: top;
+    }    
     .Footer {
         display: none;
         max-width: 737px;

@@ -23,6 +23,27 @@
 
   <script src="../assets/js/header.js"></script>
 
+  <style>
+
+    #trigger {
+        display: none;
+    }
+    .checker {
+        background-image: url('../assets/images/eye.png');
+        background-position: left center;
+        background-size: auto 50%;
+        width: 25px;
+        height: 15px;
+        background-repeat: no-repeat;
+        position: absolute;
+        margin: -70px 0px 0px 260px;
+    }
+    #trigger:checked + .checker {
+        background-position: left center;
+    }
+</style>
+
+
 </head>
 <body>
 <script src="../assets/js/login.js"></script>
@@ -69,7 +90,7 @@
         <span class="logout-temp-span"><a href="login.html?id=15">BT</a></span>
         <span class="logout-temp-span"><a href="login.html?id=6">KF</a></span>
         <span class="logout-temp-span"><a href="login.html?id=9">RM</a></span>
-        <span class="logout-temp-span"><a href="login.html?id=90">RS</a></span>
+        <span class="logout-temp-span"><a href="../index.html">RS</a></span>
         <span class="logout-temp-span"><a href="login.html">Logout</a></span>
       </div>
       <div class="Section1Title">institute of database developers</div>
