@@ -391,7 +391,7 @@ and (max-width: 740px)
         height: 2px;
         width: var(--DivisionLineWidth);
         background: blue;
-        margin: 20px 20px 20px 20px;
+        /* margin: 20px 20px 20px 20px; */
     } 
 }
 /*
@@ -443,7 +443,7 @@ The @media MAX-width query properties
     /*----------------------------------*/
     .main-table-mobile {
         display: block;
-        margin: 10px 0px 0px -30px;
+        margin: 10px 0px 0px 0px;
         border-collapse: collapse;
         width: 95%;
         border: black 0px solid;

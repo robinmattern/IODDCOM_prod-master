@@ -54,6 +54,7 @@ function  fmtProjects( pJSON ) {
   function  fmtProject( pProject, i ) {
 
        var  aClass        =  i % 2 == 1 ? "row-even" : "row-odd"
+       //var  abgColor      =  i % 2 == 1 ? "#E5E5E5" : "#F5F5F5"
        var  abgColor      =  pProject.ProjectBGColor
        var  aProjectStyle =  pProject.ProjectStyle
        var  aFirstName    =  pProject.FirstName

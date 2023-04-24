@@ -145,12 +145,12 @@ The @media MAX-width query properties
 ***** IPHONE - Landscape
 If Device Width 
   is >= 440px AND 
-  <= 736px Then...*/
+  <= 700px Then...*/
 
 /*=========================================*/
 @media only screen
 and (min-width: 440px)
-and (max-width: 736px) 
+and (max-width: 700px) 
 {
     html {
         max-width: 737px;
@@ -162,7 +162,8 @@ and (max-width: 736px)
         /*background-color: cornflowerblue;*/
     }
     .Section1 {
-        height: 250px;
+        height: 100px;
+        display: none;
     }
     .Section1Title {
         font-size: 25px;
@@ -174,7 +175,7 @@ and (max-width: 736px)
         top: 70px; /*orig 70*/
         max-width: 737px;
         scroll-behavior: auto;
-        height: 65%;
+        height: 80%;
         border: 0px black solid;
         background-color: #EAEAEA; /*very light gray*/
       }
@@ -232,7 +233,7 @@ and (max-width: 736px)
         text-align: left;
     }
     .desc-div {
-        padding: 40px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
         max-width: 50%;
         border-radius: 0%;
     }
@@ -304,7 +305,7 @@ The @media MAX-width query properties
         top: 0px; /*orig 70*/
         max-width: 737px;
         scroll-behavior: auto;
-        height: 65%;
+        height: 70%;
         border: 0px black solid;
         background-color: #EAEAEA; /*very light gray*/
       }

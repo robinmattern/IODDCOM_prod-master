@@ -76,6 +76,17 @@ The .Section1 properites
   text-shadow: 1px 1px 3px white;
   text-align: left !important;
 }
+
+.welcome-banner h1 {
+  font-size: 25px;
+  font-family: var(--GlobalFontFamily);
+  color: blue;
+  padding: 20px 0px 0px 50px;
+}
+.welcome-banner h1::first-letter {
+  font-size: 35px;
+}
+
 /* Section-1 END ^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 /*-----------------------------------------
 The .Section2 properites

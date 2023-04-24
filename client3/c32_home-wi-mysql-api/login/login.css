@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif; */
+  font-family: var(--GlobalFontFamily);
   font-size: 16px;
 }
 .logout-temp-div {
@@ -17,6 +18,8 @@
   border: 1px solid blue;
   border-radius: 8px;
 }
+
+
 .Section1 {
   height: 700px; /*was 120px*/
   width: var(--GlobalMaxWidth);
@@ -58,26 +61,36 @@
   justify-content: center;
   padding-top: 20px;
 }
+.label-styles {
+  background-color: #3274d6;
+  color: #ffffff;
+}
+
 .login form label {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 50px;
   height: 50px;
-  background-color: #3274d6;
-  color: #ffffff;
+  /* background-color: #3274d6;
+  color: #ffffff; */
 }
-.login form input[type="password"], .login form input[type="text"] {
+.login form input[type="password"], 
+.login form input[type="text"] {
   width: 310px;
   height: 50px;
   border: 1px solid #dee0e4;
   margin-bottom: 20px;
   padding: 0 15px;
 }
+/* .login form input[type="password"] {
+  margin-right: 50px;
+} */
+
 .login form input[type="submit"] {
   width: 100%;
   padding: 15px;
- margin-top: 20px;
+  margin-top: 20px;
   background-color: #3274d6;
   border: 0;
   cursor: pointer;
@@ -89,6 +102,27 @@
 background-color: #2868c7;
   transition: background-color 0.2s;
 }
+
+/*Creates the EYE toggle*/
+#trigger {
+  display: none;
+}
+.checker {
+  background-image: url('../assets/images/eyeball.gif');
+  background-position: left center;
+  background-size: auto 30%;
+  width: 25px;
+  height: 15px;
+  background-repeat: no-repeat;
+  position: absolute;
+  margin: -70px 0px 0px 260px;
+}
+#trigger:checked + .checker {
+  background-position: left center;
+}
+/*END Creates the EYE toggle*/
+
+
 #login-error {
   border-top: red 1px solid;
   border-bottom: red 1px solid;
@@ -120,4 +154,80 @@ background-color: #2868c7;
 }
   .FooterNavListItem a {
     color: #505050;
+}
+
+
+/*
+The @media MAX-width query properties
+***** IPHONE - Landscape
+If Device Width 
+  is >= 440px AND 
+  <= 736px Then...*/
+
+/*=========================================*/
+@media only screen
+and (min-width: 440px)
+and (max-width: 736px) 
+{
+  .Section1 {
+    height: 440px;
+  }
+  .Section1Title {
+    padding: 0px 0px 0px 25px;
+  }
+  .login {
+    margin: 10px auto;
+  }
+  .login form input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+  }
+  .Footer {
+    display: none;
+    top: 400px;
+  }
+}
+
+
+
+
+
+
+/*
+The @media MAX-width query properties
+***** IPHONE
+/*If Device Width is <= to 440px Then...*/
+
+/*=========================================*/
+@media only screen
+and (max-width: 440px)
+{
+  .Section1 {
+    height: 440px;
+  }  
+  .Section1Title {
+    padding: 0px 0px 0px 10px;
+  }
+  .login {
+    margin: 10px auto;
+    width: 350px;
+  }
+  .login form input[type="password"], 
+  .login form input[type="text"] {
+    width: 270px;
+    padding: 0 15px;
+  }
+  .login form input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+  }
+  .checker {
+    margin: -70px 0px 0px 230px;
+  }
+  .Footer {
+    display: none;
+    top: 400px;
+  }  
 }

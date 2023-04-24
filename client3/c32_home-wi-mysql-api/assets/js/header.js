@@ -56,12 +56,15 @@
         }
         //alert ("[3]id = " + id)
         //alert ("iLogIn = " + iLogin)
+        // var SQLStr = 'SELECT * FROM login-check-view WHERE Id = ' + id 
+        // alert ( "SQLStr = " + SQLStr )
 
 
         if (id > 0)  
         {  
             //alert("id = " + id )
             var aLogIn = iLogin;
+
             //let aLogIn = "<a href='#' title='Welcome' style='text-decoration:none;'>RS</a>";
             var pSpan = $("#log") 
             //document.getElementById("log").innerHTML = aLogIn;
@@ -70,6 +73,9 @@
             $("#ContactLink").css("display", "block");
             $("#contact-dropdown").css("display", "block");
             $("#login-inits").css("width", "35px")
+            $("#pencil-image1").css("display", "inline-block")
+            $("#pencil-image2").css("display", "inline-block")
+            $("#pencil-image-inits").css("display", "inline-block")
             pSpan.css("text-decoration", "none");
             pSpan.css("color", "white");
             pSpan.css("padding", "4px");
@@ -78,7 +84,9 @@
             pSpan.css("font-weight", "500");
             pSpan.css("font-family", "monospace");
             pSpan.css("border-radius", "50%");
-            pSpan.css("border", "solid #5A5A5A 3px");
+            pSpan.css("border", "solid blue 1px");
+            //pSpan.css("border", "solid #5A5A5A 3px");
+            pSpan.css("box-shadow", "1px 1px 3px darkblue");
             pSpan.a.css("text-align", "center");
             // pSpan.css("display", "block");
         } 
@@ -93,6 +101,9 @@
             $("#ContactAll").css("display", "none");
             $("#ContactLink").css("display", "none");
             $("#contact-dropdown").css("display", "none");
+            $("#pencil-image1").css("display", "none")
+            $("#pencil-image2").css("display", "none")
+            $("#pencil-image-inits").css("display", "none")
             pSpan.css("color", "white");
             pSpan.css("padding", "5px");
             pSpan.css("width", "60px");
@@ -101,7 +112,7 @@
             pSpan.css("font-weight", "600");
             pSpan.css("font-family", "arial");
             pSpan.css("border-radius", "8px");
-            pSpan.css("border", "solid #5A5A5A 0px");
+            //pSpan.css("border", "solid #5A5A5A 0px");
             // pSpan.css("display", "flex");
             //pSpan.a.css("text-align", "center");
         } 

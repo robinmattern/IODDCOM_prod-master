@@ -76,7 +76,7 @@ async  function fetchLoginData( nID ) {                                         
             { id: nID
             , code: "Login"
             , name : "Donald Duck"
-            , email: "dduck@gmail.com"
+            , email: "sMcduck@gmail.com"
             , pin: "lovedaisy" 
             } 
             $("#login-error").css("display", "block");

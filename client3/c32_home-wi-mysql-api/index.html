@@ -31,6 +31,13 @@
 		// console.log(c);
 	</script>
 	<script src="assets/js/header.js"></script>
+	<script src="assets/js/member.js"   type="application/javascript" ></script>
+        
+	<script>
+		var aName = "Members"
+		var aAPI  = `${document.location.href}`.match( /iodd.com/i ) ? '/api2' : ''
+		var aAPI_URL = aAPI ? '/api2' : 'http://localhost:3001'
+	</script>
 
 </head>
 <body>
@@ -85,20 +92,31 @@
 
 <!-- END  Section1 -->
 
+
 <!--  Section2 -->
     <div    class="Section2">
 		<div class="Section2Title">links</div>
 			<div  class="Section2Paragraph">
+
+<script>
+		var pMembers = document.getElementById( "Members" )
+			fetch( `${aAPI_URL}/members` )                                      // .(30214.05.3)
+	.then( ( res  ) => res.json( ) )
+	.then( ( json ) => {  
+						pMembers.innerHTML = fmtMembers( json ) } ) 
+	.catch(( err  ) =>   pMembers.innerHTML = `*** ${err.message}` );                     
+</script>
+
 				<div class="Links">
 					<ol>
-						<li>Members <a href="#"><img class="PencilImageMembers" src="assets/images/pencilDots.gif"></a></li>
+						<li>Members&nbsp;<a href="./forms/member-info.html"><img id="pencil-image1" class="PencilImageMembers" src="assets/images/pencilDots.gif" title="Change Your Password & Edit Your Members Information"></a></li>
 						<ul>
 							<li><i class="fa fa-address-book"></i>&nbsp;&nbsp;<a href="members/members.html">Member Listing</a>&nbsp;<img class="PencilImage" src="assets/images/pencilDots.gif"></li> <!-- .(30214.02.1 RAM Was href="../m") -->
 							<li id="BiosLink"><i class="fa fa-graduation-cap"></i>&nbsp;&nbsp;<a href="members-bios/members-bios.html">Bios</a>&nbsp;<img class="PencilImage" src="assets/images/pencilDots.gif"></li>
 							<li id="ContactLink"><span id="ContactAll"><i class="fa fa-file-text"></i>&nbsp;&nbsp;<a href="#">Contact Sheet</a>&nbsp;<img class="PencilImage" src="assets/images/pencilDots.gif"></span></li>
 							
 						</ul>
-						<li>Projects <a href="#"><img class="PencilImageProjectss" src="assets/images/pencilDots.gif"></a></li>
+						<li>Projects&nbsp;<a href="./forms/project-info.html"><img id="pencil-image2"  class="PencilImageProjects" src="assets/images/pencilDots.gif" title="Edit your Projects Information"></a></li>
 						<ul>
 							<li><i class="fa fa-address-card"></i>&nbsp;&nbsp;<a href="members-projects/members-projects.html">Project Listing</a></li> <!-- .(30214.02.2 RAM Was href="../m") -->
 							<li id="ProjectDetailsLink"><i class="fa fa-list-ol"></i>&nbsp;&nbsp;<a href="projects/projects.html">Project Details</a>&nbsp;<img class="PencilImage" src="assets/images/pencilDots.gif"></li> <!-- .(30214.02.2 RAM Was href="../p") -->
