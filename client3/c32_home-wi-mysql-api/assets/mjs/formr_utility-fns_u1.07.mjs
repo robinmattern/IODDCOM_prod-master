@@ -54,6 +54,7 @@
 # .(30508.01  5/08/23 RAM  5:15p|  Set aVIR_DIR from Remote_Host in _env
 # .(30515.01  5/15/23 RAM 11:52a|  Remove conflict & align comments
 # .(30527.04  5/27/23 RAM  4:45p|  Send IP, User and/or page to server
+# .(30531.01  5/31/23 RAM  12:00|  Change aVIR_DIR to '' for https://iodd.com 
                                 |
 ##SRCE     +====================+===============================================+
 #*/
@@ -128,16 +129,18 @@ async function  setAPI_URL( pEnv,  aNum ) {                                     
                          ?    pEnv.API_URL
                          :   `http://${aHost}:${pEnv.Server_Port}`                                          // .(30505.01.2)
 
-           var  aHost    =   (pEnv.Remote_Host.replace( /https*:\/\//, "") || '' )                          // .(30508.01.1)
-           var  aVIR_DIR =    mLoc[0].toLowerCase() == 'remote'                                             // .(30508.01.2 RAM Set aVIR_DIR)
-                         ?    aHost.match( /\// ) ? aHost.replace( /.*?\//, '/' ) : '/'                     // .(30508.01.3)
-                         :   ''                                                                             // .(30508.01.4)
+//         var  aHost    =   (pEnv.Remote_Host.replace( /https*:\/\//, "") || '' )                          //#.(30531.01.2 RAM Why is this here).(30508.01.1)
+//         var  aVIR_DIR =    mLoc[0].toLowerCase() == 'remote'                                             //#.(30531.01.2).(30508.01.2 RAM Set aVIR_DIR)
+//                       ?    aHost.match( /\// ) ? aHost.replace( /.*?\//, '/' ) : '/'                     //#.(30531.01.2).(30508.01.3)
+//                       :   ''                                                                             //#.(30531.01.2).(30508.01.4)
 
            var  aHost    =   (pEnv.Remote_Host.replace( /https*:\/\//, "") || '' )                          // .(30508.01.5)
            var  aVIR_DIR =    mLoc[0].toLowerCase() == 'remote'                                             // .(30508.01.6 RAM Set aVIR_DIR)
-                         ?    aHost.match( /\// ) ? aHost.replace( /.*?\//, '/' ) : '/'                     // .(30508.01.7)
+//                       ?    aHost.match( /\// ) ? aHost.replace( /.*?\//, '/' ) : '/'                     //#.(30531.01.1).(30508.01.7)
+                         ?    aHost.match( /\// ) ? aHost.replace( /.*?\//, '/' ) : ''                      // .(30531.01.1 RAM Set it to '' if no / in aHost).(30508.01.7)
                          :   ''                                                                             // .(30508.01.8)
                     // alert ("aVIR_DIR = " + aVIR_DIR)
+
 //          if (typeof(window)  != 'undefined') {                                                           //#.(30429.04.1 Beg)
 //              window.aAPI_URL  =  aAPI_URL
 //              window.setHTML   =  setHTML
