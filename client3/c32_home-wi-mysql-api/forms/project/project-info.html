@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="favicon.png">
+  <link rel="stylesheet"    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+
+<!--BEGINNING OF Global STYLE SHEETS (CSS)-->
+  <link rel="stylesheet"    href="../css/00_global_variables.css">
+  <link rel="stylesheet"    href="../css/01_hamburger.css">
+  <link rel="stylesheet"    href="../css/02_header.css">
+  <link rel="stylesheet"    href="../css/03_footer.css">
+  <link rel="stylesheet"    href="../css/04_index.css">
+<!--RESPONSIVE STYLE SHEETS (CSS)-->
+  <link rel="stylesheet"    href="../css/05_resp_GT0950-bigScreen.css">
+  <link rel="stylesheet"    href="../css/06_resp_741-950-tabletPortrait.css">
+  <link rel="stylesheet"    href="../css/07_resp_440-740-mobileLandscape.css">
+  <link rel="stylesheet"    href="../css/08_resp_LT0440-mobilePortrait.css">
+  <link rel="stylesheet"    href="../css/09_variables.css">
+<!--BEGINNING OF LOCAL STYLE SHEETS (CSS)-->
+  <link rel="stylesheet"    href="project-info.css">
+
+  <script src="../assets/js/header.js"></script>
+
+</head>
+<body>
+<script type="module">
+  import { onProjectForm_Submit, setProjectForm } from './project-info.mjs'          // .(30515.07.1 RAM Add setMemberForm)
+  import { setAPI_URL, setHTML } from '../assets/mjs/formr_utility-fns_u1.07.mjs'      // .(30515.06.1 RAM Get setAPI_URL)
+  await setAPI_URL()
+  //--Header / Footer Includes--------------------------------------/  
+	  setHTML( 'inc-header', '../includes/inc-header.html' );   
+    setHTML( 'inc-footer', '../includes/inc-footer.html' );   
+
+  //----submit Function-----------------------------------/  
+  var  pProjectInfoForm = document.getElementById(  "ProjectInfoForm" );                       // .(30428.01.1)
+       pProjectInfoForm.addEventListener("submit", onProjectForm_Submit );                 //#.(30428.01.2 RAM Have to define listener in module).(30428.04.2)
+
+
+        //alert ("Id = " + id)
+        var pWelcome = document.getElementById( "WelcomeMemberInfo" )
+                  fetch( `${aAPI_URL}/members?id=${ id }` )
+                  //fetch( `http://localhost:3012/members?id=${ id }` )
+          .then( ( res  ) => res.json( ) )
+          .then( ( json ) => {  
+          var aHTML = fmtWelcome (json)
+          pWelcome.innerHTML = aHTML 
+          } ) 
+          //.catch(( err  ) =>   alert ( `*** ${err.message}` ));                     
+          function fmtWelcome ( pJSON ) {
+              var aHTML = "For: " + pJSON.members[0].FullName
+              return aHTML
+          }
+
+
+        // var pProjectBanner = document.getElementById( "ProjectBanner" )
+
+        // // var pid = window.location.href.replace(/.+pid=/i,'')    
+        // // alert ("pid = " + pid)
+
+        // fetch( `${aAPI_URL}/project_collaborators?id=${ id }` )
+        //           //fetch( `http://localhost:3012/members?id=${ id }` )
+        //   .then( ( res  ) => res.json( ) )
+        //   .then( ( json ) => {  
+        //   var aHTML = fmtProjectBanner (json)
+        //   pWelcome.innerHTML = aHTML 
+        //   } ) 
+        //   //.catch(( err  ) =>   alert ( `*** ${err.message}` ));                     
+        //   function fmtProjectBanner ( pJSON ) {
+        //       var aHTML =  pJSON.members[0].ProjectName
+        //       return aHTML
+        //   }
+
+        //forms/project-info.html?pId=149
+        var aURL = window.location.href
+        var pid = aURL.replace(/.+pid=/i,'')
+        //alert ("pid = " + pid)
+        fetch( `${aAPI_URL}/project_collaborators?pid=${ pid }` )
+          .then( ( res  ) => { 
+          return res.json( ) })
+          .then( ( json ) => {  
+          setProjectForm(json.project_collaborators[0], pProjectInfoForm)       
+        } ) 
+      
+          //.catch(( err  ) =>   alert ( `*** ${err.message}` ));                     
+</script>	
+
+<!--  Header -->
+  <style>
+      #MenuBlank {display:block;}
+      #HomeLink {display:block;}
+      #HomeLinkLine {display:block;}
+      #MembersLink {display:block}
+      #ContactLink a {color:grey}
+      #BiosLink a {color:grey}
+      #MembersLinkLine {display:block}
+      #MembersProjectsLink {display:block}
+      #ProjectDetailsLink a {color:blue}
+      #MembersProjectsLinkLine {display:block}
+      #GuruLink a {color:grey}
+      #SupportLink a {color:grey}
+      #LicenseLink a {color:grey;}
+      #MtgLocLinkLine {display:block;}
+      #MtgLocLink a {display: block}
+      #LoginLinkLine {display:block;}
+      #LoginLink {display:none}
+      #MenuBlank {display:block;}
+      /*#log {display:none}*/
+  </style>
+
+  <a name="top"></a>
+  <!-- inc-header-->
+			<div id="inc-header"></div>
+	<!-- END inc-header -->
+
+  <!-- END  Header -->
+
+  <!--  Section 1 -->
+    <div class="Section1"> 
+      <div class="Section1Title">institute of database developers</div>
+
+      <div class="form-setting">
+        <h1>
+          Project Information<br>  
+          <div id="member-form-error">ERROR!</div>
+          <div id="WelcomeMemberInfo"></div>
+          <div id="ProjectNameBanner">PFEP (Plan For Every Part)</div>
+          <div class="req-fields-notice">* required fields</div>  
+          <div id="member-form-error">ERROR!</div>
+      </h1>
+        <form id="ProjectInfoForm">
+          <input type="hidden" name="pid" id="pid">
+          <input type="hidden" name="mpid" id="mpid">
+          <table class="name-title"><tr>
+            <td width="35%"><font color="blue"><b>Project Name *</b></font></td>
+          </tr></table>
+          <ul class="name-info">
+              <li><input type="text" name="projectname" placeholder="Project Name" id="projectname" required></li>
+              <script>//debugger</script>
+          </ul>
+
+          <table class="project-url-title"><tr>
+            <td width="35%"><font color="blue"><b>Project Website (URL)</b></font></td>
+          </tr></table>
+          <ul class="project-url">
+              <li><input type="text" name="projecturl" placeholder="Project Website" id="projecturl"></li>
+              <script>//debugger</script>
+          </ul>
+
+          <table class="client-title"><tr>
+            <td width="45%"><font color="blue"><b>Client's Name</b></font></td>
+          </tr></table>
+          <ul class="client-name">
+            <li><input type="text" name="clientname" placeholder="Client Name" id="clientname"></li>
+          </ul><br><br>
+
+          <table class="client-url-title"><tr>
+            <td width="45%"><font color="blue"><b>Client's Website (URL)</b></font></td>
+          </tr></table>
+          <ul class="client-url">
+            <li><input type="text" name="clienturl" placeholder="Client Website" id="clienturl"></li>
+          </ul><br><br>
+
+          <table class="ind-loc-info-title"><tr>
+            <td width="80%"><font color="blue"><b>Industry</b></font></td>
+            <td width="0%"><font color="blue"><b>Location</b></font></td>
+          </tr></table>          
+          <ul class="ind-loc-info">
+            <li><input type="text" name="industry" placeholder="Industry" id="industry"></li>
+            <li><input type="text" name="location" placeholder="Location" id="location"></li>
+          </ul><br><br>
+
+          <table class="members-title"><tr>
+            <td width="12%"><font color="blue"><b>Member's Role</b></font></td>
+            <td width="15%"><font color="blue"><b>Duration</b></font></td>
+            <td width="12%"><font color="blue"><b>Dates</b></font>&nbsp;</td>
+          </tr></table>
+          <ul class="members-info">
+            <li><input type="text" name="role" placeholder="Member Role" id="role"></li>
+            <li><input type="text" name="duration" placeholder="Duration" id="duration"></li>
+            <li><input type="text" name="dates" placeholder="Dates" id="dates"></li>
+          </ul><br><br>
+
+
+          <table class="description-title"><tr>
+            <td width="45%"><font color="blue"><b>Project Description</b></font></td>
+          </tr></table>
+          <ul class="description-info">
+            <li><textarea name="description" placeholder="Project Description" id="description" title="Please enter the project description here" rows="14" cols="10" wrap="soft" style="padding: 10px 10px 10px 15px;"></textarea></li>
+          </ul><br><br><br><br>
+
+          
+          <table class="collaborators-title">
+            <tr><td colspan="1"><font color="blue"><b>Collaborator(s)</b></font></td><td><font color="blue"><b title="Add a Collaborator">+</b></font></td></tr>
+            <tr><td align="right"><font color="red"><b title="Remove Collaborator">-</b></font>&nbsp;</td><td><font color="black"><b>Bruce Troutman</b></font></td></tr>
+          </table>
+          <br><br><br><br><br><br>
+
+          <input id="submit-button" type="submit" value="Submit">
+        </form>
+      </div>
+      <br><br><br><br>
+
+    </div>
+  <!--  END Section 1 -->
+
+  <!--  Section 2 -->
+  <!--  END Section 2 -->
+  <!--  Footer -->
+  <!-- inc-footer-->
+			<div id="inc-footer"></div>
+		<!-- END inc-footer -->
+  <!-- END  Footer -->
+
+</body>
+</html>

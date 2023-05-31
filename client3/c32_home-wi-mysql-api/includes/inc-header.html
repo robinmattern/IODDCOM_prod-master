@@ -12,7 +12,12 @@
     </head>
     <body>
     <!-- <script src="../assets/js/login.js"></script>  -->
-   
+    <script type="module">
+        setHTML( 'inc-dropdown', '../includes/inc-dropdown.html' );   
+        // import { fmtMeeting } from '../assets/js/meetings.js'      // .(30515.06.1 RAM Get setAPI_URL)
+        // import { setAPI_URL, setHTML } from '../assets/mjs/formr_utility-fns_u1.07.mjs'      // .(30515.06.1 RAM Get setAPI_URL)
+        // await setAPI_URL()
+    </script>
     <!--  Header -->
     <div class="Header">
         <div class="MenuWrap">
@@ -31,17 +36,14 @@
                             <li class="MenuListItemLine" id="MembersLinkLine"        ><hr color="blue"></li>
                             <li class="MenuListItem"     id="MembersProjectsLink"    ><a   href="../members-projects/members-projects.html">Members' Projects</a></li>
                             <li class="MenuListItem"     id="ProjectDetailsLink"     ><a   href="../projects/projects.html">Project Details</a></li>
-                            <li class="MenuListItemLine" id="MembersProjectsLinkLine"><hr color="blue"></li>                            
+                            <li class="MenuListItemLine" id="MembersProjectsLinkLine"><hr color="blue"></li>
                             <li class="MenuListItem"     id="GuruLink"               ><a   href="#">Guru Mail</a></li>
                             <li class="MenuListItem"     id="SupportLink"            ><a   href="#">Support</a></li>
                             <li class="MenuListItem"     id="LicenseLink"            ><a   href="#">License</a></li>
                             <li class="MenuListItemLine" id="MtgLocLinkLine"         ><hr></li>
                             <li class="MenuListItem"     id="MtgLocLink"             ><a   href="../meetings/meetings.html">Meeting Notification</a></li>
                             <li class="MenuListItemLine" id="LoginLinkLine"          ><hr></li>
-<!--
-                            Link to Login Beloww
                             <li class="MenuListItem"     id="LoginLink"              ><a   href="../login/login.html">Login</a></li>
--->
                             <li class="MenuListItem"     id="MenuBlank"              ></li>
                         </ul>
                     </div>
@@ -55,37 +57,29 @@
                     <tbody class="HeaderNavList"></tbody>
                     <tr class="Header-table-tr">
                         <td class="Logo">
-                            <span class="LogoText"><a href="../index.html" title="Click to Go To IODD Home" tabindex="-1">iodd</a></span>
+                            <span class="LogoText"><a href="../index.html" title="Click to Go To IODD Home">iodd</a></span>
                             <span class="DeviceText"></span>
-                            
                         </td>
                         <td class="HeaderSpacer"></td>
                         <td class="DropdownMenu">
-                            <!--include using jQuery-->
+                            <!-- include dropdown -->
                             <div id="inc-dropdown"></div>
-                            <script> 
-                                $("#inc-dropdown").load("../includes/inc-dropdown.html");
-                            </script> 
                         </td>
-                        <td class="HeaderNavListItemCTA"><a href="../meetings/meetings.html" title="CLICK For The Next Meeting Information" tabindex="-1">Meeting <span class="next-meeting-date"></span></a></td>
-                        <!-- <td class="HeaderNavListItemInits"><a href="login/login.html" title="Edit Profile"></a></td>-->
+                        <!-- <td class="HeaderNavListItemCTA"><a href="../meetings/meetings.html" title="CLICK For The Next Meeting Information"><span id="MeetingDateBanner"></span></a></td> -->
+                        <td class="HeaderNavListItemCTA"><a href="../meetings/meetings.html" title="CLICK For The Next Meeting Information">Meeting <span id="MeetingDateBanner" class="next-meeting-date"></span></a></td>
                         <!-- <td class="HeaderNavListItemLogin" id="id2"><a href="login/login.html" class="ToolTip"><span class="ToolTipHide"></span></a></td> -->
-
-                        <!-- Main Login/Inits Link Below -->
-                        <!-- <td id="login-inits"><a href="../login/login.html" title="Log In" tabindex="-1"><span id="log"></span></a></td> -->
-
-                        <!-- <td>&nbsp;<a href="../forms/personal.html"><img id="pencil-image-inits" class="PencilImageMembers" src="../assets/images/pencilDots.gif" title="Edit your Personal Information"></a></td>-->
+                        <td id="login-inits"><a href="../login/login.html?Id=0" title=""><span id="log"></span></a></td>
                         <td class="HeaderTrailingSpacer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     </tr>
                     </tbody>
                 </table>
-            </div>            
+            </div>
         </div>
     </div>
     <!-- END  Header -->
 
 
-    <script src="../assets/js/header.js"></script>     
+    <script src="../assets/js/header.js"></script>
 
     </body>
 </html>

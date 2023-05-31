@@ -1,4 +1,6 @@
 
+        $("#MeetingDateBanner").html("Next Meeting")
+
         // function setCookie(cname, cvalue, exdays) {
         //     var d = new Date();
         //     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -28,7 +30,7 @@
         //alert ("[1]id = " + id)
 
         //let id = (n>0) ? c.substring(n+1) : 0;
-        console.log('{1}UserID = "' + id + '"')
+        console.log('header[1]      UserId = "' + id + '"')
 
         //var nLoginCount = c
         //var nLoginCount = 0
@@ -56,15 +58,12 @@
         }
         //alert ("[3]id = " + id)
         //alert ("iLogIn = " + iLogin)
-        // var SQLStr = 'SELECT * FROM login-check-view WHERE Id = ' + id 
-        // alert ( "SQLStr = " + SQLStr )
 
 
         if (id > 0)  
         {  
-            //alert("id = " + id )
+           // alert("id = " + id )
             var aLogIn = iLogin;
-
             //let aLogIn = "<a href='#' title='Welcome' style='text-decoration:none;'>RS</a>";
             var pSpan = $("#log") 
             //document.getElementById("log").innerHTML = aLogIn;
@@ -73,8 +72,8 @@
             $("#ContactLink").css("display", "block");
             $("#contact-dropdown").css("display", "block");
             $("#login-inits").css("width", "35px")
-            $("#pencil-image1").css("display", "inline-block")
-            $("#pencil-image2").css("display", "inline-block")
+            // $("#pencil-image-members").css("display", "inline-block")
+            // $("#pencil-image-projects").css("display", "inline-block")
             $("#pencil-image-inits").css("display", "inline-block")
             pSpan.css("text-decoration", "none");
             pSpan.css("color", "white");
@@ -84,11 +83,9 @@
             pSpan.css("font-weight", "500");
             pSpan.css("font-family", "monospace");
             pSpan.css("border-radius", "50%");
-            pSpan.css("border", "solid blue 1px");
-            //pSpan.css("border", "solid #5A5A5A 3px");
-            pSpan.css("box-shadow", "1px 1px 3px darkblue");
-            pSpan.a.css("text-align", "center");
-            // pSpan.css("display", "block");
+            pSpan.css("border", "solid #5A5A5A 3px");
+            pSpan.css("text-align", "center");            // .(30414.01.2 RAM Was pSpan.a.css which did not exist)
+         // pSpan.css("display", "block");
         } 
         else if (id == 0)  
         {
@@ -101,8 +98,8 @@
             $("#ContactAll").css("display", "none");
             $("#ContactLink").css("display", "none");
             $("#contact-dropdown").css("display", "none");
-            $("#pencil-image1").css("display", "none")
-            $("#pencil-image2").css("display", "none")
+            $("#pencil-image-members").css("display", "none")
+            $("#pencil-image-projects").css("display", "none")
             $("#pencil-image-inits").css("display", "none")
             pSpan.css("color", "white");
             pSpan.css("padding", "5px");
@@ -112,9 +109,9 @@
             pSpan.css("font-weight", "600");
             pSpan.css("font-family", "arial");
             pSpan.css("border-radius", "8px");
-            //pSpan.css("border", "solid #5A5A5A 0px");
-            // pSpan.css("display", "flex");
-            //pSpan.a.css("text-align", "center");
+            pSpan.css("border", "solid #5A5A5A 0px");
+         // pSpan.css("display", "flex");
+         // pSpan.a.css("text-align", "center");
         } 
         else if (id == 500)  
         {
@@ -135,7 +132,6 @@
             pSpan.css("font-family", "arial");
             pSpan.css("border-radius", "8px");
             pSpan.css("border", "solid #5A5A5A 0px");
-
         }
         else
         {
@@ -175,4 +171,4 @@
         //      sayMsg(     `setHTML[2]     Included '${aFile}’`, nSay2)
             }                                                           // .(30401.02.1 End)
         //  ------------------------------------------------------------        //  ------------------------------------------------------------
-        
+
