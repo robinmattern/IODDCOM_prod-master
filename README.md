@@ -12,9 +12,18 @@
 
 #
 # <u>IODD.COM</u>
-  <h2 style="font-size:24px; margin: -18px 0px 15px 12px;">(IODD_dev01-robin)**test 20**</h2>
+  <h2 style="font-size:24px; margin: -18px 0px 15px 12px;">Remote Pull Steps</h2>
+   
+   - cd /webs/IODD
+   - git pull
+   - Inspect /webs/IODD/client3/c32_home-wi-mysql-api  -env file for correctness
+   - Inspect /webs/IODD/server3/s31_iodd-data-api/api  .env file for correctness
 
-  <details><summary><b style="font-size:24px;">Client1 Home Apps</b></summary>
+-----------
+   
+   
+   
+   <details><summary><b style="font-size:24px;">Client1 Home Apps</b></summary>
 
   - ### [1c1. IODD Home App](home/index.html)
     Brilliant work by Rick 
