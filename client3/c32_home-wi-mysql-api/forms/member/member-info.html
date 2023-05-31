@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="favicon.png">
+  <link rel="stylesheet"    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+
+<!--BEGINNING OF Global STYLE SHEETS (CSS)-->
+  <link rel="stylesheet"    href="../css/00_global_variables.css">
+  <link rel="stylesheet"    href="../css/01_hamburger.css">
+  <link rel="stylesheet"    href="../css/02_header.css">
+  <link rel="stylesheet"    href="../css/03_footer.css">
+  <link rel="stylesheet"    href="../css/04_index.css">
+<!--RESPONSIVE STYLE SHEETS (CSS)-->
+  <link rel="stylesheet"    href="../css/05_resp_GT0950-bigScreen.css">
+  <link rel="stylesheet"    href="../css/06_resp_741-950-tabletPortrait.css">
+  <link rel="stylesheet"    href="../css/07_resp_440-740-mobileLandscape.css">
+  <link rel="stylesheet"    href="../css/08_resp_LT0440-mobilePortrait.css">
+  <link rel="stylesheet"    href="../css/09_variables.css">
+<!--BEGINNING OF LOCAL STYLE SHEETS (CSS)-->
+  <link rel="stylesheet"    href="member-info.css">
+
+  <script src="../assets/js/header.js"></script>
+
+</head>
+<body>
+<script type="module">
+
+   import { onMemberForm_Submit, setMemberForm } from './member-info_form.mjs'          // .(30515.07.1 RAM Add setMemberForm)
+   import { setAPI_URL, setHTML } from '../assets/mjs/formr_utility-fns_u1.07.mjs'      // .(30515.06.1 RAM Get setAPI_URL)
+
+  //--Header / Footer Includes--------------------------------------/ 
+
+	  setHTML( 'inc-header', '../includes/inc-header.html' );                           // .(30515.06.2 RAM Don't need fmtHTM in header.js) 
+      setHTML( 'inc-footer', '../includes/inc-footer.html' );   
+
+  //----showPin Function-----------------------------------/
+
+    function showPin() {                                                                // .(30515.06.2 RAM Put this code into setAPI_URL)
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
+    window.showPin = showPin
+
+  //----showPin if id >= 0 -----------------------------------/
+
+  const url  = window.location.href;
+     // alert("url: " + url);
+    var nPos = url.indexOf("?");
+     // alert("nPos = " + nPos);
+
+      if ( nPos >= 0 ) {
+        $("#show-pin").css("display", "block");
+     // alert("true")    
+     // console.log('The query parameter is set');
+      } else {
+        $("#show-pin").css("display", "none");
+     // alert("false")
+     // console.log('The query parameter is not set');
+        }
+
+     // alert ("Id = " + id)
+
+// ---- Interact with DB Server -----------------------------------/
+
+     await  setAPI_URL()                                                      // .(30515.06.3 RAM Set aAPI_URL) 
+
+            fetch( `${aAPI_URL}/members?id=${ id }` )                         // .(30515.06.4 RAM Use aAPI_URL)
+//          fetch( `http://localhost:3012/members?id=${ id }` )               //#.(30515.06.4 RAM Don't hard-code aAPI_URL)
+              .then( (  pRes  ) =>  pRes.json( ) )
+              .then( (  pJSON ) => {  
+
+       var  pWelcome =  document.getElementById( "WelcomeMemberInfo" )
+            pWelcome.innerHTML = "For: " + pJSON.members[0].FullName          // .(30515.06.2 RAM No need for fmtWelcome)                 
+
+       var  pForm    =  document.getElementById( "MembersInfoForm" );         // .(30515.07.2 RAM Same as below )                 
+
+                        setMemberForm( pJSON.members[0], pForm )              // .(30515.07.3 RAM Defined in member-info_form.mjs)
+            } ) 
+              .catch(( pErr ) => alert( `*** ${pErr.message}.\n`              // .(30515.07.9 RAM Uncommented to catch server not running)                     
+                                    + `      Is the server at '${aAPI_URL}' running?` ) )     
+/*  function  fmtWelcome( pJSON ) {                                           //#.(30515.06.2 Beg)
+       var  aHTML    = "For: " + pJSON.members[0].FullName 
+    return  aHTML
+            }
+*/                                                                            //#.(30515.06.2 End)
+// -submit Function-----------------------------------/  
+
+//          pForm.addEventListener( "submit",  onMemberForm_Submit );         //#.(30515.07.2 RAM Wrong! Since it changed it has to be redefined again) 
+       var  pMembersInfoForm = document.getElementById( "MembersInfoForm" );  // .(30515.07.3)                 
+            pMembersInfoForm.addEventListener( "submit", onMemberForm_Submit) // .(30515.07.3) 
+
+</script>	
+
+<!--  Header -->
+  <style>
+      #MenuBlank {display:block;}
+      #HomeLink {display:block;}
+      #HomeLinkLine {display:block;}
+      #MembersLink {display:block}
+      #ContactLink a {color:grey}
+      #BiosLink a {color:grey}
+      #MembersLinkLine {display:block}
+      #MembersProjectsLink {display:block}
+      #ProjectDetailsLink a {color:blue}
+      #MembersProjectsLinkLine {display:block}
+      #GuruLink a {color:grey}
+      #SupportLink a {color:grey}
+      #LicenseLink a {color:grey;}
+      #MtgLocLinkLine {display:block;}
+      #MtgLocLink a {display: block}
+      #LoginLinkLine {display:block;}
+      #LoginLink {display:none}
+      #MenuBlank {display:block;}
+      /*#log {display:none}*/
+  </style>
+
+  <a name="top"></a>
+  <!-- inc-header-->
+			<div id="inc-header"></div>
+		<!-- END inc-header -->
+
+  <!-- END  Header -->
+
+  <!--  Section 1 -->
+    <div class="Section1"> 
+      <div class="Section1Title">institute of database developers</div>
+
+      <div class="form-setting">
+        <h1>
+          Member Information<br>  
+          <div id="member-form-error">ERROR!</div>
+          <div id="WelcomeMemberInfo"></div>
+          <div class="req-fields-notice">* required fields</div>  
+          <div id="member-form-error">ERROR!</div>
+      </h1>
+        <form id="MembersInfoForm">
+
+                <input type="hidden" name="memberno"  value="" id="memberno" ></li>  <!-- Need this for SQL update)-->
+
+          <table class="name-title"><tr>
+            <td width="35%"><font color="blue"><b>First Name *</b></font></td>
+            <td width="12%"><font color="blue"><b>MI</b></font></td>
+            <td width="35%"><font color="blue"><b>Last Name *</b></font></td>
+            <td width="5%" ><font color="blue"><b>Suffix</b></font></td>
+          </tr></table>
+          <ul class="name-info">
+            <li><input type="text" name="first-name"   placeholder="First Name" id="firstname" required></li>
+            <script>//debugger</script>
+            <li><input type="text" name="middle-inits" placeholder="MI"         id="middleinits"></li>
+            <li><input type="text" name="last-name"    placeholder="Last Name"  id="lastname" required></li>
+            <li><input type="text" name="suffix"       placeholder="Suf"        id="suffix"></li>
+          </ul>
+
+          <table class="credentials-title"><tr>
+            <td width="35%"><font color="blue"><b>Email *</b></font></td>
+            <td width="12%"><font color="blue"><b>Password *</b></font>&nbsp;<input id="trigger" type="checkbox" onclick="showPin()"></td>
+            <!--<td width="12%"><font color="blue"><b>Password *</b></font>&nbsp;<input id="trigger" type="checkbox" "></td>-->
+            <label for="trigger"  class="checker"></label>
+          </tr></table>
+          <ul class="credentials-info">
+            <li><input type="text"     name="email"    placeholder="Email"    id="email"    required></li>
+            <li><input type="password" name="password" placeholder="Password" id="password" required></li>
+
+          </ul><br><br>
+
+          <table class="company-title"><tr>
+            <td width="45%"><font color="blue"><b>Company Name</b></font></td>
+          </tr></table>
+          <ul class="company-name">
+            <li><input type="text"     name="company"  placeholder="Company Name" id="co-name"></li>
+          </ul><br><br>
+
+          <table class="company-url-title"><tr>
+            <td width="45%"><font color="blue"><b>Company Website</b></font></td>
+          </tr></table>
+          <ul class="company-url">
+            <li><input type="text"  name="company-url" placeholder="Company Website" id="co-url"></li>
+          </ul><br><br>
+
+          <table class="company-address1-title"><tr>
+            <td width="45%"><font color="blue"><b>Company Address 1</b></font></td>
+          </tr></table>
+          <ul class="company-address1">
+            <li><input type="text" name="company-address1" placeholder="Company Address 1" id="co-addr1"></li>
+          </ul><br><br>
+
+          <table class="company-address2-title"><tr>
+            <td width="45%"><font color="blue"><b>Company Address 2</b></font></td>
+          </tr></table>
+          <ul class="company-address2">
+            <li><input type="text" name="company-address2" placeholder="Company Address 2" id="co-addr2"></li>
+          </ul><br><br>
+
+          <table class="city-state-zip-country-title"><tr>
+            <td width="57%"><font color="blue"><b>City</b></font></td>
+            <td width="23%"><font color="blue"><b>State</b></font></td>
+            <td width="35%"><font color="blue"><b>ZIP</b></font></td>
+            <td width="5%" ><font color="blue"><b>Country</b></font></td>
+          </tr></table>
+          <ul class="city-state-zip-country">
+              <li><input type="text" name="city"    placeholder="City"    id="city"></li>
+              <li><input type="text" name="state"   placeholder="State"   id="state"></li>
+              <li><input type="text" name="zip"     placeholder="ZIP"     id="zip"></li>
+              <li><input type="text" name="country" placeholder="Country" id="country"></li>
+          </ul><br><br>
+
+          <table class="phone-info-title"><tr>
+            <td width="84%"><font color="blue"><b>Phone</b></font></td>
+            <td width="0%"><font  color="blue"><b>Mobile</b></font></td>
+          </tr></table>          
+          <ul class="phone-info">
+            <li><input type="text" name="phone1" placeholder="Phone"  id="phone1"></li>
+            <li><input type="text" name="phone2" placeholder="Mobile" id="phone2"></li>
+          </ul><br><br>
+
+          <table class="bio-title"><tr>
+            <td width="45%"><font color="blue"><b>Bio</b></font></td>
+          </tr></table>
+          <ul class="bio">
+            <li><textarea name="bio" placeholder="Your Bio" id="bio" title="Please enter your bio information here" rows="14" cols="10" wrap="soft" style="padding: 10px 10px 10px 15px;"></textarea></li>
+            <!--<li><input type="text" name="bio" placeholder="Your Bio" id="bio" title="Please enter your bio information here"></li>-->
+          </ul><br><br>
+
+          <input id="submit-button" type="submit" value="Submit">
+        </form>
+      </div>
+      <br><br><br><br>
+
+    </div>
+  <!--  END Section 1 -->
+
+  <!--  Section 2 -->
+  <!--  END Section 2 -->
+  <!--  Footer -->
+  <!-- inc-footer-->
+			<div id="inc-footer"></div>
+		<!-- END inc-footer -->
+  <!-- END  Footer -->
+
+</body>
+</html>

@@ -32,17 +32,30 @@ The .Section1 properites
   font-size: 22px;
   color:black;
   text-shadow: 0.5px 0.5px 0px #FFFFFF;
-  padding: 100px 0px 0px 0px;
+  padding: 90px 0px 0px 0px;
   text-align: center;
 }
 /* .Section1Title::first-letter {
   font-size: 150%;
 } */
 .Section1Paragraph {
-  font-size: 18px;
+  font-size: 17px;
   color:black;
   text-shadow: 0.5px 0.5px 0px #FFFFFF;
   margin: 10px -1px 0px 10px;
+}
+#WelcomeBanner {
+  padding: 2px 0px 0px 0px;
+  font-weight: 600;
+  font-size: 20px;
+}
+#WelcomeBanner::first-letter {
+  font-size: 30px;
+}
+#WelcomeBanner h3 {
+  font-size: 15px;
+  font-family: var(--GlobalFontFamily);
+  font-weight: 600;
 }
 /* Section1 END ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 

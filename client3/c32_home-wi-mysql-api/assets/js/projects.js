@@ -25,7 +25,7 @@
 
 if ( aTests.match( /test2/ ) ) { 
      
-    fetch( 'http://localhost:3001/projects?recs=5' )
+    fetch( 'http://localhost:3013/projects?recs=5' )
            .then( ( res  ) => res.json( ) )
            .then( ( json ) => onFetch( json ) )
            .catch(( err  ) => console.log( `** ${err.message}` ) );      
@@ -54,7 +54,6 @@ function  fmtProjects( pJSON ) {
   function  fmtProject( pProject, i ) {
 
        var  aClass        =  i % 2 == 1 ? "row-even" : "row-odd"
-       //var  abgColor      =  i % 2 == 1 ? "#E5E5E5" : "#F5F5F5"
        var  abgColor      =  pProject.ProjectBGColor
        var  aProjectStyle =  pProject.ProjectStyle
        var  aFirstName    =  pProject.FirstName

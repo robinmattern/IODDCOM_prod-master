@@ -1,10 +1,10 @@
 * {
   box-sizing: border-box;
-  /* font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif; */
-  font-family: var(--GlobalFontFamily);
+  font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
   font-size: 16px;
 }
 .logout-temp-div {
+  display: none;
   text-align: right;
   margin: 0px 20px 0px 0px;
 }
@@ -52,7 +52,7 @@
   text-align: center;
   color: #5b6574;
   font-size: 24px;
-  padding: 20px 0 20px 0;
+  padding: 20px 0 1px 0;
   border-bottom: 1px solid #dee0e4;
 }
 .login form {
@@ -102,7 +102,14 @@
 background-color: #2868c7;
   transition: background-color 0.2s;
 }
-
+#login-cancel {
+  display: none;
+  background-color: #3274d6;
+  color: white;
+  font-weight: 600;
+  padding: 10px 177px 10px 177px;
+  text-decoration: none;
+}
 /*Creates the EYE toggle*/
 #trigger {
   display: none;
@@ -154,80 +161,4 @@ background-color: #2868c7;
 }
   .FooterNavListItem a {
     color: #505050;
-}
-
-
-/*
-The @media MAX-width query properties
-***** IPHONE - Landscape
-If Device Width 
-  is >= 440px AND 
-  <= 736px Then...*/
-
-/*=========================================*/
-@media only screen
-and (min-width: 440px)
-and (max-width: 736px) 
-{
-  .Section1 {
-    height: 440px;
-  }
-  .Section1Title {
-    padding: 0px 0px 0px 25px;
-  }
-  .login {
-    margin: 10px auto;
-  }
-  .login form input[type="submit"] {
-    width: 100%;
-    padding: 15px;
-    margin-top: 20px;
-  }
-  .Footer {
-    display: none;
-    top: 400px;
-  }
-}
-
-
-
-
-
-
-/*
-The @media MAX-width query properties
-***** IPHONE
-/*If Device Width is <= to 440px Then...*/
-
-/*=========================================*/
-@media only screen
-and (max-width: 440px)
-{
-  .Section1 {
-    height: 440px;
-  }  
-  .Section1Title {
-    padding: 0px 0px 0px 10px;
-  }
-  .login {
-    margin: 10px auto;
-    width: 350px;
-  }
-  .login form input[type="password"], 
-  .login form input[type="text"] {
-    width: 270px;
-    padding: 0 15px;
-  }
-  .login form input[type="submit"] {
-    width: 100%;
-    padding: 15px;
-    margin-top: 20px;
-  }
-  .checker {
-    margin: -70px 0px 0px 230px;
-  }
-  .Footer {
-    display: none;
-    top: 400px;
-  }  
 }
